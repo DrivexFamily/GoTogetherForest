@@ -1,0 +1,99 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><title>연결 관리·동의·중단</title><style>
+@font-face{font-family:"Asta Sans";font-weight:400;src:url("../.font-cache/AstaSans-400.ttf") format("truetype"),local("Asta Sans");}
+@font-face{font-family:"Asta Sans";font-weight:600;src:url("../.font-cache/AstaSans-600.ttf") format("truetype"),local("Asta Sans");}
+@font-face{font-family:"Asta Sans";font-weight:700;src:url("../.font-cache/AstaSans-700.ttf") format("truetype"),local("Asta Sans");}
+@font-face{font-family:"Asta Sans";font-weight:800;src:url("../.font-cache/AstaSans-800.ttf") format("truetype"),local("Asta Sans");}
+:root{--paper:#F5FAF3;--card:#FFFFFF;--ink:#1D2A22;--ink2:#4B5C51;--line:#D3E2D4;--forest:#2B774A;--on-forest:#FFFFFF;--leaf:#6BB85A;--leaf-soft:#E3F3DC;--sky:#3F92D2;--sky-text:#2A6FA8;--sky-soft:#DDEEFB;--sun:#F0AE34;--sun-soft:#FFF0CC;--berry-text:#B0402F;--berry-soft:#FBE2DD;--canvas:#E9EEEA;--bezel:#1E2421;--font:"Asta Sans","Noto Sans CJK KR",sans-serif;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--canvas);color:var(--ink);font-family:var(--font);word-break:keep-all;-webkit-font-smoothing:antialiased;}
+.sheet{padding:40px 48px 44px;display:flex;flex-direction:column;gap:28px;}
+.head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;}
+.head .eyebrow{margin:0 0 6px;font-size:20px;font-weight:700;color:var(--ink2);}
+.head h1{margin:0;font-size:44px;line-height:1.2;font-weight:800;color:var(--forest);}
+.chips{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;}
+.chip{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:8px 18px;font-size:20px;font-weight:700;background:var(--card);border:2px solid var(--line);white-space:nowrap;}
+.chip .dot{width:12px;height:12px;border-radius:50%;}
+.chip.park{background:var(--leaf-soft);border-color:var(--leaf-soft);} .chip.park .dot{background:var(--forest);}
+.chip.phone{background:var(--sky-soft);border-color:var(--sky-soft);} .chip.phone .dot{background:var(--sky-text);}
+.chip.plan{background:var(--sun-soft);border-color:var(--sun-soft);} .chip.plan .dot{background:var(--sun);}
+.body{display:flex;gap:28px;align-items:flex-start;}
+.flowrow{display:flex;gap:18px;align-items:center;}
+.arrow{font-size:40px;font-weight:800;color:var(--forest);flex:none;}
+.notes{flex:1;min-width:300px;display:flex;flex-direction:column;gap:16px;}
+.notes h2{margin:0;font-size:24px;font-weight:800;}
+.notes ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;}
+.notes li{font-size:19px;line-height:1.5;padding-left:22px;position:relative;}
+.notes li::before{content:"";position:absolute;left:4px;top:.62em;width:9px;height:9px;border-radius:50%;background:var(--forest);}
+.notes .where{font-size:17px;line-height:1.5;color:var(--ink2);border-top:2px solid var(--line);padding-top:14px;margin:0;}
+figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:12px;}
+figcaption{font-size:19px;font-weight:700;color:var(--ink2);text-align:center;max-width:420px;}
+figcaption b{color:var(--forest);}
+/* 폰 */
+.phone{border:14px solid var(--bezel);border-radius:56px;overflow:hidden;background:var(--bezel);}
+.pscreen{width:390px;height:844px;background:var(--paper);display:flex;flex-direction:column;overflow:hidden;border-radius:42px;position:relative;}
+.pstatus{height:42px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 30px 0 34px;font-size:16px;font-weight:800;}
+.pst-r{display:flex;gap:5px;align-items:center;} .pst-r i{width:5px;height:12px;border-radius:2px;background:currentColor;} .pst-r b{width:24px;height:12px;border-radius:4px;border:2px solid currentColor;margin-left:4px;}
+.warn{flex:none;margin:0 14px;padding:8px 12px;border-radius:12px;background:var(--sun-soft);font-size:15px;font-weight:800;text-align:center;}
+.ptop{flex:none;display:flex;align-items:center;justify-content:space-between;padding:12px 20px 6px;}
+.ptop h3{margin:0;font-size:24px;font-weight:800;}
+.pbody{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;gap:12px;padding:6px 18px 12px;}
+.tabs{flex:none;display:flex;border-top:1.5px solid var(--line);background:var(--card);}
+.tabs span{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 0 14px;font-size:14px;font-weight:700;color:var(--ink2);}
+.tabs span img{width:30px;height:30px;object-fit:contain;opacity:.55;}
+.tabs span.on{color:var(--forest);} .tabs span.on img{opacity:1;}
+.card{background:var(--card);border:1.5px solid var(--line);border-radius:20px;padding:14px 16px;}
+.row{display:flex;align-items:center;gap:12px;}
+.grow{flex:1;min-width:0;}
+.num{font-weight:800;color:var(--forest);line-height:1;font-variant-numeric:tabular-nums;}
+.num small{font-size:.5em;}
+.t{font-size:17px;line-height:1.45;font-weight:600;color:var(--ink2);}
+.tb{font-size:19px;line-height:1.4;font-weight:800;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 20px;border-radius:999px;font-size:19px;font-weight:800;border:2.5px solid var(--ink2);background:transparent;white-space:nowrap;}
+.btn.primary{background:var(--forest);border-color:var(--forest);color:var(--on-forest);}
+.btn.full{width:100%;}
+.btn.sm{min-height:44px;font-size:17px;padding:0 14px;}
+.pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:4px 12px;font-size:15px;font-weight:800;white-space:nowrap;background:var(--leaf-soft);}
+.pill.wait{background:var(--sun-soft);} .pill.off{background:#ECEFEC;color:var(--ink2);} .pill.sky{background:var(--sky-soft);}
+.kids{display:flex;gap:8px;} .kids span{border:2px solid var(--line);border-radius:999px;padding:6px 14px;font-size:16px;font-weight:800;background:var(--card);} .kids span.on{border-color:var(--forest);background:var(--leaf-soft);}
+.toast{position:absolute;left:18px;right:18px;bottom:96px;background:var(--ink);color:#fff;border-radius:16px;padding:12px 16px;font-size:16px;font-weight:700;line-height:1.45;}
+.bar{height:16px;border-radius:999px;background:var(--line);overflow:hidden;} .bar i{display:block;height:100%;background:var(--forest);border-radius:999px;}
+.switch{width:52px;height:30px;border-radius:999px;background:#C9D3CB;position:relative;flex:none;} .switch::after{content:"";position:absolute;left:3px;top:3px;width:24px;height:24px;border-radius:50%;background:#fff;}
+.switch.on{background:var(--forest);} .switch.on::after{left:25px;}
+/* 차 화면(같이가숲 반 화면 패널) */
+.car{border:16px solid var(--bezel);border-radius:28px;overflow:hidden;background:var(--paper);}
+.cpanel{width:600px;height:720px;padding:26px 28px;display:flex;flex-direction:column;gap:16px;position:relative;}
+.cpanel h3{margin:0;font-size:32px;font-weight:800;}
+.gear{position:absolute;right:20px;top:20px;}
+.dim{position:absolute;inset:0;background:rgba(29,42,34,.45);}
+.dialog{position:absolute;left:40px;right:40px;top:110px;background:var(--card);border-radius:28px;padding:26px;display:flex;flex-direction:column;gap:14px;}
+.check{display:flex;align-items:center;gap:12px;font-size:20px;font-weight:700;border:2px solid var(--line);border-radius:16px;padding:10px 14px;}
+.box{width:28px;height:28px;border-radius:8px;border:2.5px solid var(--ink2);flex:none;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;}
+.box.on{background:var(--forest);border-color:var(--forest);color:#fff;}
+/* 흐름 그림 */
+.lane{background:var(--card);border:2px solid var(--line);border-radius:24px;padding:20px 22px;display:flex;flex-direction:column;gap:10px;}
+.lane h4{margin:0;font-size:24px;font-weight:800;}
+.lane .t{font-size:18px;}
+</style></head>
+<body><div class="sheet" style="width:2300px"><div class="head"><div><p class="eyebrow">폰 앱 시안 05 · 결정 #37·#8 · 개인정보</p><h1>연결 관리·동의·중단</h1></div><div class="chips"><span class="chip park"><span class="dot"></span>차 · 주차 중</span><span class="chip phone"><span class="dot"></span>가족 폰 앱</span></div></div>
+<div class="body">
+<figure><div class="car"><div class="cpanel"><h3>연결된 가족 폰</h3><span class="pill gear">기어 P · 주차 중</span>
+<div class="card row" style="padding:12px 16px"><div class="grow"><div class="tb" style="font-size:22px">엄마 폰</div><div class="t">숲·상점 · 진행 · 위치 · 마지막 접속 오늘</div></div><span class="btn sm">바꾸기</span><span class="btn sm">끊기</span></div><div class="card row" style="padding:12px 16px"><div class="grow"><div class="tb" style="font-size:22px">아빠 폰</div><div class="t">숲·상점 · 진행 · 마지막 접속 어제</div></div><span class="btn sm">바꾸기</span><span class="btn sm">끊기</span></div><div class="card row" style="padding:12px 16px"><div class="grow"><div class="tb" style="font-size:22px">할머니 폰</div><div class="t">진행 · 위치 · 마지막 접속 3일 전</div></div><span class="btn sm">바꾸기</span><span class="btn sm">끊기</span></div>
+<div class="card row" style="padding:12px 16px"><div class="grow"><div class="tb" style="font-size:21px">대략 위치 보내기</div><div class="t">위치를 허락한 폰에만, 약 5km 칸</div></div><span class="switch on"></span></div>
+<div class="row"><span class="btn primary">폰 더 연결하기</span><span class="grow"></span><span class="btn">모두 끊고 지우기</span></div></div></div><figcaption>차: 기기마다 <b>권한·끊기</b>, 위치 보내기 켜기/끄기</figcaption></figure>
+<figure><div class="car"><div class="cpanel"><h3>폰 연결 전에 확인해 주세요</h3><span class="pill gear">기어 P · 주차 중</span>
+<div class="card" style="display:grid;grid-template-columns:120px 1fr;gap:10px 14px;font-size:18px;line-height:1.45;padding:16px 18px">
+<b>보내는 것</b><span>아이 숲(나무·동물·꾸미기), ★, 아이 별명, 우리 차 진행률·남은 시간. 대략 위치는 따로 켤 때만</span>
+<b>쓰는 곳</b><span>연결한 가족 폰에서 보기·꾸미기</span>
+<b>두는 곳</b><span>공유 서버. 가족 열쇠로 잠가서 서버도 읽지 못해요</span>
+<b>두는 기간</b><span>진행·위치는 도착 또는 24시간까지. 숲은 연결을 끊을 때까지(90일 안 쓰면 자동 삭제)</span>
+<b>거부하면</b><span>차 앱은 지금처럼 그대로 쓸 수 있어요</span></div>
+<div class="t" style="font-size:17px">아이 정보가 함께 가므로 보호자가 직접 눌러 주세요.</div>
+<div class="row"><span class="btn">안 할래요</span><span class="grow"></span><span class="btn primary">동의하고 연결</span></div></div></div><figcaption>차: 처음 연결 때 <b>동의</b>(버튼을 눌러야 동의)</figcaption></figure>
+<figure><div class="phone"><div class="pscreen"><div class="pstatus"><span>11:12</span><span class="pst-r"><i></i><i></i><b></b></span></div><div class="warn">운전 중인 분은 사용하지 마세요</div>
+<div class="ptop"><h3>가족 연결</h3></div><div class="pbody">
+<div class="card"><div class="tb">우리 가족 차</div><div class="t">이 폰: 엄마 폰 · 연결된 폰 3대</div></div>
+<div class="card"><div class="tb">이 폰에서 할 수 있는 일</div><div class="t">✓ 아이 숲 보기·꾸미기·상점<br>✓ 우리 차 진행·남은 시간<br>✓ 대략 위치<br>바꾸려면 차 화면(주차 중)에서 보호자가 바꿔요</div></div>
+<div class="card"><div class="tb">내 정보</div><div class="t">이름·전화번호·이메일을 받지 않아요. 열쇠는 이 폰 안에 잠겨 있어요.</div></div>
+<span class="btn full">개인정보 안내 보기</span>
+<span class="btn full" style="border-color:var(--berry-text);color:var(--berry-text)">이 폰 연결 끊기</span></div><div class="tabs"><span class=""><img src="assets/ggf_pic_screen_icon_car_r39.webp" alt="">우리 차</span><span class=""><img src="assets/ggf_pic_screen_icon_forest_r39.webp" alt="">아이 숲</span><span class=""><img src="assets/ggf_pic_screen_reward_star_pouch_r36.webp" alt="">상점</span><span class="on"><img src="assets/ggf_pic_screen_icon_share_r39.webp" alt="">가족 연결</span></div></div></div><figcaption>폰: 내 권한 보기, <b>스스로 연결 끊기</b></figcaption></figure>
+<div class="notes"><h2>이 시안에서 볼 것</h2><ul><li>연결·권한·위치 켜기는 모두 <b>차 화면, 주차 중, 보호자</b>가 해요. 폰끼리 초대하지 않아요.</li><li>동의 화면은 보내는 것·쓰는 곳·두는 곳·기간·거부권을 먼저 알려 주고, <b>버튼을 눌러야</b> 동의가 돼요(미리 켜진 체크 없음).</li><li><b>끊기</b>를 누르면 그 폰은 바로 서버에 들어올 수 없어요. <b>모두 끊고 지우기</b>는 서버의 가족 기록을 전부 지워요. 위치 보내기를 끄면 서버의 위치가 바로 지워져요.</li><li>로그인 토큰은 주소(URL)에 넣지 않고, 열쇠는 폰·차의 Keystore에 잠가 둬요.</li></ul><p class="where">docs/architecture.md 19-3·19-8 · 이름은 예시</p></div></div></div></body></html>

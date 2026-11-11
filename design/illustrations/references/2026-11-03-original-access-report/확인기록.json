@@ -1,0 +1,14 @@
+{
+  "conversationId": "6ae8a2c7-169c-83ee-8abe-d85e12ddeca5",
+  "title": "더 귀엽게 수정",
+  "checkedDate": "2026-11-03",
+  "tool": "read_thread",
+  "turnLimit": 10,
+  "returnedTurns": 5,
+  "hasMore": false,
+  "nextCursor": null,
+  "attachments": [],
+  "accessibleOriginalCount": 0,
+  "totalOriginalCount": null,
+  "note": "이미지가 없다는 판단이 아니라 원본 접근 불가. 누락 목록은 요청 단위이며 실제 이미지 단위가 아님."
+}

@@ -1,0 +1,111 @@
+{
+  "request": "claude-atlas-20261107-04 optional detail actions",
+  "verified_at_kst": "2026-11-07T21:48:01.581931+09:00",
+  "repo_baseline": "9a8b2c1506b6b2044cae3a9593ecbed5ea125464",
+  "actual_Android_Kotlin_compile": "passed :feature:atlas:compileDebugKotlin",
+  "SDK": "Android35r2/build-tools35.0.0",
+  "JDK": "Temurin17.0.17+10",
+  "actual_native_capture_JUnit": {
+    "tests": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "capture_count": 8,
+  "production_and_test_files_hash_checked": 544,
+  "all_production_and_test_hashes_unchanged_during_capture": true,
+  "source_new_test_copied_byte_identically": true,
+  "production_landmark_resource": "LandmarkArt.of(LM001) -> ggf_lm_lm001, existing production500 mapping",
+  "new_landmark_fixture_imported": false,
+  "native_renderer": "Paparazzi 2.0.0-alpha01 / Android Layoutlib with actual production :feature:atlas :core:atlas :core:ui",
+  "full_app_APK_or_Pleos_emulator_or_device_verified": false,
+  "button_callback_gesture_or_lifecycle_runtime_tests": false,
+  "direct_visual_review": {
+    "all_8_contents_viewed": true,
+    "actionable_6_scenes_footer_fully_visible_initial_view": true,
+    "640x320_fontScale1_1_5_2": true,
+    "clear_existing_target_even_when_unreachable_fontScale2": true,
+    "390x300_and390x844": true,
+    "unreachable_unselected_has_no_target_button": true,
+    "driving_has_parked_notice_and_no_target_button": true
+  },
+  "limitations": [
+    "본문 그림과 긴 설명은 고정 footer 위의 수동 스크롤 영역이므로 낮은 창 첫뷰에서 일부만 보인다.",
+    "스크린샷은 native production UI를 시험용상태로렌더링한 것으로 실제탭 콜백·주행신호·GPS·영속획득저장을실행한검사가아니다.",
+    "Android 전체APK·Pleos에뮬레이터·실기기검증으로확대보고하지않는다."
+  ],
+  "items": [
+    {
+      "file": "atlas-detail-action-390-portrait.png",
+      "size": [
+        390,
+        844
+      ],
+      "sha256": "bfdb410d7d48aa4d0a7c04d119566b45fbcafe0556b15e92bae22b1e1f34fe72",
+      "directly_viewed": true
+    },
+    {
+      "file": "atlas-detail-action-390-short.png",
+      "size": [
+        390,
+        300
+      ],
+      "sha256": "fd8d25939ca7d611e2e54897c182f929add43844dc79e432c0b32d219e93d477",
+      "directly_viewed": true
+    },
+    {
+      "file": "atlas-detail-action-640-font-1.0.png",
+      "size": [
+        640,
+        320
+      ],
+      "sha256": "a75fa88deb15f5fe0496e7a69c7009e75925d5b59336151f8a05afdde25a2944",
+      "directly_viewed": true
+    },
+    {
+      "file": "atlas-detail-action-640-font-1.5.png",
+      "size": [
+        640,
+        320
+      ],
+      "sha256": "65cad8b4ea7e12f8f823c99b02d2cdec3ed8843f8511b25c0fd2cce378a39265",
+      "directly_viewed": true
+    },
+    {
+      "file": "atlas-detail-action-640-font-2.0.png",
+      "size": [
+        640,
+        320
+      ],
+      "sha256": "fcde9de34a12bcdcf6f30e97c77eef5db0860f07a08e177444ae0a59f827f9f8",
+      "directly_viewed": true
+    },
+    {
+      "file": "atlas-detail-action-driving.png",
+      "size": [
+        390,
+        300
+      ],
+      "sha256": "a40ced50ecd7a05ef15dcec2350bb5bfeb158e38ce7aa916b3f5708cba3b01fc",
+      "directly_viewed": true
+    },
+    {
+      "file": "atlas-detail-action-unreachable.png",
+      "size": [
+        640,
+        320
+      ],
+      "sha256": "23ab0b56c59b45039fa6cb326499f707a9a7888a01e37f3400e949725b3fde6c",
+      "directly_viewed": true
+    },
+    {
+      "file": "atlas-detail-clear-640-font-2.png",
+      "size": [
+        640,
+        320
+      ],
+      "sha256": "4cc8472e9dc9202f3bd8e12e65453d8d98eb31c1b507c66f4a9f865b957ffeaa",
+      "directly_viewed": true
+    }
+  ]
+}

@@ -1,0 +1,2042 @@
+{
+ "source": "Wikidata (CC0 1.0), https://www.wikidata.org/ — 항목의 좌표(P625)",
+ "retrieved": "2026-11-07",
+ "method": "U02 이름(괄호 보조명 포함 변형)과 위키데이터 한국어 라벨·별칭이 정확히 같은 항목 중 해당 시·도 범위 안의 좌표. 같은 이름 후보가 5km 넘게 흩어진 곳은 뺌",
+ "dropped_ambiguous": [
+  "LM068 월미도",
+  "LM137 탄도항 누에섬(안산)",
+  "LM167 청남대(청주)",
+  "LM170 탄금대(충주)",
+  "LM204 천장호 출렁다리(청양)",
+  "LM218 마이산(진안)",
+  "LM232 섬진강 기차마을(곡성)",
+  "LM300 최참판댁(하동)",
+  "LM476 오동도"
+ ],
+ "landmarks": [
+  {
+   "id": "LM001",
+   "name_ko": "N서울타워",
+   "lat": 37.551216,
+   "lon": 126.988276,
+   "wikidata": "Q69134",
+   "matched_by": "altLabel"
+  },
+  {
+   "id": "LM002",
+   "name_ko": "롯데월드타워",
+   "lat": 37.5125,
+   "lon": 127.1025,
+   "wikidata": "Q494895",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM003",
+   "name_ko": "경복궁",
+   "lat": 37.579884,
+   "lon": 126.9768,
+   "wikidata": "Q482485",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM004",
+   "name_ko": "창덕궁",
+   "lat": 37.579444,
+   "lon": 126.991667,
+   "wikidata": "Q477157",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM005",
+   "name_ko": "창경궁",
+   "lat": 37.578431,
+   "lon": 126.995981,
+   "wikidata": "Q482852",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM006",
+   "name_ko": "덕수궁",
+   "lat": 37.566111,
+   "lon": 126.975,
+   "wikidata": "Q482631",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM007",
+   "name_ko": "종묘",
+   "lat": 37.574722,
+   "lon": 126.993611,
+   "wikidata": "Q490497",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM008",
+   "name_ko": "숭례문",
+   "lat": 37.559972,
+   "lon": 126.975308,
+   "wikidata": "Q465345",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM009",
+   "name_ko": "흥인지문",
+   "lat": 37.571153,
+   "lon": 127.009639,
+   "wikidata": "Q482721",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM010",
+   "name_ko": "북촌한옥마을",
+   "lat": 37.583056,
+   "lon": 126.983611,
+   "wikidata": "Q490981",
+   "matched_by": "altLabel"
+  },
+  {
+   "id": "LM012",
+   "name_ko": "63빌딩",
+   "lat": 37.519722,
+   "lon": 126.94,
+   "wikidata": "Q22968",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM013",
+   "name_ko": "국회의사당",
+   "lat": 37.532003,
+   "lon": 126.914072,
+   "wikidata": "Q488748",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM014",
+   "name_ko": "청와대",
+   "lat": 37.586692,
+   "lon": 126.974864,
+   "wikidata": "Q494577",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM015",
+   "name_ko": "국립중앙박물관",
+   "lat": 37.523889,
+   "lon": 126.980278,
+   "wikidata": "Q494407",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM016",
+   "name_ko": "전쟁기념관",
+   "lat": 37.5365,
+   "lon": 126.9771,
+   "wikidata": "Q489764",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM017",
+   "name_ko": "서울시청",
+   "lat": 37.566406,
+   "lon": 126.977822,
+   "wikidata": "Q623908",
+   "matched_by": "altLabel"
+  },
+  {
+   "id": "LM018",
+   "name_ko": "독립문",
+   "lat": 37.572406,
+   "lon": 126.959528,
+   "wikidata": "Q497066",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM019",
+   "name_ko": "서대문형무소역사관",
+   "lat": 37.57442,
+   "lon": 126.95663,
+   "wikidata": "Q488571",
+   "matched_by": "altLabel"
+  },
+  {
+   "id": "LM020",
+   "name_ko": "서울월드컵경기장",
+   "lat": 37.56823,
+   "lon": 126.897243,
+   "wikidata": "Q175477",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM023",
+   "name_ko": "세빛섬",
+   "lat": 37.512266,
+   "lon": 126.995274,
+   "wikidata": "Q7451660",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM026",
+   "name_ko": "명동대성당",
+   "lat": 37.563333,
+   "lon": 126.987222,
+   "wikidata": "Q487036",
+   "matched_by": "altLabel"
+  },
+  {
+   "id": "LM027",
+   "name_ko": "조계사",
+   "lat": 37.573914,
+   "lon": 126.981903,
+   "wikidata": "Q488824",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM028",
+   "name_ko": "봉은사",
+   "lat": 37.515658,
+   "lon": 127.057287,
+   "wikidata": "Q135709",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM029",
+   "name_ko": "남산골한옥마을",
+   "lat": 37.559167,
+   "lon": 126.993889,
+   "wikidata": "Q496420",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM030",
+   "name_ko": "서울식물원",
+   "lat": 37.572341,
+   "lon": 126.834475,
+   "wikidata": "Q47524353",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM031",
+   "name_ko": "광안대교",
+   "lat": 35.146333,
+   "lon": 129.128639,
+   "wikidata": "Q485443",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM032",
+   "name_ko": "부산항대교",
+   "lat": 35.105556,
+   "lon": 129.065,
+   "wikidata": "Q2187707",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM033",
+   "name_ko": "해운대해수욕장",
+   "lat": 35.158552,
+   "lon": 129.160539,
+   "wikidata": "Q491203",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM034",
+   "name_ko": "해운대 엘시티",
+   "lat": 35.160425,
+   "lon": 129.168885,
+   "wikidata": "Q5961370",
+   "matched_by": "altLabel"
+  },
+  {
+   "id": "LM035",
+   "name_ko": "누리마루 APEC 하우스",
+   "lat": 35.152309,
+   "lon": 129.151364,
+   "wikidata": "Q24859224",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM037",
+   "name_ko": "감천문화마을",
+   "lat": 35.0975,
+   "lon": 129.009167,
+   "wikidata": "Q18641306",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM039",
+   "name_ko": "태종대",
+   "lat": 35.05,
+   "lon": 129.083,
+   "wikidata": "Q490572",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM040",
+   "name_ko": "해동용궁사",
+   "lat": 35.188333,
+   "lon": 129.223333,
+   "wikidata": "Q2494268",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM041",
+   "name_ko": "오륙도",
+   "lat": 35.09194,
+   "lon": 129.12694,
+   "wikidata": "Q11261050",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM044",
+   "name_ko": "범어사",
+   "lat": 35.283913,
+   "lon": 129.068992,
+   "wikidata": "Q487662",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM047",
+   "name_ko": "자갈치시장",
+   "lat": 35.09665,
+   "lon": 129.029661,
+   "wikidata": "Q490809",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM048",
+   "name_ko": "국립해양박물관",
+   "lat": 35.0787,
+   "lon": 129.08,
+   "wikidata": "Q130628",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM049",
+   "name_ko": "부산역",
+   "lat": 35.114722,
+   "lon": 129.041944,
+   "wikidata": "Q53118",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM050",
+   "name_ko": "영도대교",
+   "lat": 35.095444,
+   "lon": 129.036417,
+   "wikidata": "Q7464522",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM052",
+   "name_ko": "서문시장",
+   "lat": 35.86923,
+   "lon": 128.58042,
+   "wikidata": "Q624174",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM053",
+   "name_ko": "계산성당",
+   "lat": 35.8679,
+   "lon": 128.58782,
+   "wikidata": "Q12583994",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM057",
+   "name_ko": "수성못",
+   "lat": 35.827472,
+   "lon": 128.61775,
+   "wikidata": "Q55731190",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM061",
+   "name_ko": "인천대교",
+   "lat": 37.413889,
+   "lon": 126.566667,
+   "wikidata": "Q483949",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM062",
+   "name_ko": "송도 센트럴파크",
+   "lat": 37.3925,
+   "lon": 126.639444,
+   "wikidata": "Q7561251",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM066",
+   "name_ko": "인천 차이나타운",
+   "lat": 37.476361,
+   "lon": 126.618194,
+   "wikidata": "Q6014440",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM070",
+   "name_ko": "소래습지생태공원",
+   "lat": 37.4122,
+   "lon": 126.7474,
+   "wikidata": "Q66175402",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM072",
+   "name_ko": "전등사",
+   "lat": 37.631972,
+   "lon": 126.484361,
+   "wikidata": "Q11269377",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM078",
+   "name_ko": "무등산",
+   "lat": 35.134167,
+   "lon": 126.988889,
+   "wikidata": "Q6931712",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM086",
+   "name_ko": "한빛탑",
+   "lat": 36.376658,
+   "lon": 127.388047,
+   "wikidata": "Q16100566",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM089",
+   "name_ko": "국립중앙과학관",
+   "lat": 36.376155,
+   "lon": 127.375071,
+   "wikidata": "Q487077",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM091",
+   "name_ko": "한밭수목원",
+   "lat": 36.369853,
+   "lon": 127.388203,
+   "wikidata": "Q16172014",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM094",
+   "name_ko": "뿌리공원",
+   "lat": 36.28488,
+   "lon": 127.38863,
+   "wikidata": "Q27320639",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM097",
+   "name_ko": "대왕암공원",
+   "lat": 35.492417,
+   "lon": 129.439444,
+   "wikidata": "Q61100314",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM098",
+   "name_ko": "태화강 국가정원",
+   "lat": 35.548712,
+   "lon": 129.291159,
+   "wikidata": "Q109455705",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM099",
+   "name_ko": "울산대공원",
+   "lat": 35.528,
+   "lon": 129.299,
+   "wikidata": "Q13468172",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM103",
+   "name_ko": "반구대암각화",
+   "lat": 35.604018,
+   "lon": 129.177716,
+   "wikidata": "Q483714",
+   "matched_by": "altLabel"
+  },
+  {
+   "id": "LM104",
+   "name_ko": "울주 천전리 명문과 암각화",
+   "lat": 35.614444,
+   "lon": 129.174083,
+   "wikidata": "Q12609164",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM106",
+   "name_ko": "세종호수공원",
+   "lat": 36.494,
+   "lon": 127.274,
+   "wikidata": "Q64506499",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM107",
+   "name_ko": "국립세종수목원",
+   "lat": 36.494757,
+   "lon": 127.282967,
+   "wikidata": "Q12585765",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM111",
+   "name_ko": "수원화성",
+   "lat": 37.280733,
+   "lon": 127.010203,
+   "wikidata": "Q482423",
+   "matched_by": "altLabel"
+  },
+  {
+   "id": "LM112",
+   "name_ko": "한국민속촌(용인)",
+   "lat": 37.25892,
+   "lon": 127.1181,
+   "wikidata": "Q494649",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM113",
+   "name_ko": "에버랜드(용인)",
+   "lat": 37.295178,
+   "lon": 127.204453,
+   "wikidata": "Q494673",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM114",
+   "name_ko": "서울대공원(과천)",
+   "lat": 37.430556,
+   "lon": 127.017222,
+   "wikidata": "Q495391",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM115",
+   "name_ko": "국립과천과학관",
+   "lat": 37.4388,
+   "lon": 127.0047,
+   "wikidata": "Q625624",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM116",
+   "name_ko": "남한산성(광주)",
+   "lat": 37.478028,
+   "lon": 127.184194,
+   "wikidata": "Q562529",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM118",
+   "name_ko": "신륵사(여주)",
+   "lat": 37.2975,
+   "lon": 127.661,
+   "wikidata": "Q7515366",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM120",
+   "name_ko": "동구릉(구리)",
+   "lat": 37.622608,
+   "lon": 127.132075,
+   "wikidata": "Q483295",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM122",
+   "name_ko": "용문사(양평)",
+   "lat": 37.48972,
+   "lon": 127.49056,
+   "wikidata": "Q27267027",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM125",
+   "name_ko": "헤이리예술마을(파주)",
+   "lat": 37.832778,
+   "lon": 126.816944,
+   "wikidata": "Q42153",
+   "matched_by": "altLabel"
+  },
+  {
+   "id": "LM131",
+   "name_ko": "아침고요수목원(가평)",
+   "lat": 37.7441,
+   "lon": 127.352,
+   "wikidata": "Q3162596",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM134",
+   "name_ko": "재인폭포(연천)",
+   "lat": 38.094167,
+   "lon": 127.076389,
+   "wikidata": "Q50258",
+   "matched_by": "altLabel"
+  },
+  {
+   "id": "LM141",
+   "name_ko": "남이섬(춘천)",
+   "lat": 37.791539,
+   "lon": 127.525436,
+   "wikidata": "Q487536",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM144",
+   "name_ko": "경포대(강릉)",
+   "lat": 37.795,
+   "lon": 128.8944,
+   "wikidata": "Q12583922",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM145",
+   "name_ko": "오죽헌(강릉)",
+   "lat": 37.778559,
+   "lon": 128.877776,
+   "wikidata": "Q12608061",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM146",
+   "name_ko": "정동진 모래시계공원(강릉)",
+   "lat": 37.635,
+   "lon": 127.103333,
+   "wikidata": "Q108762162",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM147",
+   "name_ko": "설악산 울산바위(속초·고성)",
+   "lat": 38.195743,
+   "lon": 128.471397,
+   "wikidata": "Q56063386",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM149",
+   "name_ko": "낙산사(양양)",
+   "lat": 38.125,
+   "lon": 128.628611,
+   "wikidata": "Q562760",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM150",
+   "name_ko": "통일전망대(고성)",
+   "lat": 38.328268,
+   "lon": 128.126418,
+   "wikidata": "Q12621264",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM157",
+   "name_ko": "추암 촛대바위(동해)",
+   "lat": 37.47941,
+   "lon": 129.16052,
+   "wikidata": "Q124661549",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM164",
+   "name_ko": "고석정(철원)",
+   "lat": 38.185,
+   "lon": 127.288056,
+   "wikidata": "Q12584266",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM165",
+   "name_ko": "평화의댐(화천)",
+   "lat": 38.210278,
+   "lon": 127.846667,
+   "wikidata": "Q27300597",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM166",
+   "name_ko": "상당산성(청주)",
+   "lat": 36.659242,
+   "lon": 127.540297,
+   "wikidata": "Q11249489",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM171",
+   "name_ko": "청풍문화재단지(제천)",
+   "lat": 37.0038,
+   "lon": 128.172,
+   "wikidata": "Q5091662",
+   "matched_by": "altLabel"
+  },
+  {
+   "id": "LM172",
+   "name_ko": "의림지(제천)",
+   "lat": 37.129722,
+   "lon": 128.276111,
+   "wikidata": "Q34937720",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM174",
+   "name_ko": "도담삼봉(단양)",
+   "lat": 37.000164,
+   "lon": 128.343975,
+   "wikidata": "Q277173",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM176",
+   "name_ko": "만천하스카이워크(단양)",
+   "lat": 36.985,
+   "lon": 128.362778,
+   "wikidata": "Q50220",
+   "matched_by": "altLabel"
+  },
+  {
+   "id": "LM177",
+   "name_ko": "법주사(보은)",
+   "lat": 36.5415,
+   "lon": 127.833,
+   "wikidata": "Q484931",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM178",
+   "name_ko": "산막이옛길(괴산)",
+   "lat": 36.810833,
+   "lon": 127.794722,
+   "wikidata": "Q27280319",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM179",
+   "name_ko": "농다리(진천)",
+   "lat": 36.85667,
+   "lon": 127.44333,
+   "wikidata": "Q27288657",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM182",
+   "name_ko": "좌구산천문대(증평)",
+   "lat": 36.784722,
+   "lon": 127.581944,
+   "wikidata": "Q50324",
+   "matched_by": "altLabel"
+  },
+  {
+   "id": "LM184",
+   "name_ko": "독립기념관(천안)",
+   "lat": 36.78358,
+   "lon": 127.22297,
+   "wikidata": "Q626811",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM186",
+   "name_ko": "현충사(아산)",
+   "lat": 36.8046,
+   "lon": 127.0291,
+   "wikidata": "Q15249399",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM187",
+   "name_ko": "외암민속마을(아산)",
+   "lat": 36.7311,
+   "lon": 127.0136,
+   "wikidata": "Q137579418",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM188",
+   "name_ko": "공산성(공주)",
+   "lat": 36.461944,
+   "lon": 127.127222,
+   "wikidata": "Q12584692",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM189",
+   "name_ko": "무령왕릉과 왕릉원(공주)",
+   "lat": 36.455556,
+   "lon": 127.124722,
+   "wikidata": "Q42062",
+   "matched_by": "altLabel"
+  },
+  {
+   "id": "LM192",
+   "name_ko": "정림사지(부여)",
+   "lat": 36.279325,
+   "lon": 126.913285,
+   "wikidata": "Q16094566",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM193",
+   "name_ko": "궁남지(부여)",
+   "lat": 36.269056,
+   "lon": 126.913633,
+   "wikidata": "Q16092393",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM194",
+   "name_ko": "해미읍성(서산)",
+   "lat": 36.7128,
+   "lon": 126.549,
+   "wikidata": "Q625268",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM195",
+   "name_ko": "간월암(서산)",
+   "lat": 36.603702,
+   "lon": 126.411141,
+   "wikidata": "Q12582562",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM196",
+   "name_ko": "꽃지해수욕장(태안)",
+   "lat": 36.756389,
+   "lon": 126.297778,
+   "wikidata": "Q50335",
+   "matched_by": "altLabel"
+  },
+  {
+   "id": "LM197",
+   "name_ko": "대천해수욕장(보령)",
+   "lat": 36.31272,
+   "lon": 126.509697,
+   "wikidata": "Q12591871",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM198",
+   "name_ko": "수덕사(예산)",
+   "lat": 36.6633,
+   "lon": 126.622,
+   "wikidata": "Q491449",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM201",
+   "name_ko": "홍주읍성(홍성)",
+   "lat": 36.600833,
+   "lon": 126.665,
+   "wikidata": "Q27283704",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM202",
+   "name_ko": "국립생태원(서천)",
+   "lat": 36.034507,
+   "lon": 126.717854,
+   "wikidata": "Q16094640",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM206",
+   "name_ko": "전주한옥마을",
+   "lat": 35.814715,
+   "lon": 127.152636,
+   "wikidata": "Q11269655",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM207",
+   "name_ko": "전동성당(전주)",
+   "lat": 35.8135,
+   "lon": 127.149,
+   "wikidata": "Q2942222",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM208",
+   "name_ko": "덕진공원(전주)",
+   "lat": 35.847799,
+   "lon": 127.121959,
+   "wikidata": "Q137549507",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM212",
+   "name_ko": "미륵사지(익산)",
+   "lat": 36.0119,
+   "lon": 127.031,
+   "wikidata": "Q6873175",
+   "matched_by": "altLabel"
+  },
+  {
+   "id": "LM214",
+   "name_ko": "내장산(정읍)",
+   "lat": 35.483333,
+   "lon": 126.883333,
+   "wikidata": "Q626648",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM216",
+   "name_ko": "금산사(김제)",
+   "lat": 35.722731,
+   "lon": 127.053032,
+   "wikidata": "Q489528",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM217",
+   "name_ko": "대둔산(완주)",
+   "lat": 36.12,
+   "lon": 127.323333,
+   "wikidata": "Q5208179",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM222",
+   "name_ko": "강천산(순창)",
+   "lat": 35.404167,
+   "lon": 127.048889,
+   "wikidata": "Q5521102",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM225",
+   "name_ko": "선운사(고창)",
+   "lat": 35.4969,
+   "lon": 126.579,
+   "wikidata": "Q625017",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM226",
+   "name_ko": "유달산(목포)",
+   "lat": 34.790861,
+   "lon": 126.372389,
+   "wikidata": "Q8060209",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM227",
+   "name_ko": "돌산대교(여수)",
+   "lat": 34.730871,
+   "lon": 127.734567,
+   "wikidata": "Q22973659",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM229",
+   "name_ko": "금성관(나주)",
+   "lat": 34.98639,
+   "lon": 126.71895,
+   "wikidata": "Q27275786",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM231",
+   "name_ko": "죽녹원(담양)",
+   "lat": 35.325998,
+   "lon": 126.985918,
+   "wikidata": "Q63135681",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM233",
+   "name_ko": "화엄사(구례)",
+   "lat": 35.256536,
+   "lon": 127.4973,
+   "wikidata": "Q491233",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM235",
+   "name_ko": "대한다원(보성)",
+   "lat": 34.770556,
+   "lon": 127.081667,
+   "wikidata": "Q50243",
+   "matched_by": "altLabel"
+  },
+  {
+   "id": "LM236",
+   "name_ko": "운주사(화순)",
+   "lat": 34.9256,
+   "lon": 126.88,
+   "wikidata": "Q493623",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM238",
+   "name_ko": "다산초당(강진)",
+   "lat": 34.640556,
+   "lon": 126.77,
+   "wikidata": "Q50204",
+   "matched_by": "altLabel"
+  },
+  {
+   "id": "LM239",
+   "name_ko": "땅끝전망대(해남)",
+   "lat": 34.294713,
+   "lon": 126.525023,
+   "wikidata": "Q137534114",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM240",
+   "name_ko": "월출산(영암)",
+   "lat": 34.767778,
+   "lon": 126.704444,
+   "wikidata": "Q482741",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM241",
+   "name_ko": "회산백련지(무안)",
+   "lat": 34.95642,
+   "lon": 126.44041,
+   "wikidata": "Q50241",
+   "matched_by": "altLabel"
+  },
+  {
+   "id": "LM243",
+   "name_ko": "불갑사(영광)",
+   "lat": 35.200924,
+   "lon": 126.550129,
+   "wikidata": "Q16096895",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM244",
+   "name_ko": "백양사(장성)",
+   "lat": 35.4392,
+   "lon": 126.883,
+   "wikidata": "Q623574",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM246",
+   "name_ko": "운림산방(진도)",
+   "lat": 34.4575,
+   "lon": 126.253333,
+   "wikidata": "Q485651",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM247",
+   "name_ko": "퍼플섬(신안)",
+   "lat": 34.8262,
+   "lon": 126.10863,
+   "wikidata": "Q27300225",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM248",
+   "name_ko": "향일암(여수)",
+   "lat": 34.5916,
+   "lon": 127.80391,
+   "wikidata": "Q16096104",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM249",
+   "name_ko": "낙안읍성(순천)",
+   "lat": 34.906111,
+   "lon": 127.335833,
+   "wikidata": "Q6958428",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM251",
+   "name_ko": "불국사(경주)",
+   "lat": 35.79,
+   "lon": 129.332222,
+   "wikidata": "Q408318",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM252",
+   "name_ko": "석굴암(경주)",
+   "lat": 35.795,
+   "lon": 129.349167,
+   "wikidata": "Q489820",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM253",
+   "name_ko": "첨성대(경주)",
+   "lat": 35.834722,
+   "lon": 129.219,
+   "wikidata": "Q562765",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM254",
+   "name_ko": "동궁과 월지(경주)",
+   "lat": 35.834619,
+   "lon": 129.227114,
+   "wikidata": "Q496454",
+   "matched_by": "altLabel"
+  },
+  {
+   "id": "LM255",
+   "name_ko": "대릉원(경주)",
+   "lat": 35.838048,
+   "lon": 129.212135,
+   "wikidata": "Q17278215",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM256",
+   "name_ko": "월정교(경주)",
+   "lat": 35.833333,
+   "lon": 129.25,
+   "wikidata": "Q27266995",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM257",
+   "name_ko": "양동마을(경주)",
+   "lat": 36.001111,
+   "lon": 129.253333,
+   "wikidata": "Q495266",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM258",
+   "name_ko": "호미곶(포항)",
+   "lat": 36.076389,
+   "lon": 129.568611,
+   "wikidata": "Q562991",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM259",
+   "name_ko": "스페이스워크(포항)",
+   "lat": 36.065,
+   "lon": 129.390556,
+   "wikidata": "Q124021455",
+   "matched_by": "altLabel"
+  },
+  {
+   "id": "LM260",
+   "name_ko": "하회마을(안동)",
+   "lat": 36.538056,
+   "lon": 128.520556,
+   "wikidata": "Q45865",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM261",
+   "name_ko": "도산서원(안동)",
+   "lat": 36.727222,
+   "lon": 128.843333,
+   "wikidata": "Q625663",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM262",
+   "name_ko": "월영교(안동)",
+   "lat": 36.576667,
+   "lon": 128.76075,
+   "wikidata": "Q12609478",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM263",
+   "name_ko": "부석사(영주)",
+   "lat": 36.998853,
+   "lon": 128.687497,
+   "wikidata": "Q3540839",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM264",
+   "name_ko": "소수서원(영주)",
+   "lat": 36.925556,
+   "lon": 128.58,
+   "wikidata": "Q625586",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM265",
+   "name_ko": "문경새재",
+   "lat": 36.766944,
+   "lon": 128.074167,
+   "wikidata": "Q624429",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM266",
+   "name_ko": "직지사(김천)",
+   "lat": 36.1161,
+   "lon": 128.004,
+   "wikidata": "Q625286",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM267",
+   "name_ko": "금오산(구미)",
+   "lat": 36.0925,
+   "lon": 128.3,
+   "wikidata": "Q27279491",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM268",
+   "name_ko": "경천대(상주)",
+   "lat": 36.415278,
+   "lon": 128.160556,
+   "wikidata": "Q42163",
+   "matched_by": "altLabel"
+  },
+  {
+   "id": "LM270",
+   "name_ko": "팔공산 갓바위(경산)",
+   "lat": 35.981537,
+   "lon": 128.73644,
+   "wikidata": "Q5526956",
+   "matched_by": "altLabel"
+  },
+  {
+   "id": "LM271",
+   "name_ko": "지산동 고분군(고령)",
+   "lat": 35.7275,
+   "lon": 128.251944,
+   "wikidata": "Q12584187",
+   "matched_by": "altLabel"
+  },
+  {
+   "id": "LM276",
+   "name_ko": "주왕산(청송)",
+   "lat": 36.388333,
+   "lon": 129.166667,
+   "wikidata": "Q494689",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM278",
+   "name_ko": "불영사(울진)",
+   "lat": 36.9406,
+   "lon": 129.274,
+   "wikidata": "Q12599255",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM280",
+   "name_ko": "청량산(봉화)",
+   "lat": 36.791389,
+   "lon": 128.926944,
+   "wikidata": "Q5091652",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM283",
+   "name_ko": "진주성",
+   "lat": 35.19,
+   "lon": 128.073333,
+   "wikidata": "Q12618350",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM288",
+   "name_ko": "수로왕릉(김해)",
+   "lat": 35.043056,
+   "lon": 128.952222,
+   "wikidata": "Q12603151",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM290",
+   "name_ko": "영남루(밀양)",
+   "lat": 35.491667,
+   "lon": 128.755556,
+   "wikidata": "Q8052469",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM292",
+   "name_ko": "외도 보타니아(거제)",
+   "lat": 34.850278,
+   "lon": 128.588611,
+   "wikidata": "Q42057",
+   "matched_by": "altLabel"
+  },
+  {
+   "id": "LM293",
+   "name_ko": "통도사(양산)",
+   "lat": 35.488056,
+   "lon": 129.064722,
+   "wikidata": "Q491454",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM296",
+   "name_ko": "우포늪(창녕)",
+   "lat": 35.55194,
+   "lon": 128.41472,
+   "wikidata": "Q496402",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM298",
+   "name_ko": "독일마을(남해)",
+   "lat": 34.798889,
+   "lon": 128.04,
+   "wikidata": "Q1234724",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM299",
+   "name_ko": "쌍계사(하동)",
+   "lat": 35.2322,
+   "lon": 127.651,
+   "wikidata": "Q623528",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM303",
+   "name_ko": "수승대(거창)",
+   "lat": 35.686111,
+   "lon": 127.910278,
+   "wikidata": "Q50206",
+   "matched_by": "altLabel"
+  },
+  {
+   "id": "LM304",
+   "name_ko": "해인사(합천)",
+   "lat": 35.8,
+   "lon": 128.1,
+   "wikidata": "Q489795",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM305",
+   "name_ko": "황매산(합천)",
+   "lat": 35.496389,
+   "lon": 127.974444,
+   "wikidata": "Q5952045",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM306",
+   "name_ko": "성산일출봉",
+   "lat": 33.458056,
+   "lon": 126.9425,
+   "wikidata": "Q122225",
+   "matched_by": "altLabel"
+  },
+  {
+   "id": "LM307",
+   "name_ko": "한라산",
+   "lat": 33.35,
+   "lon": 126.516667,
+   "wikidata": "Q494645",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM308",
+   "name_ko": "협재해수욕장",
+   "lat": 33.394167,
+   "lon": 126.239444,
+   "wikidata": "Q12625130",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM313",
+   "name_ko": "천지연폭포",
+   "lat": 33.246928,
+   "lon": 126.554406,
+   "wikidata": "Q626162",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM315",
+   "name_ko": "정방폭포",
+   "lat": 33.244647,
+   "lon": 126.571661,
+   "wikidata": "Q625993",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM316",
+   "name_ko": "산방산",
+   "lat": 33.240556,
+   "lon": 126.313611,
+   "wikidata": "Q12600001",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM317",
+   "name_ko": "송악산",
+   "lat": 33.199444,
+   "lon": 126.290556,
+   "wikidata": "Q27296163",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM320",
+   "name_ko": "성읍민속마을",
+   "lat": 33.386667,
+   "lon": 126.785278,
+   "wikidata": "Q12602071",
+   "matched_by": "altLabel"
+  },
+  {
+   "id": "LM322",
+   "name_ko": "만장굴",
+   "lat": 33.52825,
+   "lon": 126.770139,
+   "wikidata": "Q6750353",
+   "matched_by": "altLabel"
+  },
+  {
+   "id": "LM327",
+   "name_ko": "수월봉",
+   "lat": 33.294944,
+   "lon": 126.162694,
+   "wikidata": "Q17401350",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM328",
+   "name_ko": "새별오름",
+   "lat": 33.366389,
+   "lon": 126.356667,
+   "wikidata": "Q16745734",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM330",
+   "name_ko": "제주항공우주박물관",
+   "lat": 33.304,
+   "lon": 126.299,
+   "wikidata": "Q12616505",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM331",
+   "name_ko": "서울숲",
+   "lat": 37.544625,
+   "lon": 127.039844,
+   "wikidata": "Q483014",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM332",
+   "name_ko": "서울어린이대공원",
+   "lat": 37.546,
+   "lon": 127.08,
+   "wikidata": "Q485465",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM333",
+   "name_ko": "서울역사박물관",
+   "lat": 37.570475,
+   "lon": 126.970658,
+   "wikidata": "Q484862",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM336",
+   "name_ko": "운현궁",
+   "lat": 37.5761,
+   "lon": 126.987,
+   "wikidata": "Q490392",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM337",
+   "name_ko": "경희궁",
+   "lat": 37.571444,
+   "lon": 126.968139,
+   "wikidata": "Q483291",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM339",
+   "name_ko": "국립민속박물관",
+   "lat": 37.581625,
+   "lon": 126.97909,
+   "wikidata": "Q486449",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM341",
+   "name_ko": "선유도공원",
+   "lat": 37.543694,
+   "lon": 126.899806,
+   "wikidata": "Q12601738",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM343",
+   "name_ko": "노들섬",
+   "lat": 37.516944,
+   "lon": 126.96,
+   "wikidata": "Q626140",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM346",
+   "name_ko": "자유공원",
+   "lat": 37.475833,
+   "lon": 126.621389,
+   "wikidata": "Q11267359",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM347",
+   "name_ko": "답동성당",
+   "lat": 37.47119,
+   "lon": 126.62969,
+   "wikidata": "Q12591068",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM359",
+   "name_ko": "유림공원",
+   "lat": 36.360722,
+   "lon": 127.357889,
+   "wikidata": "Q108914532",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM361",
+   "name_ko": "광명동굴",
+   "lat": 37.425621,
+   "lon": 126.864387,
+   "wikidata": "Q39060665",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM370",
+   "name_ko": "갯골생태공원",
+   "lat": 37.391478,
+   "lon": 126.780838,
+   "wikidata": "Q137532600",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM378",
+   "name_ko": "하슬라아트월드",
+   "lat": 37.706212,
+   "lon": 129.011034,
+   "wikidata": "Q27670237",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM381",
+   "name_ko": "청간정",
+   "lat": 38.2644,
+   "lon": 128.5561,
+   "wikidata": "Q12478612",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM383",
+   "name_ko": "백담사",
+   "lat": 38.165,
+   "lon": 128.374,
+   "wikidata": "Q4841251",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM384",
+   "name_ko": "직탕폭포",
+   "lat": 38.209722,
+   "lon": 127.266389,
+   "wikidata": "Q27341271",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM397",
+   "name_ko": "울산왜성",
+   "lat": 35.554944,
+   "lon": 129.338861,
+   "wikidata": "Q625881",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM402",
+   "name_ko": "베어트리파크",
+   "lat": 36.4917,
+   "lon": 127.2822,
+   "wikidata": "Q97235821",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM408",
+   "name_ko": "삼년산성",
+   "lat": 36.487222,
+   "lon": 127.740833,
+   "wikidata": "Q4406617",
+   "matched_by": "altLabel"
+  },
+  {
+   "id": "LM411",
+   "name_ko": "고수동굴",
+   "lat": 36.98856,
+   "lon": 128.381778,
+   "wikidata": "Q626117",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM418",
+   "name_ko": "천리포수목원",
+   "lat": 36.798956,
+   "lon": 126.149509,
+   "wikidata": "Q12618857",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM421",
+   "name_ko": "영화의전당",
+   "lat": 35.171164,
+   "lon": 129.127189,
+   "wikidata": "Q14020347",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM442",
+   "name_ko": "주남저수지",
+   "lat": 35.31481,
+   "lon": 128.672693,
+   "wikidata": "Q12617322",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM448",
+   "name_ko": "화개장터",
+   "lat": 35.18813,
+   "lon": 127.62416,
+   "wikidata": "Q136947523",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM465",
+   "name_ko": "내소사",
+   "lat": 35.617977,
+   "lon": 126.587428,
+   "wikidata": "Q10856109",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM467",
+   "name_ko": "송광사",
+   "lat": 35.00219,
+   "lon": 127.276104,
+   "wikidata": "Q490384",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM469",
+   "name_ko": "소쇄원",
+   "lat": 35.183333,
+   "lon": 127.0075,
+   "wikidata": "Q493693",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM472",
+   "name_ko": "목포 갓바위",
+   "lat": 34.79193,
+   "lon": 126.425714,
+   "wikidata": "Q5526958",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM474",
+   "name_ko": "대흥사",
+   "lat": 34.476596,
+   "lon": 126.616828,
+   "wikidata": "Q623807",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM478",
+   "name_ko": "진도대교",
+   "lat": 34.571734,
+   "lon": 126.304854,
+   "wikidata": "Q6750914",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM481",
+   "name_ko": "감은사지",
+   "lat": 35.748333,
+   "lon": 129.476944,
+   "wikidata": "Q12582656",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM482",
+   "name_ko": "분황사",
+   "lat": 35.840556,
+   "lon": 129.233611,
+   "wikidata": "Q491069",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM492",
+   "name_ko": "병산서원",
+   "lat": 36.54028,
+   "lon": 128.55278,
+   "wikidata": "Q695166",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM498",
+   "name_ko": "쇠소깍",
+   "lat": 33.2525,
+   "lon": 126.6236,
+   "wikidata": "Q16093691",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM499",
+   "name_ko": "새연교",
+   "lat": 33.238422,
+   "lon": 126.558883,
+   "wikidata": "Q12600646",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM501",
+   "name_ko": "국립제주박물관",
+   "lat": 33.51325,
+   "lon": 126.54859,
+   "wikidata": "Q6176560",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM504",
+   "name_ko": "관덕정",
+   "lat": 33.513339,
+   "lon": 126.521539,
+   "wikidata": "Q12584901",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM505",
+   "name_ko": "삼성혈",
+   "lat": 33.504256,
+   "lon": 126.528874,
+   "wikidata": "Q7410332",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM508",
+   "name_ko": "약천사",
+   "lat": 33.245333,
+   "lon": 126.449667,
+   "wikidata": "Q21709992",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM522",
+   "name_ko": "고양아람누리",
+   "lat": 37.659675,
+   "lon": 126.773292,
+   "wikidata": "Q79827",
+   "matched_by": "altLabel"
+  },
+  {
+   "id": "LM524",
+   "name_ko": "국립현대미술관 서울관",
+   "lat": 37.579167,
+   "lon": 126.980556,
+   "wikidata": "Q27207690",
+   "matched_by": "altLabel"
+  },
+  {
+   "id": "LM525",
+   "name_ko": "광화문광장",
+   "lat": 37.572778,
+   "lon": 126.976667,
+   "wikidata": "Q5623300",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM527",
+   "name_ko": "안산갈대습지공원",
+   "lat": 37.27,
+   "lon": 126.843056,
+   "wikidata": "Q19940341",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM530",
+   "name_ko": "담양 객사리 석당간",
+   "lat": 35.320615,
+   "lon": 126.989801,
+   "wikidata": "Q12591051",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM531",
+   "name_ko": "식영정",
+   "lat": 35.30252,
+   "lon": 127.00595,
+   "wikidata": "Q115317348",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM538",
+   "name_ko": "광장시장",
+   "lat": 37.57,
+   "lon": 126.999,
+   "wikidata": "Q12585067",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM539",
+   "name_ko": "울산암각화박물관",
+   "lat": 35.608013,
+   "lon": 129.170656,
+   "wikidata": "Q16099077",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM548",
+   "name_ko": "한성백제박물관",
+   "lat": 37.5154,
+   "lon": 127.1209,
+   "wikidata": "Q12624103",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM550",
+   "name_ko": "용마폭포공원",
+   "lat": 37.574405,
+   "lon": 127.090106,
+   "wikidata": "Q12608670",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM553",
+   "name_ko": "북서울꿈의숲",
+   "lat": 37.621052,
+   "lon": 127.041079,
+   "wikidata": "Q12599081",
+   "matched_by": "altLabel"
+  },
+  {
+   "id": "LM556",
+   "name_ko": "홍예문",
+   "lat": 37.474757,
+   "lon": 126.626275,
+   "wikidata": "Q12625449",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM557",
+   "name_ko": "짜장면박물관",
+   "lat": 37.474861,
+   "lon": 126.618194,
+   "wikidata": "Q36959944",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM577",
+   "name_ko": "거가대교",
+   "lat": 35.01417,
+   "lon": 128.75389,
+   "wikidata": "Q490741",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM578",
+   "name_ko": "가조연륙교(가조대교)",
+   "lat": 34.925934,
+   "lon": 128.527444,
+   "wikidata": "Q12582467",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM580",
+   "name_ko": "남해대교",
+   "lat": 34.9442,
+   "lon": 127.872,
+   "wikidata": "Q624768",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM583",
+   "name_ko": "국립김해박물관",
+   "lat": 35.2428,
+   "lon": 128.8734,
+   "wikidata": "Q5562690",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM584",
+   "name_ko": "대구제일교회",
+   "lat": 35.86769,
+   "lon": 128.58562,
+   "wikidata": "Q12591362",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM585",
+   "name_ko": "대구약령시한의약박물관",
+   "lat": 35.869126,
+   "lon": 128.589972,
+   "wikidata": "Q16098756",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM588",
+   "name_ko": "함안박물관",
+   "lat": 35.269368,
+   "lon": 128.402687,
+   "wikidata": "Q16865299",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM599",
+   "name_ko": "청산도",
+   "lat": 34.18361,
+   "lon": 126.88917,
+   "wikidata": "Q18815767",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM603",
+   "name_ko": "고창읍성",
+   "lat": 35.431111,
+   "lon": 126.703611,
+   "wikidata": "Q12584448",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM606",
+   "name_ko": "환벽당",
+   "lat": 35.185556,
+   "lon": 127.002778,
+   "wikidata": "Q623623",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM612",
+   "name_ko": "춘천댐",
+   "lat": 37.968139,
+   "lon": 127.669389,
+   "wikidata": "Q16100197",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM613",
+   "name_ko": "소양강댐",
+   "lat": 37.945556,
+   "lon": 127.814444,
+   "wikidata": "Q624034",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM615",
+   "name_ko": "구곡폭포",
+   "lat": 37.793056,
+   "lon": 127.610278,
+   "wikidata": "Q27308547",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM632",
+   "name_ko": "강경미내다리",
+   "lat": 36.152778,
+   "lon": 127.031111,
+   "wikidata": "Q16630672",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM633",
+   "name_ko": "서산버드랜드",
+   "lat": 36.631329,
+   "lon": 126.378356,
+   "wikidata": "Q29935833",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM642",
+   "name_ko": "서산 보원사지",
+   "lat": 36.761802,
+   "lon": 126.602531,
+   "wikidata": "Q12598409",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM649",
+   "name_ko": "통영 삼도수군통제영",
+   "lat": 34.8475,
+   "lon": 128.423056,
+   "wikidata": "Q16095936",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM654",
+   "name_ko": "원산안면대교",
+   "lat": 36.394372,
+   "lon": 126.423346,
+   "wikidata": "Q85983373",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM656",
+   "name_ko": "송도컨벤시아",
+   "lat": 37.389083,
+   "lon": 126.646194,
+   "wikidata": "Q7561247",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM657",
+   "name_ko": "인천문학경기장",
+   "lat": 37.434984,
+   "lon": 126.690699,
+   "wikidata": "Q138554",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM662",
+   "name_ko": "인천대공원",
+   "lat": 37.459267,
+   "lon": 126.750511,
+   "wikidata": "Q12613499",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM671",
+   "name_ko": "용눈이오름",
+   "lat": 33.4762,
+   "lon": 126.8229,
+   "wikidata": "Q16767727",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM673",
+   "name_ko": "금오름",
+   "lat": 33.3559,
+   "lon": 126.3056,
+   "wikidata": "Q12586526",
+   "matched_by": "label"
+  },
+  {
+   "id": "LM680",
+   "name_ko": "비양도",
+   "lat": 33.408889,
+   "lon": 126.2275,
+   "wikidata": "Q12599451",
+   "matched_by": "label"
+  }
+ ]
+}

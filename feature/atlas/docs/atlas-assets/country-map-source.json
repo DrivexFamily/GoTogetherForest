@@ -1,0 +1,16 @@
+{
+  "source_svg": "design/illustrations/exports/2026-11-06/U03-korea-region-selector.svg",
+  "source_svg_sha256": "f7aae10c97f13ac03bd3efd32b201b599d48a926c7c043358487a65d15bf2fc4",
+  "shape_count": 17,
+  "viewBox": [
+    20,
+    60,
+    650,
+    735
+  ],
+  "path_geometry": "Every SVG map-region d copied exactly; no simplification, relocation, or invented areas.",
+  "map_use": "Illustrative regional selector only; not legal boundary, GPS, navigation or arrival verification.",
+  "hit_test": "Same copied paths via Android Region, plus named label chips and 17 custom accessibility actions. Large alternative region cards supplied by AtlasScreen.",
+  "touch_limitation": "Tiny city/island shapes and map labels are not 64dp each; use the accessible 64dp region card grid for the same destination.",
+  "labels": "Runtime UI labels from Region.label, not text baked into any illustration."
+}

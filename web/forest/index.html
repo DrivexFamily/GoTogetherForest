@@ -1,0 +1,1536 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>같이가숲 별 숲</title>
+<meta name="description" content="별 포인트로 나무·동물을 열고 숲 맵을 바꾸는 흐름을 미리 보는 정적 페이지(결정 #31, 폰 연동 #20 미리보기)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&display=swap">
+<style>
+/*
+  배치: 위에서 아래로 한 줄 흐름. ① 별 포인트 판 ② 큰 숲(맵 그림 위 보이지 않는 그리드에 나무·동물, 결정 #32.
+  크게 보기 = 그림 원래 크기로 끌어서 둘러보기, 전체 보기 = 창에 맞춤. 나무·동물은 끌어서 옮긴다) ③ 나무 도감 ④ 동물 도감 ⑤ 숲 맵 4장.
+  색: GPT 도감 화면(ILL-018)의 크림색 둥근 카드 + 갈색 테두리 + 잎 초록. 글자는 진한 나무색(대비 4.5:1 이상).
+  잠긴 실루엣 갈색(#80683C)은 그림 칸 바탕(--well)과 3:1 이상이 되게 다크에서도 칸 바탕을 밝게 둔다.
+*/
+:root {
+  --meadow: #E4F0CF;      /* 페이지 바탕: 풀밭 */
+  --meadow-2: #D3E7B6;
+  --card: #FFF7E3;        /* 크림색 카드 */
+  --well: #F6E8C6;        /* 그림 칸 바탕 */
+  --bark: #8A5D33;        /* 갈색 테두리 */
+  --bark-soft: #DCC291;
+  --ink: #45290F;         /* 본문 글자(진한 나무색) */
+  --ink-2: #6B4A27;       /* 보조 글자 */
+  --leaf: #2F7420;        /* 잎 초록 버튼 */
+  --on-leaf: #FFFFFF;
+  --leaf-soft: #DDEFC6;
+  --star: #E39A12;        /* 별 */
+  --gold-ring: #E8B23A;   /* 열 수 있는 칸 테두리 */
+  --locked: #80683C;      /* 잠긴 실루엣 갈색(앱과 같음) */
+  --shade: rgba(84, 56, 22, .16);
+  --focus: #1C64A8;
+  --toast-bg: #45290F;
+  --toast-ink: #FFF7E3;
+
+  --font-display: "Jua", "NanumSquareRound", "NanumSquare", "Asta Sans", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  --font-body: "Asta Sans", "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", "NanumSquare", "Malgun Gothic", sans-serif;
+  --radius: 22px;
+  --radius-s: 14px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --meadow: #121A12; --meadow-2: #1A251A; --card: #272116; --well: #DCCCA4; --bark: #B98E59; --bark-soft: #5A4930;
+    --ink: #F7EBD2; --ink-2: #D9C6A1; --leaf: #86C964; --on-leaf: #10210B; --leaf-soft: #22341C; --star: #F4C24F;
+    --gold-ring: #F4C24F; --shade: rgba(0, 0, 0, .35); --focus: #8CC2F5; --toast-bg: #F7EBD2; --toast-ink: #2A1A08;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --meadow: #121A12; --meadow-2: #1A251A; --card: #272116; --well: #DCCCA4; --bark: #B98E59; --bark-soft: #5A4930;
+  --ink: #F7EBD2; --ink-2: #D9C6A1; --leaf: #86C964; --on-leaf: #10210B; --leaf-soft: #22341C; --star: #F4C24F;
+  --gold-ring: #F4C24F; --shade: rgba(0, 0, 0, .35); --focus: #8CC2F5; --toast-bg: #F7EBD2; --toast-ink: #2A1A08;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--meadow);
+  background-image: radial-gradient(circle at 12% -10%, var(--meadow-2) 0 38%, transparent 38.2%),
+                    radial-gradient(circle at 92% 6%, var(--meadow-2) 0 22%, transparent 22.2%);
+  color: var(--ink);
+  font: 16px/1.5 var(--font-body);
+}
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+.wrap {
+  max-width: 1120px; margin: 0 auto;
+  padding-block: 20px 48px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 20px;
+}
+h1, h2, h3 { font-family: var(--font-display); font-weight: 400; margin: 0; text-wrap: balance; }
+.num { font-variant-numeric: tabular-nums; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+/* 머리 */
+.top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; }
+.brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.brand svg { flex: none; }
+.brand h1 { font-size: clamp(28px, 5vw, 40px); line-height: 1.1; }
+.brand p { margin: 2px 0 0; color: var(--ink-2); font-size: 15px; text-wrap: pretty; }
+.chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  border: 2px solid var(--bark-soft); background: var(--card); color: var(--ink-2);
+  border-radius: 999px; padding: 4px 12px; font-size: 14px; font-weight: 700; white-space: nowrap;
+}
+
+/* 별 포인트 판 */
+.card { background: var(--card); border: 3px solid var(--bark-soft); border-radius: var(--radius); box-shadow: 0 4px 0 var(--shade); }
+.stars { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px 24px; padding: 18px 22px; align-items: center; }
+.stars .figures { display: flex; flex-wrap: wrap; gap: 10px 28px; align-items: flex-end; min-width: 0; }
+.fig small { display: block; font-size: 14px; color: var(--ink-2); font-weight: 700; }
+.fig .big { font-family: var(--font-display); font-size: clamp(40px, 7vw, 56px); line-height: 1; display: inline-flex; align-items: center; gap: 6px; }
+.fig .mid { font-family: var(--font-display); font-size: 28px; line-height: 1.1; }
+/* 별 배지·앱 아이콘: GPT 그림(R15·R14). 장식이라 alt="" — 옆 글자 ★가 같은 뜻을 전한다 */
+.star-ico { width: 1em; height: 1em; flex: none; object-fit: contain; }
+.app-icon { width: 48px; height: 48px; border-radius: 14px; flex: none; display: block; }
+.rule { text-wrap: pretty; grid-column: 1 / -1; margin: 0; padding-top: 12px; border-top: 2px dashed var(--bark-soft); color: var(--ink-2); font-size: 15px; }
+.rule b { color: var(--ink); }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+.btn {
+  min-height: 48px; padding: 8px 18px; border-radius: 999px; cursor: pointer;
+  border: 3px solid var(--bark-soft); background: var(--card); color: var(--ink); font-weight: 800;
+  display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 3px 0 var(--shade);
+}
+.btn:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--shade); }
+.btn.primary { background: var(--leaf); border-color: var(--leaf); color: var(--on-leaf); font-size: 17px; }
+.progress { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--ink-2); font-weight: 700; }
+.bar { width: 120px; height: 12px; border-radius: 99px; background: var(--well); border: 2px solid var(--bark-soft); overflow: hidden; }
+.bar i { display: block; height: 100%; background: var(--leaf); }
+
+/* 큰 숲 */
+.forest-card { padding: 14px; display: grid; gap: 12px; }
+.forest-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 6px 16px; padding: 0 6px; }
+.forest-head h2 { font-size: 26px; }
+.forest-head p { margin: 0; color: var(--ink-2); font-weight: 700; }
+.forest-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; }
+.btn.zoom { min-height: 44px; padding: 6px 14px; font-size: 15px; }
+.btn.zoom svg { flex: none; }
+/*
+  무대 = 보는 창(크게 보기는 예전 무대 크기 1672:941, 전체 보기는 맵 비율). 안의 .world가 맵 그림 한 장 크기이고,
+  나무·동물은 .world 안에 그림 비율(%)로 선다. 크게 보기는 그림 1px = 화면 1px(늘리지 않음, 결정 #29-⑦)이고 끌어서 둘러본다.
+*/
+.stage {
+  position: relative; width: 100%; aspect-ratio: 1672 / 941; max-width: 100%;
+  border-radius: var(--radius-s); overflow: hidden; border: 3px solid var(--bark);
+  background: #7DC6EA;
+  touch-action: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; cursor: default;
+}
+.stage.pannable { cursor: grab; }
+.stage.over-item { cursor: grab; }
+.stage.grabbing, .stage.grabbing * { cursor: grabbing; }
+.stage .world { position: absolute; left: 0; top: 0; background: center / 100% 100% no-repeat; transform-origin: 0 0; }
+.stage .sprite {
+  position: absolute; transform: translate(-50%, -100%); transform-origin: 50% 100%;
+  object-fit: contain; object-position: 50% 100%; max-width: none;
+  pointer-events: none; user-select: none; -webkit-user-drag: none;
+}
+.stage .sprite.lift { z-index: 1000; filter: drop-shadow(0 10px 6px rgba(0, 0, 0, .35)); }
+/* 끄는 동안만 보이는 놓을 칸: 초록 = 놓을 수 있음, 빨강 = 안 됨(그리드는 평소에 보이지 않는다).
+   끄는 그림이 놓을 칸을 덮으므로 칸 표시는 그 그림보다도 위에, 옅게 칠하고 테두리를 또렷하게 */
+.stage .marks { position: absolute; inset: 0; z-index: 1100; pointer-events: none; }
+.stage .marks i { position: absolute; border-radius: 6px; }
+.stage .marks i.ok { background: rgba(88, 196, 64, .30); box-shadow: inset 0 0 0 3px #2F7420, 0 0 0 2px rgba(255, 255, 255, .9); }
+.stage .marks i.no { background: rgba(226, 64, 44, .30); box-shadow: inset 0 0 0 3px #B3261E, 0 0 0 2px rgba(255, 255, 255, .9); }
+.stage .empty {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 950; pointer-events: none;
+  background: var(--card); color: var(--ink); border: 3px solid var(--bark-soft); border-radius: var(--radius-s);
+  padding: 10px 16px; font-weight: 800; text-align: center; max-width: 80%;
+}
+/* 맵 아래 글줄: 새싹 점 10칸(모은 새싹)과 남은 수, 숲이 가득 찼을 때 안내, 조작 안내 */
+.under { display: grid; gap: 6px; padding: 0 6px; }
+.under p { margin: 0; }
+.sprouts { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; font-weight: 800; color: var(--ink); }
+.pips { display: inline-flex; gap: 6px; }
+.pips i { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--ink-2); background: transparent; }
+.pips i.on { background: var(--leaf); border-color: var(--leaf); }
+.full { justify-self: start; font-weight: 800; color: var(--ink); background: var(--leaf-soft); border: 2px solid var(--bark-soft); border-radius: var(--radius-s); padding: 6px 12px; text-wrap: pretty; }
+.hint { color: var(--ink-2); font-size: 14px; font-weight: 700; text-wrap: pretty; }
+.plant { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 0 6px; }
+.plant > span { font-weight: 800; color: var(--ink-2); margin-right: 4px; }
+.pill {
+  min-height: 40px; padding: 4px 12px 4px 6px; border-radius: 999px; cursor: pointer;
+  border: 2px solid var(--bark-soft); background: var(--well); color: #45290F; font-weight: 800;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.pill img { height: 30px; width: auto; }
+.pill[aria-pressed="true"] { background: var(--leaf); border-color: var(--leaf); color: var(--on-leaf); }
+
+/* 도감 */
+.dex { padding: 18px; display: grid; gap: 14px; }
+.dex-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 12px; }
+.dex-head h2 { font-size: 26px; display: flex; align-items: center; gap: 8px; }
+.grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; }
+.cell {
+  position: relative; display: grid; grid-template-rows: auto auto; gap: 6px; padding: 8px 8px 10px;
+  border: 3px solid var(--bark-soft); border-radius: 18px; background: var(--card); cursor: pointer; text-align: center;
+  box-shadow: 0 3px 0 var(--shade); min-width: 0;
+}
+.cell .pic {
+  aspect-ratio: 1 / 1; border-radius: 12px; background: var(--well);
+  display: grid; place-items: center; position: relative; overflow: hidden; padding: 8%;
+}
+.cell .pic img.art { max-height: 100%; max-width: 100%; object-fit: contain; }
+.cell.locked .pic { padding: 6% 10% 28%; }
+.cell .q { position: absolute; left: 50%; top: 39%; transform: translate(-50%, -50%); height: 30%; width: auto; }
+.cell .lock { position: absolute; left: 50%; bottom: 4%; transform: translateX(-50%); height: 21%; width: auto; }
+.cell .name { font-weight: 800; font-size: 16px; line-height: 1.25; color: var(--ink); overflow-wrap: anywhere; }
+.cell .price { font-family: var(--font-display); font-size: 18px; color: var(--ink); display: inline-flex; align-items: center; justify-content: center; gap: 4px; }
+.cell .tag {
+  position: absolute; top: -10px; left: 50%; transform: translateX(-50%); white-space: nowrap;
+  background: var(--leaf); color: var(--on-leaf); border-radius: 999px; padding: 1px 10px; font-size: 13px; font-weight: 800;
+}
+.cell.can { border-color: var(--gold-ring); box-shadow: 0 0 0 3px var(--gold-ring), 0 3px 0 var(--shade); }
+.cell.can .tag { background: var(--gold-ring); color: #3A2306; }
+.cell.locked .name { color: var(--ink-2); }
+.cell.selected { border-color: var(--leaf); box-shadow: 0 0 0 3px var(--leaf), 0 3px 0 var(--shade); }
+.cell:active { transform: translateY(2px); }
+
+/* 숲 맵 */
+.maps { padding: 18px; display: grid; gap: 14px; }
+.map-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.map {
+  border: 3px solid var(--bark-soft); border-radius: 18px; background: var(--card); padding: 8px; display: grid; gap: 8px;
+  text-align: left; cursor: pointer; min-width: 0; box-shadow: 0 3px 0 var(--shade);
+}
+.map .thumb {
+  aspect-ratio: 1672 / 941; border-radius: 12px; background: var(--well) center / cover no-repeat; position: relative;
+  display: grid; place-items: center; text-align: center; padding: 4px; max-width: 100%; min-width: 0; overflow: hidden;
+}
+.map .thumb.pending { border: 2px dashed var(--locked); background-image: none; color: #45290F; font-weight: 800; font-size: 13px; line-height: 1.3; }
+.map .thumb .lock { height: 28px; width: auto; display: block; margin: 0 auto 2px; }
+.map h3 { font-size: 19px; }
+.map p { margin: 0; color: var(--ink-2); font-size: 14px; font-weight: 700; }
+.map .state { display: inline-block; border-radius: 999px; padding: 1px 10px; font-size: 13px; font-weight: 800; background: var(--well); color: #45290F; justify-self: start; }
+.map.current { border-color: var(--leaf); box-shadow: 0 0 0 3px var(--leaf), 0 3px 0 var(--shade); }
+.map.current .state { background: var(--leaf); color: var(--on-leaf); }
+.map[aria-disabled="true"] { cursor: default; }
+
+.notes { color: var(--ink-2); font-size: 14px; padding: 0 6px; display: grid; gap: 4px; }
+.notes p { margin: 0; }
+
+.toast {
+  position: fixed; left: 50%; transform: translateX(-50%);
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  background: var(--toast-bg); color: var(--toast-ink); border-radius: 999px; padding: 10px 20px; font-weight: 800;
+  max-width: calc(100% - 32px); text-align: center; box-shadow: 0 6px 16px rgba(0,0,0,.25); z-index: 20;
+}
+
+@media (max-width: 860px) {
+  .map-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 680px) {
+  .stars { grid-template-columns: minmax(0, 1fr); }
+  .actions { justify-content: flex-start; }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 360px) {
+  .btn { padding: 8px 14px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sprite.new { animation: pop .5s ease-out both; }
+  @keyframes pop { from { transform: translate(-50%, -100%) translateY(12%) scale(.6); opacity: .2; } to { transform: translate(-50%, -100%); opacity: 1; } }
+  /* 놓을 수 없는 칸에 놓으면 제자리로 미끄러져 돌아간다(움직임 줄이기 설정이면 바로 돌아간다) */
+  .sprite.snap { transition: left .2s ease-out, top .2s ease-out; }
+}
+</style>
+</head>
+<body>
+
+<main class="wrap">
+  <header class="top">
+    <div class="brand">
+      <img class="app-icon" src="assets/ggf_app_icon.webp" width="48" height="48" alt="">
+      <div>
+        <h1 id="forestTitle">하늘이의 숲</h1>
+        <p>같이가숲 · 별 포인트로 나무와 동물을 열어요</p>
+      </div>
+    </div>
+    <span class="chip" id="presetChip">미리보기 · 예시 가족 6주째</span>
+  </header>
+
+  <section class="card stars" aria-label="별 포인트">
+    <div class="figures">
+      <div class="fig">
+        <small>내 별 포인트(보유)</small>
+        <span class="big num"><img class="star-ico" src="assets/ggf_pic_star_badge.webp" alt=""><span id="hold">0</span></span>
+      </div>
+      <div class="fig">
+        <small>지금까지 모은 별(누적)</small>
+        <span class="mid num"><span id="total">0</span>★</span>
+      </div>
+      <div class="progress" aria-live="polite">
+        <span>다음 나무까지</span>
+        <span class="bar" aria-hidden="true"><i id="nextBar" style="width:0%"></i></span>
+        <span class="num" id="nextLeft">100★</span>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="btn primary" id="earn" type="button"><img class="star-ico" src="assets/ggf_pic_star_badge.webp" alt="">+100★ 달리기 흉내</button>
+      <button class="btn" id="presetExample" type="button">예시 가족</button>
+      <button class="btn" id="presetStart" type="button">처음 상태</button>
+    </div>
+    <p class="rule"><b>부드럽게 달린 1km = 1★</b> · 한 달 1,000km면 약 1,000★ · 1~2주마다 나무나 동물을 하나씩 열 수 있어요. 나무는 부드럽게 달린 약 100km마다 1그루씩 자라요(내연기관 기준).</p>
+  </section>
+
+  <section class="card forest-card" aria-labelledby="forestHead">
+    <div class="forest-head">
+      <h2 id="forestHead">지금 숲 · <span id="mapName">기본 섬</span></h2>
+      <div class="forest-tools">
+        <p class="num" id="forestCount">나무 0그루 · 동물 0마리</p>
+        <button class="btn zoom" id="zoomToggle" type="button" aria-controls="stage">전체 보기</button>
+      </div>
+    </div>
+    <div class="stage pannable" id="stage" role="img" tabindex="0" aria-label="섬 위의 숲"><div class="world" id="world"></div></div>
+    <div class="under">
+      <p class="sprouts" id="sprouts"><span class="pips" id="pips" aria-hidden="true"></span><span id="sproutText">새싹 10개가 모이면 나무 한 그루</span></p>
+      <p class="full" id="forestFull" hidden></p>
+      <p class="hint" id="stageHint">나무·동물을 끌어서 다른 풀밭으로 옮길 수 있어요.</p>
+    </div>
+    <div class="plant" id="plant" role="group" aria-label="다음에 심을 나무"></div>
+  </section>
+
+  <section class="card dex" aria-labelledby="treeHead">
+    <div class="dex-head">
+      <h2 id="treeHead">나무 도감</h2>
+      <span class="chip num" id="treeOpen">0 / 10 열림</span>
+    </div>
+    <div class="grid" id="treeGrid"></div>
+  </section>
+
+  <section class="card dex" aria-labelledby="animalHead">
+    <div class="dex-head">
+      <h2 id="animalHead">동물 도감</h2>
+      <span class="chip num" id="animalOpen">0 / 10 열림</span>
+    </div>
+    <div class="grid" id="animalGrid"></div>
+  </section>
+
+  <section class="card maps" aria-labelledby="mapHead">
+    <div class="dex-head">
+      <h2 id="mapHead">숲 맵</h2>
+      <span class="chip">누적 ★로 열려요(별을 써도 줄지 않아요)</span>
+    </div>
+    <div class="map-grid" id="mapGrid"></div>
+  </section>
+
+  <footer class="notes">
+    <p>이 페이지는 폰 연동(결정 #20)과 별 포인트·해금·숲 맵(결정 #31)·숲 그리드(결정 #32)의 미리보기입니다. 숫자는 예시이고, 데모의 ★는 실제로 쌓이지 않습니다.</p>
+    <p>숲 자리: 맵마다 보이지 않는 가로 30칸 그리드가 있고, 칸은 평지(풀밭)에만 있어요. 나무는 세로 2칸, 동물은 1~2칸(사슴은 세로 2칸, 여우·너구리·수달은 가로 2칸)을 차지하고 한 칸에는 하나만 서요. 새 나무는 가운데부터 정해진 순서로 빈칸에 서고, 빈칸이 없으면 그림에는 더 심지 않아요(나무 수는 계속 세요). 나무·동물은 끌어서 옮기고, 옮긴 자리는 맵마다 저장돼요. 칸 지도·심는 순서는 앱(core:ui ForestGrid.kt)과 같아요.</p>
+    <p>크게 보기는 맵 그림을 원래 크기(늘리지 않음)로 보여 주고 빈 땅을 끌어 둘러봐요. 전체 보기는 맵 전체를 창에 맞춰요. 새싹(별 10★마다 1개, 10개 = 나무 1그루)이 모이는 동안 다음 나무가 설 자리에서 작은 나무가 자라요(이 미리보기는 고른 나무 그림을 작게 그려요).</p>
+    <p>해금은 가족 공용, 숲은 아이별입니다. 상태(옮긴 자리 포함)는 이 브라우저에만 저장됩니다.</p>
+    <p>그림: GPT 일러스트에서 오린 앱 그림(design/illustrations/derived/catalog.json), GPT가 그린 숲 맵 R9~R11(케이블카 바닷가·분수 공원·강가 들판)과 저녁 맵 R16(다크 모드), 앱 아이콘 R14, 별 배지 R15.</p>
+  </footer>
+</main>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script>
+/* 도감 목록: design/illustrations/derived/catalog.json을 build_app_assets.py --dex가 아래에 그대로 넣는다(서버 없이 열리게). */
+const CATALOG = /*CATALOG-START*/{"trees":[{"id":"T01","name":"참나무","webp":"ggf_pic_tree_4","locked_webp":"ggf_pic_locked_tree_t01","width":383,"height":418,"price":0,"ok":true},{"id":"T02","name":"벚나무","webp":"ggf_pic_tree_t02","locked_webp":"ggf_pic_locked_tree_t02","width":169,"height":178,"price":0,"ok":true},{"id":"T03","name":"사과나무","webp":"ggf_pic_tree_t03","locked_webp":"ggf_pic_locked_tree_t03","width":158,"height":173,"price":200,"ok":true},{"id":"T04","name":"단풍나무","webp":"ggf_pic_tree_t04","locked_webp":"ggf_pic_locked_tree_t04","width":166,"height":178,"price":300,"ok":true},{"id":"T05","name":"소나무","webp":"ggf_pic_tree_t05","locked_webp":"ggf_pic_locked_tree_t05","width":151,"height":185,"price":500,"ok":true},{"id":"T06","name":"은행나무","webp":"ggf_pic_tree_t06","locked_webp":"ggf_pic_locked_tree_t06","width":158,"height":179,"price":700,"ok":true},{"id":"T07","name":"귤나무","webp":"ggf_pic_tree_t07","locked_webp":"ggf_pic_locked_tree_t07","width":148,"height":149,"price":1000,"ok":true},{"id":"T08","name":"자작나무","webp":"ggf_pic_tree_t08","locked_webp":"ggf_pic_locked_tree_t08","width":149,"height":178,"price":1300,"ok":true},{"id":"T09","name":"동백나무","webp":"ggf_pic_tree_t09","locked_webp":"ggf_pic_locked_tree_t09","width":142,"height":145,"price":1700,"ok":true},{"id":"T10","name":"대나무","webp":"ggf_pic_tree_t10","locked_webp":"ggf_pic_locked_tree_t10","width":132,"height":148,"price":2200,"ok":true}],"animals":[{"id":"A01","name":"다람쥐","webp":"ggf_pic_animal_squirrel","locked_webp":"ggf_pic_locked_squirrel","width":179,"height":152,"price":0,"ok":true},{"id":"A02","name":"토끼","webp":"ggf_pic_animal_rabbit","locked_webp":"ggf_pic_locked_rabbit","width":127,"height":157,"price":0,"ok":true},{"id":"A03","name":"파랑새","webp":"ggf_pic_animal_bird","locked_webp":"ggf_pic_locked_bird","width":139,"height":123,"price":200,"ok":true},{"id":"A04","name":"사슴","webp":"ggf_pic_animal_a04","locked_webp":"ggf_pic_locked_animal_a04","width":191,"height":220,"price":400,"ok":true},{"id":"A05","name":"여우","webp":"ggf_pic_animal_a05","locked_webp":"ggf_pic_locked_animal_a05","width":205,"height":167,"price":600,"ok":true},{"id":"A06","name":"너구리","webp":"ggf_pic_animal_a06","locked_webp":"ggf_pic_locked_animal_a06","width":199,"height":197,"price":800,"ok":true},{"id":"A07","name":"고슴도치","webp":"ggf_pic_animal_a07","locked_webp":"ggf_pic_locked_animal_a07","width":186,"height":164,"price":1000,"ok":true},{"id":"A08","name":"부엉이","webp":"ggf_pic_animal_a08","locked_webp":"ggf_pic_locked_animal_a08","width":135,"height":153,"price":1300,"ok":true},{"id":"A09","name":"오리","webp":"ggf_pic_animal_a09","locked_webp":"ggf_pic_locked_animal_a09","width":153,"height":164,"price":1600,"ok":true},{"id":"A10","name":"수달","webp":"ggf_pic_animal_a10","locked_webp":"ggf_pic_locked_animal_a10","width":178,"height":172,"price":2000,"ok":true}]}/*CATALOG-END*/;
+</script>
+<script>
+/*
+  숲 그리드(결정 #32): 앱 core:ui ForestGrid.kt(ForestGrid·ForestGrids·ForestPlacement·ForestArrangement)를 그대로 옮겼다.
+  칸 지도(flat)·동물 처음 자리(homes)·심는 순서·자리 계산이 앱과 **똑같아야** 한다. 계산은 앱처럼 배정밀도(IEEE 754)로,
+  같은 식·같은 순서(행 바깥, 열 안쪽)·같은 비교(<, 같으면 먼저 본 것)로 한다. 앱 값을 바꾸면 여기도 같이 바꾼다.
+  화면(DOM)을 쓰지 않는 순수 계산이라 window.GGF_GRID로 꺼내 앱 결과와 대조한다:
+    GGF_GRID.treeOrder('M1')                       → [[열, 행], …] 나무 심는 순서
+    GGF_GRID.arrange('M1', 25, ['A01', 'A04'], saved) → { trees: [[열, 행] | null, …], animals: { A01: [열, 행], … }, nursery: [열, 행] | null }
+      saved: null 또는 { trees: { "0": [열, 행], … }, animals: { A01: [열, 행], … } } (앱 SavedPlacement와 같은 뜻)
+*/
+(() => {
+  /** 가로 칸 수(결정 #32-①) */
+  const COLS = 30;
+  /** 다 자란 나무 그림의 키(칸). 차지하는 칸은 세로 2칸이고 그림은 조금 커서 이웃과 살짝 겹친다 */
+  const TREE_HEIGHT_CELLS = 2.1;
+  /** 나무·동물 그림의 발이 칸 아래 끝보다 이만큼(칸 높이 비율) 위에 닿는다 */
+  const FOOT_LIFT = 0.12;
+  /** 나무 그림의 가로/세로 최대. 더 넓은 그림은 이 폭에 맞춰 줄여 그린다 */
+  const MAX_TREE_ASPECT = 1.2;
+  /* 심는 순서 비용(앱 ForestGrid.companion과 같은 값) */
+  const DISTANCE_SCALE = 15.0, ROW_WEIGHT = 1.2, CROWD = 0.35, CROWD_REACH_COLS = 2.5, CROWD_REACH_ROWS = 3.5;
+  const INT_MAX = 2147483647; /* 앱 Int.MAX_VALUE */
+
+  /* 동물 코드 순서 = 앱 Animal enum 순서(도감 순): A01 다람쥐, A02 토끼, A03 파랑새, A04 사슴, A05 여우,
+     A06 너구리, A07 고슴도치, A08 부엉이, A09 오리, A10 수달 */
+  const ANIMALS = ['A01', 'A02', 'A03', 'A04', 'A05', 'A06', 'A07', 'A08', 'A09', 'A10'];
+
+  /* 차지하는 칸. 기준 칸(anchor)은 아래 왼쪽 칸. Tall = 기준 칸 + 그 위 칸, Wide = 기준 칸 + 그 오른쪽 칸 */
+  const Footprint = { One: { name: 'One', width: 1, height: 1 }, Tall: { name: 'Tall', width: 1, height: 2 }, Wide: { name: 'Wide', width: 2, height: 1 } };
+  const cells = (fp, a) => {
+    const out = [];
+    for (let dy = 0; dy < fp.height; dy++) for (let dx = 0; dx < fp.width; dx++) out.push([a[0] + dx, a[1] - dy]);
+    return out;
+  };
+  /* 동물이 차지하는 칸(#32-③): 사슴은 세로 2칸, 여우·너구리·수달은 가로 2칸, 나머지 1칸 */
+  const animalFootprint = code => code === 'A04' ? Footprint.Tall : (code === 'A05' || code === 'A06' || code === 'A10') ? Footprint.Wide : Footprint.One;
+  /* 동물 그림의 키(칸 높이 단위). 다 자란 나무는 TREE_HEIGHT_CELLS칸 */
+  const ANIMAL_HEIGHT_CELLS = { A01: 0.95, A02: 1.05, A03: 0.75, A04: 1.75, A05: 1.15, A06: 1.2, A07: 0.8, A08: 1.0, A09: 0.9, A10: 1.3 };
+
+  /* 숲 맵 4개의 칸 지도: 앱 ForestGrids를 글자 그대로 옮겼다(한 줄이 한 행, `#` 평지 칸, `.` 칸 아님).
+     맵은 GPT R17 큰 맵(2880×1920, 30×20칸, 칸 96px). 저녁 그림(R18)이 오면 같은 칸 지도를 쓴다.
+     homes: 동물이 처음 서는 기준 칸 [열, 행] */
+  const GRIDS = {
+    /* M1 기본 섬(30×20칸, 위쪽은 R19 높은 고원). 위 고원·절벽·폭포·연못, 둘레 모래사장·바다, 아래 부두는 칸이 아니다. 땅 동물은 앞 풀밭, 파랑새·오리·수달은 폭포 아래 연못가, 부엉이는 뒤 왼쪽 */
+    M1: {
+      code: 'M1', pictureWidth: 2880, pictureHeight: 1920,
+      flat: [
+        "..............................",
+        "..............................",
+        "...###.....................#..",
+        "...####....................#..",
+        "..#########....####.....####..",
+        "..###########################.",
+        "..###########################.",
+        "..###########################.",
+        "..###########################.",
+        "..###########################.",
+        "..###########################.",
+        "..###########################.",
+        ".############################.",
+        ".############################.",
+        "..###########################.",
+        "..##########################..",
+        "...########################...",
+        ".....###########.#####..##....",
+        "..............................",
+        "..............................",
+      ],
+      homes: { A01: [11, 16], A02: [18, 16], A03: [18, 4], A04: [6, 15], A05: [8, 17], A06: [19, 17], A07: [24, 16], A08: [4, 3], A09: [24, 4], A10: [21, 5] },
+    },
+    /* M2 케이블카 바닷가(30×20칸). 위 개울·꽃 둑과 케이블카, 오른쪽 바닷가 산책로·난간은 칸이 아니다. 파랑새·오리·수달은 산책로 가까이 */
+    M2: {
+      code: 'M2', pictureWidth: 2880, pictureHeight: 1920,
+      flat: [
+        "..............................",
+        "..............................",
+        ".....#######################..",
+        ".############################.",
+        ".############################.",
+        ".############################.",
+        ".############################.",
+        ".###########################..",
+        ".###########################..",
+        ".###########################..",
+        ".###########################..",
+        ".###########################..",
+        ".###########################..",
+        ".###########################..",
+        ".###########################..",
+        ".############################.",
+        ".############################.",
+        ".############################.",
+        ".############################.",
+        ".############################.",
+      ],
+      homes: { A01: [11, 18], A02: [18, 18], A03: [27, 4], A04: [5, 17], A05: [8, 19], A06: [20, 19], A07: [24, 18], A08: [3, 4], A09: [26, 12], A10: [26, 15] },
+    },
+    /* M3 분수 공원(30×20칸). 둘레 산책길·의자·꽃밭, 오른쪽 위 분수는 칸이 아니다. 파랑새·오리는 분수 가까이, 부엉이는 왼쪽 위 의자 가까이 */
+    M3: {
+      code: 'M3', pictureWidth: 2880, pictureHeight: 1920,
+      flat: [
+        "..............................",
+        ".....####################.....",
+        "....######################....",
+        "..#########################...",
+        ".##########################...",
+        ".###########################..",
+        ".###########################..",
+        "..##########################..",
+        "..##########################..",
+        "..###########################.",
+        "..###########################.",
+        "..##########################..",
+        ".###########################..",
+        ".############################.",
+        ".############################.",
+        ".############################.",
+        ".###########################..",
+        "..##########################..",
+        "...#####################......",
+        "..............................",
+      ],
+      homes: { A01: [11, 17], A02: [18, 17], A03: [24, 2], A04: [4, 16], A05: [8, 18], A06: [19, 18], A07: [24, 17], A08: [2, 4], A09: [25, 3], A10: [26, 9] },
+    },
+    /* M4 강가 들판(30×20칸). 위 냇가·꽃 둑, 오른쪽 강·돌다리·갈대는 칸이 아니다. 파랑새는 돌다리 가까이, 오리·수달은 강가 */
+    M4: {
+      code: 'M4', pictureWidth: 2880, pictureHeight: 1920,
+      flat: [
+        "..............................",
+        ".....#####################....",
+        ".###########################..",
+        ".###########################..",
+        ".###########################..",
+        ".###########################..",
+        ".###########################..",
+        ".###########################..",
+        ".###########################..",
+        ".##########################...",
+        ".###########################..",
+        ".###########################..",
+        ".###########################..",
+        ".############################.",
+        ".############################.",
+        ".############################.",
+        ".###########################..",
+        ".###########################..",
+        ".##########################...",
+        ".##########################...",
+      ],
+      homes: { A01: [11, 18], A02: [18, 18], A03: [26, 2], A04: [4, 17], A05: [8, 19], A06: [20, 19], A07: [24, 18], A08: [2, 2], A09: [26, 4], A10: [25, 12] },
+    },
+    /* M5 놀이동산(GPT R45 v2, 30×20칸). 가운데 광장·잔디. 관람차·회전목마·천막·매점·둘레 건물과 화단·울타리는 칸이 아니다 */
+    M5: {
+      code: 'M5', pictureWidth: 2880, pictureHeight: 1920,
+      flat: [
+        '..............................',
+        '..............................',
+        '..............................',
+        '..............................',
+        '...................####.......',
+        '........###################...',
+        '...########################...',
+        '...########################...',
+        '...########################...',
+        '...########################...',
+        '...#########################..',
+        '....####################......',
+        '.....###################......',
+        '.....###################......',
+        '.....##################.......',
+        '......#################.......',
+        '......###################.....',
+        '....######################....',
+        '........#####....#####........',
+        '..............................',
+      ],
+      homes: { A01: [12, 16], A02: [17, 16], A03: [18, 6], A04: [8, 14], A05: [9, 17], A06: [19, 17], A07: [22, 15], A08: [6, 6], A09: [23, 6], A10: [21, 8] },
+    },
+    /* M6 농장(GPT R45 v2, 30×20칸). 가운데 풀밭. 헛간·사일로·풍차·온실·닭장·집·밭·울타리는 칸이 아니다 */
+    M6: {
+      code: 'M6', pictureWidth: 2880, pictureHeight: 1920,
+      flat: [
+        '..............................',
+        '...............###............',
+        '...............###............',
+        '..............####............',
+        '...........##############.....',
+        '...#######################....',
+        '...##########################.',
+        '...##########################.',
+        '...##########################.',
+        '...##########################.',
+        '.###########################..',
+        '..#######################.....',
+        '.....###################......',
+        '.....###################......',
+        '.....###################......',
+        '......##################......',
+        '......######################..',
+        '...#######...############.....',
+        '..............###.............',
+        '..............................',
+      ],
+      homes: { A01: [11, 15], A02: [17, 15], A03: [17, 3], A04: [6, 14], A05: [8, 16], A06: [19, 16], A07: [23, 15], A08: [4, 5], A09: [23, 4], A10: [21, 6] },
+    },
+    /* M7 캠핑 호수(GPT R45 v2, 30×20칸). 가운데 풀밭. 위 호수·부두·오두막·텐트, 둘레 숲은 칸이 아니다 */
+    M7: {
+      code: 'M7', pictureWidth: 2880, pictureHeight: 1920,
+      flat: [
+        '..............................',
+        '..............................',
+        '..............................',
+        '..............................',
+        '........##########............',
+        '..##########################..',
+        '..##########################..',
+        '..#########################...',
+        '.###########################..',
+        '.###########################..',
+        '.#########################....',
+        '..########################....',
+        '....#####################.....',
+        '......###################.....',
+        '.......#################......',
+        '........##############........',
+        '...........###...####.........',
+        '..............................',
+        '..............................',
+        '..............................',
+      ],
+      homes: { A01: [11, 14], A02: [17, 14], A03: [17, 5], A04: [6, 13], A05: [8, 15], A06: [18, 15], A07: [22, 14], A08: [4, 5], A09: [22, 6], A10: [20, 8] },
+    },
+    /* M8 하늘 섬(GPT R45 v2, 30×20칸). 가운데 민트 구름 바닥. 둘레 구름·떠 있는 섬·무지개·폭포는 칸이 아니다 */
+    M8: {
+      code: 'M8', pictureWidth: 2880, pictureHeight: 1920,
+      flat: [
+        '..............................',
+        '..............................',
+        '..............................',
+        '..............................',
+        '.......##################.....',
+        '.....#####################....',
+        '...#######################....',
+        '...########################...',
+        '...########################...',
+        '...#######################....',
+        '..########################....',
+        '...#######################....',
+        '...######################.....',
+        '...######################.....',
+        '...######################.....',
+        '....#####################.....',
+        '.......#################......',
+        '.......######....###..........',
+        '..............................',
+        '..............................',
+      ],
+      homes: { A01: [11, 15], A02: [16, 15], A03: [17, 6], A04: [7, 14], A05: [8, 16], A06: [18, 16], A07: [21, 14], A08: [5, 6], A09: [22, 6], A10: [20, 8] },
+    },
+    /* M9 공룡 정글(GPT R45 v2, 30×20칸). 가운데 붉은 흙 마당. 화산·화석 바위·연못·둘레 정글은 칸이 아니다 */
+    M9: {
+      code: 'M9', pictureWidth: 2880, pictureHeight: 1920,
+      flat: [
+        '..............................',
+        '..............................',
+        '............######............',
+        '............############......',
+        '..........################....',
+        '...########################...',
+        '..##########################..',
+        '..##########################..',
+        '..#########################...',
+        '..#########################...',
+        '..#########################...',
+        '....######################....',
+        '.......################.......',
+        '.......################.......',
+        '........##############........',
+        '.........##########...........',
+        '.............####.............',
+        '.............####.............',
+        '..............................',
+        '..............................',
+      ],
+      homes: { A01: [11, 15], A02: [17, 15], A03: [17, 4], A04: [7, 13], A05: [9, 15], A06: [18, 14], A07: [22, 13], A08: [5, 5], A09: [22, 4], A10: [21, 6] },
+    },
+    /* M10 한옥 마을(GPT R45 v2, 30×20칸). 가운데 흙 마당. 한옥·정자·연못·장독·담·꽃은 칸이 아니다 */
+    M10: {
+      code: 'M10', pictureWidth: 2880, pictureHeight: 1920,
+      flat: [
+        '..............................',
+        '..............................',
+        '...............##.............',
+        '.............#####............',
+        '..........##########..........',
+        '....#####################.....',
+        '...#########################..',
+        '..##########################..',
+        '..##########################..',
+        '..##########################..',
+        '..##########################..',
+        '..##########################..',
+        '....######################....',
+        '.....##################.......',
+        '...........#######............',
+        '..............#...............',
+        '..............................',
+        '..............................',
+        '..............................',
+        '..............................',
+      ],
+      homes: { A01: [11, 13], A02: [17, 13], A03: [17, 4], A04: [7, 12], A05: [9, 13], A06: [18, 13], A07: [22, 12], A08: [5, 5], A09: [22, 5], A10: [21, 6] },
+    },
+    /* M11 학교 운동장(GPT R45 v2, 30×20칸). 가운데 흙 운동장. 학교 건물·놀이 기구·모래 놀이터·정자·화단·벤치는 칸이 아니다 */
+    M11: {
+      code: 'M11', pictureWidth: 2880, pictureHeight: 1920,
+      flat: [
+        '..............................',
+        '..............................',
+        '..............................',
+        '..............................',
+        '..............................',
+        '...........###############....',
+        '.....######################...',
+        '.##########################...',
+        '.##########################...',
+        '.############################.',
+        '.##########################...',
+        '...######################.....',
+        '...######################.....',
+        '...######################.....',
+        '...#######################....',
+        '...#####################......',
+        '.....###################......',
+        '..........######..##..........',
+        '..............................',
+        '..............................',
+      ],
+      homes: { A01: [11, 15], A02: [17, 15], A03: [18, 6], A04: [6, 14], A05: [8, 16], A06: [19, 16], A07: [23, 15], A08: [4, 7], A09: [23, 7], A10: [21, 9] },
+    },
+    /* M12 도심(GPT R45 v2, 30×20칸). 가운데 광장·잔디. 둘레 건물·화단·가로등, 아래 상가는 칸이 아니다 */
+    M12: {
+      code: 'M12', pictureWidth: 2880, pictureHeight: 1920,
+      flat: [
+        '..............................',
+        '..............................',
+        '..............................',
+        '..............................',
+        '..............................',
+        '....#######################...',
+        '...########################...',
+        '...########################...',
+        '..#########################...',
+        '..#########################...',
+        '..#########################...',
+        '..#########################...',
+        '..########################....',
+        '...#######################....',
+        '...#######################....',
+        '...#######################....',
+        '....#...####...###...#####....',
+        '..............................',
+        '..............................',
+        '..............................',
+      ],
+      homes: { A01: [11, 14], A02: [16, 14], A03: [17, 6], A04: [7, 13], A05: [8, 15], A06: [18, 15], A07: [21, 14], A08: [5, 6], A09: [22, 7], A10: [20, 8] },
+    },
+    /* M13 항구(GPT R45 v2, 30×20칸). 가운데 모래·풀밭 마당. 바다·물길·등대·부두·창고·배·바위는 칸이 아니다 */
+    M13: {
+      code: 'M13', pictureWidth: 2880, pictureHeight: 1920,
+      flat: [
+        '..............................',
+        '..............................',
+        '..............................',
+        '.............#####............',
+        '............######............',
+        '.....######################...',
+        '...#########################..',
+        '..##########################..',
+        '.############################.',
+        '..##########################..',
+        '...#########################..',
+        '...#########################..',
+        '....#####################.....',
+        '.....####################.....',
+        '................##............',
+        '................#.............',
+        '................#.............',
+        '..............................',
+        '..............................',
+        '..............................',
+      ],
+      homes: { A01: [11, 13], A02: [17, 14], A03: [18, 5], A04: [6, 13], A05: [8, 13], A06: [19, 13], A07: [23, 13], A08: [5, 5], A09: [23, 5], A10: [21, 7] },
+    },
+    /* M14 오아시스(GPT R45 v2, 30×20칸). 가운데 풀 섞인 모래 바닥. 연못·야자수·선인장·붉은 바위·둘레 모래 언덕은 칸이 아니다 */
+    M14: {
+      code: 'M14', pictureWidth: 2880, pictureHeight: 1920,
+      flat: [
+        '..............................',
+        '..............................',
+        '..............................',
+        '..............................',
+        '.........#################....',
+        '.....######################...',
+        '..##########################..',
+        '.###########################..',
+        '.############################.',
+        '.############################.',
+        '.############################.',
+        '..##########################..',
+        '..#########################...',
+        '....#######################...',
+        '....#######################...',
+        '.....#####################....',
+        '......##################......',
+        '........####.......####.......',
+        '..............................',
+        '..............................',
+      ],
+      homes: { A01: [11, 15], A02: [17, 15], A03: [18, 6], A04: [6, 14], A05: [8, 16], A06: [19, 16], A07: [23, 14], A08: [4, 6], A09: [23, 6], A10: [21, 8] },
+    },
+  };
+
+  const key = c => `${c[0]},${c[1]}`;
+  const same = (a, b) => a[0] === b[0] && a[1] === b[1];
+
+  /* 맵 하나의 그리드(앱 class ForestGrid) */
+  function compile(def) {
+    const rows = def.flat.length, cols = COLS;
+    if (!def.flat.every(l => l.length === COLS)) throw new Error(`${def.code}: 한 줄은 ${COLS}칸`);
+    if (rows !== Math.round(def.pictureHeight * COLS / def.pictureWidth)) throw new Error(`${def.code}: 세로 칸 수가 그림 비율과 다름`);
+    if (!ANIMALS.every(a => def.homes[a])) throw new Error(`${def.code}: 모든 동물에 처음 자리가 있어야 함`);
+    const mask = [];
+    for (let i = 0; i < rows * cols; i++) mask.push(def.flat[Math.floor(i / cols)][i % cols] === '#');
+    const g = {
+      code: def.code, pictureWidth: def.pictureWidth, pictureHeight: def.pictureHeight, cols, rows, mask, homes: def.homes,
+      isFlat: c => c[0] >= 0 && c[0] < cols && c[1] >= 0 && c[1] < rows && mask[c[1] * cols + c[0]],
+      fits: (fp, a) => cells(fp, a).every(g.isFlat),
+      /* 칸 왼쪽 끝·위 끝, 칸 한 개의 가로·세로(그림 비율 0..1) */
+      left: col => col / cols, top: row => row / rows, cellWidth: 1 / cols, cellHeight: 1 / rows,
+      /* 그림 비율 좌표(0..1) → 칸. 밖이면 null */
+      cellAt: (fx, fy) => (fx < 0 || fy < 0 || fx >= 1 || fy >= 1) ? null : [Math.floor(fx * cols), Math.floor(fy * rows)],
+    };
+    /* 나무가 설 수 있는 모든 기준 칸(세로 2칸이 모두 평지) */
+    const anchors = [];
+    for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) if (g.fits(Footprint.Tall, [c, r])) anchors.push([c, r]);
+    g.treeAnchors = anchors;
+    /* 평지 칸의 가운데(칸 단위). 심는 순서의 기준이고, 크게 보기에서 처음 보여 줄 곳 */
+    let sx = 0.0, sy = 0.0, n = 0;
+    for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) if (mask[r * cols + c]) { sx += c + 0.5; sy += r + 0.5; n++; }
+    g.centerCol = n > 0 ? sx / n : cols / 2.0;
+    g.centerRow = n > 0 ? sy / n : rows / 2.0;
+    let order = null;
+    Object.defineProperty(g, 'treeOrder', { get: () => order || (order = plantingOrder(g)) });
+    return g;
+  }
+
+  /*
+    나무를 심는 기본 순서(앱 ForestGrid.plantingOrder). 한 그루씩, 남은 자리 중 비용이 가장 작은 자리(같으면 먼저 본 자리 = 위, 왼쪽).
+    비용 = 평지 가운데에서의 거리 ÷ 15 + 이미 고른 자리와 가까운 정도(CROWD). 처음 나무들은 가운데 둘레에 한두 칸씩 떨어져 선다.
+  */
+  function plantingOrder(g) {
+    const anchors = g.treeAnchors, cx = g.centerCol, cy = g.centerRow;
+    const cost = anchors.map(a => {
+      const dx = a[0] + 0.5 - cx;
+      const dy = (a[1] - cy) * ROW_WEIGHT;
+      return Math.sqrt(dx * dx + dy * dy) / DISTANCE_SCALE;
+    });
+    const taken = anchors.map(() => false);
+    const out = [];
+    for (let k = 0; k < anchors.length; k++) {
+      let best = -1;
+      for (let i = 0; i < anchors.length; i++) {
+        if (taken[i]) continue;
+        if (best < 0 || cost[i] < cost[best]) best = i;
+      }
+      taken[best] = true;
+      const b = anchors[best];
+      out.push(b);
+      for (let i = 0; i < anchors.length; i++) {
+        if (taken[i]) continue;
+        const fx = 1.0 - Math.abs(anchors[i][0] - b[0]) / CROWD_REACH_COLS;
+        const fy = 1.0 - Math.abs(anchors[i][1] - b[1]) / CROWD_REACH_ROWS;
+        if (fx > 0.0 && fy > 0.0) cost[i] += CROWD * fx * fy;
+      }
+    }
+    return out;
+  }
+
+  const COMPILED = Object.fromEntries(Object.values(GRIDS).map(d => [d.code, compile(d)]));
+  /* 맵 코드 → 그리드(모르는 코드는 기본 섬, 앱 ForestGrids.of) */
+  const gridOf = code => COMPILED[code] || COMPILED.M1;
+
+  /* 숲에 선 것 하나: 나무(심은 순서 번호) 또는 동물. key로 같은지 본다(앱 ForestItem의 equals) */
+  const treeItem = index => ({ kind: 'tree', index, key: `tree:${index}`, footprint: Footprint.Tall });
+  const animalItem = code => ({ kind: 'animal', code, key: `animal:${code}`, footprint: animalFootprint(code) });
+  /* 자라는 자리의 작은 나무(앱 ForestItem.Nursery). 새싹이 있어 보일 때만 옮긴다. 옮기면 다음 나무가 그 칸에 선다(2026-11-05 팀원) */
+  const nurseryItem = { kind: 'nursery', key: 'nursery', footprint: Footprint.Tall };
+
+  /* 저장된 자리(앱 SavedPlacement). 안: { trees: Map(번호 → [열, 행]), animals: Map(코드 → [열, 행]) }.
+     JSON: { trees: { "0": [열, 행] }, animals: { A01: [열, 행] } }. 정수 두 개가 아닌 값은 버린다 */
+  const isCell = v => Array.isArray(v) && v.length === 2 && Number.isInteger(v[0]) && Number.isInteger(v[1]);
+  function savedFromJson(j) {
+    const s = { trees: new Map(), animals: new Map(), nursery: null };
+    if (!j || typeof j !== 'object') return s;
+    if (isCell(j.nursery)) s.nursery = [j.nursery[0], j.nursery[1]];
+    if (j.trees && typeof j.trees === 'object') for (const [k, v] of Object.entries(j.trees)) {
+      const i = Number(k);
+      if (Number.isInteger(i) && i >= 0 && isCell(v)) s.trees.set(i, [v[0], v[1]]);
+    }
+    if (j.animals && typeof j.animals === 'object') for (const [k, v] of Object.entries(j.animals)) {
+      if (ANIMALS.includes(k) && isCell(v)) s.animals.set(k, [v[0], v[1]]);
+    }
+    return s;
+  }
+  function savedToJson(s) {
+    const trees = {}, animals = {};
+    [...s.trees.keys()].sort((a, b) => a - b).forEach(i => { trees[i] = [...s.trees.get(i)]; });
+    ANIMALS.forEach(a => { if (s.animals.has(a)) animals[a] = [...s.animals.get(a)]; });
+    return s.nursery ? { trees, animals, nursery: [...s.nursery] } : { trees, animals };
+  }
+  const mapEquals = (a, b) => a.size === b.size && [...a].every(([k, v]) => b.has(k) && same(v, b.get(k)));
+  const sameCell = (a, b) => (a && b) ? same(a, b) : !a && !b;
+  const savedEquals = (a, b) => mapEquals(a.trees, b.trees) && mapEquals(a.animals, b.animals) && sameCell(a.nursery, b.nursery);
+
+  /* 지금 숲의 자리(앱 ForestArrangement) */
+  function arrangement(grid, trees, animals, nursery) {
+    const occupancy = new Map(); /* 칸 → 그 칸을 차지한 것의 key */
+    trees.forEach((a, i) => { if (a) for (const c of cells(Footprint.Tall, a)) occupancy.set(key(c), `tree:${i}`); });
+    for (const [code, a] of animals) for (const c of cells(animalFootprint(code), a)) occupancy.set(key(c), `animal:${code}`);
+    const arr = {
+      grid, trees, animals, nursery, occupancy,
+      /** 자리가 없어 못 그리는 나무 수 */
+      hiddenTrees: trees.filter(a => a === null).length,
+      itemAt: c => {
+        const k = occupancy.get(key(c));
+        if (!k) return null;
+        const [kind, v] = k.split(':');
+        return kind === 'tree' ? treeItem(Number(v)) : animalItem(v);
+      },
+      anchorOf: item => item.kind === 'tree' ? (trees[item.index] || null) : item.kind === 'nursery' ? (nursery || null) : (animals.get(item.code) || null),
+      /* item을 anchor로 옮길 수 있나: 모든 칸이 평지이고, 다른 것(자기 자신 빼고)이나 자라는 자리(growingShown일 때)와 겹치지 않는다 */
+      canMove(item, anchor, growingShown) {
+        if (arr.anchorOf(item) === null) return false;
+        if (item.kind === 'nursery' && !growingShown) return false;
+        if (!grid.fits(item.footprint, anchor)) return false;
+        const reserved = new Set(growingShown && nursery && item.kind !== 'nursery' ? cells(Footprint.Tall, nursery).map(key) : []);
+        return cells(item.footprint, anchor).every(c => {
+          const other = occupancy.get(key(c));
+          return (other === undefined || other === item.key) && !reserved.has(key(c));
+        });
+      },
+      /* 지금 자리를 모두 저장할 값(아이가 하나를 옮기면 나머지도 그 자리에 고정된다) */
+      toSaved() {
+        const s = { trees: new Map(), animals: new Map(), nursery: nursery ? [nursery[0], nursery[1]] : null };
+        trees.forEach((a, i) => { if (a) s.trees.set(i, a); });
+        for (const [code, a] of animals) s.animals.set(code, a);
+        return s;
+      },
+      /* item을 anchor로 옮긴 저장 값. 옮길 수 없으면 null */
+      moved(item, anchor, growingShown) {
+        if (!arr.canMove(item, anchor, growingShown)) return null;
+        const s = arr.toSaved();
+        if (item.kind === 'tree') s.trees.set(item.index, anchor);
+        else if (item.kind === 'nursery') s.nursery = [anchor[0], anchor[1]];
+        else s.animals.set(item.code, anchor);
+        return s;
+      },
+      /* 저장 값에 아직 없는 자리가 있나(처음 보인 나무·동물). 있으면 화면이 toSaved로 고정한다 */
+      differsFrom: saved => !savedEquals(arr.toSaved(), saved),
+      /* 그리는 순서: 아래 칸이 위인 것(뒤)부터, 같은 줄이면 왼쪽부터, 같은 칸이면 나무(자라는 자리) 다음 동물. item null = 자라는 자리 */
+      drawOrder(withNursery) {
+        const out = [];
+        trees.forEach((a, i) => { if (a) out.push({ item: treeItem(i), anchor: a }); });
+        for (const [code, a] of animals) out.push({ item: animalItem(code), anchor: a });
+        if (withNursery && nursery) out.push({ item: null, anchor: nursery });
+        const rank = e => (e.item && e.item.kind === 'animal') ? 1 : 0;
+        return out.sort((p, q) => (p.anchor[1] - q.anchor[1]) || (p.anchor[0] - q.anchor[0]) || (rank(p) - rank(q)));
+      },
+    };
+    return arr;
+  }
+
+  /* home에서 가장 가까운 빈 기준 칸(칸 거리의 제곱, 같으면 위, 왼쪽). 없으면 null(앱 ForestPlacement.nearestFree) */
+  function nearestFree(grid, fp, home, free) {
+    if (free(fp, home)) return home;
+    let best = null, bestD = INT_MAX;
+    for (let r = 0; r < grid.rows; r++) for (let c = 0; c < grid.cols; c++) {
+      const dc = c - home[0], dr = r - home[1];
+      const d = dc * dc + dr * dr;
+      if (d < bestD && free(fp, [c, r])) { best = [c, r]; bestD = d; }
+    }
+    return best;
+  }
+
+  /*
+    자리 계산(앱 ForestPlacement.arrange, 결정 #32-⑤). 순서:
+    1. 저장된 동물, 저장된 나무(번호 순): 평지이고 비어 있을 때만
+    2. 저장 안 된 동물(도감 순): 처음 자리, 막히면 가장 가까운 빈칸
+    3. 저장 안 된 나무(번호 순): treeOrder에서 첫 빈자리. 없으면 null(숲이 가득 참)
+    4. 자라는 자리: treeOrder에서 첫 빈자리
+  */
+  function place(grid, trees, animalSet, saved) {
+    const n = Math.max(0, Math.trunc(Number(trees)) || 0);
+    const s = saved || { trees: new Map(), animals: new Map() };
+    const used = new Set();
+    const free = (fp, a) => grid.fits(fp, a) && cells(fp, a).every(c => !used.has(key(c)));
+    const take = (fp, a) => { for (const c of cells(fp, a)) used.add(key(c)); };
+    const treeAt = new Array(n).fill(null);
+    const animalAt = new Map();
+    const ordered = ANIMALS.filter(a => animalSet.has(a));
+    for (const a of ordered) {
+      const sp = s.animals.get(a);
+      if (!sp) continue;
+      if (free(animalFootprint(a), sp)) { take(animalFootprint(a), sp); animalAt.set(a, sp); }
+    }
+    for (let i = 0; i < n; i++) {
+      const sp = s.trees.get(i);
+      if (!sp) continue;
+      if (free(Footprint.Tall, sp)) { take(Footprint.Tall, sp); treeAt[i] = sp; }
+    }
+    /* 저장된 자라는 자리는 먼저 잡아 둔다: 다른 나무를 옮겨 생긴 빈칸으로 자라는 나무가 옮겨 가지 않게(앱과 같음) */
+    const keptNursery = (s.nursery && free(Footprint.Tall, s.nursery)) ? s.nursery : null;
+    if (keptNursery) take(Footprint.Tall, keptNursery);
+    let nurseryUsed = false;
+    for (const a of ordered) {
+      if (animalAt.has(a)) continue;
+      const spot = nearestFree(grid, animalFootprint(a), grid.homes[a], free);
+      if (!spot) continue;
+      take(animalFootprint(a), spot);
+      animalAt.set(a, spot);
+    }
+    let cursor = 0;
+    const order = grid.treeOrder;
+    for (let i = 0; i < n; i++) {
+      if (treeAt[i] !== null) continue;
+      if (keptNursery && !nurseryUsed) { treeAt[i] = keptNursery; nurseryUsed = true; continue; } /* 다 자란 나무는 자라던 자리에 */
+      while (cursor < order.length && !free(Footprint.Tall, order[cursor])) cursor++;
+      if (cursor >= order.length) break;
+      treeAt[i] = order[cursor];
+      take(Footprint.Tall, order[cursor]);
+    }
+    const nursery = (keptNursery && !nurseryUsed) ? keptNursery : (order.find(a => free(Footprint.Tall, a)) || null);
+    /* 동물은 도감 순으로 담는다(저장 순서와 무관하게 늘 같은 순서) */
+    const animalsSorted = new Map();
+    for (const a of ordered) if (animalAt.has(a)) animalsSorted.set(a, animalAt.get(a));
+    return arrangement(grid, treeAt, animalsSorted, nursery);
+  }
+
+  /* 칸 안의 그림 자리(그림 비율): 발 가운데 x, 발 y(앱 ForestPlacement.footX·footY) */
+  const footX = (grid, fp, anchor) => grid.left(anchor[0]) + fp.width * grid.cellWidth / 2;
+  const footY = (grid, anchor) => grid.top(anchor[1] + 1) - FOOT_LIFT * grid.cellHeight;
+
+  const copy = c => (c ? [c[0], c[1]] : null);
+  const root = typeof window !== 'undefined' ? window : globalThis;
+  root.GGF_GRID = {
+    COLS, TREE_HEIGHT_CELLS, FOOT_LIFT, MAX_TREE_ASPECT, ANIMALS, ANIMAL_HEIGHT_CELLS, Footprint, GRIDS,
+    cells, animalFootprint, treeItem, animalItem, nurseryItem, gridOf, place, footX, footY, savedFromJson, savedToJson,
+    /** 나무 심는 순서 [[열, 행], …] */
+    treeOrder: code => gridOf(code).treeOrder.map(copy),
+    /** 칸 지도(대조용, 앱 maskRows) */
+    maskRows: code => { const g = gridOf(code); return Array.from({ length: g.rows }, (_, r) => g.mask.slice(r * g.cols, (r + 1) * g.cols).map(b => (b ? '#' : '.')).join('')); },
+    /** 자리 계산 결과(대조용). saved는 JSON 모양({ trees: { "0": [열, 행] }, animals: { A01: [열, 행] } }) 또는 null */
+    arrange(code, trees, animalCodes, saved) {
+      const a = place(gridOf(code), trees, new Set(animalCodes || []), savedFromJson(saved));
+      const animals = {};
+      for (const [k, v] of a.animals) animals[k] = copy(v);
+      return { trees: a.trees.map(copy), animals, nursery: copy(a.nursery) };
+    },
+  };
+})();
+</script>
+<script>
+(() => {
+  const A = n => `assets/${n}.webp`;
+  /* 다크 모드면 저녁 맵(앱 ForestMapArt.pictureFor와 같음: M1 R8, M2~M4 R16. 낮 그림과 크기·구도가 같아 자리 좌표를 그대로 쓴다) */
+  const darkQuery = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+  const isDark = () => {
+    const t = document.documentElement.dataset.theme;
+    return t ? t === 'dark' : !!(darkQuery && darkQuery.matches);
+  };
+  const mapImg = m => (isDark() && m.night) ? m.night : m.img;
+  const fmt = n => n.toLocaleString('ko-KR');
+  /* 받침에 맞는 조사: josa('사슴', '을', '를') → '사슴을' */
+  const josa = (w, withB, noB) => {
+    const c = w.charCodeAt(w.length - 1) - 0xAC00;
+    const b = c >= 0 && c <= 11171 ? c % 28 : 0;
+    if (withB === '으로') return w + (b === 0 || b === 8 ? '로' : '으로');
+    return w + (b ? withB : noB);
+  };
+
+  /* 숲 맵(결정 #31-③). 네 맵 모두 GPT R17 큰 맵(2880×1920, 조각 4장을 이어 붙임). 다크 모드는 저녁 그림
+     (GPT R18 v3를 같은 방법으로 이음, 낮과 같은 지형).
+     나무·동물이 서는 칸은 위 GGF_GRID의 맵별 그리드(결정 #32). 그림 크기는 그리드의 pictureWidth·pictureHeight */
+  const MAPS = [
+    { id: 'M1', name: '기본 섬', need: 0, img: 'ggf_pic_forest_island', night: 'ggf_pic_forest_island_evening', ready: true, req: '' },
+    { id: 'M2', name: '케이블카 바닷가', need: 2000, img: 'ggf_pic_map_coast', night: 'ggf_pic_map_coast_evening', ready: true, req: 'R9' },
+    { id: 'M3', name: '분수 공원', need: 5000, img: 'ggf_pic_map_park', night: 'ggf_pic_map_park_evening', ready: true, req: 'R10' },
+    { id: 'M4', name: '강가 들판', need: 10000, img: 'ggf_pic_map_river', night: 'ggf_pic_map_river_evening', ready: true, req: 'R11' },
+    /* 테마 맵(GPT R45 v2, 2026-11-07): 누적 ★가 아니라 보유 ★ 1,500개로 산다(앱 ForestMap.price, MapRules) */
+    { id: 'M5', name: '놀이동산', need: 0, price: 1500, img: 'ggf_pic_map_amusement', night: 'ggf_pic_map_amusement_evening', ready: true, req: 'R45' },
+    { id: 'M6', name: '농장', need: 0, price: 1500, img: 'ggf_pic_map_farm', night: 'ggf_pic_map_farm_evening', ready: true, req: 'R45' },
+    { id: 'M7', name: '캠핑 호수', need: 0, price: 1500, img: 'ggf_pic_map_camping', night: 'ggf_pic_map_camping_evening', ready: true, req: 'R45' },
+    { id: 'M8', name: '하늘 섬', need: 0, price: 1500, img: 'ggf_pic_map_sky', night: 'ggf_pic_map_sky_evening', ready: true, req: 'R45' },
+    { id: 'M9', name: '공룡 정글', need: 0, price: 1500, img: 'ggf_pic_map_dino', night: 'ggf_pic_map_dino_evening', ready: true, req: 'R45' },
+    { id: 'M10', name: '한옥 마을', need: 0, price: 1500, img: 'ggf_pic_map_hanok', night: 'ggf_pic_map_hanok_evening', ready: true, req: 'R45' },
+    { id: 'M11', name: '학교 운동장', need: 0, price: 1500, img: 'ggf_pic_map_school', night: 'ggf_pic_map_school_evening', ready: true, req: 'R45' },
+    { id: 'M12', name: '도심', need: 0, price: 1500, img: 'ggf_pic_map_city', night: 'ggf_pic_map_city_evening', ready: true, req: 'R45' },
+    { id: 'M13', name: '항구', need: 0, price: 1500, img: 'ggf_pic_map_harbor', night: 'ggf_pic_map_harbor_evening', ready: true, req: 'R45' },
+    { id: 'M14', name: '오아시스', need: 0, price: 1500, img: 'ggf_pic_map_oasis', night: 'ggf_pic_map_oasis_evening', ready: true, req: 'R45' },
+  ];
+  const GG = window.GGF_GRID;
+  /* 크게 보기 무대 크기: 예전 무대와 같은 기본 섬 비율(1672:941) */
+  const STAGE_ASPECT = 2880 / 1920; /* 큰 맵(R17)과 같은 3:2 */
+  /* 나무 수 상한(저장 값이 끝없이 커지지 않게). 그림에 심을 수 있는 수(맵마다 78~160그루)보다 크다 */
+  const MAX_TREES = 999;
+  /* 새싹 10개 = 나무 1그루(결정 #5). 이 미리보기는 ★ 100개가 나무 1그루라 10★마다 새싹 1개로 센다 */
+  const SPROUTS_PER_TREE = 10;
+  /* 다음 나무가 자라는 단계(앱 growthStageFor·GrowthStage.heightRatio): 새싹 1~3개 0.30, 4~6개 0.48, 7~9개 0.72 */
+  const growthRatio = s => s <= 0 ? 0 : s < 4 ? 0.30 : s < 7 ? 0.48 : s < SPROUTS_PER_TREE ? 0.72 : 1;
+  /* 자라는 단계 그림(앱 GrowthStage와 같은 GPT ILL-021 4단계 중 앞 셋): 새싹 · 어린 묘목 · 작은 나무 */
+  const GROWTH_PICS = [{ webp: 'ggf_pic_tree_1', width: 150, height: 100 }, { webp: 'ggf_pic_tree_2', width: 220, height: 187 }, { webp: 'ggf_pic_tree_3', width: 245, height: 280 }];
+  const growthPic = s => GROWTH_PICS[s < 4 ? 0 : s < 7 ? 1 : 2];
+
+  const trees = CATALOG.trees, animals = CATALOG.animals;
+  const byId = Object.fromEntries([...trees, ...animals].map(d => [d.id, d]));
+  /* ILL-038 나무는 같은 도감에서 크기가 맞춰져 있다(약 178px = 다 자란 나무). T01은 다른 그림이라 1.0 */
+
+  const PRESETS = {
+    start: () => ({ preset: 'start', hold: 0, total: 0, opened: ['T01', 'T02', 'A01', 'A02'], planted: [], pick: 'T01', map: 'M1' }),
+    example: () => ({
+      preset: 'example', hold: 250, total: 1450,
+      opened: ['T01', 'T02', 'T03', 'T04', 'T05', 'A01', 'A02', 'A03'],
+      planted: ['T01', 'T02', 'T01', 'T02', 'T01', 'T03', 'T02', 'T01', 'T04', 'T03', 'T02', 'T04', 'T05', 'T01'],
+      pick: 'T05', map: 'M1',
+    }),
+  };
+
+  const KEY = 'ggf-forest-preview-v1';
+  let S = load() || PRESETS.example();
+  let fresh = new Set();
+
+  function load() {
+    try { const v = JSON.parse(localStorage.getItem(KEY) || 'null'); return v && Array.isArray(v.opened) ? v : null; } catch (e) { return null; }
+  }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) { /* 저장 안 되면 메모리에만 */ } }
+
+  let toastTimer;
+  function toast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg; t.hidden = false;
+    clearTimeout(toastTimer); toastTimer = setTimeout(() => { t.hidden = true; }, 2600);
+  }
+
+  const isOpen = id => S.opened.includes(id);
+  const treeCount = () => Math.floor(S.total / 100);
+  /* 나무 수만큼 종류를 적어 둔다. 예전 미리보기는 60그루까지만 적었으므로 모자란 만큼 지금 고른 나무로 채운다
+     (뒤에 붙여서 이미 선 나무의 번호·저장된 자리가 바뀌지 않게) */
+  function topUp() {
+    if (!Array.isArray(S.planted)) S.planted = [];
+    const want = Math.min(treeCount(), MAX_TREES);
+    while (S.planted.length < want) S.planted.push(S.pick);
+  }
+
+  function earn() {
+    const before = S.planted.length;
+    S.hold += 100; S.total += 100;
+    topUp();
+    fresh = new Set(Array.from({ length: S.planted.length - before }, (_, i) => before + i));
+    const grown = S.planted.length - before;
+    toast(grown > 0 ? `+100★ · ${josa(byId[S.pick].name, '이', '가')} 한 그루 자랐어요` : '+100★ 부드럽게 달렸어요');
+    commit();
+  }
+
+  function unlock(d) {
+    if (isOpen(d.id)) return;
+    if (S.hold < d.price) { toast(`${fmt(d.price - S.hold)}★ 더 모으면 ${josa(d.name, '을', '를')} 열 수 있어요`); return; }
+    S.hold -= d.price; S.opened.push(d.id);
+    if (d.id[0] === 'T') S.pick = d.id;
+    toast(`${josa(d.name, '을', '를')} 열었어요! −${fmt(d.price)}★`);
+    commit();
+  }
+
+  function commit() { save(); render(); fresh = new Set(); }
+
+  /* ---------- 그리기 ---------- */
+  function render() {
+    document.getElementById('hold').textContent = fmt(S.hold);
+    document.getElementById('total').textContent = fmt(S.total);
+    const into = S.total % 100;
+    document.getElementById('nextBar').style.width = `${into}%`;
+    document.getElementById('nextLeft').textContent = `${100 - into}★`;
+    document.getElementById('presetChip').textContent = S.preset === 'start' ? '미리보기 · 처음 시작한 가족' : '미리보기 · 예시 가족 6주째';
+    renderForest(); renderPlant(); renderDex('treeGrid', 'treeOpen', trees); renderDex('animalGrid', 'animalOpen', animals); renderMaps();
+  }
+
+  /* ---------- 숲 그리드: 자리 저장(결정 #32-⑤) ----------
+     옮긴 자리는 맵마다 S.spots[맵 코드] = { trees: { "0": [열, 행], … }, animals: { A01: [열, 행], … }, nursery: [열, 행] }.
+     예전 저장 값(spots 없음)은 "저장된 자리 없음"으로 읽는다(기본 자리로 그린 뒤 바로 고정). */
+  const spotsOf = code => GG.savedFromJson(S.spots && typeof S.spots === 'object' ? S.spots[code] : null);
+  function putSpots(code, saved) {
+    if (!S.spots || typeof S.spots !== 'object' || Array.isArray(S.spots)) S.spots = {};
+    S.spots[code] = GG.savedToJson(saved);
+  }
+  /* 다음 나무까지 모은 새싹(0~9) */
+  const sproutCount = () => Math.floor((S.total % 100) / (100 / SPROUTS_PER_TREE));
+  /* 맵마다 그림에 심을 수 있는 나무 수(동물 없이, 앱 ForestPlacement.capacity). "더 넓은 맵" 안내에 쓴다 */
+  const capacityCache = {};
+  const capacityOf = code => capacityCache[code] ?? (capacityCache[code] =
+    GG.place(GG.gridOf(code), GG.gridOf(code).treeAnchors.length, new Set(), null).trees.filter(Boolean).length);
+  const pct = v => `${v * 100}%`;
+  const itemName = item => item.kind === 'nursery' ? '자라는 나무' : (item.kind === 'tree' ? byId[S.planted[item.index]] : byId[item.code])?.name || '';
+
+  /* 보기: 'big' 크게 보기(그림 1px = 화면 1px, 끌어서 둘러보기) | 'fit' 전체 보기(맵 전체를 창 폭에 맞춤, 늘리지 않음) */
+  const view = { mode: 'fit', /* 큰 맵(R17)은 숲 전체가 보이는 전체 보기로 시작(앱과 같음), 버튼으로 크게 */  map: null, vw: 0, vh: 0, ww: 0, wh: 0, x: 0, y: 0 };
+  /* 지금 그린 숲: 맵, 그리드, 자리 계산, 자라는 자리를 보이는지, 그린 것 목록(뒤 → 앞) */
+  let scene = null;
+  const stage = document.getElementById('stage'), world = document.getElementById('world');
+
+  function renderForest() {
+    endDrag(null, true);
+    const map = MAPS.find(m => m.id === S.map) || MAPS[0];
+    const grid = GG.gridOf(map.id);
+    world.style.backgroundImage = `url("${A(mapImg(map))}")`;
+    document.getElementById('mapName').textContent = map.name;
+    const shownAnimals = animals.filter(a => isOpen(a.id) && a.webp);
+    const saved = spotsOf(map.id);
+    const arr = GG.place(grid, S.planted.length, new Set(shownAnimals.map(a => a.id)), saved);
+    /* 처음 보인 나무·동물은 보인 자리에 바로 고정한다(새 나무·동물이 와도 이미 선 것이 밀리지 않게, 앱과 같음) */
+    if (arr.differsFrom(saved)) { putSpots(map.id, arr.toSaved()); save(); }
+    const sprouts = sproutCount();
+    /* 자라는 자리(다음 나무가 설 빈칸)는 새싹이 1개 이상일 때만 그린다. 그때는 그 칸에 다른 것을 놓을 수 없다.
+       그림은 앱과 같은 공통 성장 그림(새싹 → 어린 묘목 → 작은 나무) */
+    const growing = sprouts > 0 && !!arr.nursery;
+    const toW = grid.pictureHeight / grid.pictureWidth; /* 맵 높이 비율 → 맵 가로 비율 */
+    const entries = arr.drawOrder(growing).map(e => {
+      let d, fp, hCells, aspect;
+      if (!e.item) { d = growthPic(sprouts); fp = GG.Footprint.Tall; hCells = GG.TREE_HEIGHT_CELLS * growthRatio(sprouts); }
+      else if (e.item.kind === 'tree') { d = byId[S.planted[e.item.index]]; fp = GG.Footprint.Tall; hCells = GG.TREE_HEIGHT_CELLS; }
+      else { d = byId[e.item.code]; fp = e.item.footprint; hCells = GG.ANIMAL_HEIGHT_CELLS[e.item.code]; }
+      if (!d || !d.webp) return null;
+      /* 나무는 가로/세로가 MAX_TREE_ASPECT보다 넓으면 그 폭에 맞춰 줄인다(object-fit: contain, 발은 아래 가운데) */
+      aspect = d.width / d.height;
+      if (!e.item || e.item.kind === 'tree') aspect = Math.min(aspect, GG.MAX_TREE_ASPECT);
+      const x = GG.footX(grid, fp, e.anchor), y = GG.footY(grid, e.anchor), h = hCells * grid.cellHeight;
+      const img = new Image();
+      img.src = A(d.webp); img.alt = ''; img.decoding = 'async'; img.draggable = false;
+      img.className = 'sprite' + (e.item && e.item.kind === 'tree' && fresh.has(e.item.index) ? ' new' : '');
+      img.style.left = pct(x); img.style.top = pct(y);
+      img.style.height = pct(h); img.style.width = pct(h * toW * aspect);
+      return { item: e.item || GG.nurseryItem, anchor: e.anchor, fp, x, y, h, w: h * toW * aspect, el: img };
+    }).filter(Boolean);
+    const marks = document.createElement('div'); marks.className = 'marks';
+    world.replaceChildren(...entries.map(e => e.el), marks);
+    scene = { map, grid, arr, growing, entries, marks };
+
+    stage.querySelector('.empty')?.remove();
+    if (!S.planted.length) {
+      const e = document.createElement('div'); e.className = 'empty';
+      e.textContent = `아직 빈 ${map.id === 'M1' ? '섬' : '숲'}이에요. 부드럽게 100km를 달리면 첫 나무가 자라요.`;
+      stage.append(e);
+    }
+    layoutStage(false);
+    /* 방금 자란 나무가 창 밖이면 보이게 맵을 조금 옮긴다 */
+    if (fresh.size) {
+      const last = Math.max(...fresh), en = entries.find(x => x.item && x.item.kind === 'tree' && x.item.index === last);
+      if (en) reveal(en);
+    }
+
+    const n = treeCount();
+    const hidden = arr.hiddenTrees + Math.max(0, n - S.planted.length);
+    document.getElementById('forestCount').textContent = `나무 ${fmt(n)}그루 · 동물 ${shownAnimals.length}마리`;
+    const full = document.getElementById('forestFull');
+    full.hidden = hidden === 0;
+    if (hidden) {
+      const wider = MAPS.some(m => m.id !== map.id && capacityOf(m.id) > capacityOf(map.id));
+      full.textContent = `숲이 가득 차서 ${fmt(hidden)}그루는 아직 못 심었어요.${wider ? ' 더 넓은 맵에서는 더 심을 수 있어요' : ''}`;
+    }
+    /* 새싹 점 10칸은 맵 위가 아니라 맵 아래 글줄에(결정 #32-⑦) */
+    const pips = document.getElementById('pips');
+    pips.replaceChildren(...Array.from({ length: SPROUTS_PER_TREE }, (_, i) => {
+      const dot = document.createElement('i'); if (i < sprouts) dot.className = 'on'; return dot;
+    }));
+    document.getElementById('sproutText').textContent = sprouts
+      ? `다음 나무까지 새싹 ${SPROUTS_PER_TREE - sprouts}개` : `새싹 ${SPROUTS_PER_TREE}개가 모이면 나무 한 그루`;
+    const names = [...new Set(S.planted)].map(id => byId[id]?.name).filter(Boolean).join(', ');
+    stage.setAttribute('aria-label', `${map.name} 위의 숲: 나무 ${n}그루${names ? `(${names})` : ''}, 동물 ${shownAnimals.map(a => a.name).join(', ') || '없음'}, 모은 새싹 ${sprouts}개` +
+      (view.mode === 'big' ? '. 화살표 키로 둘러볼 수 있어요' : ''));
+  }
+
+  /* ---------- 크게 보기·전체 보기와 둘러보기 ---------- */
+  const ICON_OUT = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 20.5 20.5M7.5 10.5h6"/></svg>';
+  const ICON_IN = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 20.5 20.5M7.5 10.5h6M10.5 7.5v6"/></svg>';
+  const zoomBtn = document.getElementById('zoomToggle');
+  function updateViewTexts() {
+    zoomBtn.innerHTML = view.mode === 'big' ? `${ICON_OUT}전체 보기` : `${ICON_IN}크게 보기`;
+    document.getElementById('stageHint').textContent = view.mode === 'big'
+      ? '빈 땅을 끌면 숲을 둘러보고, 나무·동물을 끌면 다른 풀밭 칸으로 옮겨요.'
+      : '나무·동물을 끌어서 다른 풀밭 칸으로 옮겨요. 크게 보기를 누르면 그림 원래 크기로 둘러봐요.';
+  }
+
+  /* 무대(보는 창)와 맵 크기를 정한다. 크게 보기: 창은 예전 무대 크기(1672:941), 맵은 그림 원래 크기.
+     전체 보기: 맵을 창 폭에 맞추되 원래 크기보다 키우지 않고, 창 높이를 맵에 맞춘다(잘리는 곳 없음) */
+  function layoutStage(recenter) {
+    if (!scene) return;
+    const g = scene.grid, W = g.pictureWidth, H = g.pictureHeight;
+    const bw = stage.clientLeft || 0, outerW = stage.offsetWidth;
+    const vw = Math.max(1, outerW - 2 * bw);
+    const s = view.mode === 'fit' ? Math.min(1, vw / W) : 1;
+    const vh = Math.max(1, view.mode === 'fit' ? H * s : Math.min(outerW / STAGE_ASPECT - 2 * bw, H));
+    stage.style.height = `${vh + 2 * bw}px`;
+    Object.assign(view, { vw, vh, ww: W * s, wh: H * s });
+    world.style.width = `${view.ww}px`; world.style.height = `${view.wh}px`;
+    if (recenter || view.map !== g.code) {
+      view.map = g.code;
+      /* 처음에는 평지 가운데(나무가 처음 서는 곳)를 창 가운데에 */
+      panTo(vw / 2 - (g.centerCol / g.cols) * view.ww, vh / 2 - (g.centerRow / g.rows) * view.wh);
+    } else panTo(view.x, view.y);
+  }
+  const canPan = () => view.ww > view.vw + 0.5 || view.wh > view.vh + 0.5;
+  /* 맵 위치(창 왼쪽 위 기준 px). 맵이 창보다 작은 쪽은 가운데, 큰 쪽은 맵 끝이 창 안으로 들어오지 않게. 정수 px라 그림이 흐려지지 않는다 */
+  function panTo(x, y) {
+    const axis = (lim, size, v) => Math.round(size <= lim ? (lim - size) / 2 : Math.min(0, Math.max(lim - size, v)));
+    const bx = view.x, by = view.y;
+    view.x = axis(view.vw, view.ww, x); view.y = axis(view.vh, view.wh, y);
+    world.style.transform = `translate(${view.x}px, ${view.y}px)`;
+    stage.classList.toggle('pannable', canPan());
+    return view.x !== bx || view.y !== by;
+  }
+  /* 그린 것 하나가 창 안에 다 보이게(여유 24px) 맵을 가장 조금 옮긴다 */
+  function reveal(en) {
+    const m = 24, L = (en.x - en.w / 2) * view.ww, R = (en.x + en.w / 2) * view.ww, T = (en.y - en.h) * view.wh, B = en.y * view.wh;
+    let x = view.x, y = view.y;
+    if (L + x < m) x = m - L; else if (R + x > view.vw - m) x = view.vw - m - R;
+    if (T + y < m) y = m - T; else if (B + y > view.vh - m) y = view.vh - m - B;
+    panTo(x, y);
+  }
+
+  /* ---------- 끌기: 빈 땅은 둘러보기, 나무·동물은 옮기기(결정 #32-④) ---------- */
+  const DRAG_START = 6;              /* 이만큼(px) 움직여야 끌기로 본다. 그보다 작으면 누르기 */
+  const EDGE = 44, EDGE_SPEED = 14;  /* 옮기는 동안 창 가장자리 EDGE px 안에 들어가면 맵이 그쪽으로 한 장면에 최대 EDGE_SPEED px씩 움직인다 */
+  let drag = null, edgeRaf = 0, markKey = '';
+
+  /* 화면 좌표 → 맵 그림 비율 좌표(0..1)와 창 안인지 */
+  function worldPointXY(cx, cy) {
+    const r = stage.getBoundingClientRect();
+    const vx = cx - r.left - stage.clientLeft, vy = cy - r.top - stage.clientTop;
+    return { fx: (vx - view.x) / view.ww, fy: (vy - view.y) / view.wh, inside: vx >= 0 && vy >= 0 && vx < view.vw && vy < view.vh };
+  }
+  const inCells = (list, c) => list.some(x => x[0] === c[0] && x[1] === c[1]);
+  /* 누른 곳의 것: 그 칸을 차지한 것, 아니면 그 점을 덮은 그림 중 가장 앞의 것. 자라는 작은 나무도 고른다(옮길 수 있음) */
+  function hitTest(cx, cy) {
+    if (!scene) return null;
+    const p = worldPointXY(cx, cy);
+    if (!p.inside) return null;
+    const cell = scene.grid.cellAt(p.fx, p.fy);
+    if (cell) {
+      const item = scene.arr.itemAt(cell);
+      if (!item && scene.growing && inCells(GG.cells(GG.Footprint.Tall, scene.arr.nursery), cell)) {
+        const ne = scene.entries.find(x => x.item.kind === 'nursery');
+        if (ne) return { entry: ne };
+      }
+      const en = item && scene.entries.find(x => x.item && x.item.key === item.key);
+      if (en) return { entry: en };
+    }
+    for (let i = scene.entries.length - 1; i >= 0; i--) {
+      const en = scene.entries[i], r = en.el.getBoundingClientRect();
+      if (cx >= r.left && cx <= r.right && cy >= r.top && cy <= r.bottom) return { entry: en };
+    }
+    return null;
+  }
+
+  function drawMarks(cells, ok) {
+    const g = scene.grid, k = `${ok}:${cells.map(c => c.join(',')).join(';')}`;
+    if (k === markKey) return;
+    markKey = k;
+    scene.marks.replaceChildren(...cells.filter(c => c[0] >= 0 && c[0] < g.cols && c[1] >= 0 && c[1] < g.rows).map(c => {
+      const m = document.createElement('i'); m.className = ok ? 'ok' : 'no';
+      m.style.left = `calc(${pct(c[0] / g.cols)} + 2px)`; m.style.top = `calc(${pct(c[1] / g.rows)} + 2px)`;
+      m.style.width = `calc(${pct(1 / g.cols)} - 4px)`; m.style.height = `calc(${pct(1 / g.rows)} - 4px)`;
+      return m;
+    }));
+  }
+
+  /* 옮기는 동안: 그림은 손가락을 따라가고, 기준 칸 가운데가 끈 만큼 움직인 곳의 칸이 놓을 칸이다 */
+  function dragUpdate() {
+    const en = drag.entry, g = scene.grid, p = worldPointXY(drag.lx, drag.ly);
+    const dfx = p.fx - drag.w0.fx, dfy = p.fy - drag.w0.fy;
+    en.el.style.left = pct(en.x + dfx); en.el.style.top = pct(en.y + dfy);
+    const target = p.inside ? g.cellAt((en.anchor[0] + 0.5) / g.cols + dfx, (en.anchor[1] + 0.5) / g.rows + dfy) : null;
+    drag.target = target;
+    drag.ok = !!target && scene.arr.canMove(en.item, target, scene.growing);
+    drawMarks(target ? GG.cells(en.fp, target) : [], drag.ok);
+  }
+  /* 놓을 수 없는 까닭(안내 글) */
+  function whyNot(en, target) {
+    if (!target) return '맵 안의 풀밭에 놓아 주세요';
+    if (!scene.grid.fits(en.fp, target)) return '풀밭(평지) 칸에만 놓을 수 있어요';
+    if (scene.growing && en.item.kind !== 'nursery' && GG.cells(en.fp, target).some(c => inCells(GG.cells(GG.Footprint.Tall, scene.arr.nursery), c))) return '다음 나무가 자랄 자리예요';
+    return '다른 나무나 동물이 서 있어요';
+  }
+  function edgePan() {
+    if (edgeRaf || !drag || drag.mode !== 'move' || !canPan()) return;
+    const step = () => {
+      edgeRaf = 0;
+      if (!drag || drag.mode !== 'move') return;
+      const r = stage.getBoundingClientRect();
+      const x = drag.lx - r.left - stage.clientLeft, y = drag.ly - r.top - stage.clientTop;
+      const speed = d => (d < EDGE ? Math.min(1, (EDGE - d) / EDGE) * EDGE_SPEED : 0);
+      const vx = speed(x) - speed(view.vw - x), vy = speed(y) - speed(view.vh - y);
+      if ((!vx && !vy) || !panTo(view.x + vx, view.y + vy)) return;
+      dragUpdate();
+      edgeRaf = requestAnimationFrame(step);
+    };
+    edgeRaf = requestAnimationFrame(step);
+  }
+
+  stage.addEventListener('pointerdown', e => {
+    if (drag || !scene || (e.pointerType === 'mouse' && e.button !== 0)) return;
+    const hit = hitTest(e.clientX, e.clientY);
+    drag = {
+      id: e.pointerId, sx: e.clientX, sy: e.clientY, lx: e.clientX, ly: e.clientY, px: view.x, py: view.y,
+      mode: hit && hit.entry ? 'press' : 'pan', entry: hit && hit.entry, moved: false,
+      w0: worldPointXY(e.clientX, e.clientY), target: null, ok: false,
+    };
+    try { stage.setPointerCapture(e.pointerId); } catch (_) { /* 잡지 못해도 창 안에서는 동작 */ }
+    if (drag.mode === 'pan' && canPan()) stage.classList.add('grabbing');
+    e.preventDefault();
+  });
+  stage.addEventListener('pointermove', e => {
+    if (!drag) {
+      if (e.pointerType === 'mouse') { const hit = hitTest(e.clientX, e.clientY); stage.classList.toggle('over-item', !!(hit && hit.entry)); }
+      return;
+    }
+    if (e.pointerId !== drag.id) return;
+    drag.lx = e.clientX; drag.ly = e.clientY;
+    const dx = e.clientX - drag.sx, dy = e.clientY - drag.sy;
+    if (!drag.moved) {
+      if (Math.hypot(dx, dy) < DRAG_START) return;
+      drag.moved = true;
+      if (drag.mode === 'press') {
+        drag.mode = 'move';
+        drag.entry.el.classList.remove('new', 'snap');
+        drag.entry.el.classList.add('lift');
+        stage.classList.add('grabbing');
+      }
+    }
+    if (drag.mode === 'pan') panTo(drag.px + dx, drag.py + dy);
+    else { dragUpdate(); edgePan(); }
+  });
+  /* 손을 떼거나(놓기) 끌기가 끊겼을 때(cancelled: 제자리로) */
+  function endDrag(e, cancelled) {
+    if (!drag || (e && e.pointerId !== drag.id)) return;
+    const d = drag;
+    drag = null;
+    if (edgeRaf) { cancelAnimationFrame(edgeRaf); edgeRaf = 0; }
+    stage.classList.remove('grabbing');
+    try { if (stage.hasPointerCapture(d.id)) stage.releasePointerCapture(d.id); } catch (_) { /* 이미 놓음 */ }
+    if (d.mode === 'move') {
+      markKey = '';
+      scene.marks.replaceChildren();
+      const en = d.entry, same = d.target && d.target[0] === en.anchor[0] && d.target[1] === en.anchor[1];
+      en.el.classList.remove('lift');
+      if (!cancelled && d.ok && !same) {
+        const next = scene.arr.moved(en.item, d.target, scene.growing);
+        if (next) { putSpots(scene.map.id, next); save(); renderForest(); return; }
+      }
+      /* 제자리로(움직임 줄이기 설정이 아니면 미끄러져 돌아간다) */
+      en.el.classList.add('snap');
+      setTimeout(() => en.el.classList.remove('snap'), 260);
+      en.el.style.left = pct(en.x); en.el.style.top = pct(en.y);
+      if (!cancelled && !same) toast(`여기에는 놓을 수 없어요 · ${whyNot(en, d.target)}`);
+      return;
+    }
+    if (!d.moved && !cancelled) {
+      if (d.entry && d.entry.item.kind === 'nursery') toast(`다음 나무가 자라는 중이에요 · 새싹 ${SPROUTS_PER_TREE - sproutCount()}개 더 모이면 다 자라요 · 끌어서 옮길 수 있어요`);
+      else if (d.entry) toast(`${josa(itemName(d.entry.item), '은', '는')} 끌어서 다른 풀밭으로 옮길 수 있어요`);
+    }
+  }
+  stage.addEventListener('pointerup', e => endDrag(e, false));
+  stage.addEventListener('pointercancel', e => endDrag(e, true));
+  stage.addEventListener('lostpointercapture', e => endDrag(e, true));
+  stage.addEventListener('pointerleave', () => stage.classList.remove('over-item'));
+  /* 키보드: 무대에 초점이 있으면 화살표 키로 둘러본다(옮기기는 끌기로만) */
+  stage.addEventListener('keydown', e => {
+    const step = 80, k = { ArrowLeft: [step, 0], ArrowRight: [-step, 0], ArrowUp: [0, step], ArrowDown: [0, -step] }[e.key];
+    if (!k || !canPan()) return;
+    e.preventDefault();
+    panTo(view.x + k[0], view.y + k[1]);
+  });
+  zoomBtn.addEventListener('click', () => {
+    view.mode = view.mode === 'big' ? 'fit' : 'big';
+    updateViewTexts(); renderForest(); layoutStage(true);
+  });
+  /* 창 폭이 바뀌면 다시 맞춘다(관찰 콜백 안에서 크기를 바꾸지 않게 다음 장면에) */
+  let lastW = -1, layoutRaf = 0;
+  const onResize = () => {
+    if (stage.offsetWidth === lastW || layoutRaf) return;
+    layoutRaf = requestAnimationFrame(() => { layoutRaf = 0; lastW = stage.offsetWidth; layoutStage(false); });
+  };
+  if (window.ResizeObserver) new ResizeObserver(onResize).observe(stage); else window.addEventListener('resize', onResize);
+
+  function renderPlant() {
+    const box = document.getElementById('plant');
+    const label = document.createElement('span'); label.textContent = '다음에 심을 나무';
+    const pills = trees.filter(t => isOpen(t.id) && t.webp).map(t => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'pill'; b.setAttribute('aria-pressed', String(S.pick === t.id));
+      b.innerHTML = `<img src="${A(t.webp)}" alt="">${t.name}`;
+      b.addEventListener('click', () => { S.pick = t.id; commit(); toast(`다음에 심을 나무: ${t.name}`); });
+      return b;
+    });
+    box.replaceChildren(label, ...pills);
+  }
+
+  function renderDex(gridId, countId, list) {
+    const grid = document.getElementById(gridId);
+    let open = 0;
+    grid.replaceChildren(...list.map(d => {
+      const opened = isOpen(d.id);
+      if (opened) open++;
+      const can = !opened && S.hold >= d.price;
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'cell' + (opened ? '' : ' locked') + (can ? ' can' : '') + (opened && S.pick === d.id ? ' selected' : '');
+      const pic = !d.webp
+        ? `<span class="pic"><span class="name">그림 준비 중</span></span>`
+        : opened
+          ? `<span class="pic"><img class="art" src="${A(d.webp)}" alt=""></span>`
+          : `<span class="pic"><img class="art" src="${A(d.locked_webp)}" alt=""><img class="q" src="assets/ggf_lock_qmark.webp" alt=""><img class="lock" src="assets/ggf_pic_padlock.webp" alt=""></span>`;
+      const tag = opened ? (S.pick === d.id ? '<span class="tag">심는 중</span>' : '') : (can ? '<span class="tag">열 수 있어요</span>' : '');
+      const foot = opened
+        ? `<span class="name">${d.name}</span>`
+        : `<span class="price num"><img class="star-ico" src="assets/ggf_pic_star_badge.webp" alt="">${fmt(d.price)}★</span>`;
+      b.innerHTML = tag + pic + foot;
+      b.setAttribute('aria-label', opened ? `${d.name}, 열림${d.id[0] === 'T' ? (S.pick === d.id ? ', 심는 중' : ', 누르면 다음에 심을 나무로 골라요') : ''}`
+        : `잠긴 칸, ${fmt(d.price)}별${can ? ', 누르면 열어요' : `, ${fmt(d.price - S.hold)}별 더 필요`}`);
+      b.addEventListener('click', () => {
+        if (!opened) return unlock(d);
+        if (d.id[0] === 'T') { S.pick = d.id; commit(); toast(`다음에 심을 나무: ${d.name}`); }
+        else toast(`${josa(d.name, '은', '는')} 숲에 살고 있어요`);
+      });
+      return b;
+    }));
+    document.getElementById(countId).textContent = `${open} / ${list.length} 열림`;
+  }
+
+  function renderMaps() {
+    const grid = document.getElementById('mapGrid');
+    grid.replaceChildren(...MAPS.map(m => {
+      const bought = (S.maps || []).includes(m.id);
+      const reached = m.price ? bought : S.total >= m.need;
+      const usable = reached && m.ready;
+      const current = S.map === m.id;
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'map' + (current ? ' current' : '');
+      if (!usable) b.setAttribute('aria-disabled', 'true');
+      const state = current ? '지금 쓰는 맵' : usable ? '바꿀 수 있어요' : m.price ? `${fmt(m.price)}★로 열기` : !m.ready ? (reached ? `★는 충분 · 그림 기다림(${m.req})` : `잠김 · 그림 요청 ${m.req}`) : '잠김';
+      const thumb = m.ready
+        ? `<span class="thumb" style="background-image:url('${A(mapImg(m))}')"></span>`
+        : `<span class="thumb pending"><span><img class="lock" src="assets/ggf_pic_padlock.webp" alt="">그림 준비 중</span></span>`;
+      const left = Math.max(0, m.need - S.total);
+      const priceLine = m.price ? (bought ? '★로 열었어요' : `보유 ★ ${fmt(m.price)}개로 열어요`) : null;
+      b.innerHTML = `${thumb}<h3>${m.name}</h3><p class="num">${priceLine || (m.need ? `누적 ${fmt(m.need)}★` : '처음부터')}${!m.price && left ? ` · ${fmt(left)}★ 남음` : ''}</p><span class="state">${state}</span>`;
+      b.addEventListener('click', () => {
+        if (current) return;
+        if (usable) { S.map = m.id; commit(); toast(`${josa(m.name, '으로')} 바꿨어요`); return; }
+        if (m.price) {
+          if (S.hold < m.price) { toast(`${fmt(m.price - S.hold)}★ 더 모으면 ${josa(m.name, '을', '를')} 열 수 있어요`); return; }
+          if (!confirm(`${josa(m.name, '을', '를')} ★ ${fmt(m.price)}개로 열까요?`)) return;
+          S.hold -= m.price; S.maps = [...(S.maps || []), m.id]; S.map = m.id; commit(); toast(`${josa(m.name, '을', '를')} 열었어요!`); return;
+        }
+        toast(!reached ? `누적 ${fmt(m.need)}★가 되면 열려요` : `${m.name} 그림을 준비하고 있어요(GPT 요청 ${m.req})`);
+      });
+      return b;
+    }));
+  }
+
+  document.getElementById('earn').addEventListener('click', earn);
+  document.getElementById('presetStart').addEventListener('click', () => { S = PRESETS.start(); commit(); toast('처음 시작한 가족: 나무 2종·동물 2종만 열려 있어요'); });
+  document.getElementById('presetExample').addEventListener('click', () => { S = PRESETS.example(); commit(); toast('예시 가족(6주째)으로 바꿨어요'); });
+  updateViewTexts();
+  topUp();
+  render();
+  if (darkQuery && darkQuery.addEventListener) darkQuery.addEventListener('change', render);
+})();
+</script>
+</body>
+</html>

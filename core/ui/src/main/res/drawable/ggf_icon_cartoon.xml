@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 자동 생성: design/characters/tools/build-assets.mjs (직접 고치지 마세요). 아이콘 · 만화(편) -->
+<!-- path 이름 = 색 역할. Compose(core:ui GgfArt)가 이름으로 테마 색·꾸미기 색을 덮어씁니다. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:name="ggf_icon_cartoon"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <path
+        android:name="limb"
+        android:pathData="M18,13L13,5M30,13L35,5"
+        android:strokeColor="#2B2622"
+        android:strokeWidth="2.4"
+        android:strokeLineJoin="round"
+        android:strokeLineCap="round" />
+    <path
+        android:name="wall"
+        android:pathData="M4.8,18Q4.8,13 9.8,13L37.8,13.2Q42.8,13.2 42.9,18.2L43.1,33.7Q43.1,38.7 38.1,38.7L9.7,38.8Q4.7,38.8 4.7,33.8Z"
+        android:fillColor="#FFF0CC"
+        android:strokeColor="#2B2622"
+        android:strokeWidth="2.4"
+        android:strokeLineJoin="round"
+        android:strokeLineCap="round" />
+    <path
+        android:name="screen"
+        android:pathData="M10.3,20.2Q10.3,17.2 13.3,17.2L34.7,17.2Q37.7,17.2 37.8,20.2L38.2,31.5Q38.3,34.5 35.3,34.4L13.2,34.3Q10.2,34.3 10.2,31.3Z"
+        android:fillColor="#3F92D2"
+        android:strokeColor="#2B2622"
+        android:strokeWidth="1.8"
+        android:strokeLineJoin="round"
+        android:strokeLineCap="round" />
+    <path
+        android:name="shine"
+        android:pathData="M20.5,21.5L29.5,26L20.5,30.5Z"
+        android:fillColor="#FFFFFF" />
+    <path
+        android:name="limb"
+        android:pathData="M14,39L12,44M34,39L36,44"
+        android:strokeColor="#2B2622"
+        android:strokeWidth="2.4"
+        android:strokeLineJoin="round"
+        android:strokeLineCap="round" />
+</vector>

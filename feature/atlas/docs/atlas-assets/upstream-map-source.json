@@ -1,0 +1,18 @@
+{
+  "source_repository": "https://github.com/vuski/admdongkor",
+  "repository_commit": "d5d5a821c8de6cc337d47eeca604d7af76271c9b",
+  "source_path": "parquet/simplified/sido_20260401_light.parquet",
+  "source_url": "https://raw.githubusercontent.com/vuski/admdongkor/d5d5a821c8de6cc337d47eeca604d7af76271c9b/parquet/simplified/sido_20260401_light.parquet",
+  "source_sha256": "b0d7466e84300da391fd350088978577859884474a785251a6645cc5ddc7566f",
+  "data_vintage": "2026-04-01",
+  "original_features": 17,
+  "output_selectable_catalogue_regions": 17,
+  "transformations": [
+    "WGS84 to simple equirectangular display projection with cos(36°) horizontal correction",
+    "Topology-preserving 0.006-degree simplification",
+    "Pastel SVG fills and large clickable UI labels; no raster-art editing"
+  ],
+  "purpose": "Illustrative catalogue-region selector, not an authoritative current administrative map or GPS award boundary",
+  "license": "CC BY 4.0, SGIS KOGL Type 1 attribution retained",
+  "attribution": "본 데이터는 통계청 통계지리정보서비스(SGIS, https://sgis.kostat.go.kr)에서 공공누리 제1유형으로 개방한 행정동 경계를 가공한 것이며(가공: vuski/admdongkor, https://github.com/vuski/admdongkor), CC BY 4.0으로 배포됩니다. 이 시안은 2026-04-01 자료를 단순화한 도감 권역 선택용 개략도입니다."
+}

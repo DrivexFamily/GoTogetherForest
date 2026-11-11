@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 자동 생성: design/characters/tools/build-assets.mjs (직접 고치지 마세요). 깃발 이정표 (10%마다) -->
+<!-- path 이름 = 색 역할. Compose(core:ui GgfArt)가 이름으로 테마 색·꾸미기 색을 덮어씁니다. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:name="ggf_flag"
+    android:width="44dp"
+    android:height="70dp"
+    android:viewportWidth="44"
+    android:viewportHeight="70">
+    <path
+        android:name="shadow"
+        android:pathData="M11,65A9,3 0 1,0 29,65A9,3 0 1,0 11,65Z"
+        android:fillColor="#2B2622"
+        android:fillAlpha="0.18" />
+    <path
+        android:name="limb"
+        android:pathData="M20,65C20,60.5 20.3,47.2 20.3,38.2C20.3,29.2 20,15.5 20,11"
+        android:strokeColor="#2B2622"
+        android:strokeWidth="3"
+        android:strokeLineJoin="round"
+        android:strokeLineCap="round" />
+    <path
+        android:name="flagCloth"
+        android:pathData="M20.7,12.1C22.4,9.5 28,12.8 31.1,13.6C34.3,14.3 38.9,15.4 39.5,16.6C40.1,17.9 34.7,19.6 34.8,21.2C34.9,22.8 40.7,25 39.9,26.2C39,27.3 32.9,27.7 29.7,28.2C26.6,28.6 22.5,31.6 21,28.9C19.5,26.2 19,14.6 20.7,12.1Z"
+        android:fillColor="#D25A49"
+        android:strokeColor="#2B2622"
+        android:strokeWidth="2.2"
+        android:strokeLineJoin="round"
+        android:strokeLineCap="round" />
+    <path
+        android:name="lamp"
+        android:pathData="M16.8,8.5A3.2,3.2 0 1,0 23.2,8.5A3.2,3.2 0 1,0 16.8,8.5Z"
+        android:fillColor="#F0AE34"
+        android:strokeColor="#2B2622"
+        android:strokeWidth="1.8"
+        android:strokeLineJoin="round"
+        android:strokeLineCap="round" />
+</vector>

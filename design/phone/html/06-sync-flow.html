@@ -1,0 +1,101 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><title>차 · 공유 서버 · 가족 폰은 이렇게 이어져요</title><style>
+@font-face{font-family:"Asta Sans";font-weight:400;src:url("../.font-cache/AstaSans-400.ttf") format("truetype"),local("Asta Sans");}
+@font-face{font-family:"Asta Sans";font-weight:600;src:url("../.font-cache/AstaSans-600.ttf") format("truetype"),local("Asta Sans");}
+@font-face{font-family:"Asta Sans";font-weight:700;src:url("../.font-cache/AstaSans-700.ttf") format("truetype"),local("Asta Sans");}
+@font-face{font-family:"Asta Sans";font-weight:800;src:url("../.font-cache/AstaSans-800.ttf") format("truetype"),local("Asta Sans");}
+:root{--paper:#F5FAF3;--card:#FFFFFF;--ink:#1D2A22;--ink2:#4B5C51;--line:#D3E2D4;--forest:#2B774A;--on-forest:#FFFFFF;--leaf:#6BB85A;--leaf-soft:#E3F3DC;--sky:#3F92D2;--sky-text:#2A6FA8;--sky-soft:#DDEEFB;--sun:#F0AE34;--sun-soft:#FFF0CC;--berry-text:#B0402F;--berry-soft:#FBE2DD;--canvas:#E9EEEA;--bezel:#1E2421;--font:"Asta Sans","Noto Sans CJK KR",sans-serif;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--canvas);color:var(--ink);font-family:var(--font);word-break:keep-all;-webkit-font-smoothing:antialiased;}
+.sheet{padding:40px 48px 44px;display:flex;flex-direction:column;gap:28px;}
+.head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;}
+.head .eyebrow{margin:0 0 6px;font-size:20px;font-weight:700;color:var(--ink2);}
+.head h1{margin:0;font-size:44px;line-height:1.2;font-weight:800;color:var(--forest);}
+.chips{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;}
+.chip{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:8px 18px;font-size:20px;font-weight:700;background:var(--card);border:2px solid var(--line);white-space:nowrap;}
+.chip .dot{width:12px;height:12px;border-radius:50%;}
+.chip.park{background:var(--leaf-soft);border-color:var(--leaf-soft);} .chip.park .dot{background:var(--forest);}
+.chip.phone{background:var(--sky-soft);border-color:var(--sky-soft);} .chip.phone .dot{background:var(--sky-text);}
+.chip.plan{background:var(--sun-soft);border-color:var(--sun-soft);} .chip.plan .dot{background:var(--sun);}
+.body{display:flex;gap:28px;align-items:flex-start;}
+.flowrow{display:flex;gap:18px;align-items:center;}
+.arrow{font-size:40px;font-weight:800;color:var(--forest);flex:none;}
+.notes{flex:1;min-width:300px;display:flex;flex-direction:column;gap:16px;}
+.notes h2{margin:0;font-size:24px;font-weight:800;}
+.notes ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;}
+.notes li{font-size:19px;line-height:1.5;padding-left:22px;position:relative;}
+.notes li::before{content:"";position:absolute;left:4px;top:.62em;width:9px;height:9px;border-radius:50%;background:var(--forest);}
+.notes .where{font-size:17px;line-height:1.5;color:var(--ink2);border-top:2px solid var(--line);padding-top:14px;margin:0;}
+figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:12px;}
+figcaption{font-size:19px;font-weight:700;color:var(--ink2);text-align:center;max-width:420px;}
+figcaption b{color:var(--forest);}
+/* 폰 */
+.phone{border:14px solid var(--bezel);border-radius:56px;overflow:hidden;background:var(--bezel);}
+.pscreen{width:390px;height:844px;background:var(--paper);display:flex;flex-direction:column;overflow:hidden;border-radius:42px;position:relative;}
+.pstatus{height:42px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 30px 0 34px;font-size:16px;font-weight:800;}
+.pst-r{display:flex;gap:5px;align-items:center;} .pst-r i{width:5px;height:12px;border-radius:2px;background:currentColor;} .pst-r b{width:24px;height:12px;border-radius:4px;border:2px solid currentColor;margin-left:4px;}
+.warn{flex:none;margin:0 14px;padding:8px 12px;border-radius:12px;background:var(--sun-soft);font-size:15px;font-weight:800;text-align:center;}
+.ptop{flex:none;display:flex;align-items:center;justify-content:space-between;padding:12px 20px 6px;}
+.ptop h3{margin:0;font-size:24px;font-weight:800;}
+.pbody{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;gap:12px;padding:6px 18px 12px;}
+.tabs{flex:none;display:flex;border-top:1.5px solid var(--line);background:var(--card);}
+.tabs span{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 0 14px;font-size:14px;font-weight:700;color:var(--ink2);}
+.tabs span img{width:30px;height:30px;object-fit:contain;opacity:.55;}
+.tabs span.on{color:var(--forest);} .tabs span.on img{opacity:1;}
+.card{background:var(--card);border:1.5px solid var(--line);border-radius:20px;padding:14px 16px;}
+.row{display:flex;align-items:center;gap:12px;}
+.grow{flex:1;min-width:0;}
+.num{font-weight:800;color:var(--forest);line-height:1;font-variant-numeric:tabular-nums;}
+.num small{font-size:.5em;}
+.t{font-size:17px;line-height:1.45;font-weight:600;color:var(--ink2);}
+.tb{font-size:19px;line-height:1.4;font-weight:800;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 20px;border-radius:999px;font-size:19px;font-weight:800;border:2.5px solid var(--ink2);background:transparent;white-space:nowrap;}
+.btn.primary{background:var(--forest);border-color:var(--forest);color:var(--on-forest);}
+.btn.full{width:100%;}
+.btn.sm{min-height:44px;font-size:17px;padding:0 14px;}
+.pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:4px 12px;font-size:15px;font-weight:800;white-space:nowrap;background:var(--leaf-soft);}
+.pill.wait{background:var(--sun-soft);} .pill.off{background:#ECEFEC;color:var(--ink2);} .pill.sky{background:var(--sky-soft);}
+.kids{display:flex;gap:8px;} .kids span{border:2px solid var(--line);border-radius:999px;padding:6px 14px;font-size:16px;font-weight:800;background:var(--card);} .kids span.on{border-color:var(--forest);background:var(--leaf-soft);}
+.toast{position:absolute;left:18px;right:18px;bottom:96px;background:var(--ink);color:#fff;border-radius:16px;padding:12px 16px;font-size:16px;font-weight:700;line-height:1.45;}
+.bar{height:16px;border-radius:999px;background:var(--line);overflow:hidden;} .bar i{display:block;height:100%;background:var(--forest);border-radius:999px;}
+.switch{width:52px;height:30px;border-radius:999px;background:#C9D3CB;position:relative;flex:none;} .switch::after{content:"";position:absolute;left:3px;top:3px;width:24px;height:24px;border-radius:50%;background:#fff;}
+.switch.on{background:var(--forest);} .switch.on::after{left:25px;}
+/* 차 화면(같이가숲 반 화면 패널) */
+.car{border:16px solid var(--bezel);border-radius:28px;overflow:hidden;background:var(--paper);}
+.cpanel{width:600px;height:720px;padding:26px 28px;display:flex;flex-direction:column;gap:16px;position:relative;}
+.cpanel h3{margin:0;font-size:32px;font-weight:800;}
+.gear{position:absolute;right:20px;top:20px;}
+.dim{position:absolute;inset:0;background:rgba(29,42,34,.45);}
+.dialog{position:absolute;left:40px;right:40px;top:110px;background:var(--card);border-radius:28px;padding:26px;display:flex;flex-direction:column;gap:14px;}
+.check{display:flex;align-items:center;gap:12px;font-size:20px;font-weight:700;border:2px solid var(--line);border-radius:16px;padding:10px 14px;}
+.box{width:28px;height:28px;border-radius:8px;border:2.5px solid var(--ink2);flex:none;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;}
+.box.on{background:var(--forest);border-color:var(--forest);color:#fff;}
+/* 흐름 그림 */
+.lane{background:var(--card);border:2px solid var(--line);border-radius:24px;padding:20px 22px;display:flex;flex-direction:column;gap:10px;}
+.lane h4{margin:0;font-size:24px;font-weight:800;}
+.lane .t{font-size:18px;}
+</style></head>
+<body><div class="sheet" style="width:1920px"><div class="head"><div><p class="eyebrow">연동 흐름 그림 · 결정 #37 · docs/architecture.md 19장</p><h1>차 · 공유 서버 · 가족 폰은 이렇게 이어져요</h1></div><div class="chips"><span class="chip park"><span class="dot"></span>규칙은 차가 주인</span><span class="chip phone"><span class="dot"></span>서버는 내용을 못 읽음</span></div></div>
+<div class="body">
+<div style="display:flex;flex-direction:column;gap:20px"><div style="display:grid;grid-template-columns:1fr 120px 1fr 120px 1fr;gap:0;align-items:stretch;width:1820px">
+<div style="display:flex;flex-direction:column;gap:14px">
+<div class="row"><img src="assets/ggf_pic_car_start.webp" style="width:200px" alt=""><h2 style="margin:0;font-size:34px;font-weight:800">차 (Pleos)</h2></div>
+<div class="lane" style="border-color:var(--forest)"><h4>같이가숲 차 앱</h4><div class="t">★·소품·숲 칸 <b>규칙을 확정</b>하는 곳</div><div class="t">가족 열쇠를 Keystore에 보관</div><div class="t">주차 중: 연결 QR · 승인 · 동의</div></div>
+<div class="lane" style="border-color:var(--line)"><h4>보내는 것</h4><div class="t">숲 상태(바뀔 때)</div><div class="t">진행률·남은 시간(15초 또는 1%)</div><div class="t">대략 위치(켰을 때만, 5km 칸)</div></div>
+</div>
+<div style="display:flex;flex-direction:column;justify-content:center;align-items:center;gap:30px;font-size:18px;font-weight:800;color:var(--forest);text-align:center">
+<div>잠긴 상태 →<br><span style="font-size:44px">⇢</span></div><div><span style="font-size:44px">⇠</span><br>← 폰 요청</div></div>
+<div style="display:flex;flex-direction:column;gap:14px">
+<div class="row" style="height:118px"><img src="assets/ggf_pic_screen_icon_share_r39.webp" style="height:90px" alt=""><h2 style="margin:0;font-size:34px;font-weight:800">공유 서버</h2></div>
+<div class="lane" style="border-color:var(--sky)"><h4>가족마다 작은 방 하나</h4><div class="t">Cloudflare Workers + Durable Objects</div><div class="t">잠긴 숲 상태 1개 · 요청 대기열</div><div class="t">잠긴 진행 상태 1개(24시간)</div></div>
+<div class="lane" style="border-color:var(--line)"><h4>서버가 아는 것</h4><div class="t">가족 번호, 기기 키의 해시, 크기와 시각</div><div class="t"><b>별명·숲·위치는 못 읽음</b>(종단 간 암호화)</div><div class="t">주소에 토큰 없음 · HTTPS만</div></div>
+</div>
+<div style="display:flex;flex-direction:column;justify-content:center;align-items:center;gap:30px;font-size:18px;font-weight:800;color:var(--sky-text);text-align:center">
+<div>→ 숲·진행 보기<br><span style="font-size:44px">⇢</span></div><div><span style="font-size:44px">⇠</span><br>꾸미기·사기 요청 ←</div></div>
+<div style="display:flex;flex-direction:column;gap:14px">
+<div class="row" style="height:118px"><img src="assets/ggf_pic_screen_icon_home_r39.webp" style="height:90px" alt=""><h2 style="margin:0;font-size:34px;font-weight:800">가족 폰</h2></div>
+<div class="lane" style="border-color:var(--sky-text)"><h4>같이가숲 폰 앱</h4><div class="t">우리 차 진행·(허락 시) 대략 위치</div><div class="t">아이 숲 보기·꾸미기 · 상점·보관함</div><div class="t">같은 규칙으로 먼저 보여 주고 차가 확정</div></div>
+<div class="lane" style="border-color:var(--line)"><h4>여러 가족 폰</h4><div class="t">엄마·아빠·할머니 폰을 각각 연결</div><div class="t">폰마다 권한(숲 / 진행 / 위치)</div><div class="t">끊으면 바로 접속 불가</div></div>
+</div></div>
+<div style="width:1820px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px">
+<div class="lane"><h4>1. 연결</h4><div class="t">주차 중 차 화면 QR(5분·1번) → 폰이 찍음 → 차에서 보호자가 [연결]. QR 안의 가족 열쇠는 서버를 거치지 않아요.</div></div><div class="lane"><h4>2. 꾸미기</h4><div class="t">폰에서 저장 → 서버 대기열(순서 번호) → 차가 규칙대로 적용 → 새 숲 상태를 올림 → 모든 폰에 보임.</div></div><div class="lane"><h4>3. 충돌</h4><div class="t">★·소품 개수는 차가 확인(모자라면 거절). 같은 맵은 마지막 저장이 남고, 덮였으면 알려 줘요.</div></div><div class="lane"><h4>4. 멈추기</h4><div class="t">위치 끄기·도착·24시간이면 진행·위치 삭제. 폰 끊기는 즉시. '모두 끊고 지우기'는 가족 기록 전체 삭제.</div></div>
+</div></div></div></div></body></html>

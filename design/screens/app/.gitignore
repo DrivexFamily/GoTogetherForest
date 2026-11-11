@@ -1,0 +1,14 @@
+# 모든 화면은 명령으로 다시 찍는다(README.md). 저장소에는 기획서·발표에 쓰는 12장만 둔다.
+*.png
+!journey-driving-40-full.png
+!journey-driving-40-half.png
+!journey-driving-40-half-dark.png
+!journey-rest-half.png
+!journey-arrived-half.png
+!forest-island-full.png
+!forest-island-portrait.png
+!forest-tree-book-full.png
+!forest-map-page-full.png
+!forest-m2-25-trees-full.png
+!forest-m2-25-trees-full-dark.png
+!arrival-result-full.png

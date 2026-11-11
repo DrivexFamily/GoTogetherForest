@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      창 테마(앱이 그려지기 전 잠깐 보이는 바탕). 화면 색은 core:ui GgfTheme이 정하고, 여기서는 바탕색만 맞춘다.
+      라이트/다크는 시스템(차의 Day/Night)을 따른다: values-night에 어두운 바탕을 둔다.
+      색 값은 core:ui Tokens.kt의 paper(라이트 #F5FAF3, 다크 #0F1713)와 같다.
+    -->
+    <style name="Theme.Ggf" parent="@android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/ggf_window_background</item>
+        <item name="android:colorBackground">@color/ggf_window_background</item>
+    </style>
+
+    <color name="ggf_window_background">#FFF5FAF3</color>
+</resources>

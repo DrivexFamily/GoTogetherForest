@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  앱 아이콘(적응형, GPT R14): 하늘색~연두 배경 + 가족 차·나무·언덕 전경.
+  만드는 법: design/illustrations/tools/build_app_assets.py 의 r14 옵션(전경을 감싸는 원이 지름 60dp, 안전 원 66dp 안)
+-->
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@mipmap/ic_launcher_background" />
+    <foreground android:drawable="@mipmap/ic_launcher_foreground" />
+</adaptive-icon>

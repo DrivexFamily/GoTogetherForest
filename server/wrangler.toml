@@ -1,0 +1,29 @@
+# 같이가숲 공유 서버. 비밀값·계정 ID는 여기에 쓰지 않는다(블라인드 원칙, 배포는 server/README.md).
+name = "ggf-sync"
+main = "src/index.ts"
+compatibility_date = "2025-11-01"
+workers_dev = true
+
+[[durable_objects.bindings]]
+name = "FAMILY"
+class_name = "FamilyRoom"
+
+[[durable_objects.bindings]]
+name = "SHARE"
+class_name = "ShareRoom"
+
+[[durable_objects.bindings]]
+name = "DIRECTORY"
+class_name = "PairingDirectory"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["FamilyRoom", "ShareRoom"]
+
+[[migrations]]
+tag = "v2"
+new_sqlite_classes = ["PairingDirectory"]
+
+# 로그에 요청 본문·헤더를 남기지 않는다(관찰 기능은 끈 채로 둔다)
+[observability]
+enabled = false

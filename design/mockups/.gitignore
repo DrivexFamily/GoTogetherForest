@@ -1,0 +1,2 @@
+# Asta Sans 글꼴 파일은 시안 PNG를 찍을 때만 받아 쓴다(저장소에 넣지 않음)
+.font-cache/

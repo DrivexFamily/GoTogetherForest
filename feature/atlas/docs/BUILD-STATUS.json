@@ -1,0 +1,34 @@
+{
+  "baseline": "e0dcc5e2154af79b512deb402fd0bfda74e368f4",
+  "gradle": "8.10.2",
+  "JDK": 17,
+  "compileSdk": 35,
+  "actual_Android_Kotlin_compilation": "passed feature:atlas + core:ui + core:atlas",
+  "actual_JUnit_tests": 4,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "full_app_build": "not verified; original broader screenshot graph blocked at Pleos Maven HTTP403",
+  "native_19_screen_capture": "in progress; not claimed passed",
+  "models_and_AppRoot_modified": false,
+  "native_21_screen_capture": "passed actual Compose/Android Layoutlib; Paparazzi JUnit4",
+  "P1_Android_Compose_compile": "passed on separate parked-illustration-motion branch",
+  "P1_targeted_tests": 8,
+  "P1_broader_existing_core_ui_suite": {
+    "total": 100,
+    "passed": 98,
+    "failed": 2,
+    "issues": [
+      "sparse checkout catalog.json absence",
+      "legacy RoadGeometryTest expected30 vs actual45"
+    ]
+  },
+  "followup_UI_fixes": [
+    "wide country two panels with full map and regional cards",
+    "square ribbon capped by artwork height and placed behind landmark",
+    "same sentence with Heading line breaks",
+    "compact640 celebration uses wide branch600dp"
+  ],
+  "captures_are_production_Compose": true,
+  "emulator_or_real_vehicle_verified": false
+}

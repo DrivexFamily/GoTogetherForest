@@ -1,0 +1,189 @@
+<!doctype html><html lang="ko" data-theme="light"><head><meta charset="utf-8"><title>보호자 포인트 지갑과 교환</title>
+<style>@font-face{font-family:"Asta Sans";font-weight:400;src:url("../.font-cache/AstaSans-400.ttf") format("truetype"), local("Asta Sans");}
+@font-face{font-family:"Asta Sans";font-weight:600;src:url("../.font-cache/AstaSans-600.ttf") format("truetype"), local("Asta Sans");}
+@font-face{font-family:"Asta Sans";font-weight:700;src:url("../.font-cache/AstaSans-700.ttf") format("truetype"), local("Asta Sans");}
+@font-face{font-family:"Asta Sans";font-weight:800;src:url("../.font-cache/AstaSans-800.ttf") format("truetype"), local("Asta Sans");}
+:root{--paper:#F5FAF3;--card:#FFFFFF;--ink:#1D2A22;--ink2:#4B5C51;--line:#D3E2D4;--forest:#2B774A;--on-forest:#FFFFFF;--leaf:#6BB85A;--leaf-soft:#E3F3DC;--sky:#3F92D2;--sky-text:#2A6FA8;--sky-soft:#DDEEFB;--sun:#F0AE34;--sun-soft:#FFF0CC;--berry:#D25A49;--berry-text:#B0402F;--berry-soft:#FBE2DD;--demo:#7D5FD0;--on-demo:#FFFFFF;--scene-sky:#DCEFFC;--hill-back:#C3E5B4;--hill-front:#9DD08A;--road:#D8D4C8;--road-edge:#B9B4A6;--road-line:#FFFFFF;--trail:#2B774A;--flag-idle:#FFFFFF;--canvas:#E9EEEA;--canvas-ink:#1D2A22;--canvas-ink2:#4B5C51;--bezel:#1E2421;--drv:#E6EAE7;--drv-ink:#3E4A43;--map:#E9EEE6;--map-block:#DCE4DA;--map-road:#FFFFFF;--map-route:#4F86B8;--map-water:#CBE1EE;--map-park:#D2E6C9;--page-note:#FFFFFF;--font:"Asta Sans","NanumSquareRound","Noto Sans CJK KR",sans-serif;color-scheme:light;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--canvas);color:var(--canvas-ink);font-family:var(--font);word-break:keep-all;-webkit-font-smoothing:antialiased;}
+.sheet{width:1920px;padding:40px 48px 44px;display:flex;flex-direction:column;gap:28px;}
+.sheet-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;}
+.sheet-head .eyebrow{margin:0 0 6px;font-size:20px;font-weight:700;color:var(--canvas-ink2);letter-spacing:.02em;}
+.sheet-head h1{margin:0;font-size:44px;line-height:1.2;font-weight:800;color:var(--forest);text-wrap:balance;}
+.chips{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;}
+.chip{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:8px 18px;font-size:20px;font-weight:700;background:var(--card);color:var(--ink);border:2px solid var(--line);white-space:nowrap;}
+.chip.park{background:var(--leaf-soft);border-color:var(--leaf-soft);color:var(--ink);}
+.chip.drive{background:var(--sky-soft);border-color:var(--sky-soft);color:var(--ink);}
+.chip.plan{background:var(--sun-soft);border-color:var(--sun-soft);color:var(--ink);}
+.chip .dot{width:12px;height:12px;border-radius:50%;background:currentColor;}
+.chip.park .dot{background:var(--forest);} .chip.drive .dot{background:var(--sky-text);} .chip.plan .dot{background:var(--sun);}
+.sheet-body{display:flex;gap:40px;align-items:flex-start;}
+.notes{flex:1;min-width:0;display:flex;flex-direction:column;gap:18px;}
+.notes h2{margin:0;font-size:24px;font-weight:800;color:var(--canvas-ink);}
+.notes ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;}
+.notes li{font-size:19px;line-height:1.5;color:var(--canvas-ink);padding-left:22px;position:relative;}
+.notes li::before{content:"";position:absolute;left:4px;top:.62em;width:9px;height:9px;border-radius:50%;background:var(--forest);}
+.notes li b{font-weight:800;}
+.notes .where{font-size:17px;line-height:1.5;color:var(--canvas-ink2);border-top:2px solid var(--line);padding-top:14px;margin:0;}
+.mini{position:relative;overflow:hidden;border-radius:14px;border:3px solid var(--bezel);background:var(--paper);}
+.mini-in{position:absolute;left:0;top:0;width:600px;height:720px;transform-origin:0 0;}
+.mini-cap{margin:-8px 0 0;font-size:17px;line-height:1.45;color:var(--canvas-ink2);}
+/* 차 화면 */
+.carfig{margin:0;display:flex;flex-direction:column;gap:10px;}
+.car{display:flex;height:720px;border:16px solid var(--bezel);border-radius:28px;box-sizing:content-box;overflow:hidden;background:var(--bezel);}
+.drv{position:relative;background:var(--drv);color:var(--drv-ink);display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:28px 0 30px;border-right:3px solid var(--bezel);}
+.drv::after,.navi::after{content:"";position:absolute;inset:0;background:var(--paper);opacity:.55;}
+.drv-time{font-size:22px;font-weight:700;}
+.drv-gear{display:flex;gap:10px;font-size:26px;font-weight:800;}
+.drv-gear span{opacity:.45;} .drv-gear span.on{opacity:1;border-bottom:4px solid currentColor;}
+.drv-speed{display:flex;flex-direction:column;align-items:center;line-height:1;}
+.drv-speed b{font-size:96px;font-weight:800;font-variant-numeric:tabular-nums;}
+.drv-speed span{font-size:22px;font-weight:700;margin-top:8px;}
+.drv-lamps{display:flex;gap:12px;} .drv-lamps i{width:30px;height:30px;border-radius:9px;border:3px solid currentColor;opacity:.6;}
+.drv-range{font-size:20px;font-weight:700;}
+.navi{position:relative;border-right:3px solid var(--bezel);}
+.navi svg{display:block;}
+.navi-eta{position:absolute;left:24px;bottom:24px;background:var(--card);color:var(--ink);font-size:22px;font-weight:800;padding:12px 18px;border-radius:14px;}
+.app{background:var(--paper);color:var(--ink);position:relative;overflow:hidden;}
+.regions{display:flex;margin-left:16px;font-size:17px;font-weight:700;color:var(--canvas-ink2);}
+.regions span{padding:6px 8px 0 0;border-top:3px solid var(--canvas-ink2);}
+.regions span.ours{color:var(--forest);border-top-color:var(--forest);}
+/* 폰·태블릿 */
+.devfig{margin:0;display:flex;flex-direction:column;align-items:center;gap:12px;}
+.devfig figcaption{font-size:19px;font-weight:700;color:var(--canvas-ink2);}
+.phone{border:14px solid var(--bezel);border-radius:56px;overflow:hidden;background:var(--bezel);}
+.pscreen{background:var(--paper);color:var(--ink);display:flex;flex-direction:column;overflow:hidden;border-radius:42px;}
+.pstatus{height:44px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 30px 0 34px;font-size:16px;font-weight:800;}
+.pst-r{display:flex;gap:5px;align-items:center;} .pst-r i{width:5px;height:12px;border-radius:2px;background:currentColor;} .pst-r i:first-child{height:8px;} .pst-r b{width:24px;height:12px;border-radius:4px;border:2px solid currentColor;margin-left:4px;}
+.pbar{height:44px;flex:none;margin:0 14px;border-radius:12px;background:var(--card);border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;gap:8px;font-size:15px;font-weight:700;color:var(--ink2);}
+.pbody{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;}
+.tablet{border:22px solid var(--bezel);border-radius:40px;overflow:hidden;background:var(--bezel);}
+.tscreen{background:var(--paper);color:var(--ink);overflow:hidden;border-radius:18px;display:flex;flex-direction:column;}
+/* 앱 안 공용 부품 */
+.ic{flex:none;display:block;}
+.panel{width:600px;height:720px;padding:24px;display:flex;flex-direction:column;gap:16px;background:var(--paper);color:var(--ink);}
+.row{display:flex;align-items:center;gap:16px;}
+.grow{flex:1;min-width:0;}
+.num{font-weight:800;color:var(--forest);line-height:1.04;font-variant-numeric:tabular-nums;white-space:nowrap;}
+.num small{font-size:.55em;}
+.kid{font-weight:800;line-height:1.35;color:var(--ink);}
+.sub{font-size:20px;line-height:1.5;color:var(--ink2);font-weight:600;}
+.small{font-size:17px;line-height:1.5;color:var(--ink2);font-weight:600;}
+.h2{font-size:30px;font-weight:800;line-height:1.3;margin:0;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:56px;padding:0 24px;border-radius:999px;font-size:21px;font-weight:800;border:2.5px solid var(--ink2);color:var(--ink);background:transparent;white-space:nowrap;}
+.btn.sm{min-height:48px;padding:0 18px;font-size:19px;}
+.btn.primary{background:var(--forest);border-color:var(--forest);color:var(--on-forest);}
+.btn.ghost{border-width:2px;}
+.btn.done{background:var(--leaf-soft);border-color:var(--forest);color:var(--ink);}
+.btn.off{opacity:.45;}
+.badge{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:5px 14px;font-size:17px;font-weight:800;white-space:nowrap;}
+.badge.example{background:var(--sun-soft);color:var(--ink);border:2px dashed var(--sun);}
+.badge.on{background:var(--leaf-soft);color:var(--ink);}
+.badge.offb{background:var(--card);color:var(--ink2);border:2px solid var(--line);}
+.badge.new{background:var(--berry-soft);color:var(--ink);}
+.card{background:var(--card);border:2px solid var(--line);border-radius:20px;}
+.note-line{display:flex;align-items:center;gap:10px;font-size:18px;line-height:1.45;color:var(--ink2);font-weight:600;}
+.warn{display:flex;align-items:center;gap:10px;background:var(--sun-soft);color:var(--ink);border-radius:14px;padding:10px 14px;font-size:17px;font-weight:800;line-height:1.35;}
+.drivechip{display:flex;align-items:center;gap:10px;background:var(--sky-soft);color:var(--ink);border-radius:14px;padding:12px 16px;font-size:22px;font-weight:800;}
+.roadbox{position:relative;flex:none;}
+.roadbox svg{display:block;}
+
+.sw-item{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:17px;font-weight:700;color:var(--ink);min-width:64px;}
+.sw-dot{border-radius:50%;border:3px solid var(--line);display:grid;place-items:center;color:#1D2A22;}
+.sw-item.on .sw-dot{border-color:var(--forest);box-shadow:0 0 0 3px var(--paper),0 0 0 6px var(--forest);}
+.opt-label{font-size:20px;font-weight:800;color:var(--ink);min-width:92px;}
+.tile{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border:2.5px solid var(--line);border-radius:16px;background:var(--card);font-size:17px;font-weight:700;color:var(--ink);}
+.tile.on{border:3px solid var(--forest);background:var(--leaf-soft);}
+.tile.lock{opacity:.55;}
+.who{display:flex;align-items:center;gap:8px;border:2.5px solid var(--line);border-radius:999px;padding:4px 16px 4px 4px;font-size:19px;font-weight:800;background:var(--card);min-height:52px;}
+.who.on{border-color:var(--forest);background:var(--leaf-soft);}
+.who .av{width:42px;height:42px;border-radius:50%;background:var(--sky-soft);overflow:hidden;display:grid;place-items:center;}
+.dl{display:grid;grid-template-columns:104px 1fr;gap:10px 14px;padding:16px 18px;font-size:18px;line-height:1.45;}
+.dl dt{font-weight:800;color:var(--ink);} .dl dd{margin:0;color:var(--ink);font-weight:600;}
+.toggle{width:84px;height:48px;border-radius:999px;background:var(--line);position:relative;flex:none;border:2px solid var(--ink2);}
+.toggle::after{content:"";position:absolute;left:5px;top:5px;width:34px;height:34px;border-radius:50%;background:var(--card);border:2px solid var(--ink2);}
+.toggle.on{background:var(--forest);border-color:var(--forest);} .toggle.on::after{left:41px;border-color:var(--forest);}
+.consent{display:flex;align-items:center;gap:12px;padding:10px 12px 10px 18px;}
+.consent .what{flex:1;min-width:0;font-size:19px;font-weight:800;line-height:1.35;}
+.consent .what small{display:block;font-size:16px;font-weight:600;color:var(--ink2);}
+.step{display:flex;gap:12px;align-items:flex-start;font-size:19px;line-height:1.4;font-weight:700;}
+.step i{font-style:normal;flex:none;width:34px;height:34px;border-radius:50%;background:var(--leaf-soft);color:var(--ink);display:grid;place-items:center;font-weight:800;font-size:18px;}
+.code{font-size:34px;font-weight:800;letter-spacing:.08em;font-variant-numeric:tabular-nums;color:var(--ink);}
+.list-row{display:flex;align-items:center;gap:12px;padding:11px 0;border-top:2px solid var(--line);font-size:18px;font-weight:700;}
+.list-row:first-child{border-top:0;}
+.list-row .pts{margin-left:auto;font-variant-numeric:tabular-nums;font-weight:800;}
+.bar{height:16px;border-radius:999px;background:var(--leaf-soft);overflow:hidden;} .bar i{display:block;height:100%;background:var(--forest);border-radius:999px;}
+.stk{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;border-radius:18px;background:var(--card);border:2.5px solid var(--line);position:relative;font-size:18px;font-weight:800;}
+.stk.q{border-style:dashed;border-color:var(--ink2);background:transparent;color:var(--ink2);}
+.stk.q b{font-size:52px;line-height:1;color:var(--ink2);}
+.stk .badge{position:absolute;top:8px;left:8px;font-size:15px;padding:3px 10px;}
+.tabs{display:flex;gap:10px;}
+.tab{min-height:48px;padding:0 20px;border-radius:999px;display:inline-flex;align-items:center;font-size:19px;font-weight:800;border:2.5px solid var(--line);color:var(--ink);}
+.tab.on{background:var(--forest);border-color:var(--forest);color:var(--on-forest);}
+.sw{display:flex;flex-direction:column;gap:14px;padding:12px 20px 18px;}
+.sw-brand{display:flex;align-items:center;gap:8px;font-size:16px;font-weight:800;color:var(--ink2);}
+.webtabs{margin-top:auto;display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--line);background:var(--card);flex:none;}
+.webtabs span{display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 0 16px;font-size:14px;font-weight:800;color:var(--ink2);}
+.webtabs span.on{color:var(--forest);}
+.pending{display:flex;gap:12px;align-items:center;background:var(--sky-soft);border-radius:16px;padding:12px 14px;font-size:16px;font-weight:700;line-height:1.4;color:var(--ink);}
+.pending b{display:block;font-size:17px;font-weight:800;}
+.lmcard{display:flex;flex-direction:column;gap:14px;padding:20px;}
+</style></head><body><div class="sheet">
+<header class="sheet-head"><div><p class="eyebrow">같이가숲 화면 시안 · 11/15 기획서용</p><h1>보호자 포인트 지갑과 교환</h1></div><div class="chips"><span class="chip plan"><span class="dot"></span>교환은 확장 계획 · 제휴 시</span><span class="chip park"><span class="dot"></span>차 화면 · 주차 중에만</span></div></header>
+<div class="sheet-body"><figure class="carfig">
+<div class="car">
+  <div class="drv" style="width:220px">
+    <div class="drv-time">11:12</div>
+    <div class="drv-gear"><span class="on">P</span><span class="">R</span><span class="">N</span><span class="">D</span></div>
+    <div class="drv-speed"><b>0</b><span>km/h</span></div>
+    <div class="drv-lamps"><i></i><i></i><i></i></div>
+    <div class="drv-range">정차 · P</div>
+  </div>
+  <div class="navi" style="width:600px"><svg viewBox="0 0 600 720" width="600" height="720" aria-hidden="true"><rect width="600" height="720" fill="#E9EEE6"/><rect x="30" y="40" width="150" height="110" rx="14" fill="#DCE4DA"/><rect x="210" y="30" width="120" height="90" rx="14" fill="#DCE4DA"/><rect x="370" y="50" width="190" height="120" rx="14" fill="#DCE4DA"/><rect x="40" y="200" width="120" height="150" rx="14" fill="#DCE4DA"/><rect x="200" y="170" width="140" height="120" rx="14" fill="#DCE4DA"/><rect x="420" y="230" width="150" height="130" rx="14" fill="#DCE4DA"/><rect x="30" y="400" width="160" height="120" rx="14" fill="#DCE4DA"/><rect x="240" y="360" width="110" height="140" rx="14" fill="#DCE4DA"/><rect x="400" y="420" width="170" height="110" rx="14" fill="#DCE4DA"/><rect x="60" y="580" width="130" height="100" rx="14" fill="#DCE4DA"/><rect x="380" y="580" width="180" height="110" rx="14" fill="#DCE4DA"/><path d="M0 216 C 160 259.2, 260 144, 600 194.4 L 600 244.8 C 260 194.4, 160 309.6, 0 266.4 Z" fill="#CBE1EE"/><rect x="200" y="540" width="150" height="120" rx="18" fill="#D2E6C9"/><path d="M0 170 L600 150" stroke="#FFFFFF" stroke-width="16" fill="none" stroke-linecap="round"/><path d="M0 380 C 200 370, 380 400, 600 390" stroke="#FFFFFF" stroke-width="16" fill="none" stroke-linecap="round"/><path d="M190 0 L180 720" stroke="#FFFFFF" stroke-width="16" fill="none" stroke-linecap="round"/><path d="M370 0 C 380 260, 360 460, 380 720" stroke="#FFFFFF" stroke-width="16" fill="none" stroke-linecap="round"/><path d="M0 560 L600 540" stroke="#FFFFFF" stroke-width="16" fill="none" stroke-linecap="round"/><path d="M300 720 L 300 640 C 300 560, 372 520, 372 440 L 372 300 C 372 220, 470 160, 600 156" stroke="#4F86B8" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M300 596 l 22 44 l -22 -11 l -22 11 z" fill="#4F86B8" stroke="#FFFFFF" stroke-width="4" stroke-linejoin="round"/></svg><div class="navi-eta">도착 13:00 · 128km</div></div>
+  <div class="app" style="width:600px;height:720px"><div class="panel" style="gap:14px">
+<div class="row"><h2 class="h2 grow">포인트 지갑</h2><span class="badge offb"><svg class="ic " viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 4.8a3.2 3.2 0 1 0 0.01 0z M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6 M17 6.4a2.6 2.6 0 1 0 0.01 0z M15.5 14.2c3 0 5.5 2 5.5 5.3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>보호자</span></div>
+<div class="card" style="padding:18px 20px;display:flex;flex-direction:column;gap:10px">
+<div class="row" style="align-items:flex-end;gap:10px"><div class="num" style="font-size:68px">5,240<small>P</small></div><div class="small" style="padding-bottom:12px">하늘이네 가족</div></div>
+<div class="bar"><i style="width:100%"></i></div>
+<div class="row"><span class="small" style="color:var(--ink)">5,000P부터 바꿀 수 있어요</span><span class="grow"></span><span class="small">이번 달 +1,860P</span></div>
+</div>
+<div class="card" style="padding:16px 18px;border:3px dashed var(--sun);display:flex;flex-direction:column;gap:12px">
+<div class="row" style="gap:14px"><span style="width:64px;height:64px;border-radius:18px;background:var(--leaf-soft);display:grid;place-items:center;color:var(--forest)"><svg class="ic " viewBox="0 0 24 24" width="38" height="38" aria-hidden="true"><path d="M3.5 8h17v4h-17z M5 12h14v8.5H5z M12 8v12.5 M12 8C10 4 6.5 4.5 7.5 7.2 M12 8c2-4 5.5-3.5 4.5-0.8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="grow"><div style="font-size:22px;font-weight:800;line-height:1.35">현대차 물품 구매권 5,000원</div><div class="small">5,000P로 바꾸기</div></div></div>
+<div class="row"><span class="badge example">제휴 시 · 예시</span><span class="grow"></span><span class="btn sm primary">바꾸기</span></div>
+</div>
+<div class="card" style="padding:6px 18px">
+<div class="list-row"><span class="small" style="width:52px">11/1</span><span>할머니 댁</span><span class="pts">+360P</span></div>
+<div class="list-row"><span class="small" style="width:52px">10/26</span><span>데모 주행</span><span class="small">데모는 쌓이지 않아요</span><span class="pts">0P</span></div>
+<div class="list-row"><span class="small" style="width:52px">10/19</span><span>바닷가</span><span class="pts">+410P</span></div>
+</div>
+<div class="small" style="margin-top:auto">부드럽게 달린 1km = 1P · 실제 차량 데이터로 판정한 거리만<br>한 달 3,000P까지(예시)</div>
+</div></div>
+</div>
+<figcaption class="regions"><span style="width:220px">운전자 정보(고정)</span><span style="width:600px">내비 (운전자 화면, 흐리게 표시)</span><span class="ours" style="width:600px">같이가숲 (반 화면)</span></figcaption>
+</figure><aside class="notes"><h2>이 시안에서 볼 것</h2><ul><li>포인트는 아이가 아니라 <b>보호자 계정</b>에 쌓입니다. 부드럽게 달린 1km = 1P = 1원, 여행마다 한 번.</li><li>5,000P부터 "현대차 물품 구매권 5,000원"으로 바꿀 수 있습니다(글자로만, 로고 없음).</li><li><b>"제휴 시 · 예시"</b>를 교환 항목과 확인 창에 늘 붙입니다. 실제 교환은 제휴 뒤에 열립니다.</li><li>데모 주행은 0P, 한 달 상한 3,000P(예시). 지갑은 주차 중에만 열립니다.</li></ul><div class="mini" style="width:300px;height:360px"><div class="mini-in" style="transform:scale(0.5)"><div style="position:relative;width:600px;height:720px"><div class="panel" style="gap:14px">
+<div class="row"><h2 class="h2 grow">포인트 지갑</h2><span class="badge offb"><svg class="ic " viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 4.8a3.2 3.2 0 1 0 0.01 0z M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6 M17 6.4a2.6 2.6 0 1 0 0.01 0z M15.5 14.2c3 0 5.5 2 5.5 5.3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>보호자</span></div>
+<div class="card" style="padding:18px 20px;display:flex;flex-direction:column;gap:10px">
+<div class="row" style="align-items:flex-end;gap:10px"><div class="num" style="font-size:68px">5,240<small>P</small></div><div class="small" style="padding-bottom:12px">하늘이네 가족</div></div>
+<div class="bar"><i style="width:100%"></i></div>
+<div class="row"><span class="small" style="color:var(--ink)">5,000P부터 바꿀 수 있어요</span><span class="grow"></span><span class="small">이번 달 +1,860P</span></div>
+</div>
+<div class="card" style="padding:16px 18px;border:3px dashed var(--sun);display:flex;flex-direction:column;gap:12px">
+<div class="row" style="gap:14px"><span style="width:64px;height:64px;border-radius:18px;background:var(--leaf-soft);display:grid;place-items:center;color:var(--forest)"><svg class="ic " viewBox="0 0 24 24" width="38" height="38" aria-hidden="true"><path d="M3.5 8h17v4h-17z M5 12h14v8.5H5z M12 8v12.5 M12 8C10 4 6.5 4.5 7.5 7.2 M12 8c2-4 5.5-3.5 4.5-0.8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<div class="grow"><div style="font-size:22px;font-weight:800;line-height:1.35">현대차 물품 구매권 5,000원</div><div class="small">5,000P로 바꾸기</div></div></div>
+<div class="row"><span class="badge example">제휴 시 · 예시</span><span class="grow"></span><span class="btn sm primary">바꾸기</span></div>
+</div>
+<div class="card" style="padding:6px 18px">
+<div class="list-row"><span class="small" style="width:52px">11/1</span><span>할머니 댁</span><span class="pts">+360P</span></div>
+<div class="list-row"><span class="small" style="width:52px">10/26</span><span>데모 주행</span><span class="small">데모는 쌓이지 않아요</span><span class="pts">0P</span></div>
+<div class="list-row"><span class="small" style="width:52px">10/19</span><span>바닷가</span><span class="pts">+410P</span></div>
+</div>
+<div class="small" style="margin-top:auto">부드럽게 달린 1km = 1P · 실제 차량 데이터로 판정한 거리만<br>한 달 3,000P까지(예시)</div>
+</div><div style="position:absolute;inset:0;background:#000;opacity:.45"></div>
+<div class="card" style="position:absolute;left:0;right:0;bottom:0;border-radius:28px 28px 0 0;padding:30px 28px 32px;display:flex;flex-direction:column;gap:18px">
+<span class="badge example" style="align-self:flex-start;font-size:20px">제휴 시 · 예시</span>
+<h2 class="h2" style="font-size:32px">5,000P를 현대차 물품 구매권 5,000원으로 바꿀까요?</h2>
+<div class="sub">바꾸면 남는 포인트: 240P</div>
+<div class="row" style="gap:12px"><span class="btn ghost" style="flex:1">그만두기</span><span class="btn primary" style="flex:1">바꾸기</span></div>
+</div></div></div></div><p class="mini-cap">"바꾸기"를 누르면 한 번 더 묻습니다. 이 확인 창에도 "제휴 시 · 예시"를 둡니다.</p><p class="where">기획서: 3-C 보호자 포인트 · 6 발전 계획 3단계·사업 모델</p></aside></div>
+</div></body></html>

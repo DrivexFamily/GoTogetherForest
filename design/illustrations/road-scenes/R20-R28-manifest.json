@@ -1,0 +1,462 @@
+[
+ {
+  "theme": "숲길",
+  "key": "forest",
+  "shape": "wide",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-FOREST-WIDE-R20-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-FOREST-WIDE-EVENING-R20-v1.png",
+  "color": "beige"
+ },
+ {
+  "theme": "숲길",
+  "key": "forest",
+  "shape": "square",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-FOREST-SQUARE-R20-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-FOREST-SQUARE-EVENING-R20-v1.png",
+  "color": "beige"
+ },
+ {
+  "theme": "숲길",
+  "key": "forest",
+  "shape": "tall",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-FOREST-TALL-R20-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-FOREST-TALL-EVENING-R20-v1.png",
+  "color": "beige"
+ },
+ {
+  "theme": "바닷길",
+  "key": "coast",
+  "shape": "wide",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-COAST-WIDE-R20-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-COAST-WIDE-EVENING-R20-v1.png",
+  "color": "gray"
+ },
+ {
+  "theme": "바닷길",
+  "key": "coast",
+  "shape": "square",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-COAST-SQUARE-R20-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-COAST-SQUARE-EVENING-R20-v1.png",
+  "color": "gray"
+ },
+ {
+  "theme": "바닷길",
+  "key": "coast",
+  "shape": "tall",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-COAST-TALL-R20-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-COAST-TALL-EVENING-R20-v1.png",
+  "color": "gray"
+ },
+ {
+  "theme": "도심길",
+  "key": "city",
+  "shape": "wide",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-CITY-WIDE-R20-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-CITY-WIDE-EVENING-R20-v1.png",
+  "color": "beige",
+  "hints": [
+   [
+    80,
+    590
+   ],
+   [
+    1590,
+    575
+   ]
+  ]
+ },
+ {
+  "theme": "도심길",
+  "key": "city",
+  "shape": "square",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-CITY-SQUARE-R20-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-CITY-SQUARE-EVENING-R20-v1.png",
+  "color": "beige",
+  "hints": [
+   [
+    176,
+    333
+   ],
+   [
+    1074,
+    951
+   ]
+  ]
+ },
+ {
+  "theme": "도심길",
+  "key": "city",
+  "shape": "tall",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-CITY-TALL-R20-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-CITY-TALL-EVENING-R20-v1.png",
+  "color": "beige"
+ },
+ {
+  "theme": "시골농장길",
+  "key": "farm",
+  "shape": "wide",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-FARM-WIDE-R20-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-FARM-WIDE-EVENING-R20-v1.png",
+  "color": "beige",
+  "hints": [
+   [
+    75,
+    590
+   ],
+   [
+    1597,
+    566
+   ]
+  ]
+ },
+ {
+  "theme": "시골농장길",
+  "key": "farm",
+  "shape": "square",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-FARM-SQUARE-R20-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-FARM-SQUARE-EVENING-R20-v1.png",
+  "color": "beige"
+ },
+ {
+  "theme": "시골농장길",
+  "key": "farm",
+  "shape": "tall",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-FARM-TALL-R20-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-FARM-TALL-EVENING-R20-v1.png",
+  "color": "beige"
+ },
+ {
+  "theme": "산악길",
+  "key": "mountain",
+  "shape": "wide",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-MOUNTAIN-WIDE-R20-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-MOUNTAIN-WIDE-EVENING-R20-v1.png",
+  "color": "beige"
+ },
+ {
+  "theme": "산악길",
+  "key": "mountain",
+  "shape": "square",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-MOUNTAIN-SQUARE-R20-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-MOUNTAIN-SQUARE-EVENING-R20-v1.png",
+  "color": "beige"
+ },
+ {
+  "theme": "산악길",
+  "key": "mountain",
+  "shape": "tall",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-MOUNTAIN-TALL-R20-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-MOUNTAIN-TALL-EVENING-R20-v1.png",
+  "color": "beige"
+ },
+ {
+  "theme": "호숫길",
+  "key": "lake",
+  "shape": "wide",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-LAKE-WIDE-R20-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-LAKE-WIDE-EVENING-R20-v1.png",
+  "color": "beige"
+ },
+ {
+  "theme": "호숫길",
+  "key": "lake",
+  "shape": "square",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-LAKE-SQUARE-R20-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-LAKE-SQUARE-EVENING-R20-v1.png",
+  "color": "beige",
+  "hints": [
+   [
+    186,
+    304
+   ],
+   [
+    1088,
+    951
+   ]
+  ]
+ },
+ {
+  "theme": "호숫길",
+  "key": "lake",
+  "shape": "tall",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-LAKE-TALL-R20-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-LAKE-TALL-EVENING-R20-v1.png",
+  "color": "beige",
+  "hints": [
+   [
+    125,
+    400
+   ],
+   [
+    125,
+    1175
+   ]
+  ]
+ },
+ {
+  "theme": "벚꽃길",
+  "key": "cherry",
+  "shape": "wide",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-CHERRY-WIDE-R20-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-CHERRY-WIDE-EVENING-R20-v1.png",
+  "color": "beige"
+ },
+ {
+  "theme": "벚꽃길",
+  "key": "cherry",
+  "shape": "square",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-CHERRY-SQUARE-R20-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-CHERRY-SQUARE-EVENING-R20-v1.png",
+  "color": "beige",
+  "hints": [
+   [
+    186,
+    294
+   ],
+   [
+    1088,
+    974
+   ]
+  ]
+ },
+ {
+  "theme": "벚꽃길",
+  "key": "cherry",
+  "shape": "tall",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-CHERRY-TALL-R20-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-CHERRY-TALL-EVENING-R20-v1.png",
+  "color": "beige",
+  "hints": [
+   [
+    138,
+    375
+   ],
+   [
+    138,
+    1188
+   ]
+  ]
+ },
+ {
+  "theme": "단풍길",
+  "key": "autumn",
+  "shape": "wide",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-AUTUMN-WIDE-R20-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-AUTUMN-WIDE-EVENING-R20-v1.png",
+  "color": "beige"
+ },
+ {
+  "theme": "단풍길",
+  "key": "autumn",
+  "shape": "square",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-AUTUMN-SQUARE-R20-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-AUTUMN-SQUARE-EVENING-R20-v1.png",
+  "color": "beige"
+ },
+ {
+  "theme": "단풍길",
+  "key": "autumn",
+  "shape": "tall",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-AUTUMN-TALL-R20-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-AUTUMN-TALL-EVENING-R20-v1.png",
+  "color": "beige"
+ },
+ {
+  "theme": "눈꽃길",
+  "key": "snow",
+  "shape": "wide",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-SNOW-WIDE-R20-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-SNOW-WIDE-EVENING-R20-v1.png",
+  "color": "beige",
+  "hints": [
+   [
+    78,
+    601
+   ],
+   [
+    1554,
+    562
+   ]
+  ]
+ },
+ {
+  "theme": "눈꽃길",
+  "key": "snow",
+  "shape": "square",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-SNOW-SQUARE-R20-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-SNOW-SQUARE-EVENING-R20-v1.png",
+  "color": "beige"
+ },
+ {
+  "theme": "눈꽃길",
+  "key": "snow",
+  "shape": "tall",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-SNOW-TALL-R20-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-SNOW-TALL-EVENING-R20-v1.png",
+  "color": "beige"
+ },
+ {
+  "theme": "사막오아시스길",
+  "key": "desert",
+  "shape": "wide",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-DESERT-WIDE-R20-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-DESERT-WIDE-EVENING-R20-v1.png",
+  "color": "gray"
+ },
+ {
+  "theme": "사막오아시스길",
+  "key": "desert",
+  "shape": "square",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-DESERT-SQUARE-R20-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-DESERT-SQUARE-EVENING-R20-v1.png",
+  "color": "gray"
+ },
+ {
+  "theme": "사막오아시스길",
+  "key": "desert",
+  "shape": "tall",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-DESERT-TALL-R20-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-DESERT-TALL-EVENING-R20-v1.png",
+  "color": "gray"
+ },
+ {
+  "theme": "고향길",
+  "key": "chuseok",
+  "shape": "wide",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-CHUSEOK-WIDE-R28-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-CHUSEOK-WIDE-EVENING-R28-v1.png",
+  "color": "beige"
+ },
+ {
+  "theme": "고향길",
+  "key": "chuseok",
+  "shape": "square",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-CHUSEOK-SQUARE-R28-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-CHUSEOK-SQUARE-EVENING-R28-v1.png",
+  "color": "beige",
+  "hints": [
+   [
+    178,
+    328
+   ],
+   [
+    1058,
+    966
+   ]
+  ]
+ },
+ {
+  "theme": "고향길",
+  "key": "chuseok",
+  "shape": "tall",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-CHUSEOK-TALL-R28-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-CHUSEOK-TALL-EVENING-R28-v1.png",
+  "color": "beige"
+ },
+ {
+  "theme": "가을 산길",
+  "key": "fallhill",
+  "shape": "wide",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-AUTUMN-MOUNTAIN-WIDE-R28-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-AUTUMN-MOUNTAIN-WIDE-EVENING-R28-v1.png",
+  "color": "beige"
+ },
+ {
+  "theme": "가을 산길",
+  "key": "fallhill",
+  "shape": "square",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-AUTUMN-MOUNTAIN-SQUARE-R28-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-AUTUMN-MOUNTAIN-SQUARE-EVENING-R28-v1.png",
+  "color": "beige"
+ },
+ {
+  "theme": "가을 산길",
+  "key": "fallhill",
+  "shape": "tall",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-AUTUMN-MOUNTAIN-TALL-R28-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-AUTUMN-MOUNTAIN-TALL-EVENING-R28-v1.png",
+  "color": "beige"
+ },
+ {
+  "theme": "해바라기길",
+  "key": "sunflower",
+  "shape": "wide",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-SUNFLOWER-WIDE-R28-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-SUNFLOWER-WIDE-EVENING-R28-v1.png",
+  "color": "beige"
+ },
+ {
+  "theme": "해바라기길",
+  "key": "sunflower",
+  "shape": "square",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-SUNFLOWER-SQUARE-R28-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-SUNFLOWER-SQUARE-EVENING-R28-v1.png",
+  "color": "beige"
+ },
+ {
+  "theme": "해바라기길",
+  "key": "sunflower",
+  "shape": "tall",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-SUNFLOWER-TALL-R28-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-SUNFLOWER-TALL-EVENING-R28-v1.png",
+  "color": "beige"
+ },
+ {
+  "theme": "갈대 강변길",
+  "key": "reedriver",
+  "shape": "wide",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-REED-RIVER-WIDE-R28-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-REED-RIVER-WIDE-EVENING-R28-v1.png",
+  "color": "beige"
+ },
+ {
+  "theme": "갈대 강변길",
+  "key": "reedriver",
+  "shape": "square",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-REED-RIVER-SQUARE-R28-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-REED-RIVER-SQUARE-EVENING-R28-v1.png",
+  "color": "beige",
+  "hints": [
+   [
+    225,
+    342
+   ],
+   [
+    975,
+    925
+   ]
+  ]
+ },
+ {
+  "theme": "갈대 강변길",
+  "key": "reedriver",
+  "shape": "tall",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-REED-RIVER-TALL-R28-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-REED-RIVER-TALL-EVENING-R28-v1.png",
+  "color": "beige"
+ },
+ {
+  "theme": "유채꽃 바닷길",
+  "key": "canola",
+  "shape": "wide",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-CANOLA-COAST-WIDE-R28-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-CANOLA-COAST-WIDE-EVENING-R28-v1.png",
+  "color": "gray"
+ },
+ {
+  "theme": "유채꽃 바닷길",
+  "key": "canola",
+  "shape": "square",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-CANOLA-COAST-SQUARE-R28-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-CANOLA-COAST-SQUARE-EVENING-R28-v1.png",
+  "color": "gray"
+ },
+ {
+  "theme": "유채꽃 바닷길",
+  "key": "canola",
+  "shape": "tall",
+  "day": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-CANOLA-COAST-TALL-R28-v1.png",
+  "evening": "design/illustrations/exports/2026-11-05/GGF-ROAD-SCENE-CANOLA-COAST-TALL-EVENING-R28-v1.png",
+  "color": "gray"
+ }
+]

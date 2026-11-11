@@ -1,0 +1,24 @@
+{
+  "verified_at_KST": "2026-11-07 16:05 KST",
+  "SDK": "Android35r2/build-tools35.0.0",
+  "JDK": "Temurin17.0.17+10",
+  "actual_Android_Compose_compilation": "passed core:ui",
+  "targeted_FrameSpec_JUnit": {
+    "tests": 8,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "broader_core_ui_suite": {
+    "tests": 100,
+    "failures": 2,
+    "errors": 0,
+    "skipped": 0,
+    "failures_unrelated_to_new_motion": [
+      "PicturesTest catalog.json absent in sparse checkout",
+      "RoadGeometryTest expected30 vs actual45 themes"
+    ]
+  },
+  "full_app_or_emulator_verification": false,
+  "artwork_or_Kotlin_sources_changed": false
+}

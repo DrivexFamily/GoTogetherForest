@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 다크(차의 Night): 바탕만 어둡게. core:ui Tokens.kt 다크 paper와 같다 -->
+    <style name="Theme.Ggf" parent="@android:style/Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/ggf_window_background</item>
+        <item name="android:colorBackground">@color/ggf_window_background</item>
+    </style>
+
+    <color name="ggf_window_background">#FF0F1713</color>
+</resources>

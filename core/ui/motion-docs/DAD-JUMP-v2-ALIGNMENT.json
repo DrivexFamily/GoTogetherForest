@@ -1,0 +1,225 @@
+{
+  "source_path": "design/illustrations/originals/2026-11-07/R48-native/GGF-ANIM-DAD-JUMP-R48-v2.png",
+  "source_sha256": "039a9d8fad207c6aa6fbe57e4573dbf97cabc67fc676602c630b73fd25b32a64",
+  "output_path": "design/illustrations/exports/2026-11-07/GGF-ANIM-DAD-JUMP-R48-v2.png",
+  "output_sha256": "0de082dbad32568206d86bb344e26a2b07203cb92587b07800ef4149bd435a04",
+  "operations": [
+    "Authorized deliverycopy only; alpha1..15 components disconnected from any alpha>15 neighbor are cleared; attached antialiasing remains.",
+    "Wholeframe integertranslation aligns rounded shadowROI weightedcentroid to[256,460].",
+    "No resizing/scaling/colorfilter; no separate shadow/body moving; no nonzeroalphapixels clipped."
+  ],
+  "frames": [
+    {
+      "index": 0,
+      "active": true,
+      "source_anchor_xy": [
+        265,
+        494
+      ],
+      "source_shadow_centroid_float": [
+        264.63282306870775,
+        493.66223872247366
+      ],
+      "source_shadow_roi_xyxy": [
+        0,
+        480,
+        512,
+        505
+      ],
+      "source_shadow_roi_color_rule": "alpha>15,abs(R-G)<18,abs(G-B)<18,allRGB<170; manualgroundregion; weightedcentroid is operationalshadowproxy not exactsole",
+      "source_shadow_proxy_pixels": 402,
+      "source_anatomical_foot_anchor_confirmed": false,
+      "target_anchor_xy": [
+        256,
+        460
+      ],
+      "target_shadow_centroid_float": [
+        255.63282306870775,
+        459.66223872247366
+      ],
+      "integer_translation_xy": [
+        -9,
+        -34
+      ],
+      "alpha_gt15_top_after": 57,
+      "alpha_gt15_bbox_after": [
+        158,
+        57,
+        346,
+        466
+      ],
+      "clipped_nonzero_alpha_pixels": 0,
+      "border_alpha_gt15_after": 0,
+      "weak_disconnected_pixels_cleared": 6881,
+      "protected_weak_components": 4
+    },
+    {
+      "index": 1,
+      "active": true,
+      "source_anchor_xy": [
+        262,
+        493
+      ],
+      "source_shadow_centroid_float": [
+        262.04807118661205,
+        493.4320643106325
+      ],
+      "source_shadow_roi_xyxy": [
+        0,
+        480,
+        512,
+        505
+      ],
+      "source_shadow_roi_color_rule": "alpha>15,abs(R-G)<18,abs(G-B)<18,allRGB<170; manualgroundregion; weightedcentroid is operationalshadowproxy not exactsole",
+      "source_shadow_proxy_pixels": 411,
+      "source_anatomical_foot_anchor_confirmed": false,
+      "target_anchor_xy": [
+        256,
+        460
+      ],
+      "target_shadow_centroid_float": [
+        256.04807118661205,
+        460.4320643106325
+      ],
+      "integer_translation_xy": [
+        -6,
+        -33
+      ],
+      "alpha_gt15_top_after": 39,
+      "alpha_gt15_bbox_after": [
+        155,
+        39,
+        349,
+        467
+      ],
+      "clipped_nonzero_alpha_pixels": 0,
+      "border_alpha_gt15_after": 0,
+      "weak_disconnected_pixels_cleared": 5912,
+      "protected_weak_components": 2
+    },
+    {
+      "index": 2,
+      "active": true,
+      "source_anchor_xy": [
+        254,
+        493
+      ],
+      "source_shadow_centroid_float": [
+        254.3607901167262,
+        493.45679961837635
+      ],
+      "source_shadow_roi_xyxy": [
+        0,
+        480,
+        512,
+        505
+      ],
+      "source_shadow_roi_color_rule": "alpha>15,abs(R-G)<18,abs(G-B)<18,allRGB<170; manualgroundregion; weightedcentroid is operationalshadowproxy not exactsole",
+      "source_shadow_proxy_pixels": 693,
+      "source_anatomical_foot_anchor_confirmed": false,
+      "target_anchor_xy": [
+        256,
+        460
+      ],
+      "target_shadow_centroid_float": [
+        256.3607901167262,
+        460.45679961837635
+      ],
+      "integer_translation_xy": [
+        2,
+        -33
+      ],
+      "alpha_gt15_top_after": 52,
+      "alpha_gt15_bbox_after": [
+        161,
+        52,
+        348,
+        466
+      ],
+      "clipped_nonzero_alpha_pixels": 0,
+      "border_alpha_gt15_after": 0,
+      "weak_disconnected_pixels_cleared": 4755,
+      "protected_weak_components": 3
+    },
+    {
+      "index": 3,
+      "active": true,
+      "source_anchor_xy": [
+        266,
+        463
+      ],
+      "source_shadow_centroid_float": [
+        265.7944623309723,
+        462.6276063923199
+      ],
+      "source_shadow_roi_xyxy": [
+        0,
+        450,
+        512,
+        480
+      ],
+      "source_shadow_roi_color_rule": "alpha>15,abs(R-G)<18,abs(G-B)<18,allRGB<170; manualgroundregion; weightedcentroid is operationalshadowproxy not exactsole",
+      "source_shadow_proxy_pixels": 353,
+      "source_anatomical_foot_anchor_confirmed": false,
+      "target_anchor_xy": [
+        256,
+        460
+      ],
+      "target_shadow_centroid_float": [
+        255.7944623309723,
+        459.6276063923199
+      ],
+      "integer_translation_xy": [
+        -10,
+        -3
+      ],
+      "alpha_gt15_top_after": 86,
+      "alpha_gt15_bbox_after": [
+        158,
+        86,
+        345,
+        466
+      ],
+      "clipped_nonzero_alpha_pixels": 0,
+      "border_alpha_gt15_after": 0,
+      "weak_disconnected_pixels_cleared": 699,
+      "protected_weak_components": 6
+    },
+    {
+      "index": 4,
+      "active": false,
+      "weak_disconnected_pixels_cleared": 626,
+      "alpha_max_after": 0
+    },
+    {
+      "index": 5,
+      "active": false,
+      "weak_disconnected_pixels_cleared": 451,
+      "alpha_max_after": 0
+    }
+  ],
+  "actual_size": [
+    1536,
+    1024
+  ],
+  "mode": "RGBA",
+  "weak_disconnected_pixels_cleared": 19324,
+  "native_unchanged": true,
+  "intended_native_repo_path": "design/illustrations/originals/2026-11-07/R48-native/GGF-ANIM-DAD-JUMP-R48-v2.png",
+  "intended_delivery_repo_path": "design/illustrations/exports/2026-11-07/GGF-ANIM-DAD-JUMP-R48-v2.png",
+  "ground_anchor_warning": "Shadow centroid proxy is separate from soles; airbornefeet are intentionally above460. Shadowbottom need not equal460.",
+  "superseded_source_versions": [
+    {
+      "path": "/workspace/illustration-review/2026-11-07/ACTIVE-VISUAL-WORK/ORIGINALS/candidates/GGF-ANIM-DAD-JUMP-R48-v2-attempt1.png",
+      "sha256": "6fa256844fdd69160254e3cc1487736e3a880b30e657e4a71e90b44775b5b7ab"
+    },
+    {
+      "path": "/workspace/illustration-review/2026-11-07/ACTIVE-VISUAL-WORK/ORIGINALS/candidates/GGF-ANIM-DAD-JUMP-R48-v2-attempt2.png",
+      "sha256": "8b8f1edbbf239d8241c1981269c66edf175a3c5c9ff601b85f7ffb4af8f33794"
+    },
+    {
+      "path": "/workspace/illustration-review/2026-11-07/ACTIVE-VISUAL-WORK/ORIGINALS/candidates/GGF-ANIM-DAD-JUMP-R48-v2-attempt3.png",
+      "sha256": "039a9d8fad207c6aa6fbe57e4573dbf97cabc67fc676602c630b73fd25b32a64"
+    }
+  ]
+}

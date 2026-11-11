@@ -1,0 +1,6 @@
+settingsEvaluated { settings ->
+    def captureDir = System.getProperty("atlas.capture.dir")
+    if (captureDir == null) throw new GradleException("atlas.capture.dir is required")
+    settings.include(":atlasCapture")
+    settings.project(":atlasCapture").projectDir = new File(captureDir)
+}

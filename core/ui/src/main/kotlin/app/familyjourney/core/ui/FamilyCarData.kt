@@ -1,0 +1,25 @@
+package app.familyjourney.core.ui
+
+// 만든 파일: design/illustrations/tools/build_family_cars.py --apply 가 덮어쓴다. 손으로 고치지 않는다.
+// GPT R21 현대·기아 차 그림(결정 #34). 크기는 같은 차의 모든 그림을 자른 상자, groundRatio는 바퀴 바닥 높이.
+
+internal val familyCarData: List<FamilyCar> = listOf(
+    FamilyCar(CarModel.Palisade, 960, 502, 0.9721f, R.drawable.ggf_pic_car_h_palisade_empty, R.drawable.ggf_pic_car_h_palisade_start, lookOut = R.drawable.ggf_pic_car_h_palisade_lookout, wave = R.drawable.ggf_pic_car_h_palisade_wave, almost = R.drawable.ggf_pic_car_h_palisade_almost),
+    FamilyCar(CarModel.SantaFe, 960, 522, 0.9828f, R.drawable.ggf_pic_car_h_santafe_empty, R.drawable.ggf_pic_car_h_santafe_start, lookOut = R.drawable.ggf_pic_car_h_santafe_lookout, wave = R.drawable.ggf_pic_car_h_santafe_wave, almost = R.drawable.ggf_pic_car_h_santafe_almost),
+    FamilyCar(CarModel.Ioniq5, 960, 462, 0.9805f, R.drawable.ggf_pic_car_h_ioniq5_empty, R.drawable.ggf_pic_car_h_ioniq5_start, lookOut = R.drawable.ggf_pic_car_h_ioniq5_lookout, wave = R.drawable.ggf_pic_car_h_ioniq5_wave, almost = R.drawable.ggf_pic_car_h_ioniq5_almost),
+    FamilyCar(CarModel.Ioniq9, 960, 453, 0.9845f, R.drawable.ggf_pic_car_h_ioniq9_empty, R.drawable.ggf_pic_car_h_ioniq9_start, lookOut = R.drawable.ggf_pic_car_h_ioniq9_lookout, wave = R.drawable.ggf_pic_car_h_ioniq9_wave, almost = R.drawable.ggf_pic_car_h_ioniq9_almost),
+    FamilyCar(CarModel.Ioniq6, 960, 409, 0.9560f, R.drawable.ggf_pic_car_h_ioniq6_empty, R.drawable.ggf_pic_car_h_ioniq6_start, lookOut = R.drawable.ggf_pic_car_h_ioniq6_lookout, wave = R.drawable.ggf_pic_car_h_ioniq6_wave, almost = R.drawable.ggf_pic_car_h_ioniq6_almost),
+    FamilyCar(CarModel.Tucson, 960, 519, 0.9807f, R.drawable.ggf_pic_car_h_tucson_empty, R.drawable.ggf_pic_car_h_tucson_start, lookOut = R.drawable.ggf_pic_car_h_tucson_lookout, wave = R.drawable.ggf_pic_car_h_tucson_wave, almost = R.drawable.ggf_pic_car_h_tucson_almost),
+    FamilyCar(CarModel.Casper, 960, 655, 0.9557f, R.drawable.ggf_pic_car_h_casper_empty, R.drawable.ggf_pic_car_h_casper_start, lookOut = R.drawable.ggf_pic_car_h_casper_lookout, wave = R.drawable.ggf_pic_car_h_casper_wave, almost = R.drawable.ggf_pic_car_h_casper_almost),
+    FamilyCar(CarModel.Staria, 960, 520, 0.9808f, R.drawable.ggf_pic_car_h_staria_empty, R.drawable.ggf_pic_car_h_staria_start, lookOut = R.drawable.ggf_pic_car_h_staria_lookout, wave = R.drawable.ggf_pic_car_h_staria_wave, almost = R.drawable.ggf_pic_car_h_staria_almost),
+    FamilyCar(CarModel.Avante, 960, 402, 0.9701f, R.drawable.ggf_pic_car_h_avante_empty, R.drawable.ggf_pic_car_h_avante_start, lookOut = R.drawable.ggf_pic_car_h_avante_lookout, wave = R.drawable.ggf_pic_car_h_avante_wave, almost = R.drawable.ggf_pic_car_h_avante_almost),
+    FamilyCar(CarModel.Carnival, 960, 445, 0.9798f, R.drawable.ggf_pic_car_k_carnival_empty, R.drawable.ggf_pic_car_k_carnival_start, lookOut = R.drawable.ggf_pic_car_k_carnival_lookout, wave = R.drawable.ggf_pic_car_k_carnival_wave, almost = R.drawable.ggf_pic_car_k_carnival_almost),
+    FamilyCar(CarModel.Sorento, 960, 489, 0.9734f, R.drawable.ggf_pic_car_k_sorento_empty, R.drawable.ggf_pic_car_k_sorento_start, lookOut = R.drawable.ggf_pic_car_k_sorento_lookout, wave = R.drawable.ggf_pic_car_k_sorento_wave, almost = R.drawable.ggf_pic_car_k_sorento_almost),
+    FamilyCar(CarModel.Ev9, 960, 506, 0.9842f, R.drawable.ggf_pic_car_k_ev9_empty, R.drawable.ggf_pic_car_k_ev9_start, lookOut = R.drawable.ggf_pic_car_k_ev9_lookout, wave = R.drawable.ggf_pic_car_k_ev9_wave, almost = R.drawable.ggf_pic_car_k_ev9_almost),
+    FamilyCar(CarModel.Ev3, 960, 566, 0.9647f, R.drawable.ggf_pic_car_k_ev3_empty, R.drawable.ggf_pic_car_k_ev3_start, lookOut = R.drawable.ggf_pic_car_k_ev3_lookout, wave = R.drawable.ggf_pic_car_k_ev3_wave, almost = R.drawable.ggf_pic_car_k_ev3_almost),
+    FamilyCar(CarModel.Ev6, 960, 467, 0.9593f, R.drawable.ggf_pic_car_k_ev6_empty, R.drawable.ggf_pic_car_k_ev6_start, lookOut = R.drawable.ggf_pic_car_k_ev6_lookout, wave = R.drawable.ggf_pic_car_k_ev6_wave, almost = R.drawable.ggf_pic_car_k_ev6_almost),
+    FamilyCar(CarModel.Sportage, 960, 521, 0.9808f, R.drawable.ggf_pic_car_k_sportage_empty, R.drawable.ggf_pic_car_k_sportage_start, lookOut = R.drawable.ggf_pic_car_k_sportage_lookout, wave = R.drawable.ggf_pic_car_k_sportage_wave, almost = R.drawable.ggf_pic_car_k_sportage_almost),
+    FamilyCar(CarModel.Ray, 960, 695, 0.9813f, R.drawable.ggf_pic_car_k_ray_empty, R.drawable.ggf_pic_car_k_ray_start, lookOut = R.drawable.ggf_pic_car_k_ray_lookout, wave = R.drawable.ggf_pic_car_k_ray_wave, almost = R.drawable.ggf_pic_car_k_ray_almost),
+    FamilyCar(CarModel.Niro, 960, 532, 0.9812f, R.drawable.ggf_pic_car_k_niro_empty, R.drawable.ggf_pic_car_k_niro_start, lookOut = R.drawable.ggf_pic_car_k_niro_lookout, wave = R.drawable.ggf_pic_car_k_niro_wave, almost = R.drawable.ggf_pic_car_k_niro_almost),
+    FamilyCar(CarModel.K5, 960, 393, 0.9542f, R.drawable.ggf_pic_car_k_k5_empty, R.drawable.ggf_pic_car_k_k5_start, lookOut = R.drawable.ggf_pic_car_k_k5_lookout, wave = R.drawable.ggf_pic_car_k_k5_wave, almost = R.drawable.ggf_pic_car_k_k5_almost),
+)

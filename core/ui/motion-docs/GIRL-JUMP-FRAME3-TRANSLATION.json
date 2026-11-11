@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "request_id": "claude-p1-20261108-14",
+  "gpt_start_id": "gpt-p1-girl-20261108-20-start",
+  "pm_read_commit": "e81954c0591ae03c8b3911320a9573a3a136638e",
+  "code_branch": "chatgpt/parked-illustration-motion",
+  "parent_commit": "5c8cd8174ac11ad963f6beb33e9633613e74f42d",
+  "created_at_kst": "2026-11-08T00:46:55.728171+09:00",
+  "resource_path": "core/ui/src/main/res/drawable-nodpi/ggf_anim_girl_jump.webp",
+  "input": {
+    "commit": "5c8cd8174ac11ad963f6beb33e9633613e74f42d",
+    "sha256": "c9fec9db04a591eec195fd311fc016861a57a7f70527ee8a3b2990872a7967dd",
+    "bytes": 89884,
+    "size": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA"
+  },
+  "output": {
+    "sha256": "48a590dedb93cfc5cc38a27b31f7f02e88c6762e187c9c29293d4fd7dc02a8c6",
+    "bytes": 274570,
+    "size": [
+      1536,
+      1024
+    ],
+    "mode": "RGBA"
+  },
+  "operation": {
+    "frame_index_zero_based_row_major": 3,
+    "sheet_rect_xyxy_exclusive": [
+      0,
+      512,
+      512,
+      1024
+    ],
+    "cell_size": [
+      512,
+      512
+    ],
+    "grid": [
+      3,
+      2
+    ],
+    "translation_xy_px": [
+      0,
+      35
+    ],
+    "copy_in_cell_source_rect_xyxy_exclusive": [
+      0,
+      0,
+      512,
+      477
+    ],
+    "paste_in_cell_xy": [
+      0,
+      35
+    ],
+    "exposed_pixels_rgba": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "contents_include_contact_shadow": true,
+    "discarded_bottom_rows_have_nonzero_alpha": false,
+    "nonzero_alpha_pixels_before": 36415,
+    "nonzero_alpha_pixels_after": 36415,
+    "alpha128_bbox_before_xyxy_exclusive": [
+      175,
+      109,
+      337,
+      426
+    ],
+    "alpha128_bbox_after_xyxy_exclusive": [
+      175,
+      144,
+      337,
+      461
+    ],
+    "interpretation": "Entire final-cell content moved as one unit. Alpha bbox is not an anatomical foot measurement. Airborne frame 2 is unchanged."
+  },
+  "encoder": {
+    "Pillow": "13.0.0",
+    "libwebp": "1.6.0",
+    "format": "WebP lossless RGBA from decoded baseline WebP",
+    "lossless": true,
+    "exact": true,
+    "method": 6
+  },
+  "verification": {
+    "decoded_rgba_matches_expected_translation_exactly": true,
+    "outside_frame_3_rgba_identical": true,
+    "no_visible_content_clipped": true,
+    "no_resizing": true,
+    "no_color_filter": true,
+    "no_alpha_cleanup": true,
+    "frames": [
+      {
+        "index": 0,
+        "decoded_rgba_sha256_before": "188efb64556fa161f66781f1190f1fc95b3ab5311adf72e99bd240316a7aa599",
+        "decoded_rgba_sha256_after": "188efb64556fa161f66781f1190f1fc95b3ab5311adf72e99bd240316a7aa599",
+        "rgba_identical": true
+      },
+      {
+        "index": 1,
+        "decoded_rgba_sha256_before": "6103700d32f013807256880ade706c3adb406232b8c26dd366c7eab904fcd32c",
+        "decoded_rgba_sha256_after": "6103700d32f013807256880ade706c3adb406232b8c26dd366c7eab904fcd32c",
+        "rgba_identical": true
+      },
+      {
+        "index": 2,
+        "decoded_rgba_sha256_before": "a0a5544863096e0e09fd77c2b8672549058d82c82a651c81faa35ca65fb1b1f9",
+        "decoded_rgba_sha256_after": "a0a5544863096e0e09fd77c2b8672549058d82c82a651c81faa35ca65fb1b1f9",
+        "rgba_identical": true
+      },
+      {
+        "index": 3,
+        "decoded_rgba_sha256_before": "a922dd1b61cdf88905e107a7195fe065839164d88bc9a4d863b761e124129929",
+        "decoded_rgba_sha256_after": "767f3dc802dc72a594d8651671abb7c2d12bdc77765fcca6d4617f1558739153",
+        "rgba_identical": false
+      },
+      {
+        "index": 4,
+        "decoded_rgba_sha256_before": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+        "decoded_rgba_sha256_after": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+        "rgba_identical": true
+      },
+      {
+        "index": 5,
+        "decoded_rgba_sha256_before": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+        "decoded_rgba_sha256_after": "30e14955ebf1352266dc2ff8067e68104607e750abb9d3b36582b8af909fcb58",
+        "rgba_identical": true
+      }
+    ]
+  },
+  "historical_records": {
+    "original_pngs_preserved": true,
+    "prior_anchor_snapshot": "core/ui/motion-docs/ANCHOR-QA.json",
+    "prior_anchor_snapshot_applies_to_input_not_output_frame_3": true,
+    "new_anatomical_foot_or_shadow_only_measurements_claimed": false,
+    "prior_source_manifest_webp_sha_matches_output": false,
+    "note": "The original generated/delivery PNGs and source manifest remain unchanged. The output is derived from the input WebP at the parent commit, not a new generation. Lossless re-encoding preserves the already decoded lossy RGB; it does not restore original PNG RGB."
+  },
+  "scope": {
+    "Android_build_executed": false,
+    "runtime_or_emulator_verified": false,
+    "PM_merge_or_acceptance_claimed": false
+  }
+}

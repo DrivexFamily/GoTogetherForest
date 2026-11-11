@@ -1,0 +1,487 @@
+[
+ {
+  "img": "D07.png",
+  "start": 0.0,
+  "end": 5.0,
+  "zoom": [
+   1.0,
+   1.025
+  ],
+  "focus": [
+   0.5,
+   0.5
+  ],
+  "pan": [
+   0,
+   0
+  ],
+  "concept": false,
+  "screens": {},
+  "subs": [
+   [
+    0.4,
+    4.6,
+    "제 이름은 하늘이에요.",
+    "sub"
+   ]
+  ],
+  "clip": "clips/C01.mp4"
+ },
+ {
+  "img": "D02.png",
+  "start": 5.0,
+  "end": 10.0,
+  "zoom": [
+   1.0,
+   1.025
+  ],
+  "focus": [
+   0.5,
+   0.5
+  ],
+  "pan": [
+   0,
+   0
+  ],
+  "concept": false,
+  "screens": {},
+  "subs": [
+   [
+    5.4,
+    9.6,
+    "할머니 댁에 가는 길은 조금 길어요.",
+    "sub"
+   ]
+  ],
+  "clip": "clips/C02.mp4"
+ },
+ {
+  "img": "D09.png",
+  "start": 10.0,
+  "end": 14.0,
+  "zoom": [
+   1.0,
+   1.025
+  ],
+  "focus": [
+   0.5,
+   0.5
+  ],
+  "pan": [
+   0,
+   0
+  ],
+  "concept": false,
+  "screens": {},
+  "subs": [
+   [
+    10.4,
+    13.6,
+    "저는 늘 언제 도착하냐고 물었어요.",
+    "sub"
+   ]
+  ],
+  "clip": "clips/C03.mp4"
+ },
+ {
+  "img": "D08.png",
+  "start": 14.0,
+  "end": 20.0,
+  "zoom": [
+   1.0,
+   1.0
+  ],
+  "focus": [
+   0.5,
+   0.5
+  ],
+  "pan": [
+   0,
+   0
+  ],
+  "concept": false,
+  "screens": {
+   "car-display": {
+    "src": "app:pleos-wide-system-driving-ad.png",
+    "fit": "contain"
+   }
+  },
+  "subs": [
+   [
+    14.4,
+    19.6,
+    "요즘은 화면 속 우리 차가 알려 줘요.",
+    "sub"
+   ]
+  ],
+  "clip": "clips/C04.mp4"
+ },
+ {
+  "img": "D02.png",
+  "start": 20.0,
+  "end": 24.0,
+  "zoom": [
+   1.0,
+   1.025
+  ],
+  "focus": [
+   0.5,
+   0.5
+  ],
+  "pan": [
+   0,
+   0
+  ],
+  "concept": false,
+  "screens": {},
+  "subs": [
+   [
+    20.4,
+    23.6,
+    "그러면 저는 창밖을 더 오래 봐요.",
+    "sub"
+   ]
+  ],
+  "clip": "clips/C05.mp4"
+ },
+ {
+  "img": "D03.png",
+  "start": 24.0,
+  "end": 29.0,
+  "zoom": [
+   1.0,
+   1.025
+  ],
+  "focus": [
+   0.5,
+   0.5
+  ],
+  "pan": [
+   0,
+   0
+  ],
+  "concept": true,
+  "screens": {
+   "tablet": "app:phone-forest-tablet.png"
+  },
+  "subs": [
+   [
+    24.4,
+    28.6,
+    "그 길을 집에 와서도 들여다봐요.",
+    "sub"
+   ]
+  ],
+  "clip": "clips/C06.mp4"
+ },
+ {
+  "img": "D11.png",
+  "start": 29.0,
+  "end": 34.0,
+  "zoom": [
+   1.0,
+   1.0
+  ],
+  "focus": [
+   0.5,
+   0.5
+  ],
+  "pan": [
+   0,
+   0
+  ],
+  "concept": true,
+  "screens": {
+   "tablet": "app:phone-forest-tablet.png"
+  },
+  "subs": [
+   [
+    29.4,
+    33.6,
+    "엄마랑 같은 나무를 바라봐요.",
+    "sub"
+   ]
+  ],
+  "clip": "clips/C07.mp4"
+ },
+ {
+  "img": "D04.png",
+  "start": 34.0,
+  "end": 39.0,
+  "zoom": [
+   1.0,
+   1.0
+  ],
+  "focus": [
+   0.5,
+   0.5
+  ],
+  "pan": [
+   0,
+   0
+  ],
+  "concept": true,
+  "screens": {
+   "left-boy-tablet": "app:forest-m2-25-trees-full.png",
+   "center-main-girl-tablet": "app:phone-forest-tablet.png",
+   "right-friend-phone": "app:forest-island-full.png"
+  },
+  "subs": [
+   [
+    34.4,
+    38.6,
+    "우리 아빠들 차는 모두 현대자동차예요.",
+    "sub"
+   ]
+  ],
+  "clip": "clips/C08.mp4"
+ },
+ {
+  "img": "D12.png",
+  "start": 39.0,
+  "end": 43.0,
+  "zoom": [
+   1.0,
+   1.0
+  ],
+  "focus": [
+   0.5,
+   0.5
+  ],
+  "pan": [
+   0,
+   0
+  ],
+  "concept": true,
+  "screens": {
+   "tablet": "app:forest-m2-25-trees-full.png"
+  },
+  "subs": [
+   [
+    39.4,
+    42.6,
+    "그래서 우리는 각자 숲이 있어요.",
+    "sub"
+   ]
+  ],
+  "clip": "clips/C09.mp4"
+ },
+ {
+  "img": "D06.png",
+  "start": 43.0,
+  "end": 47.0,
+  "zoom": [
+   1.0,
+   1.025
+  ],
+  "focus": [
+   0.5,
+   0.5
+  ],
+  "pan": [
+   0,
+   0
+  ],
+  "concept": true,
+  "screens": {},
+  "subs": [
+   [
+    43.4,
+    46.6,
+    "서로의 숲에 놀러 가기로 했어요.",
+    "sub"
+   ]
+  ],
+  "clip": "clips/C10.mp4"
+ },
+ {
+  "img": "D05.png",
+  "start": 47.0,
+  "end": 52.0,
+  "zoom": [
+   1.0,
+   1.0
+  ],
+  "focus": [
+   0.5,
+   0.5
+  ],
+  "pan": [
+   0,
+   0
+  ],
+  "concept": true,
+  "screens": {
+   "boy-phone": "app:forest-m2-25-trees-full.png"
+  },
+  "subs": [
+   [
+    47.4,
+    51.6,
+    "엄마, 친구들이 내 숲에도 놀러 온대!",
+    "talk"
+   ]
+  ],
+  "clip": "clips/C11.mp4"
+ },
+ {
+  "img": "D10.png",
+  "start": 52.0,
+  "end": 57.0,
+  "zoom": [
+   1.0,
+   1.025
+  ],
+  "focus": [
+   0.5,
+   0.5
+  ],
+  "pan": [
+   0,
+   0
+  ],
+  "concept": false,
+  "screens": {},
+  "subs": [
+   [
+    52.4,
+    56.6,
+    "그런데 오늘은 제가 먼저 할 말이 있어요.",
+    "sub"
+   ]
+  ],
+  "clip": "clips/C12.mp4"
+ },
+ {
+  "img": "app:atlas-group-celebration-full.png",
+  "start": 57.0,
+  "end": 61.0,
+  "zoom": [
+   1.0,
+   1.0
+  ],
+  "focus": [
+   0.5,
+   0.5
+  ],
+  "pan": [
+   0,
+   0
+  ],
+  "concept": false,
+  "screens": {},
+  "subs": [
+   [
+    57.4,
+    60.6,
+    "지나온 곳들이 제 여행이 되었어요.",
+    "sub"
+   ]
+  ],
+  "bg": "D10.png"
+ },
+ {
+  "img": "app:arrival-result-full.png",
+  "start": 61.0,
+  "end": 65.0,
+  "zoom": [
+   1.0,
+   1.0
+  ],
+  "focus": [
+   0.5,
+   0.5
+  ],
+  "pan": [
+   0,
+   0
+  ],
+  "concept": false,
+  "screens": {},
+  "subs": [
+   [
+    61.4,
+    64.6,
+    "아빠가 부드럽게 데려다준 길이에요.",
+    "sub"
+   ]
+  ],
+  "bg": "D10.png"
+ },
+ {
+  "img": "app:journey-arrived-half.png",
+  "start": 65.0,
+  "end": 69.0,
+  "zoom": [
+   1.0,
+   1.0
+  ],
+  "focus": [
+   0.5,
+   0.5
+  ],
+  "pan": [
+   0,
+   0
+  ],
+  "concept": false,
+  "screens": {},
+  "subs": [
+   [
+    65.4,
+    68.6,
+    "먼저 인사한 건 화면이었어요.",
+    "sub"
+   ]
+  ],
+  "bg": "D10.png"
+ },
+ {
+  "img": "D13.png",
+  "start": 69.0,
+  "end": 77.0,
+  "zoom": [
+   1.0,
+   1.018
+  ],
+  "focus": [
+   0.5,
+   0.5
+  ],
+  "pan": [
+   0,
+   0
+  ],
+  "concept": false,
+  "screens": {},
+  "subs": [
+   [
+    69.4,
+    76.6,
+    "아빠! 오늘도 안전운전 해줘서 고마워요❤️",
+    "talk"
+   ]
+  ],
+  "clip": "clips/C13.mp4"
+ },
+ {
+  "img": "end",
+  "start": 77.0,
+  "end": 84.0,
+  "zoom": [
+   1.0,
+   1.0
+  ],
+  "focus": [
+   0.5,
+   0.5
+  ],
+  "pan": [
+   0,
+   0
+  ],
+  "concept": false,
+  "screens": {},
+  "subs": []
+ }
+]

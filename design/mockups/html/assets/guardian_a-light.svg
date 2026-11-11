@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 190" width="130" height="190">
+  <title>보호자 A</title>
+  <path data-role="shadow" fill="#2B2622" fill-opacity="0.14" d="M34,186A31,4 0 1,0 96,186A31,4 0 1,0 34,186Z"/>
+  <g id="bob">
+    <g id="legL">
+      <path data-role="limb" fill="none" stroke="#2B2622" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round" d="M56,144C55.7,146.8 54.7,155 54.2,160.5C53.7,166 53.2,174.3 53,177"/>
+      <path data-role="shoe" fill="#5B4A3F" stroke="#2B2622" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" d="M49.5,185.9C47.6,185.8 45.2,185.1 44,184.3C42.8,183.4 42.2,181.9 42.3,180.7C42.4,179.6 43.3,178.1 44.7,177.3C46.1,176.6 48.6,176.2 50.5,176.3C52.4,176.3 54.9,176.9 56.1,177.7C57.3,178.5 57.9,180.1 57.7,181.3C57.6,182.4 56.6,183.8 55.2,184.6C53.9,185.4 51.4,185.9 49.5,185.9Z"/>
+    </g>
+    <g id="legR">
+      <path data-role="limb" fill="none" stroke="#2B2622" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round" d="M74,144C74.2,146.7 74.9,154.8 75.4,160.3C75.9,165.8 76.7,174.2 77,177"/>
+      <path data-role="shoe" fill="#5B4A3F" stroke="#2B2622" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" d="M85.7,184.2C84.4,185 82.2,185.8 80.4,185.9C78.6,185.9 76.1,185.3 74.8,184.5C73.5,183.7 72.5,182.3 72.4,181.2C72.3,180.1 73,178.6 74.2,177.8C75.4,176.9 77.8,176.2 79.6,176.2C81.5,176.1 84,176.6 85.4,177.3C86.8,178.1 88,179.6 88.1,180.8C88.1,181.9 87,183.3 85.7,184.2Z"/>
+    </g>
+    <g id="armL">
+      <path data-role="limb" fill="none" stroke="#2B2622" stroke-width="6.3" stroke-linejoin="round" stroke-linecap="round" d="M42,110C41,112.4 38.1,119.5 36.1,124.2C34.1,128.9 31,135.7 30,138"/>
+      <path data-role="skin" fill="#F6CFAA" stroke="#2B2622" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" d="M33.7,143.3C32.7,144.3 30.7,145 29.3,144.9C27.9,144.7 26,143.6 25.2,142.4C24.5,141.2 24.3,139 24.8,137.6C25.4,136.3 26.9,134.7 28.3,134.3C29.6,133.9 31.8,134.2 32.9,135C34.1,135.8 35.2,137.6 35.3,139C35.4,140.4 34.7,142.3 33.7,143.3Z"/>
+    </g>
+    <g id="armR">
+      <path data-role="limb" fill="none" stroke="#2B2622" stroke-width="6.3" stroke-linejoin="round" stroke-linecap="round" d="M88,110C89,112.3 92.1,119 94.1,123.7C96.1,128.4 99,135.6 100,138"/>
+      <path data-role="skin" fill="#F6CFAA" stroke="#2B2622" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" d="M97.6,144.6C96.3,144 95.2,142.1 94.8,140.7C94.5,139.3 94.8,137.2 95.7,136.1C96.5,135 98.5,134.1 100,134.1C101.4,134 103.4,134.9 104.3,136C105.2,137.2 105.8,139.3 105.5,140.7C105.2,142.1 103.7,143.6 102.3,144.3C101,144.9 98.8,145.2 97.6,144.6Z"/>
+    </g>
+    <g id="body">
+      <path data-role="shirtA" fill="#3F92D2" stroke="#2B2622" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" d="M43.7,104C48.4,100.2 57.6,101.1 64.6,101.2C71.7,101.2 81.4,100.6 86.1,104.4C90.7,108.2 91,117.2 92.6,123.9C94.1,130.6 99.8,140.4 95.3,144.6C90.7,148.7 75.3,148.9 65.1,149C54.9,149 38.8,149 34.1,144.8C29.3,140.7 34.9,131 36.5,124.2C38.2,117.4 39,107.8 43.7,104Z"/>
+      <path data-role="shade" fill="none" stroke="#2B2622" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round" stroke-opacity="0.16" d="M58.8,131.4Q68.4,125 76.9,118.8M66.5,132.2Q72.6,127.5 80,122.7M68.8,136.6Q74.3,132.8 80.1,128.7"/>
+      <path data-role="line" fill="none" stroke="#2B2622" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" stroke-opacity="0.4" d="M65,104L65,146"/>
+      <path data-role="line" fill="none" stroke="#2B2622" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" stroke-opacity="0.55" d="M72.1,120.3Q72,118.3 74,118.3L82.1,118.3Q84.1,118.3 83.9,120.3L83.4,127.3Q83.2,129.3 81.2,129.2L74.4,129Q72.4,128.9 72.4,126.9Z"/>
+    </g>
+    <g id="head">
+      <path data-role="skin" fill="#F6CFAA" stroke="#2B2622" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" d="M36.5,74.5C35.2,75.5 32.7,76 31.2,75.4C29.7,74.9 28.1,73 27.5,71.4C26.9,69.8 27,67.2 27.7,65.8C28.5,64.3 30.5,62.8 32.1,62.6C33.6,62.3 35.8,63.2 36.9,64.3C38.1,65.5 38.9,67.7 38.8,69.4C38.8,71.1 37.8,73.5 36.5,74.5ZM96.4,75.7C94.9,75.5 93,73.9 92.2,72.5C91.3,71 90.7,68.5 91.1,66.9C91.6,65.3 93.4,63.5 94.9,62.9C96.4,62.3 98.8,62.4 100.2,63.3C101.5,64.2 102.7,66.4 103,68.1C103.2,69.8 102.5,72.3 101.4,73.5C100.3,74.8 98,75.8 96.4,75.7Z"/>
+      <path data-role="skin" fill="#F6CFAA" stroke="#2B2622" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" d="M97.6,71.3C96.3,76.1 92.4,80.9 88.5,84.6C84.6,88.3 79.5,92 74.4,93.3C69.2,94.7 62.7,94.1 57.4,92.9C52,91.7 46.3,89.3 42.2,86C38.2,82.6 34.6,77.5 33,72.6C31.4,67.8 31.4,61.7 32.8,56.8C34.1,51.9 37.4,46.8 41.2,43.1C45,39.5 50.4,36.1 55.7,34.7C60.9,33.4 67.4,33.7 72.7,34.9C78,36.2 83.5,38.9 87.5,42.3C91.5,45.7 94.8,50.7 96.5,55.5C98.2,60.3 99,66.4 97.6,71.3Z"/>
+      <path data-role="hairA" fill="#3E2C22" stroke="#2B2622" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" d="M31,65C30.3,63.5 31.5,51.5 33.3,46.4C35.2,41.4 38.3,37.7 42.1,34.6C45.9,31.6 50.9,29 56.2,28C61.6,27.1 69.1,27.7 74.4,28.9C79.6,30.1 84.1,32.3 88,35.3C91.8,38.3 95.6,42.4 97.4,47C99.2,51.5 99.4,61.5 98.6,62.6C97.7,63.6 94.7,55.8 92.3,53.3C90,50.7 88.2,48.2 84.4,47.3C80.7,46.5 74.7,48.8 70,48.2C65.4,47.5 60.4,43.8 56.4,43.5C52.4,43.2 48.9,44.4 45.9,46.4C42.8,48.4 40.5,52.3 38,55.4C35.6,58.5 31.8,66.5 31,65Z"/>
+      <path data-role="line" fill="none" stroke="#2B2622" stroke-width="1.1" stroke-linejoin="round" stroke-linecap="round" stroke-opacity="0.45" d="M33.7,50.5C34,50 34.9,48.3 35.6,47.3C36.3,46.2 37.1,45.2 38.1,44.3C39,43.4 40.1,42.8 41.1,41.9C42,41.1 42.8,40 43.8,39.2C44.8,38.4 45.9,37.7 47,37.1C48.1,36.4 50,35.7 50.6,35.5"/>
+      <path data-role="feature" fill="#2B2622" d="M50.2,68A2.8,3.6 0 1,0 55.8,68A2.8,3.6 0 1,0 50.2,68ZM74.2,68A2.8,3.6 0 1,0 79.8,68A2.8,3.6 0 1,0 74.2,68Z"/>
+      <path data-role="shine" fill="#FFFFFF" d="M53,66.7A1.1,1.1 0 1,0 55.1,66.7A1.1,1.1 0 1,0 53,66.7ZM77,66.7A1.1,1.1 0 1,0 79.1,66.7A1.1,1.1 0 1,0 77,66.7Z"/>
+      <path data-role="line" fill="none" stroke="#2B2622" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" d="M44.4,67.5A8.6,8.6 0 1,0 61.6,67.5A8.6,8.6 0 1,0 44.4,67.5ZM68.4,67.5A8.6,8.6 0 1,0 85.6,67.5A8.6,8.6 0 1,0 68.4,67.5ZM61.6,66Q65,64.6 68.4,66"/>
+      <path data-role="cheek" fill="#E9786A" fill-opacity="0.5" d="M38,79A5,3.2 0 1,0 48,79A5,3.2 0 1,0 38,79ZM82,79A5,3.2 0 1,0 92,79A5,3.2 0 1,0 82,79Z"/>
+      <path data-role="feature" fill="none" stroke="#2B2622" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" d="M60,81Q65,86 70,81"/>
+    </g>
+  </g>
+</svg>

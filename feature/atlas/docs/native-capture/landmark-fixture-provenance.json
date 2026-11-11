@@ -1,0 +1,24 @@
+{
+  "purpose": "Paparazzi screenshot fixture only; not production 500-landmark binding",
+  "landmark": "LM001 N서울타워",
+  "source_path": "design/illustrations/exports/2026-11-06/GGF-LANDMARK-LM001-U02-v3.png",
+  "source_sha256": "b2bab3b7169b818f88bde434b8171107f354ba2996703365cee53518fb8d945a",
+  "source_size": [
+    1254,
+    1254
+  ],
+  "source_mode": "RGBA",
+  "output_path": "screens/src/main/res/drawable-nodpi/ggf_atlas_test_lm001.webp",
+  "output_sha256": "9fef4183b7edfe477cceee940ebb647aca9127122888bf4276786898c6ea0e92",
+  "output_size": [
+    384,
+    384
+  ],
+  "output_bytes": 22276,
+  "codec": "WebP RGB quality92 with exact alpha",
+  "source_resized_for_app": true,
+  "upsampled": false,
+  "alpha_cleanup": false,
+  "output_alpha_matches_downsampled_source": true,
+  "source_unchanged": true
+}

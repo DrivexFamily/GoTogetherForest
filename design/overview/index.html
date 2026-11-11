@@ -1,0 +1,1558 @@
+<title>같이가숲 개발 지도</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Asta+Sans:wght@400;600;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=IBM+Plex+Sans+KR:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: 집에서 숲까지 이어지는 한 줄기 길. 섹션은 길 위의 정거장, 상단 목차는 이정표 */
+:root {
+  --paper: #F5FAF3;
+  --card: #FFFFFF;
+  --ink: #1D2A22;
+  --ink-2: #4B5C51;
+  --line: #D3E2D4;
+  --forest: #2B774A;
+  --leaf: #6BB85A;
+  --leaf-soft: #E3F3DC;
+  --sky: #3F92D2;
+  --sky-soft: #DDEEFB;
+  --sun: #F0AE34;
+  --sun-soft: #FFF0CC;
+  --berry: #D25A49;
+  --berry-soft: #FBE2DD;
+  --demo: #7D5FD0;
+  --demo-soft: #ECE6FB;
+  --skin: #F5CDA6;
+  --hair: #4A3326;
+  --car: #E3604F;
+  --scene-sky: #DCEFFC;
+  --hill-1: #C3E5B4;
+  --hill-2: #9DD08A;
+  --road: #8C928E;
+  --road-line: #F7F7F2;
+  --squirrel: #B7713D;
+  --rabbit: #F3F0EA;
+  --font-body: "Asta Sans", "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  --font-hand: "Jua", "Asta Sans", "IBM Plex Sans KR", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --r: 18px;
+  --shadow: 0 1px 0 rgba(29, 42, 34, .05), 0 8px 24px -12px rgba(29, 42, 34, .18);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0F1713; --card: #17221C; --ink: #E3EEE6; --ink-2: #A8BBAE; --line: #2A3B31;
+    --forest: #6FCB8E; --leaf: #5DAE50; --leaf-soft: #1C3222; --sky: #6BB3EA; --sky-soft: #172B3A;
+    --sun: #F2BE57; --sun-soft: #3A2F15; --berry: #F08676; --berry-soft: #3C201C;
+    --demo: #A98FF2; --demo-soft: #2A2240; --skin: #E9C29B; --hair: #2B1E16; --car: #E8685A;
+    --scene-sky: #13283A; --hill-1: #1E3B29; --hill-2: #26502F; --road: #4E5753; --road-line: #C9CFCB;
+    --squirrel: #C27E4A; --rabbit: #E6E1D8;
+    --shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 10px 28px -14px rgba(0, 0, 0, .6);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0F1713; --card: #17221C; --ink: #E3EEE6; --ink-2: #A8BBAE; --line: #2A3B31;
+  --forest: #6FCB8E; --leaf: #5DAE50; --leaf-soft: #1C3222; --sky: #6BB3EA; --sky-soft: #172B3A;
+  --sun: #F2BE57; --sun-soft: #3A2F15; --berry: #F08676; --berry-soft: #3C201C;
+  --demo: #A98FF2; --demo-soft: #2A2240; --skin: #E9C29B; --hair: #2B1E16; --car: #E8685A;
+  --scene-sky: #13283A; --hill-1: #1E3B29; --hill-2: #26502F; --road: #4E5753; --road-line: #C9CFCB;
+  --squirrel: #C27E4A; --rabbit: #E6E1D8;
+  --shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 10px 28px -14px rgba(0, 0, 0, .6);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--paper); }
+.wrap {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+h1, h2, h3 { text-wrap: balance; margin: 0; line-height: 1.25; }
+h2 { font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.3rem); font-weight: 800; letter-spacing: -0.01em; }
+h3 { font-size: 1.15rem; font-weight: 700; }
+p { margin: 0; }
+.hand { font-family: var(--font-hand); font-weight: 400; }
+.eyebrow { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--forest); font-weight: 700; }
+.lede { color: var(--ink-2); max-width: 68ch; font-size: 1.02rem; }
+.muted { color: var(--ink-2); }
+.mono { font-family: var(--font-mono); font-size: .88em; }
+code { font-family: var(--font-mono); font-size: .86em; background: var(--leaf-soft); padding: .08em .38em; border-radius: 6px; }
+a { color: var(--forest); }
+:focus-visible { outline: 3px solid var(--sky); outline-offset: 2px; border-radius: 6px; }
+
+/* 상단 이정표 */
+.topbar {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20;
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.topbar .wrap { display: flex; align-items: center; gap: 16px; padding-block: 10px; }
+.brand { display: flex; align-items: center; gap: 8px; font-weight: 800; white-space: nowrap; }
+.brand svg { width: 28px; height: 28px; }
+.toc { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; min-width: 0; }
+.toc::-webkit-scrollbar { display: none; }
+.toc a {
+  flex: none; text-decoration: none; color: var(--ink-2); font-size: .85rem; font-weight: 600;
+  padding: 6px 12px; border-radius: 999px; border: 1px solid transparent;
+}
+.toc a:hover, .toc a.on { color: var(--forest); border-color: var(--line); background: var(--card); }
+
+section { padding-block: 64px; border-bottom: 1px dashed var(--line); scroll-margin-top: 64px; }
+section:last-of-type { border-bottom: 0; }
+.sec-head { display: grid; gap: 10px; margin-bottom: 28px; }
+
+/* 히어로 */
+.hero { padding-block: 40px 56px; }
+.hero-grid { display: grid; gap: 24px; }
+.hero h1 { font-size: clamp(2.2rem, 1.4rem + 3.6vw, 4rem); font-weight: 800; letter-spacing: -0.02em; }
+.hero h1 .hand { color: var(--forest); font-size: 1.12em; }
+.hero .tag { font-size: clamp(1.05rem, 1rem + .4vw, 1.3rem); color: var(--ink-2); max-width: 62ch; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 10px; }
+.fact { display: inline-flex; gap: 6px; align-items: baseline; padding: 6px 12px; border-radius: 999px; background: var(--card); border: 1px solid var(--line); font-size: .88rem; }
+.fact b { font-weight: 800; font-variant-numeric: tabular-nums; }
+.scene-card { background: var(--card); border: 1px solid var(--line); border-radius: 26px; box-shadow: var(--shadow); overflow: hidden; }
+.scene-card svg { display: block; width: 100%; height: auto; }
+.scene-ui { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px 24px; align-items: center; padding: 18px 22px 22px; border-top: 1px solid var(--line); }
+.prog { display: grid; gap: 8px; min-width: 0; }
+.prog-top { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.prog-pct { font-size: 2.4rem; font-weight: 800; font-variant-numeric: tabular-nums; line-height: 1; color: var(--forest); }
+.prog-say { font-family: var(--font-hand); font-size: 1.45rem; font-weight: 400; }
+.prog-say small { font-family: var(--font-body); font-size: .85rem; font-weight: 400; color: var(--ink-2); margin-left: 6px; }
+.bar { position: relative; height: 16px; border-radius: 999px; background: var(--leaf-soft); overflow: hidden; }
+.bar i { position: absolute; inset: 0 auto 0 0; width: 0; background: var(--leaf); border-radius: inherit; }
+.bar .ticks { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(10, 1fr); }
+.bar .ticks span { border-right: 2px solid color-mix(in srgb, var(--card) 70%, transparent); }
+.bar .ticks span:last-child { border-right: 0; }
+.mode-note { font-size: .88rem; color: var(--ink-2); }
+
+.seg { display: inline-flex; padding: 4px; gap: 4px; border-radius: 999px; background: var(--paper); border: 1px solid var(--line); flex-wrap: wrap; }
+.seg button {
+  font: inherit; font-size: .9rem; font-weight: 700; border: 0; cursor: pointer;
+  padding: 8px 14px; border-radius: 999px; background: transparent; color: var(--ink-2);
+}
+.seg button[aria-pressed="true"] { background: var(--card); color: var(--ink); box-shadow: var(--shadow); }
+.seg button[aria-pressed="true"].drive { background: var(--sky); color: #fff; }
+.seg button[aria-pressed="true"].park { background: var(--forest); color: #fff; }
+:root[data-theme="dark"] .seg button[aria-pressed="true"].drive, :root[data-theme="dark"] .seg button[aria-pressed="true"].park { color: #0F1713; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .seg button[aria-pressed="true"].drive, :root:not([data-theme="light"]) .seg button[aria-pressed="true"].park { color: #0F1713; } }
+
+.btn {
+  font: inherit; font-weight: 700; font-size: .92rem; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 9px 16px; border-radius: 999px; border: 1px solid var(--line);
+  background: var(--card); color: var(--ink);
+}
+.btn.primary { background: var(--forest); color: var(--paper); border-color: var(--forest); }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+
+/* 가치 */
+.value-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 18px; }
+.panel { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 22px; display: grid; gap: 10px; align-content: start; min-width: 0; }
+.quote { font-family: var(--font-hand); font-size: 2rem; line-height: 1.2; color: var(--berry); }
+.answer { font-family: var(--font-hand); font-size: 1.7rem; line-height: 1.25; color: var(--forest); }
+.list { margin: 0; padding-left: 1.1em; display: grid; gap: 6px; }
+.list li::marker { color: var(--leaf); }
+
+/* 스토리보드 */
+.story { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 22px; }
+.steps { display: grid; gap: 6px; align-content: start; margin: 0; padding: 0; list-style: none; }
+.steps button {
+  width: 100%; text-align: left; font: inherit; cursor: pointer; display: grid; grid-template-columns: 28px 1fr auto; gap: 10px; align-items: center;
+  padding: 10px 12px; border-radius: 14px; border: 1px solid transparent; background: transparent; color: var(--ink-2);
+}
+.steps button .n { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: .85rem; background: var(--leaf-soft); color: var(--forest); font-variant-numeric: tabular-nums; }
+.steps button[aria-selected="true"] { background: var(--card); border-color: var(--line); color: var(--ink); box-shadow: var(--shadow); }
+.steps button[aria-selected="true"] .n { background: var(--forest); color: var(--paper); }
+.pill { display: inline-flex; align-items: center; gap: 5px; font-size: .74rem; font-weight: 800; letter-spacing: .02em; padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
+.pill.drive { background: var(--sky-soft); color: var(--sky); }
+.pill.park { background: var(--leaf-soft); color: var(--forest); }
+.pill.demo { background: var(--demo-soft); color: var(--demo); }
+.pill.real { background: var(--leaf-soft); color: var(--forest); }
+.pill.warn { background: var(--sun-soft); color: color-mix(in srgb, var(--sun) 60%, var(--ink)); }
+.pill.bad { background: var(--berry-soft); color: var(--berry); }
+.pill.dim { background: var(--paper); color: var(--ink-2); border: 1px solid var(--line); }
+.screen-wrap { display: grid; gap: 14px; min-width: 0; }
+.device { background: #1B211E; border-radius: 30px; padding: 14px; box-shadow: var(--shadow); }
+.device svg { display: block; width: 100%; height: auto; border-radius: 18px; }
+.screen-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 12px; }
+.kv { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; display: grid; gap: 4px; min-width: 0; }
+.kv .k { font-size: .76rem; font-weight: 800; letter-spacing: .06em; color: var(--ink-2); }
+.story-nav { display: flex; gap: 8px; justify-content: space-between; flex-wrap: wrap; }
+
+/* 정책 */
+.policy { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 22px; align-items: start; }
+.table-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r); background: var(--card); }
+table { border-collapse: collapse; width: 100%; font-size: .92rem; }
+th, td { text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: .78rem; letter-spacing: .06em; color: var(--ink-2); font-weight: 800; background: var(--paper); white-space: nowrap; }
+tr:last-child td { border-bottom: 0; }
+td.mono { white-space: nowrap; }
+.ok { color: var(--forest); font-weight: 800; }
+.no { color: var(--berry); font-weight: 800; }
+.decider { display: grid; gap: 14px; }
+.decider .row { display: grid; gap: 6px; justify-items: start; }
+.decider .label { font-size: .85rem; font-weight: 700; }
+.verdict { border-radius: var(--r); padding: 18px; display: grid; gap: 6px; border: 2px solid var(--line); background: var(--card); }
+.verdict .big { font-size: 1.35rem; font-weight: 800; }
+.verdict.l1 { border-color: var(--sky); }
+.verdict.l2 { border-color: var(--sun); }
+.verdict.l3 { border-color: var(--forest); }
+
+/* 데모 타임라인 */
+.demo-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 22px; align-items: start; }
+.tl { position: relative; display: grid; gap: 10px; }
+.tl-track { position: relative; height: 54px; border-radius: 14px; overflow: hidden; display: flex; border: 1px solid var(--line); background: var(--card); }
+.tl-track .segm { height: 100%; display: grid; place-items: center; font-size: .75rem; font-weight: 800; color: var(--ink); border-right: 1px solid var(--card); text-align: center; line-height: 1.15; padding: 0 4px; overflow: hidden; }
+.tl-track .segm.p { background: var(--leaf-soft); }
+.tl-track .segm.d { background: var(--sky-soft); }
+.tl-head { position: absolute; top: -6px; bottom: -6px; width: 3px; background: var(--berry); border-radius: 3px; left: 0; pointer-events: none; }
+.tl-controls { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.tl-controls input[type=range] { flex: 1 1 200px; accent-color: var(--forest); }
+.tl-time { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-weight: 600; }
+.signals { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); gap: 10px; }
+.sig { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 10px 12px; display: grid; gap: 4px; min-width: 0; }
+.sig .v { font-size: 1.25rem; font-weight: 800; font-variant-numeric: tabular-nums; }
+.sig .src { justify-self: start; }
+.cue { border-radius: 14px; padding: 12px 14px; background: var(--sun-soft); display: grid; gap: 2px; }
+.cue b { font-size: .8rem; letter-spacing: .05em; }
+
+/* 계산기 */
+.calc { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 22px; align-items: start; }
+.field { display: grid; gap: 4px; }
+.field label { display: flex; justify-content: space-between; gap: 10px; font-weight: 700; font-size: .92rem; }
+.field output { font-variant-numeric: tabular-nums; color: var(--forest); font-weight: 800; }
+.field input[type=range] { width: 100%; accent-color: var(--forest); }
+.result { display: grid; gap: 14px; }
+.result .kid-says { font-family: var(--font-hand); font-size: 1.9rem; line-height: 1.2; color: var(--forest); }
+.result .adult { color: var(--ink-2); font-size: .92rem; }
+.formula { font-family: var(--font-mono); font-size: .84rem; background: var(--paper); border: 1px dashed var(--line); border-radius: 12px; padding: 12px 14px; overflow-x: auto; white-space: pre; line-height: 1.7; }
+.stats3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.stat { background: var(--paper); border-radius: 14px; padding: 10px 12px; display: grid; }
+.stat b { font-size: 1.6rem; font-variant-numeric: tabular-nums; line-height: 1.2; }
+.stat span { font-size: .8rem; color: var(--ink-2); }
+.tree-row svg { width: 100%; height: auto; display: block; }
+
+/* 숲 */
+.forest-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 22px; align-items: start; }
+.unlocks { display: grid; gap: 10px; }
+.unlock { display: grid; grid-template-columns: 52px 1fr auto; gap: 12px; align-items: center; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 10px 12px; }
+.unlock svg { width: 52px; height: 52px; }
+.unlock.locked { opacity: .5; }
+.unlock.locked svg { filter: grayscale(1); }
+
+/* 계정 */
+.acct { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 18px; align-items: start; }
+.acct-head { display: grid; gap: 6px; justify-items: start; }
+.wallet { display: grid; gap: 8px; background: var(--paper); border-radius: 14px; padding: 14px; }
+.wallet-top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.wallet-top b { font-size: 1.6rem; font-variant-numeric: tabular-nums; color: var(--forest); }
+.wallet-foot { display: flex; justify-content: space-between; align-items: center; gap: 8px 10px; flex-wrap: wrap; font-size: .88rem; }
+.acct-kids { display: grid; gap: 12px; }
+.kid-card { grid-template-columns: 56px minmax(0, 1fr); align-items: center; gap: 14px; }
+.kid-card .av { width: 56px; height: 56px; border-radius: 50%; background: var(--leaf-soft); display: grid; place-items: center; overflow: hidden; }
+.kid-card .av svg { width: 52px; height: 52px; }
+.kid-card h3 { margin-top: 4px; }
+
+/* 아키텍처 */
+.arch-card { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 14px; overflow-x: auto; }
+.arch-card svg { display: block; width: 100%; min-width: 760px; height: auto; }
+.modules { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 12px; margin-top: 18px; }
+.module { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px; display: grid; gap: 6px; align-content: start; }
+.module .name { font-family: var(--font-mono); font-weight: 600; color: var(--forest); }
+
+/* 공유 */
+.share-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 22px; align-items: start; }
+.phone { width: min(280px, 100%); margin: 0 auto; background: #1B211E; border-radius: 36px; padding: 12px; box-shadow: var(--shadow); }
+.phone svg { display: block; width: 100%; height: auto; border-radius: 26px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* 일정 */
+.gantt-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r); background: var(--card); }
+.gantt { min-width: 860px; display: grid; grid-template-columns: 210px repeat(16, minmax(0, 1fr)); font-size: .82rem; }
+.gantt .h { padding: 8px 0; text-align: center; font-weight: 700; color: var(--ink-2); border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; line-height: 1.2; }
+.gantt .h.today { color: var(--berry); }
+.gantt .h.wkend { background: var(--paper); }
+.gantt .lab { padding: 8px 12px; border-bottom: 1px solid var(--line); font-weight: 600; display: flex; align-items: center; gap: 8px; }
+.gantt .cell { border-bottom: 1px solid var(--line); border-left: 1px solid color-mix(in srgb, var(--line) 50%, transparent); position: relative; }
+.gantt .cell.wkend { background: var(--paper); }
+.gantt .barx { position: relative; margin: 8px 2px; border-radius: 8px; display: flex; align-items: center; padding: 0 8px; font-weight: 700; font-size: .74rem; color: #fff; min-height: 24px; white-space: nowrap; overflow: hidden; }
+.who-c { background: var(--forest); }
+.who-u { background: var(--sun); color: #3A2A05 !important; }
+.who-b { background: var(--sky); }
+.legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: .85rem; margin-top: 12px; }
+.legend i { display: inline-block; width: 14px; height: 14px; border-radius: 4px; vertical-align: -2px; margin-right: 6px; }
+.after { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 12px; margin-top: 18px; }
+.after .when { font-family: var(--font-mono); font-weight: 600; color: var(--forest); font-variant-numeric: tabular-nums; }
+
+/* 에이전트 */
+.flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 128px), 1fr)); gap: 10px; margin-bottom: 18px; counter-reset: st; }
+.flow div { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px; display: grid; gap: 4px; font-size: .88rem; }
+.flow div::before { counter-increment: st; content: counter(st, decimal) ; font-weight: 800; color: var(--forest); font-variant-numeric: tabular-nums; }
+.flow div.done { background: var(--leaf-soft); }
+.agents { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 14px; }
+.agent { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 18px; display: grid; gap: 10px; align-content: start; }
+.agent header { display: flex; align-items: center; gap: 12px; }
+.agent .av { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; flex: none; }
+.agent .av svg { width: 44px; height: 44px; }
+.agent dl { margin: 0; display: grid; grid-template-columns: 74px 1fr; gap: 6px 10px; font-size: .9rem; }
+.agent dt { color: var(--ink-2); font-weight: 700; }
+.agent dd { margin: 0; min-width: 0; }
+
+/* 위험 */
+.risks { display: grid; gap: 10px; }
+.risk { display: grid; grid-template-columns: 72px minmax(0, 1fr) minmax(0, 1.2fr); gap: 14px; align-items: start; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; }
+.risk .what { font-weight: 700; }
+.risk .pill { justify-self: start; }
+
+/* 체크리스트 */
+.todo { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr)); gap: 10px; }
+.todo label { display: grid; grid-template-columns: 24px 1fr auto; gap: 10px; align-items: start; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; cursor: pointer; }
+.todo input { width: 20px; height: 20px; accent-color: var(--forest); margin-top: 3px; }
+.todo label:has(input:checked) .t { text-decoration: line-through; color: var(--ink-2); }
+.todo .d { font-family: var(--font-mono); font-size: .8rem; color: var(--ink-2); white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+footer { padding-block: 40px 56px; color: var(--ink-2); font-size: .88rem; }
+
+/* SVG 공용 스타일 */
+.outline { stroke: var(--ink); stroke-width: 2.4; stroke-linejoin: round; }
+.limb { stroke: var(--ink); stroke-width: 5; stroke-linecap: round; fill: none; }
+.skin { fill: var(--skin); }
+.hair { fill: var(--hair); }
+.eye { fill: var(--ink); }
+.cheek { fill: var(--berry); opacity: .35; }
+.mouth { fill: none; stroke: var(--ink); stroke-width: 2.2; stroke-linecap: round; }
+.glass { fill: var(--sky-soft); }
+.tire { fill: var(--ink); }
+.hub { fill: var(--road-line); }
+.spoke { stroke: var(--road-line); stroke-width: 2; }
+.lamp { fill: var(--sun); }
+.leafc { fill: var(--leaf); stroke: var(--forest); stroke-width: 2.2; }
+.leafd { fill: var(--forest); }
+.trunk { fill: var(--squirrel); stroke: var(--ink); stroke-width: 2; }
+.sky-bg { fill: var(--scene-sky); }
+.hill1 { fill: var(--hill-1); }
+.hill2 { fill: var(--hill-2); }
+.road { fill: none; stroke: var(--road); stroke-width: 28; stroke-linecap: round; }
+.road-mid { fill: none; stroke: var(--road-line); stroke-width: 3; stroke-dasharray: 14 12; stroke-linecap: round; }
+.sunc { fill: var(--sun); }
+.cloud { fill: var(--card); opacity: .9; }
+.house-wall { fill: var(--sun-soft); stroke: var(--ink); stroke-width: 2.4; }
+.house-roof { fill: var(--berry); stroke: var(--ink); stroke-width: 2.4; stroke-linejoin: round; }
+.scr { fill: var(--card); }
+.scr-line { stroke: var(--line); }
+.t { fill: var(--ink); font-family: var(--font-body); }
+.t2 { fill: var(--ink-2); font-family: var(--font-body); }
+.th { fill: var(--ink); font-family: var(--font-hand); font-weight: 400; }
+.tf { fill: var(--forest); font-family: var(--font-body); font-weight: 800; }
+.btn-f { fill: var(--forest); }
+.btn-t { fill: var(--paper); font-family: var(--font-body); font-weight: 800; }
+.chip-d { fill: var(--sky-soft); } .chip-dt { fill: var(--sky); font-family: var(--font-body); font-weight: 800; }
+.chip-p { fill: var(--leaf-soft); } .chip-pt { fill: var(--forest); font-family: var(--font-body); font-weight: 800; }
+.chip-m { fill: var(--demo-soft); } .chip-mt { fill: var(--demo); font-family: var(--font-body); font-weight: 800; }
+.box { fill: var(--paper); stroke: var(--line); stroke-width: 2; }
+.squirrel { fill: var(--squirrel); }
+.rabbit { fill: var(--rabbit); }
+.birdc { fill: var(--sky); }
+.beak { fill: var(--sun); }
+.pink { fill: var(--berry); opacity: .55; }
+
+/* 캐릭터 애니메이션: .anim 안에서만 움직이고, .still 이면 정지 포즈 */
+.leg { transform-box: fill-box; transform-origin: 50% 0%; }
+.armA { transform-box: fill-box; transform-origin: 100% 0%; }
+.wave { transform-box: fill-box; transform-origin: 0% 100%; }
+.wheel { transform-box: fill-box; transform-origin: 50% 50%; }
+.anim .legA { animation: swing .42s ease-in-out infinite alternate; }
+.anim .legB { animation: swing .42s ease-in-out infinite alternate-reverse; }
+.anim .armA { animation: swing .42s ease-in-out infinite alternate-reverse; }
+.anim .wave { animation: wave .9s ease-in-out infinite; }
+.anim .bob { animation: bob .42s ease-in-out infinite alternate; }
+.anim .wheel { animation: spin .7s linear infinite; }
+.anim .hop { animation: hop 1.4s ease-in-out infinite; }
+.anim .drift { animation: drift 18s linear infinite alternate; }
+.anim .pop { animation: pop .7s cubic-bezier(.2, 1.4, .4, 1) both; }
+.anim .conf { animation: conf 1.6s ease-in infinite; }
+.leg, .armA, .wave, .bob, .hop { transform-box: fill-box; }
+.hop { transform-origin: 50% 100%; }
+@keyframes swing { from { transform: rotate(-24deg); } to { transform: rotate(24deg); } }
+@keyframes wave { 0%, 100% { transform: rotate(-8deg); } 50% { transform: rotate(30deg); } }
+@keyframes bob { from { transform: translateY(0); } to { transform: translateY(-3px); } }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes hop { 0%, 60%, 100% { transform: translateY(0); } 25% { transform: translateY(-10px); } }
+@keyframes drift { from { transform: translateX(-30px); } to { transform: translateX(40px); } }
+@keyframes pop { from { transform: scale(0); } to { transform: scale(1); } }
+@keyframes conf { 0% { transform: translateY(-20px); opacity: 0; } 15% { opacity: 1; } 100% { transform: translateY(70px); opacity: 0; } }
+.pop { transform-box: fill-box; transform-origin: 50% 100%; }
+@media (prefers-reduced-motion: reduce) {
+  .anim *, .anim { animation: none !important; }
+}
+
+/* 반응형 */
+@media (max-width: 900px) {
+  .story, .policy, .demo-grid, .calc, .forest-grid, .share-grid, .acct { grid-template-columns: minmax(0, 1fr); }
+  .steps { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  .risk { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+}
+@media (max-width: 560px) {
+  section { padding-block: 44px; }
+  .scene-ui { grid-template-columns: minmax(0, 1fr); }
+  .stats3 { grid-template-columns: minmax(0, 1fr); }
+  .brand span { display: none; }
+}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="crayon" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="2" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+</svg>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top" style="text-decoration:none;color:inherit">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="17" r="12" class="leafc"/><rect x="17.5" y="24" width="5" height="12" rx="2" class="trunk"/></svg>
+      <span>같이가숲</span>
+    </a>
+    <nav class="toc" aria-label="목차">
+      <a href="#value">가치</a>
+      <a href="#flow">화면 흐름</a>
+      <a href="#policy">주행 안전</a>
+      <a href="#demo">데모 3분</a>
+      <a href="#safe">숲·포인트 계산</a>
+      <a href="#forest">숲·동물</a>
+      <a href="#account">계정·포인트</a>
+      <a href="#arch">구조</a>
+      <a href="#sdk">SDK</a>
+      <a href="#share">공유</a>
+      <a href="#plan">일정</a>
+      <a href="#agents">에이전트</a>
+      <a href="#risk">위험</a>
+      <a href="#todo">할 일</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <p class="eyebrow">Pleos Connect 차량용 앱 · 개발 계획 한눈에 보기</p>
+      <h1><span class="hand">같이가숲</span> 개발 지도</h1>
+      <p class="tag">아이는 "언제 도착해?"라고 묻는 대신 화면 속 길을 따라가는 우리 차를 봅니다. 아빠가 부드럽게 운전한 거리만큼 아이 계정의 숲에 나무가 자라고, 보호자에게는 포인트가 쌓입니다.</p>
+      <div class="facts" aria-label="핵심 정보">
+        <span class="fact">1차 마감 <b id="dday">D-15</b> <span class="muted">11/15(일) 23:59</span></span>
+        <span class="fact">팀 <b>DriveXFamily</b></span>
+        <span class="fact">영문 이름 <b>Go Together Forest</b></span>
+        <span class="fact">패키지 <b class="mono">app.familyjourney</b></span>
+        <span class="fact">타깃 <b>5~9세 아이와 가족</b></span>
+      </div>
+
+      <div class="scene-card">
+        <svg id="heroSvg" viewBox="0 0 1200 380" role="img" aria-label="집에서 숲까지 길을 따라 달리는 가족의 차">
+          <rect class="sky-bg" x="0" y="0" width="1200" height="380"/>
+          <circle class="sunc" cx="1085" cy="72" r="36"/>
+          <g class="drift"><ellipse class="cloud" cx="250" cy="70" rx="58" ry="20"/><ellipse class="cloud" cx="290" cy="58" rx="40" ry="20"/></g>
+          <g class="drift" style="animation-duration:24s"><ellipse class="cloud" cx="700" cy="92" rx="66" ry="18"/><ellipse class="cloud" cx="740" cy="80" rx="38" ry="18"/></g>
+          <path class="hill1" d="M0 250 C 180 180, 360 220, 520 200 S 860 150, 1200 190 L1200 380 L0 380Z"/>
+          <path class="hill2" d="M0 300 C 220 260, 420 300, 640 280 S 980 240, 1200 270 L1200 380 L0 380Z"/>
+          <path id="heroRoad" class="road" d="M 90 318 C 250 318, 300 236, 470 244 S 720 318, 860 280 S 1030 228, 1110 236"/>
+          <path class="road-mid" d="M 90 318 C 250 318, 300 236, 470 244 S 720 318, 860 280 S 1030 228, 1110 236"/>
+          <g id="heroMarks"></g>
+          <g transform="translate(60 318)" filter="url(#crayon)">
+            <rect class="house-wall" x="-34" y="-52" width="58" height="44" rx="4"/>
+            <path class="house-roof" d="M-42 -50 L-5 -82 L32 -50Z"/>
+            <rect x="-14" y="-32" width="16" height="24" rx="3" class="lamp outline"/>
+          </g>
+          <text class="th" x="34" y="352" font-size="22">우리 집</text>
+          <g id="heroForest" transform="translate(1110 236)"></g>
+          <text class="th" x="1060" y="300" font-size="22">할머니 댁</text>
+          <g id="heroCar"></g>
+        </svg>
+        <div class="scene-ui">
+          <div class="prog">
+            <div class="prog-top">
+              <span class="prog-pct" id="heroPct">0%</span>
+              <span class="prog-say" id="heroSay">만화 여섯 편 보면 도착해요</span>
+            </div>
+            <div class="bar" aria-hidden="true"><i id="heroBar"></i><div class="ticks"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+            <p class="mode-note" id="heroNote">주차 중: 진행 바는 1%씩 움직이고, 캐릭터 애니메이션이 함께 나옵니다.</p>
+          </div>
+          <div class="seg" role="group" aria-label="차량 상태 바꿔 보기">
+            <button type="button" class="park" id="heroPark" aria-pressed="true">주차 중</button>
+            <button type="button" class="drive" id="heroDrive" aria-pressed="false">주행 중</button>
+          </div>
+        </div>
+      </div>
+      <p class="muted" style="font-size:.9rem">위 장면은 실제 앱 화면이 아니라 개념 그림입니다. <b>주행 중</b>을 누르면 앱이 실제로 지킬 규칙대로 캐릭터가 멈추고, 진행 바는 전환 효과 없이 1%씩 이동합니다(실제 앱은 최소 15초 간격). 길 위의 깃발은 10%마다 있는 이정표입니다.</p>
+    </div>
+  </section>
+
+  <section id="value">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">핵심 가치와 타깃</p>
+        <h2>진행 화면이 주인공, 숲은 다시 오게 만드는 이유</h2>
+        <p class="lede">심사 기준 네 가지(차량 특화성, 창의성, 기술 활용성, 사업성)에 각 기능이 어떻게 답하는지 정리했습니다.</p>
+      </div>
+      <div class="value-grid">
+        <div class="panel">
+          <p class="eyebrow" style="color:var(--berry)">문제</p>
+          <p class="quote">"아빠, 언제 도착해?"</p>
+          <p class="muted">긴 이동에서 아이는 시간 감각이 없어 같은 질문을 반복하고, 운전자는 대답하느라 주의가 흩어집니다. 목적지에서 기다리는 가족도 "어디쯤이야?"를 묻습니다.</p>
+        </div>
+        <div class="panel">
+          <p class="eyebrow">같이가숲의 답</p>
+          <p class="answer">길 위의 우리 차를 보면 알 수 있어요</p>
+          <ul class="list">
+            <li>내비 경로 기반 진행 바와 가족 캐릭터</li>
+            <li>남은 시간을 아이 단위로: "만화 두 편 보면 도착"</li>
+            <li>도착하면 부드럽게 달린 거리만큼 <b>아이 이름의 숲</b>에 나무</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <p class="eyebrow">1차 타깃</p>
+          <h3>5~9세 아이와 함께 장거리 이동하는 가족</h3>
+          <ul class="list">
+            <li>그림이 주, 글은 짧게. 부모나 음성이 읽어 줍니다</li>
+            <li>명절·주말 1~3시간 이동이 대표 장면</li>
+            <li>모든 차종에 같은 안전운전 기준, 친환경차는 숲 보너스</li>
+          </ul>
+        </div>
+      </div>
+      <div class="table-scroll" style="margin-top:18px">
+        <table>
+          <thead><tr><th>심사 항목</th><th>같이가숲의 대응</th><th>쓰는 차량 기능</th></tr></thead>
+          <tbody>
+            <tr><td><b>차량 특화성</b></td><td>주행 중에는 정지 화면, 주차 중에는 애니메이션. 내비 경로와 차량 에너지 데이터로만 가능한 경험</td><td><code>CarUxRestrictions</code>, 기어, NaviHelper</td></tr>
+            <tr><td><b>창의성</b></td><td>"언제 도착해?"를 진행 바로, 아빠의 안전운전을 아이 이름의 숲으로 바꿈</td><td>진행률, 차속(안전 판정)</td></tr>
+            <tr><td><b>기술 활용성</b></td><td>핵심 기능마다 꼭 필요한 SDK만 사용. 데모 모드와 실제 SDK를 스위치 하나로 교체</td><td>NaviHelper, Vehicle SDK, AAOS API</td></tr>
+            <tr><td><b>사업성</b></td><td>아이 계정의 숲 누적과 동물 해금으로 재방문, 보호자 포인트(1km = 1P)를 현대차 혜택으로</td><td>아이 프로필, 포인트 지갑, 블루멤버스(확장)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="flow">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">화면 흐름</p>
+        <h2>출발부터 숲 확인까지 8개 화면</h2>
+        <p class="lede">왼쪽에서 화면을 고르면 개념 시안과 함께 언제 이 화면으로 오고 언제 떠나는지 보입니다. 주행 중 화면과 정차 중 화면은 같은 화면의 두 상태입니다.</p>
+      </div>
+      <div class="story">
+        <ol class="steps" id="steps" role="tablist" aria-label="화면 목록"></ol>
+        <div class="screen-wrap">
+          <div class="device" id="storyDevice"></div>
+          <div class="screen-info" id="storyInfo"></div>
+          <div class="story-nav">
+            <button type="button" class="btn" id="storyPrev">이전 화면</button>
+            <button type="button" class="btn primary" id="storyNext">다음 화면</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="policy">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">운전자 방해 방지</p>
+        <h2>주행 중에는 멈춘 그림, 주차 중에만 움직임</h2>
+        <p class="lede">Pleos는 주행 중 애니메이션, 게임 요소, 전체화면 팝업을 금지합니다. 그래서 기능마다 언제 열지 정했고, 판단은 항상 더 안전한 쪽을 따릅니다.</p>
+      </div>
+      <div class="policy">
+        <div class="table-scroll">
+          <table>
+            <thead><tr><th>기능</th><th>주행 중</th><th>주차 중</th><th>메모</th></tr></thead>
+            <tbody>
+              <tr><td>진행 바 + 캐릭터</td><td class="ok">정지 이미지</td><td class="ok">애니메이션</td><td>1% 단위로 즉시 이동, 주행 중 최소 15초 간격</td></tr>
+              <tr><td>남은 시간 문구</td><td class="ok">1줄</td><td class="ok">표시</td><td>"만화 두 편 보면 도착"</td></tr>
+              <tr><td>화면 크게/작게</td><td class="ok">허용</td><td class="ok">허용</td><td>주행 중 유일한 터치</td></tr>
+              <tr><td>숲 보기·결과 애니메이션</td><td class="no">잠금</td><td class="ok">허용</td><td>도착 직후 아직 D면 정지 축하 그림만</td></tr>
+              <tr><td>동물 소리</td><td class="no">잠금</td><td class="ok">짧게 1회</td><td>오디오 포커스 규칙 준수, 음소거 버튼</td></tr>
+              <tr><td>숲·캐릭터 꾸미기</td><td class="no">잠금</td><td class="ok">허용</td><td>PT 단계 구현</td></tr>
+              <tr><td>공유 설정·동의</td><td class="no">잠금</td><td class="ok">허용</td><td>설정 화면은 NO_SETUP 대상으로 봄</td></tr>
+              <tr><td>데모 시작 메뉴</td><td class="no">잠금</td><td class="ok">허용</td><td>발표자만 쓰는 메뉴</td></tr>
+              <tr><td>안전운전 판정 결과</td><td class="no">표시 안 함</td><td class="ok">도착 후 칭찬</td><td>주행 중 경고·알림 없음</td></tr>
+              <tr><td>아이 프로필·로그인</td><td class="no">잠금</td><td class="ok">허용</td><td>계정 설정은 주차 중에만</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="panel decider">
+          <h3>지금 화면은 어떻게 정해질까?</h3>
+          <p class="muted" style="font-size:.9rem">세 신호 중 하나라도 주행 쪽이면 더 제한된 화면을 보여 줍니다.</p>
+          <div class="row"><span class="label">실제 주행 제한 신호 <span class="pill real">CarUxRestrictions</span></span>
+            <div class="seg" role="group" aria-label="실제 주행 제한"><button type="button" data-k="ux" data-v="on" aria-pressed="false">켜짐</button><button type="button" data-k="ux" data-v="off" aria-pressed="true">꺼짐</button></div></div>
+          <div class="row"><span class="label">기어 <span class="pill real">CarPropertyManager</span></span>
+            <div class="seg" role="group" aria-label="기어"><button type="button" data-k="gear" data-v="P" aria-pressed="true">P</button><button type="button" data-k="gear" data-v="D" aria-pressed="false">D</button></div></div>
+          <div class="row"><span class="label">데모 재생 상태 <span class="pill demo">core:demo</span></span>
+            <div class="seg" role="group" aria-label="데모 재생 상태"><button type="button" data-k="demo" data-v="stop" aria-pressed="true">정차 장면</button><button type="button" data-k="demo" data-v="drive" aria-pressed="false">주행 장면</button></div></div>
+          <div class="verdict" id="verdict"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="demo">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">데모 시나리오 모드</p>
+        <h2>에뮬레이터에서 3분 동안 한 번의 여행</h2>
+        <p class="lede">에뮬레이터의 Virtual Console은 기어·배터리와 함께 ACCEL/BRAKE 페달로 실제 차속도 만들 수 있습니다(2026-10-31 확인). 하지만 GPS와 내비 경로는 흉내 낼 수 없습니다. 그래서 진행률과 도착만 데모가 만들고, 차속·기어·SOC·주행 제한은 실제 신호를 읽습니다. 발표자가 ACCEL을 세게 밟으면 급가속 판정이 실제로 일어납니다. 재생을 눌러 보세요(6배속).</p>
+      </div>
+      <div class="demo-grid">
+        <div class="tl">
+          <div class="tl-track" id="tlTrack"><div class="tl-head" id="tlHead"></div></div>
+          <div class="tl-controls">
+            <button type="button" class="btn primary" id="tlPlay">재생</button>
+            <input type="range" id="tlRange" min="0" max="180" step="1" value="0" aria-label="데모 재생 위치">
+            <span class="tl-time" id="tlTime">00:00 / 03:00</span>
+          </div>
+          <div class="signals" id="tlSignals"></div>
+          <div class="cue" id="tlCue"></div>
+        </div>
+        <div class="device" id="tlDevice"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="safe">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">숲과 포인트 계산</p>
+        <h2>부드럽게 달린 거리만큼 숲이 자랍니다</h2>
+        <p class="lede">모든 차종에 같은 기준을 씁니다. 급가속·급출발·급감속·급정지가 있었던 1km만 빼고 나머지 거리를 인정합니다. 친환경차는 생애 배출이 적은 만큼 아이 숲에 보너스 새싹을 받습니다. 속도나 도착 시간은 보상하지 않고, 주행 중에는 판정 결과를 알리지 않습니다.</p>
+      </div>
+      <div class="calc">
+        <div class="panel" style="gap:16px">
+          <div class="seg" role="group" aria-label="차종">
+            <button type="button" data-pt="ev" aria-pressed="true">전기차</button>
+            <button type="button" data-pt="hev" aria-pressed="false">하이브리드·PHEV</button>
+            <button type="button" data-pt="ice" aria-pressed="false">내연기관</button>
+          </div>
+          <div class="field"><label for="sDist">이번 여행 거리 <output id="oSDist"></output></label><input type="range" id="sDist" min="10" max="600" step="10" value="400"></div>
+          <div class="field"><label for="sRatio">부드럽게 달린 구간 <output id="oSRatio"></output></label><input type="range" id="sRatio" min="50" max="100" step="1" value="90"></div>
+          <div class="table-scroll">
+            <table>
+              <thead><tr><th>위험운전</th><th>판정 기준 (1초마다 차속 변화)</th></tr></thead>
+              <tbody>
+                <tr><td><b>급가속</b></td><td>21km/h를 넘는 속도에서 초당 +8km/h 이상</td></tr>
+                <tr><td><b>급출발</b></td><td>5km/h 이하에서 초당 +10km/h 이상</td></tr>
+                <tr><td><b>급감속</b></td><td>6km/h 이상에서 초당 −14km/h 이상</td></tr>
+                <tr><td><b>급정지</b></td><td>초당 −14km/h 이상 줄어 5km/h 이하로</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="muted" style="font-size:.86rem">한국교통안전공단 위험운전행동 기준 중 승용차에 가장 가까운 택시 기준입니다. 연속된 이벤트는 1건으로 묶고, 이벤트가 있던 1km만 빼서 필요한 제동을 꺼리지 않게 합니다. 차속은 AAOS <code>CarPropertyManager</code>에서 읽습니다.</p>
+        </div>
+        <div class="panel result">
+          <p class="kid-says" id="sKid"></p>
+          <p class="adult" id="sAdult"></p>
+          <div class="tree-row" id="sTrees"></div>
+          <div class="stats3">
+            <div class="stat"><b id="sTreeN">0</b><span>나무 (아이 숲)</span></div>
+            <div class="stat"><b id="sSproutN">0</b><span>남은 새싹</span></div>
+            <div class="stat"><b id="sPoint">0</b><span>보호자 포인트 (P)</span></div>
+          </div>
+          <div class="formula" id="sFormula"></div>
+          <p class="muted" style="font-size:.84rem" id="sSource"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="forest">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">숲과 동물</p>
+        <h2>아이 계정에 쌓이는 숲, 나무가 늘면 친구가 찾아와요</h2>
+        <p class="lede">숲은 아이 프로필에 계속 쌓입니다. 누적 나무가 늘면 다람쥐, 토끼, 새가 하나씩 찾아옵니다. 아래 해금 기준은 예시이며 2차에서 구체화합니다. 동물 소리는 주차 중에만 짧게 한 번 납니다.</p>
+      </div>
+      <div class="forest-grid">
+        <div class="scene-card">
+          <svg id="forestSvg" viewBox="0 0 800 380" role="img" aria-label="누적 나무에 따라 자라는 숲"></svg>
+          <div class="scene-ui">
+            <div class="field" style="min-width:0"><label for="fScore">하늘이의 누적 나무 <output id="oScore"></output></label><input type="range" id="fScore" min="0" max="30" step="1" value="12"></div>
+            <div class="seg" role="group" aria-label="차량 상태">
+              <button type="button" class="park" id="fPark" aria-pressed="true">주차 중</button>
+              <button type="button" class="drive" id="fDrive" aria-pressed="false">주행 중</button>
+            </div>
+          </div>
+        </div>
+        <div class="unlocks" id="unlocks"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="account">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">계정과 포인트</p>
+        <h2>숲은 아이 것, 포인트는 보호자 것</h2>
+        <p class="lede">만 14세 미만은 보호자 동의가 필요하므로 보호자 계정 아래에 아이 프로필을 둡니다. 아이가 여럿 함께 타면 모두 같은 나무를 받고, 포인트는 여행마다 한 번만 보호자에게 쌓입니다. 로그인과 프로필 만들기는 주차 중에만 엽니다.</p>
+      </div>
+      <div class="acct">
+        <div class="panel acct-parent">
+          <div class="acct-head"><span class="pill park">보호자 계정</span><h3>하늘이네 가족</h3></div>
+          <div class="wallet">
+            <div class="wallet-top"><span class="muted">포인트 지갑</span><b id="walletP">3,240P</b></div>
+            <div class="bar" aria-hidden="true"><i style="width:64.8%"></i></div>
+            <div class="wallet-foot"><span>5,000P가 모이면 현대차 물품 구매권 5,000원</span><span class="pill warn">제휴 시 · 예시</span></div>
+          </div>
+          <ul class="list">
+            <li>부드럽게 달린 1km = 1P = 1원 (차종과 관계없이 같음)</li>
+            <li>한 달 최대 3,000P(예시), 데모 모드에서는 쌓이지 않음</li>
+            <li>실제 차량 데이터로 판정한 거리만 인정</li>
+          </ul>
+        </div>
+        <div class="acct-kids">
+          <div class="panel kid-card"><span class="av"><svg viewBox="-34 -114 68 120" aria-hidden="true" id="kidAv1"></svg></span><div><span class="pill park">아이 프로필</span><h3>하늘이의 숲</h3><p class="muted">나무 12그루 · 새싹 4개 · 다람쥐, 토끼</p></div></div>
+          <div class="panel kid-card"><span class="av"><svg viewBox="-34 -114 68 120" aria-hidden="true" id="kidAv2"></svg></span><div><span class="pill park">아이 프로필</span><h3>바다의 숲</h3><p class="muted">나무 5그루 · 새싹 7개 · 다람쥐</p></div></div>
+          <p class="muted" style="font-size:.88rem">출발 전(주차 중) "오늘 누가 타나요?"에서 고른 아이 모두의 숲에 같은 나무가 심어집니다.</p>
+        </div>
+      </div>
+      <div class="after">
+        <div class="panel"><span class="when">11/15 제출</span><span>차량 안에 암호화해 저장(Keystore). 서버 동기화는 인터페이스만 둡니다.</span></div>
+        <div class="panel"><span class="when">PT 단계</span><span>서버에 저장해 다른 차나 새 차에서도 아이의 숲이 이어집니다.</span></div>
+        <div class="panel"><span class="when">확장</span><span>현대차 통합계정·블루멤버스와 연결해 포인트를 혜택으로 바꾸도록 제안합니다.</span></div>
+        <div class="panel"><span class="when">선례</span><span>서울시 에코마일리지 × 현대차·기아 드라이빙 인사이트(2024): 안전운전 85점 3천, 95점 5천 마일리지. 블루링크 안전운전 점수 보험 할인(70점).</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="arch">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">코드 구조</p>
+        <h2>두 기능은 서로 모르고, 같은 이벤트만 듣습니다</h2>
+        <p class="lede">진행 화면(<code>feature:journey</code>)과 숲(<code>feature:forest</code>)은 서로를 직접 부르지 않고 <code>core:trip</code>이 보내는 이벤트만 구독합니다. 그래서 한쪽만 켜도 앱이 동작합니다. 위쪽 스위치로 데이터 출처를 바꿔 보세요. 주행 제한 신호는 어떤 모드에서도 끄지 않습니다.</p>
+      </div>
+      <div class="seg" role="group" aria-label="데이터 출처" style="margin-bottom:14px">
+        <button type="button" data-src="real" aria-pressed="false">실차 데이터</button>
+        <button type="button" data-src="mix" aria-pressed="true">시연용 혼합</button>
+        <button type="button" data-src="demo" aria-pressed="false">전부 데모</button>
+      </div>
+      <p class="muted" id="archCap" style="margin-bottom:12px;font-size:.92rem"></p>
+      <div class="arch-card"><svg id="archSvg" viewBox="0 0 1100 600" role="img" aria-label="모듈 구조와 데이터 흐름"></svg></div>
+      <div class="modules">
+        <div class="module"><span class="name">app</span><span>얇은 껍데기. 화면 이동, 의존성 조립(수동 DI), 기능 켜기/끄기만 맡습니다.</span></div>
+        <div class="module"><span class="name">core:vehicle</span><span><code>VehicleDataProvider</code>(읽기)와 <code>VehicleControlProvider</code>(제어, 지금은 빈 구현). SDK 래퍼가 모두 여기 있습니다.</span></div>
+        <div class="module"><span class="name">core:demo</span><span>시간축에 따라 진행률·도착 이벤트(비상 시 차속까지)를 같은 인터페이스로 흘려보내는 데모 재생기.</span></div>
+        <div class="module"><span class="name">core:trip</span><span>출발, 진행률, 주행/정차, 도착을 이벤트로 발행합니다. 차속으로 위험운전을 판정해 인정 거리(안전 km)도 계산합니다.</span></div>
+        <div class="module"><span class="name">core:account</span><span>보호자 계정과 아이 프로필, 포인트 지갑. 지금은 기기 저장(Local)이고 PT부터 서버(Remote)로 바꿔 끼웁니다.</span></div>
+        <div class="module"><span class="name">core:ui</span><span>테마(라이트·다크), Asta Sans 글꼴, SVG 레이어 캐릭터 컴포넌트.</span></div>
+        <div class="module"><span class="name">feature:journey</span><span>진행 화면, 남은 시간 환산, 도착 화면, (PT) 공유 링크 생성.</span></div>
+        <div class="module"><span class="name">feature:forest</span><span>안전 km 기반 새싹·나무, 아이 이름의 숲, 동물 해금과 소리, 결과 화면.</span></div>
+        <div class="module"><span class="name">server · web</span><span>(PT 단계) Cloudflare Workers + KV 공유 서버와 수신자용 웹 화면.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sdk">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">SDK와 권한</p>
+        <h2>핵심 기능마다 꼭 필요한 것만</h2>
+        <p class="lede">쓰지 않는 권한은 선언하지 않습니다(App Market은 승인되지 않은 권한이 있으면 심사에서 떨어뜨립니다). 준비 중인 SDK는 없어도 앱이 동작하게 만듭니다.</p>
+      </div>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>SDK / API</th><th>버전</th><th>권한</th><th>어디에 쓰나</th><th>상태</th><th>없을 때</th></tr></thead>
+          <tbody>
+            <tr><td><b>NaviHelper</b></td><td class="mono">3.0.5</td><td class="mono">NAVI_ROUTE</td><td>목적지, 남은 거리·시간, 도착 이벤트 → 진행률</td><td><span class="pill real">사용 가능</span></td><td>"내비에 목적지를 설정해 주세요" + 데모</td></tr>
+            <tr><td><b>Vehicle SDK</b></td><td class="mono">2.3.2</td><td class="mono">CAR_ENERGY<br>CAR_DRIVE</td><td>누적 주행거리 → 인정 거리, 배터리 SOC·에너지(Wh) → 차종·이번 여행 전비, 브레이크 페달 → 판정 보조</td><td><span class="pill real">사용 가능</span></td><td>차종을 모르면 배수 1.0</td></tr>
+            <tr><td><b>CarPropertyManager</b> (AAOS)</td><td class="mono">API 34</td><td class="mono">CAR_SPEED<br>CAR_POWERTRAIN</td><td><b>차속 → 안전운전 판정(인정 km)</b>, 기어·주차브레이크 → 정차 판단</td><td><span class="pill real">표준 API</span></td><td>판정할 수 없으면 포인트 없이 새싹만</td></tr>
+            <tr><td><b>CarUxRestrictionsManager</b> (AAOS)</td><td class="mono">API 34</td><td class="mono">-</td><td>주행 중 제한 상태 → 화면·기능 제한</td><td><span class="pill real">표준 API</span></td><td>제한 상태로 간주(안전 쪽)</td></tr>
+            <tr><td><b>NaviHelper 현재 위치</b></td><td class="mono">3.0.5</td><td class="mono">NAVI_ROUTE</td><td>(PT) 공유의 대략 위치, (확장) 랜드마크 좌/우·도감</td><td><span class="pill real">사용 가능</span></td><td>진행률·남은 시간만 공유</td></tr>
+            <tr><td><b>TextToSpeech</b></td><td class="mono">3.3.1</td><td class="mono">TTS_SERVICE</td><td>출발·절반·도착 음성 안내, ON_DEVICE 모드</td><td><span class="pill real">에뮬레이터 동작</span></td><td>글자만 표시</td></tr>
+            <tr><td><b>Vehicle SDK 제어</b></td><td class="mono">2.3.2</td><td class="mono">제어 권한</td><td>도착 축하 무드등(주차 중만), (확장) 도착 전 공조</td><td><span class="pill real">에뮬레이터 동작</span></td><td>축하 화면만</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="muted" style="font-size:.88rem;margin-top:12px">첫 조사 과제: NaviHelper <code>RouteStateInfo</code>·<code>DrivingInfo</code>·<code>TripInfo</code>·<code>DestinationInfo</code>의 실제 필드명과 단위를 에뮬레이터 로그로 확인합니다. 진행률은 <code>간 거리 ÷ (간 거리 + remainDistance)</code>로 계산해 1% 단위로 표시하고, 경로가 늘어나도 바가 뒤로 가지 않게 합니다.</p>
+    </div>
+  </section>
+
+  <section id="share">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">위치 공유 (PT 단계)</p>
+        <h2>기다리는 가족에게는 "언제 오나"만</h2>
+        <p class="lede">링크를 받은 사람은 앱 설치 없이 웹에서 진행률과 남은 시간을 봅니다. 대략 위치는 보호자가 주차 중에 직접 켤 때만 약 5km 원으로 보여 줍니다.</p>
+      </div>
+      <div class="share-grid">
+        <div class="arch-card"><svg id="shareSvg" viewBox="0 0 760 330" role="img" aria-label="공유 데이터 흐름" style="min-width:600px"></svg></div>
+        <div class="phone"><svg id="phoneSvg" viewBox="0 0 300 560" role="img" aria-label="링크를 받은 사람이 보는 웹 화면"></svg></div>
+      </div>
+      <div class="chips" style="margin-top:18px">
+        <span class="pill park">기본은 진행률 · 남은 시간만</span>
+        <span class="pill park">대략 위치는 옵트인, 5km 격자</span>
+        <span class="pill park">외부 주소 변환 API 안 씀</span>
+        <span class="pill park">128비트 랜덤 읽기 전용 ID</span>
+        <span class="pill park">도착 시 또는 24시간 뒤 만료</span>
+        <span class="pill park">공유 중단 즉시 삭제</span>
+        <span class="pill park">서버에는 마지막 상태 1개만</span>
+        <span class="pill park">주차 중 동의 화면 (버튼 탭)</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="plan">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">일정</p>
+        <h2>11/15 1차 마감까지 하루 단위 계획</h2>
+        <p class="lede">개발과 빌드는 클라우드에서, 에뮬레이터 확인과 녹화는 팀원 PC(MacBook Air M5, 32GB)에서 합니다. 단계마다 확인을 받고 다음으로 넘어갑니다.</p>
+      </div>
+      <div class="gantt-scroll"><div class="gantt" id="gantt"></div></div>
+      <div class="legend"><span><i class="who-c"></i>클라우드(에이전트)</span><span><i class="who-u"></i>팀원(PC)</span><span><i class="who-b"></i>함께</span><span style="color:var(--berry);font-weight:700">빨간 날짜 = 오늘</span></div>
+      <div class="after">
+        <div class="panel"><span class="when">11/23</span><span>1차 서류 결과 발표 (20팀)</span></div>
+        <div class="panel"><span class="when">11/23 ~ 12/2</span><span>공유 웹(동의 화면 포함), 숲 꾸미기, 캐릭터 꾸미기, 발표 자료와 기술 Q&amp;A 준비</span></div>
+        <div class="panel"><span class="when">12/3 ~ 12/4</span><span>2차 PT 심사, 현장 에뮬레이터 시연</span></div>
+        <div class="panel"><span class="when">12/18 이후</span><span>수상 발표, 전시 준비(신규 기능 기간 아님)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="agents">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">에이전트 구성과 진행 순서</p>
+        <h2>메인이 조율하고, 다섯 에이전트가 나눠 만듭니다</h2>
+        <p class="lede">CLAUDE.md 6장 순서를 따릅니다. 환경 작업이 클라우드·팀원 Mac·PT/전시용 PC로 반복되어 env-setup을 따로 두었습니다. 스크립트는 env-setup이 쓰고, 팀원 Mac에서의 실행은 메인이 원격 연결로 팀원 승인 아래 맡습니다.</p>
+      </div>
+      <div class="flow">
+        <div class="done"><b>컨셉 상의</b><span class="muted">14개 주제 확정</span></div>
+        <div class="done"><b>생성</b><span class="muted">에이전트 5개·스킬·모듈 구조</span></div>
+        <div><b>app-dev 환경</b><span class="muted">빌드, 첫 SDK 호출, NaviHelper 필드</span></div>
+        <div><b>병렬 구현</b><span class="muted">데모 모드 → 진행 화면·숲·캐릭터</span></div>
+        <div><b>공유</b><span class="muted">server/, web/ (가능한 범위)</span></div>
+        <div><b>qa</b><span class="muted">안전 점검, 한쪽만 켜기</span></div>
+        <div><b>제출 패키지</b><span class="muted">기획서, 영상, 저장소</span></div>
+      </div>
+      <div class="agents" id="agentCards"></div>
+    </div>
+  </section>
+
+  <section id="risk">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">위험과 대응</p>
+        <h2>미리 알고 있는 걸림돌</h2>
+      </div>
+      <div class="risks">
+        <div class="risk"><span class="pill bad">높음</span><span class="what">DO(주행 중 사용) 선언 방법과 Kids 카테고리의 주행 중 허용 범위가 문서에 없음</span><span class="muted">운영 측에 문의. 답이 없거나 불허면 매니페스트만 바꿔 주차 전용 앱으로 후퇴(코드는 그대로)</span></div>
+        <div class="risk"><span class="pill bad">높음</span><span class="what">에뮬레이터가 Apple GPU(M5)에서 잘 도는지 미확인</span><span class="muted">11/2 첫 부팅을 가장 먼저. 안 되면 바로 다른 PC 확보 상의. 녹화는 전원 연결, 장면별로 나눠서</span></div>
+        <div class="risk"><span class="pill warn">중간</span><span class="what">NaviHelper 필드명·단위·호출 빈도 미확인, 내장 내비가 이벤트를 주는지 미확인</span><span class="muted">데모 모드가 시연을 책임지고, 확인되면 진행률을 실데이터로 전환</span></div>
+        <div class="risk"><span class="pill warn">중간</span><span class="what">'창밖동화'(2026 플레오스 커넥트 고객 아이디어 공모 대상, 위치 기반 AI 동화)와 랜드마크 기능이 겹칠 수 있음</span><span class="muted">우리 핵심(내비 진행률, 에너지 기반 숲)은 겹치지 않음. 랜드마크는 시안으로만 두고 운영국 답변에 따라 결정</span></div>
+        <div class="risk"><span class="pill warn">중간</span><span class="what">아동 정보와 위치 정보의 개인정보 부담</span><span class="muted">별명만, 기기에만 저장(Keystore 암호화). 공유는 진행률 기본, 대략 위치는 옵트인</span></div>
+        <div class="risk"><span class="pill warn">중간</span><span class="what">포인트를 실제 현대차 구매권으로 바꾸려면 제휴가 필요</span><span class="muted">앱에서는 "제휴 시 · 예시"로 표시하고 기획서에는 블루멤버스 연동을 사업 제안으로 넣음. 선례: 서울시 에코마일리지 × 현대차·기아</span></div>
+        <div class="risk"><span class="pill warn">중간</span><span class="what">급제동 판정 때문에 필요한 제동을 꺼리게 될 위험</span><span class="muted">이벤트가 있던 1km만 빼고, 주행 중에는 알리지 않으며, 도착 후에는 칭찬만 함</span></div>
+        <div class="risk"><span class="pill dim">낮음</span><span class="what">심사 기준의 "더미 데이터 금지"와 데모 모드의 충돌</span><span class="muted">메뉴에서 명시적으로 켜고, 켜져 있는 동안 "데모 주행" 배지를 항상 표시</span></div>
+        <div class="risk"><span class="pill dim">낮음</span><span class="what">블라인드 원칙: 현재 저장소 소유자 계정이 드러남</span><span class="muted">중립 GitHub 조직을 만들고 제출 직전 작성자를 정리한 히스토리로 이전</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="todo">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">팀원 할 일</p>
+        <h2>직접 해 주셔야 하는 것</h2>
+        <p class="lede">체크 표시는 이 브라우저에만 저장됩니다.</p>
+      </div>
+      <div class="todo" id="todoList"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">같이가숲 · 팀 DriveXFamily · 이 페이지의 그림은 모두 직접 그린 개념 시안이며 최종 디자인이 아닙니다. 친환경차 보너스와 포인트 규칙의 근거는 출처와 함께 표시하며, 포인트 교환은 제휴 시 예시입니다.</div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- 캐릭터 (SVG 레이어) ---------- */
+  function face(cy, r) {
+    return `<circle cx="-${r * .33}" cy="${cy + 2}" r="3" class="eye"/><circle cx="${r * .33}" cy="${cy + 2}" r="3" class="eye"/>
+      <ellipse cx="-${r * .58}" cy="${cy + 10}" rx="4.5" ry="3" class="cheek"/><ellipse cx="${r * .58}" cy="${cy + 10}" rx="4.5" ry="3" class="cheek"/>
+      <path d="M-5 ${cy + 12} Q0 ${cy + 17} 5 ${cy + 12}" class="mouth"/>`;
+  }
+  function kid(x, y, s = 1, o = {}) {
+    const shirt = o.shirt || "var(--sun)";
+    return `<g transform="translate(${x} ${y}) scale(${s})"><g class="bob" filter="url(#crayon)">
+      <g class="leg legA"><path d="M-6 -20 L-8 0" class="limb"/></g>
+      <g class="leg legB"><path d="M6 -20 L8 0" class="limb"/></g>
+      <rect x="-14" y="-46" width="28" height="28" rx="11" style="fill:${shirt}" class="outline"/>
+      <g class="armA"><path d="M-13 -40 L-25 -28" class="limb"/></g>
+      <g class="wave"><path d="M13 -40 L26 -55" class="limb"/></g>
+      <circle cx="0" cy="-70" r="25" class="skin outline"/>
+      <path d="M-25 -72 Q-25 -99 0 -98 Q25 -99 25 -72 Q15 -87 2 -84 Q-12 -88 -25 -72Z" class="hair"/>
+      <circle cx="17" cy="-90" r="7" class="hair"/>
+      ${face(-70, 25)}
+    </g></g>`;
+  }
+  function parent(x, y, s = 1, o = {}) {
+    const shirt = o.shirt || "var(--sky)";
+    const longHair = o.longHair;
+    return `<g transform="translate(${x} ${y}) scale(${s})"><g class="bob" filter="url(#crayon)">
+      <g class="leg legA"><path d="M-7 -24 L-9 0" class="limb"/></g>
+      <g class="leg legB"><path d="M7 -24 L9 0" class="limb"/></g>
+      <rect x="-17" y="-60" width="34" height="38" rx="12" style="fill:${shirt}" class="outline"/>
+      <g class="armA"><path d="M-16 -54 L-28 -38" class="limb"/></g>
+      <g class="wave"><path d="M16 -54 L29 -70" class="limb"/></g>
+      ${longHair ? `<path d="M-24 -86 Q-30 -60 -20 -58 L20 -58 Q30 -60 24 -86Z" class="hair"/>` : ""}
+      <circle cx="0" cy="-84" r="23" class="skin outline"/>
+      <path d="M-23 -86 Q-22 -110 0 -109 Q22 -110 23 -86 Q10 -98 -4 -96 Q-14 -98 -23 -86Z" class="hair"/>
+      ${face(-84, 23)}
+    </g></g>`;
+  }
+  function flag(x, y) {
+    return `<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)})"><path d="M0 0 L0 -26" style="stroke:var(--ink);stroke-width:2.4;stroke-linecap:round"/><path d="M0 -26 L15 -20.5 L0 -15Z" style="fill:var(--berry)"/></g>`;
+  }
+  function car(x, y, s = 1, o = {}) {
+    const wheel = (wx) => `<g transform="translate(${wx} -9)"><g class="wheel"><circle r="11" class="tire"/><circle r="4.5" class="hub"/><path d="M0 -10V10M-10 0H10" class="spoke"/></g></g>`;
+    return `<g transform="translate(${x} ${y}) scale(${s})"><g class="bob" filter="url(#crayon)">
+      <path d="M-60 -16 Q-60 -32 -42 -34 L-26 -34 Q-14 -56 8 -56 L26 -56 Q42 -56 50 -36 L56 -34 Q64 -32 64 -20 L64 -14 Q64 -9 58 -9 L-55 -9 Q-60 -9 -60 -16Z" style="fill:${o.color || "var(--car)"}" class="outline"/>
+      <path d="M-18 -37 Q-8 -51 8 -51 L24 -51 Q36 -51 42 -37Z" class="glass outline"/>
+      <circle cx="14" cy="-41" r="9" class="skin outline"/>
+      <circle cx="11" cy="-42" r="1.6" class="eye"/><circle cx="17" cy="-42" r="1.6" class="eye"/>
+      <path d="M-6 -41 Q-2 -48 2 -41" class="hair"/>
+      <circle cx="-4" cy="-42" r="7" class="skin outline"/>
+      <rect x="52" y="-30" width="9" height="6" rx="3" class="lamp"/>
+      ${wheel(-36)}${wheel(40)}
+    </g></g>`;
+  }
+  function sprout(x, y, s = 1, cls = "") {
+    return `<g transform="translate(${x} ${y}) scale(${s})"><g class="${cls}" filter="url(#crayon)">
+      <path d="M0 0 L0 -18" style="stroke:var(--forest);stroke-width:3;stroke-linecap:round"/>
+      <ellipse cx="-8" cy="-20" rx="9" ry="5" transform="rotate(-25 -8 -20)" class="leafc"/>
+      <ellipse cx="8" cy="-24" rx="9" ry="5" transform="rotate(25 8 -24)" class="leafc"/>
+    </g></g>`;
+  }
+  function tree(x, y, s = 1, cls = "") {
+    return `<g transform="translate(${x} ${y}) scale(${s})"><g class="${cls}" filter="url(#crayon)">
+      <rect x="-6" y="-34" width="12" height="34" rx="4" class="trunk"/>
+      <circle cx="-16" cy="-46" r="20" class="leafc"/><circle cx="16" cy="-46" r="20" class="leafc"/><circle cx="0" cy="-66" r="24" class="leafc"/>
+      <circle cx="-6" cy="-70" r="4" class="leafd" opacity=".35"/><circle cx="12" cy="-50" r="3.5" class="leafd" opacity=".35"/>
+    </g></g>`;
+  }
+  function squirrel(x, y, s = 1, cls = "") {
+    return `<g transform="translate(${x} ${y}) scale(${s})"><g class="${cls}" filter="url(#crayon)">
+      <path d="M-6 -8 C -34 -6, -38 -40, -22 -52 C -10 -60, 2 -48, -8 -40 C -18 -32, -14 -18, -6 -14Z" class="squirrel outline"/>
+      <ellipse cx="6" cy="-16" rx="14" ry="16" class="squirrel outline"/>
+      <circle cx="12" cy="-38" r="12" class="squirrel outline"/>
+      <path d="M8 -48 L10 -58 L16 -48Z" class="squirrel outline"/>
+      <circle cx="16" cy="-40" r="2.4" class="eye"/><circle cx="23" cy="-35" r="2" class="pink"/>
+      <ellipse cx="8" cy="-12" rx="7" ry="8" class="rabbit" opacity=".7"/>
+    </g></g>`;
+  }
+  function rabbit(x, y, s = 1, cls = "") {
+    return `<g transform="translate(${x} ${y}) scale(${s})"><g class="${cls}" filter="url(#crayon)">
+      <ellipse cx="-4" cy="-62" rx="6" ry="18" class="rabbit outline"/><ellipse cx="10" cy="-62" rx="6" ry="18" class="rabbit outline"/>
+      <ellipse cx="-4" cy="-62" rx="2.5" ry="11" class="pink"/><ellipse cx="10" cy="-62" rx="2.5" ry="11" class="pink"/>
+      <ellipse cx="0" cy="-16" rx="18" ry="16" class="rabbit outline"/>
+      <circle cx="3" cy="-38" r="14" class="rabbit outline"/>
+      <circle cx="-2" cy="-39" r="2.2" class="eye"/><circle cx="9" cy="-39" r="2.2" class="eye"/>
+      <circle cx="3.5" cy="-33" r="2" class="pink"/>
+      <circle cx="-18" cy="-12" r="5" class="rabbit outline"/>
+    </g></g>`;
+  }
+  function bird(x, y, s = 1, cls = "") {
+    return `<g transform="translate(${x} ${y}) scale(${s})"><g class="${cls}" filter="url(#crayon)">
+      <ellipse cx="0" cy="-16" rx="16" ry="14" class="birdc outline"/>
+      <path d="M-4 -18 Q-14 -26 -18 -14 Q-10 -10 -4 -14Z" class="glass outline"/>
+      <path d="M15 -20 L25 -17 L15 -13Z" class="beak outline"/>
+      <circle cx="7" cy="-21" r="2.2" class="eye"/>
+      <path d="M-4 -2 L-4 4 M4 -2 L4 4" class="limb" style="stroke-width:2.4"/>
+    </g></g>`;
+  }
+
+  /* ---------- 히어로: 길 위의 진행률 ---------- */
+  const hero = { p: 0, mode: "park", last: 0, hold: 0, grown: false, raf: 0 };
+  const heroSvg = $("#heroSvg"), road = $("#heroRoad"), carG = $("#heroCar"), forestG = $("#heroForest");
+  const roadLen = road.getTotalLength();
+  carG.innerHTML = `<g id="heroCarInner">${car(0, 0, 0.62)}</g>`;
+  const carInner = $("#heroCarInner");
+  (function marks() {
+    let s = "";
+    for (let i = 1; i < 10; i++) {
+      const pt = road.getPointAtLength(roadLen * i / 10);
+      s += flag(pt.x, pt.y - 13);
+    }
+    $("#heroMarks").innerHTML = s;
+  })();
+  function heroForest(show) {
+    if (!show) { forestG.innerHTML = ""; return; }
+    forestG.innerHTML = tree(-28, -6, .62, "pop") + tree(26, -16, .5, "pop") + tree(64, 0, .44, "pop") + sprout(-62, 4, .8, "pop") + sprout(90, 10, .7, "pop");
+  }
+  function kidTime(minLeft) {
+    if (minLeft <= 1) return "거의 다 왔어요!";
+    if (minLeft <= 20) {
+      const songs = Math.max(1, Math.round(minLeft / 4));
+      return `노래 ${korNum(songs)} 곡 들으면 도착해요`;
+    }
+    const eps = Math.round((minLeft / 20) * 2) / 2;
+    const whole = Math.floor(eps), half = eps - whole >= .5;
+    return `만화 ${korNum(whole)} 편${half ? " 반" : ""} 보면 도착해요`;
+  }
+  function korNum(n) { return ["영", "한", "두", "세", "네", "다섯", "여섯", "일곱", "여덟", "아홉", "열"][n] || String(n); }
+  const TRIP_MIN = 120;
+  function renderHero() {
+    const shown = Math.floor(hero.p * 100 + 1e-6) / 100;
+    const pt = road.getPointAtLength(roadLen * shown);
+    const pt2 = road.getPointAtLength(Math.min(roadLen, roadLen * shown + 2));
+    const ang = Math.atan2(pt2.y - pt.y, pt2.x - pt.x) * 180 / Math.PI;
+    carG.setAttribute("transform", `translate(${pt.x.toFixed(1)} ${(pt.y - 4).toFixed(1)}) rotate(${ang.toFixed(1)})`);
+    const pct = Math.round(shown * 100);
+    $("#heroPct").textContent = pct + "%";
+    $("#heroBar").style.width = (shown * 100).toFixed(1) + "%";
+    const left = Math.round(TRIP_MIN * (1 - shown));
+    $("#heroSay").innerHTML = `${kidTime(left)}<small>약 ${left}분 남음</small>`;
+  }
+  function setHeroMode(m) {
+    hero.mode = m;
+    $("#heroPark").setAttribute("aria-pressed", m === "park");
+    $("#heroDrive").setAttribute("aria-pressed", m === "drive");
+    heroSvg.classList.toggle("anim", m === "park" && !reduceMotion);
+    heroSvg.classList.toggle("still", m === "drive");
+    $("#heroNote").textContent = m === "park"
+      ? "주차 중: 진행 바는 1%씩 움직이고, 캐릭터 애니메이션이 함께 나옵니다."
+      : "주행 중: 캐릭터는 정지 포즈로 멈추고, 진행 바는 전환 효과 없이 1%씩 이동합니다(최소 15초 간격). 터치는 크게/작게만 허용됩니다.";
+    renderHero();
+  }
+  $("#heroPark").addEventListener("click", () => setHeroMode("park"));
+  $("#heroDrive").addEventListener("click", () => setHeroMode("drive"));
+  function heroTick(t) {
+    const dt = hero.last ? Math.min(100, t - hero.last) : 16;
+    hero.last = t;
+    if (hero.p >= 1) {
+      if (!hero.grown) { heroForest(true); hero.grown = true; }
+      hero.hold += dt;
+      if (hero.hold > 3200) { hero.p = 0; hero.hold = 0; hero.grown = false; heroForest(false); }
+    } else {
+      hero.p = Math.min(1, hero.p + dt / 18000);
+    }
+    renderHero();
+    hero.raf = requestAnimationFrame(heroTick);
+  }
+  if (reduceMotion) { hero.p = .4; setHeroMode("park"); }
+  else { setHeroMode("park"); hero.p = .18; hero.raf = requestAnimationFrame(heroTick); }
+  document.addEventListener("visibilitychange", () => {
+    if (reduceMotion) return;
+    if (document.hidden) { cancelAnimationFrame(hero.raf); hero.last = 0; }
+    else hero.raf = requestAnimationFrame(heroTick);
+  });
+
+  /* ---------- 화면 시안 (차량 디스플레이 800x420) ---------- */
+  function chip(x, y, label, kind) {
+    const w = 18 + label.length * 15;
+    return `<rect x="${x - w}" y="${y}" width="${w}" height="30" rx="15" class="chip-${kind}"/><text x="${x - w / 2}" y="${y + 20.5}" text-anchor="middle" font-size="15" class="chip-${kind}t">${label}</text>`;
+  }
+  function button(x, y, w, label, ghost) {
+    return ghost
+      ? `<rect x="${x}" y="${y}" width="${w}" height="52" rx="26" class="box"/><text x="${x + w / 2}" y="${y + 33}" text-anchor="middle" font-size="19" class="t" font-weight="700">${label}</text>`
+      : `<rect x="${x}" y="${y}" width="${w}" height="52" rx="26" class="btn-f"/><text x="${x + w / 2}" y="${y + 33}" text-anchor="middle" font-size="19" class="btn-t">${label}</text>`;
+  }
+  function miniRoad(p, opt = {}) {
+    const x0 = 70, x1 = 690, y = opt.y || 300;
+    const cx = x0 + (x1 - x0) * p;
+    let s = `<path d="M${x0} ${y} L${x1} ${y}" class="road" style="stroke-width:24"/><path d="M${x0} ${y} L${x1} ${y}" class="road-mid"/>`;
+    for (let i = 1; i < 10; i++) s += flag(x0 + (x1 - x0) * i / 10, y - 12);
+    s += `<g transform="translate(${x1 + 40} ${y + 10})" filter="url(#crayon)"><rect class="house-wall" x="-24" y="-40" width="44" height="32" rx="3"/><path class="house-roof" d="M-30 -38 L-2 -62 L26 -38Z"/></g>`;
+    s += `<rect x="${x0}" y="${y - 3}" width="${(x1 - x0) * p}" height="6" rx="3" style="fill:var(--leaf)"/>`;
+    s += car(cx, y + 8, .62);
+    return s;
+  }
+  function frame(inner, mode, extra = "") {
+    const isDrive = mode === "drive";
+    return `<svg viewBox="0 0 800 420" class="${isDrive ? "still" : (reduceMotion ? "" : "anim")}" role="img">
+      <rect x="0" y="0" width="800" height="420" class="scr"/>
+      <text x="32" y="44" font-size="20" class="tf">같이가숲</text>
+      ${chip(768, 22, isDrive ? "주행 중" : "주차 중", isDrive ? "d" : "p")}
+      ${extra}
+      ${inner}
+    </svg>`;
+  }
+  const MOCK = {
+    onboard: () => frame(`
+      ${kid(160, 330, 1.7)}
+      <text x="320" y="130" font-size="34" class="th">아이 프로필을 만들어요</text>
+      <rect x="320" y="156" width="400" height="58" rx="16" class="box"/>
+      <text x="344" y="194" font-size="24" class="t" font-weight="700">하늘이</text>
+      <text x="320" y="252" font-size="20" class="t2">미리보기: <tspan class="tf">하늘이의 숲</tspan></text>
+      ${button(320, 276, 300, "보호자가 확인했어요")}
+      <text x="320" y="364" font-size="15" class="t2">보호자 계정에 연결돼요 · 아이는 별명만 받아요</text>`, "park"),
+    home: () => frame(`
+      <text x="32" y="100" font-size="34" class="th">하늘이의 숲</text>
+      <text x="32" y="134" font-size="18" class="t2">나무 12그루 · 새싹 4개 · 다람쥐와 토끼가 살아요</text>
+      <text x="32" y="186" font-size="16" class="t2">오늘 함께 타요</text><rect x="146" y="164" width="100" height="34" rx="17" class="chip-p"/><text x="196" y="187" text-anchor="middle" font-size="16" class="chip-pt">하늘이 ✓</text><rect x="256" y="164" width="88" height="34" rx="17" class="chip-p"/><text x="300" y="187" text-anchor="middle" font-size="16" class="chip-pt">바다 ✓</text>
+      <rect x="430" y="76" width="340" height="96" rx="18" class="box"/>
+      <text x="452" y="110" font-size="15" class="t2">내비 목적지</text>
+      <text x="452" y="146" font-size="24" class="t" font-weight="800">할머니 댁</text>
+      ${button(470, 190, 260, "여행 시작")}
+      <text x="600" y="276" text-anchor="middle" font-size="15" class="t2">데모 주행 (발표자 메뉴)</text>
+      <path d="M0 400 C 200 330, 520 350, 800 320 L800 420 L0 420Z" class="hill1"/>
+      ${tree(80, 384, .8)}${tree(170, 372, .6)}${tree(250, 380, .7)}${sprout(320, 378, 1)}${sprout(360, 372, .9)}${squirrel(120, 392, .8, "hop")}`, "park"),
+    depart: () => frame(`
+      <text x="400" y="104" text-anchor="middle" font-size="40" class="th">할머니 댁으로 출발!</text>
+      <path d="M0 360 L800 360" style="stroke:var(--line);stroke-width:3"/>
+      ${parent(210, 356, 1.25, { shirt: "var(--sky)" })}${parent(300, 356, 1.2, { shirt: "var(--berry)", longHair: true })}${kid(380, 356, 1.25)}
+      ${car(590, 360, 1.6)}
+      <text x="400" y="398" text-anchor="middle" font-size="15" class="t2">이 애니메이션은 주차 중에만 움직여요</text>`, "park"),
+    drive: () => frame(`
+      <text x="32" y="150" font-size="88" class="tf" style="font-variant-numeric:tabular-nums">40%</text>
+      <text x="252" y="132" font-size="34" class="th">만화 두 편 보면 도착해요</text>
+      ${button(612, 84, 156, "크게", true)}
+      ${miniRoad(.4, { y: 290 })}
+      <text x="70" y="370" font-size="15" class="t2">1% 단위로 즉시 이동 · 최소 15초 간격 · 애니메이션 없음 · 터치는 크게/작게만</text>`, "drive"),
+    rest: () => frame(`
+      <text x="32" y="150" font-size="88" class="tf" style="font-variant-numeric:tabular-nums">45%</text>
+      <text x="252" y="120" font-size="32" class="th">휴게소에서 쉬는 중</text>
+      <text x="252" y="156" font-size="18" class="t2">지금까지 새싹 3개가 자랐어요</text>
+      ${miniRoad(.45, { y: 290 })}
+      ${kid(420, 360, .7)}
+      <text x="70" y="400" font-size="15" class="t2">기어 P + 주행 제한 꺼짐 → 캐릭터가 다시 움직여요</text>`, "park"),
+    arrive: () => frame(`
+      <g class="conf"><circle cx="140" cy="90" r="6" class="sunc"/><circle cx="660" cy="100" r="6" class="leafc"/><circle cx="520" cy="70" r="5" class="pink"/></g>
+      <g class="conf" style="animation-delay:.5s"><circle cx="260" cy="70" r="5" class="leafc"/><circle cx="720" cy="80" r="6" class="sunc"/><circle cx="380" cy="60" r="5" class="birdc"/></g>
+      <text x="400" y="116" text-anchor="middle" font-size="46" class="th">도착했어요!</text>
+      ${parent(240, 340, 1.1, { shirt: "var(--sky)" })}${kid(320, 340, 1.15)}${parent(400, 340, 1.05, { shirt: "var(--berry)", longHair: true })}
+      ${button(500, 220, 260, "운전 고마워요")}
+      <text x="630" y="300" text-anchor="middle" font-size="15" class="t2">누르면 숲 결과로 가요</text>`, "park"),
+    result: () => frame(`
+      <text x="32" y="100" font-size="34" class="th">부드럽게 달린 360km만큼 숲이 자랐어요</text>
+      <text x="32" y="134" font-size="18" class="t2">부드럽게 달린 구간 90% · 보호자 포인트 +360P</text>
+      <path d="M0 400 C 220 340, 540 360, 800 330 L800 420 L0 420Z" class="hill1"/>
+      ${tree(80, 384, .62, "pop")}${tree(145, 376, .58, "pop")}${tree(210, 382, .62, "pop")}${tree(275, 374, .56, "pop")}${tree(340, 380, .6, "pop")}${sprout(392, 382, .9, "pop")}${sprout(420, 378, .85, "pop")}${rabbit(462, 386, .9, "hop")}
+      <rect x="500" y="170" width="270" height="104" rx="18" class="box"/>
+      <text x="522" y="208" font-size="20" class="t" font-weight="800">나무 +5 · 새싹 +4</text>
+      <text x="522" y="246" font-size="20" class="tf">토끼가 놀러 왔어요!</text>
+      ${button(560, 290, 200, "자세히", true)}`, "park"),
+    fallback: () => frame(`
+      <g transform="translate(180 260)" filter="url(#crayon)"><path d="M0 60 C -60 -10, -54 -90, 0 -90 C 54 -90, 60 -10, 0 60Z" class="chip-p outline"/><text x="0" y="-26" text-anchor="middle" font-size="64" class="tf">?</text></g>
+      <text x="320" y="170" font-size="32" class="th">내비에 목적지를 설정해 주세요</text>
+      <text x="320" y="208" font-size="18" class="t2">목적지를 정하면 여기서 진행률을 보여 줘요</text>
+      ${button(320, 236, 300, "데모로 해 보기")}
+      <text x="320" y="320" font-size="15" class="t2">데모 버튼은 주차 중에만 보여요</text>`, "park"),
+  };
+  const SCREENS = [
+    { id: "onboard", name: "첫 실행", mode: "park", enter: "앱을 처음 열었을 때 (주차 중)", exit: "'보호자가 확인했어요' 탭 → 홈", note: "보호자 계정 아래 아이 프로필 생성. 별명은 Keystore로 암호화해 기기에 저장(PT부터 서버 동기화)" },
+    { id: "home", name: "홈", mode: "park", enter: "첫 실행 완료 후, 숲 결과에서 돌아올 때", exit: "NaviHelper onRouteStarted 또는 '여행 시작' → 출발", note: "숲 미리보기, 내비 목적지, '오늘 누가 타나요?' 선택. 데모 메뉴는 주차 중에만" },
+    { id: "depart", name: "출발", mode: "park", enter: "경로 시작 이벤트 (데모에서는 데모 시작)", exit: "기어 D 또는 주행 제한 켜짐 → 주행 중", note: "가족이 손을 흔드는 애니메이션. 주차 중이라 허용" },
+    { id: "drive", name: "주행 중", mode: "drive", enter: "CarUxRestrictions가 제한을 요구할 때", exit: "기어 P + 제한 꺼짐 → 정차 중 / 도착 이벤트 → 도착", note: "정지 이미지, 1% 단위(최소 15초), 문구 1줄, 크게/작게만. 안전운전 판정은 조용히 기록" },
+    { id: "rest", name: "정차 중", mode: "park", enter: "휴게소 등에서 기어 P + 제한 꺼짐", exit: "기어 D 또는 제한 켜짐 → 주행 중", note: "같은 화면의 두 번째 상태. 캐릭터가 다시 움직임" },
+    { id: "arrive", name: "도착", mode: "park", enter: "onDestinationArrived (폴백: 진행률 98% 이상 + 기어 P)", exit: "'운전 고마워요' 탭 → 숲 결과", note: "아직 D면 정지 축하 그림만, P가 되면 애니메이션" },
+    { id: "result", name: "숲 결과", mode: "park", enter: "도착 화면에서 탭", exit: "홈으로", note: "안전 km × 차종 배수로 새싹·나무, 새 동물, 보호자 포인트. 소리는 짧게 1회" },
+    { id: "fallback", name: "목적지 없음", mode: "park", enter: "NaviHelper 연결 실패 또는 목적지 없음", exit: "목적지 설정 시 출발 / 데모 시작", note: "내비 미탑재 차량도 앱이 멈추지 않게 하는 폴백" },
+  ];
+  let storyIdx = 3;
+  function renderStory() {
+    $("#steps").innerHTML = SCREENS.map((s, i) => `<li><button type="button" role="tab" aria-selected="${i === storyIdx}" data-i="${i}">
+      <span class="n">${i + 1}</span><span>${s.name}</span><span class="pill ${s.mode === "drive" ? "drive" : "park"}">${s.mode === "drive" ? "주행" : "주차"}</span></button></li>`).join("");
+    const s = SCREENS[storyIdx];
+    $("#storyDevice").innerHTML = MOCK[s.id]();
+    $("#storyInfo").innerHTML = `
+      <div class="kv"><span class="k">이 화면으로 오는 때</span><span>${s.enter}</span></div>
+      <div class="kv"><span class="k">다음 화면으로 가는 때</span><span>${s.exit}</span></div>
+      <div class="kv"><span class="k">메모</span><span>${s.note}</span></div>`;
+    $("#storyPrev").disabled = storyIdx === 0;
+    $("#storyNext").disabled = storyIdx === SCREENS.length - 1;
+  }
+  $("#steps").addEventListener("click", (e) => { const b = e.target.closest("button[data-i]"); if (!b) return; storyIdx = +b.dataset.i; renderStory(); });
+  $("#storyPrev").addEventListener("click", () => { if (storyIdx > 0) { storyIdx--; renderStory(); } });
+  $("#storyNext").addEventListener("click", () => { if (storyIdx < SCREENS.length - 1) { storyIdx++; renderStory(); } });
+  renderStory();
+
+  /* ---------- 정책 판단기 ---------- */
+  const pol = { ux: "off", gear: "P", demo: "stop" };
+  function renderVerdict() {
+    $$(".decider .seg button").forEach((b) => b.setAttribute("aria-pressed", pol[b.dataset.k] === b.dataset.v));
+    const v = $("#verdict");
+    let lvl, title, body;
+    if (pol.ux === "on") {
+      lvl = "l1"; title = "주행 중 화면";
+      body = "실제 주행 제한 신호가 켜져 있습니다. 데모가 무엇을 재생하든 정지 이미지와 단계 갱신만 보여 줍니다.";
+    } else if (pol.gear !== "P" || pol.demo === "drive") {
+      lvl = "l2"; title = "진행 화면 (주차 전용 기능 잠금)";
+      body = pol.gear !== "P" ? "제한 신호는 꺼졌지만 기어가 P가 아닙니다(신호 대기 등). 꾸미기·소리·공유 설정은 기어 P가 될 때까지 잠급니다." : "데모가 주행 장면을 재생 중입니다. 시연의 일관성을 위해 주행 중과 같은 정지 화면을 보여 줍니다.";
+    } else {
+      lvl = "l3"; title = "주차 중 화면";
+      body = "제한 꺼짐, 기어 P, 데모도 정차 장면입니다. 애니메이션, 숲, 꾸미기, 소리가 모두 열립니다.";
+    }
+    v.className = "verdict " + lvl;
+    v.innerHTML = `<span class="pill ${lvl === "l3" ? "park" : lvl === "l1" ? "drive" : "warn"}">${lvl === "l1" ? "가장 제한" : lvl === "l2" ? "일부 제한" : "모두 허용"}</span><span class="big">${title}</span><span class="muted">${body}</span>`;
+  }
+  $$(".decider .seg button").forEach((b) => b.addEventListener("click", () => { pol[b.dataset.k] = b.dataset.v; renderVerdict(); }));
+  renderVerdict();
+
+  /* ---------- 3분 데모 타임라인 ---------- */
+  const SEG = [
+    { a: 0, b: 12, name: "출발 준비", gear: "P", ux: "꺼짐", scr: "depart", cue: "주차 중 데모 메뉴에서 '데모 주행 시작'을 누릅니다." },
+    { a: 12, b: 75, name: "고속도로 주행", gear: "D", ux: "켜짐", scr: "drive", cue: "Virtual Console에서 기어 D, 터미널에서 adb driving_regulation on." },
+    { a: 75, b: 105, name: "휴게소", gear: "P", ux: "꺼짐", scr: "rest", cue: "기어 P, driving_regulation off → 캐릭터 애니메이션이 열리는 순간을 보여 줍니다." },
+    { a: 105, b: 158, name: "다시 주행", gear: "D", ux: "켜짐", scr: "drive", cue: "기어 D, driving_regulation on → 화면이 즉시 정지 이미지로 바뀝니다." },
+    { a: 158, b: 168, name: "도착", gear: "P", ux: "꺼짐", scr: "arrive", cue: "데모가 도착 이벤트를 보내면 기어 P로 바꿉니다." },
+    { a: 168, b: 180, name: "숲 결과", gear: "P", ux: "꺼짐", scr: "result", cue: "'운전 고마워요'를 탭해 오늘의 나무와 새 동물을 보여 줍니다." },
+  ];
+  function progAt(t) {
+    if (t <= 12) return 0;
+    if (t <= 75) return .45 * (t - 12) / 63;
+    if (t <= 105) return .45;
+    if (t <= 158) return .45 + .55 * (t - 105) / 53;
+    return 1;
+  }
+  function speedAt(t) {
+    const s = SEG.find((x) => t >= x.a && t < x.b) || SEG[SEG.length - 1];
+    if (s.gear !== "D") return 0;
+    const into = t - s.a, out = s.b - t;
+    return Math.round(Math.min(100, into * 12, out * 12));
+  }
+  const track = $("#tlTrack");
+  track.insertAdjacentHTML("afterbegin", SEG.map((s) => `<div class="segm ${s.gear === "D" ? "d" : "p"}" style="width:${(s.b - s.a) / 1.8}%">${s.name}</div>`).join(""));
+  const tl = { t: 0, playing: false, last: 0, raf: 0, scr: "" };
+  function fmt(t) { const m = Math.floor(t / 60), s = Math.floor(t % 60); return `${String(m).padStart(2, "0")}:${String(s).padStart(2, "0")}`; }
+  function renderTl() {
+    const t = tl.t;
+    const s = SEG.find((x) => t >= x.a && t < x.b) || SEG[SEG.length - 1];
+    const p = progAt(t);
+    const shownP = Math.floor(p * 100 + 1e-6);
+    const soc = (80 - 6 * p).toFixed(0);
+    $("#tlHead").style.left = `calc(${(t / 180 * 100).toFixed(2)}% - 1px)`;
+    $("#tlRange").value = Math.floor(t);
+    $("#tlTime").textContent = `${fmt(t)} / 03:00`;
+    $("#tlSignals").innerHTML = `
+      <div class="sig"><span class="muted">진행률 (1% 단위)</span><span class="v">${shownP}%</span><span class="src pill demo">데모</span></div>
+      <div class="sig"><span class="muted">차속</span><span class="v">${speedAt(t)} km/h</span><span class="src pill real">Virtual Console</span></div>
+      <div class="sig"><span class="muted">부드럽게 달린 거리</span><span class="v">${Math.round(p * 360)} km</span><span class="src pill dim">core:trip 판정</span></div>
+      <div class="sig"><span class="muted">기어</span><span class="v">${s.gear}</span><span class="src pill real">Virtual Console</span></div>
+      <div class="sig"><span class="muted">주행 제한</span><span class="v">${s.ux}</span><span class="src pill real">adb</span></div>
+      <div class="sig"><span class="muted">배터리 SOC</span><span class="v">${soc}%</span><span class="src pill real">Virtual Console</span></div>
+      <div class="sig"><span class="muted">지금 화면</span><span class="v" style="font-size:1.05rem">${(SCREENS.find((x) => x.id === s.scr) || {}).name}</span><span class="src pill dim">core:trip 판단</span></div>`;
+    $("#tlCue").innerHTML = `<b>발표자 조작 · ${s.name}</b><span>${s.cue}</span>`;
+    if (tl.scr !== s.scr) { tl.scr = s.scr; $("#tlDevice").innerHTML = MOCK[s.scr](); }
+  }
+  function tlTick(now) {
+    const dt = tl.last ? Math.min(100, now - tl.last) : 16;
+    tl.last = now;
+    tl.t = Math.min(180, tl.t + dt / 1000 * 6);
+    renderTl();
+    if (tl.t >= 180) { tl.playing = false; $("#tlPlay").textContent = "처음부터"; return; }
+    tl.raf = requestAnimationFrame(tlTick);
+  }
+  $("#tlPlay").addEventListener("click", () => {
+    if (tl.playing) { tl.playing = false; cancelAnimationFrame(tl.raf); $("#tlPlay").textContent = "재생"; return; }
+    if (tl.t >= 180) tl.t = 0;
+    tl.playing = true; tl.last = 0; $("#tlPlay").textContent = "일시정지";
+    tl.raf = requestAnimationFrame(tlTick);
+  });
+  $("#tlRange").addEventListener("input", (e) => { tl.t = +e.target.value; renderTl(); });
+  renderTl();
+
+  /* ---------- 안전 km 계산기 ---------- */
+  const PT = {
+    ev: { name: "전기차", mult: 1.5, note: "전기차는 달릴 때 배기가스가 없고, 국내 전력 기준 생애 배출이 휘발유차보다 약 47% 적다는 전망이 있어요." },
+    hev: { name: "하이브리드·PHEV", mult: 1.3, note: "하이브리드도 휘발유로 달리지만 같은 차급보다 기름을 약 30% 덜 쓰고, 생애 배출이 약 32~45% 적다는 전망이 있어요." },
+    ice: { name: "내연기관", mult: 1.0, note: "내연기관차도 급가속·급제동을 줄이면 연료를 10~20% 아낄 수 있어요." },
+  };
+  const safe = { kind: "ev" };
+  function renderSafe() {
+    const d = +$("#sDist").value, ratio = +$("#sRatio").value;
+    const p = PT[safe.kind];
+    $("#oSDist").textContent = d + " km";
+    $("#oSRatio").textContent = ratio + "%";
+    const safeKm = Math.round(d * ratio / 100);
+    const sprouts = Math.floor(safeKm / 10 * p.mult + 1e-9);
+    const trees = Math.floor(sprouts / 10), rest = sprouts % 10;
+    const points = safeKm;
+    $("#sTreeN").textContent = trees;
+    $("#sSproutN").textContent = rest;
+    $("#sPoint").textContent = points.toLocaleString("ko-KR");
+    $("#sKid").textContent = `부드럽게 달린 ${safeKm}km만큼 숲이 자랐어요`;
+    $("#sAdult").textContent = `부드럽게 달린 구간 ${ratio}% · 새싹 ${sprouts}개(나무 ${trees}그루 + 새싹 ${rest}개) · 보호자 포인트 +${points.toLocaleString("ko-KR")}P`;
+    let s = `<svg viewBox="0 0 640 120" role="img" aria-label="나무 ${trees}그루, 새싹 ${rest}개">`;
+    s += `<path d="M0 112 C 160 92, 420 100, 640 90 L640 120 L0 120Z" class="hill1"/>`;
+    const nT = Math.min(trees, 7);
+    let x = 40;
+    for (let i = 0; i < nT; i++) { s += tree(x, 108, .7); x += 62; }
+    for (let i = 0; i < rest; i++) { s += sprout(x, 108, .9); x += 30; }
+    if (trees > nT) s += `<text x="630" y="30" text-anchor="end" font-size="16" class="t2">나무 ${trees}그루 중 일부만 그림</text>`;
+    s += `</svg>`;
+    $("#sTrees").innerHTML = s;
+    $("#sFormula").textContent =
+`인정 거리 = 위험운전 이벤트가 없던 1km 구간의 합
+          = ${d}km × ${ratio}% = ${safeKm}km
+새싹     = ⌊${safeKm} ÷ 10 × ${p.mult.toFixed(1)}(${p.name})⌋ = ${sprouts}개
+나무     = ⌊${sprouts} ÷ 10⌋ = ${trees}그루, 남은 새싹 ${rest}개
+포인트   = ${safeKm}km × 1P = ${points}P (보호자, 월 상한 3,000P 예시)`;
+    $("#sSource").textContent = `${p.note} 근거: 전과정 배출 휘발유 161, 하이브리드 110, PHEV 89, 전기차 85 gCO₂eq/km(서울대 2020, 국내 전력 2030 전망) · IEA: 전기차 생애 배출은 휘발유차의 약 절반 · 공격적 운전은 연비를 15~30% 떨어뜨림(미국 에너지부).`;
+  }
+  function setSafeKind(k) {
+    safe.kind = k;
+    $$("[data-pt]").forEach((b) => b.setAttribute("aria-pressed", b.dataset.pt === k));
+    renderSafe();
+  }
+  $$("[data-pt]").forEach((b) => b.addEventListener("click", () => setSafeKind(b.dataset.pt)));
+  ["#sDist", "#sRatio"].forEach((id) => $(id).addEventListener("input", renderSafe));
+  setSafeKind("ev");
+
+  /* ---------- 숲과 동물 ---------- */
+  const ANIMALS = [
+    { id: "squirrel", name: "다람쥐", need: 3, draw: squirrel, x: 150, y: 330, hz: [1200, 1500] },
+    { id: "rabbit", name: "토끼", need: 10, draw: rabbit, x: 470, y: 336, hz: [700, 900] },
+    { id: "bird", name: "새", need: 25, draw: bird, x: 610, y: 182, hz: [2000, 2600] },
+  ];
+  const fst = { mode: "park", seen: new Set() };
+  const SPOTS = [[90, 320], [260, 300], [370, 330], [560, 310], [700, 326], [200, 350], [640, 352], [420, 352], [320, 290], [740, 300], [120, 362], [520, 362], [60, 300], [600, 290], [280, 366], [470, 300]];
+  function renderForest() {
+    const trees = +$("#fScore").value;
+    $("#oScore").textContent = trees + "그루";
+    const sprouts = trees > 0 ? 4 : 0;
+    let s = `<rect width="800" height="380" class="sky-bg"/><circle cx="700" cy="70" r="30" class="sunc"/>
+      <path d="M0 250 C 200 200, 420 240, 800 210 L800 380 L0 380Z" class="hill1"/>
+      <path d="M0 310 C 240 280, 520 310, 800 290 L800 380 L0 380Z" class="hill2"/>
+      <text x="24" y="44" font-size="28" class="th">하늘이의 숲</text>
+      <text x="24" y="72" font-size="16" class="t2">나무 ${trees}그루 · 새싹 ${sprouts}개${trees > SPOTS.length ? " · 그림은 일부만" : ""}</text>`;
+    for (let i = 0; i < Math.min(trees, SPOTS.length); i++) s += tree(SPOTS[i][0], SPOTS[i][1], .5 + (i % 3) * .1);
+    for (let i = 0; i < sprouts; i++) { const sp = SPOTS[(i + trees) % SPOTS.length]; s += sprout(sp[0] + 26, sp[1] + 14, .8); }
+    if (trees >= 25) s += `<path d="M560 200 L680 190" style="stroke:var(--squirrel);stroke-width:6;stroke-linecap:round"/>`;
+    ANIMALS.forEach((a) => { if (trees >= a.need) s += a.draw(a.x, a.y, a.id === "bird" ? .9 : 1, "hop"); });
+    const svg = $("#forestSvg");
+    svg.innerHTML = s;
+    svg.classList.toggle("anim", fst.mode === "park" && !reduceMotion);
+    svg.classList.toggle("still", fst.mode === "drive");
+    $("#unlocks").innerHTML = ANIMALS.map((a) => {
+      const open = trees >= a.need;
+      return `<div class="unlock ${open ? "" : "locked"}">
+        <svg viewBox="-40 -80 80 90" aria-hidden="true">${a.draw(0, 0, .9)}</svg>
+        <div><b>${a.name}</b><div class="muted" style="font-size:.85rem">${open ? "숲에 놀러 왔어요" : `누적 나무 ${a.need}그루가 되면 찾아와요 (예시)`}</div></div>
+        <button type="button" class="btn" data-snd="${a.id}" ${open && fst.mode === "park" ? "" : "disabled"} aria-label="${a.name} 소리 듣기">${fst.mode === "drive" && open ? "주행 중 잠금" : "소리"}</button></div>`;
+    }).join("") + `<p class="muted" style="font-size:.86rem">소리는 이 페이지에서 직접 합성한 짧은 효과음 예시입니다. 앱에서는 주차 중에만, 동물이 처음 올 때와 아이가 탭할 때 한 번 재생하고 오디오 포커스를 요청합니다.</p>`;
+  }
+  let actx = null;
+  function chirp(a) {
+    try {
+      actx = actx || new (window.AudioContext || window.webkitAudioContext)();
+      const t0 = actx.currentTime + .05;
+      const n = a.id === "bird" ? 3 : a.id === "squirrel" ? 4 : 2;
+      for (let i = 0; i < n; i++) {
+        const o = actx.createOscillator(), g = actx.createGain();
+        o.type = a.id === "rabbit" ? "triangle" : "sine";
+        const st = t0 + i * (a.id === "rabbit" ? .22 : .12);
+        o.frequency.setValueAtTime(a.hz[0], st);
+        o.frequency.exponentialRampToValueAtTime(a.hz[1], st + .08);
+        g.gain.setValueAtTime(0.0001, st);
+        g.gain.exponentialRampToValueAtTime(0.18, st + .015);
+        g.gain.exponentialRampToValueAtTime(0.0001, st + .1);
+        o.connect(g).connect(actx.destination);
+        o.start(st); o.stop(st + .12);
+      }
+    } catch (e) { /* 소리를 낼 수 없는 환경이면 조용히 넘어갑니다 */ }
+  }
+  $("#unlocks").addEventListener("click", (e) => { const b = e.target.closest("[data-snd]"); if (!b || b.disabled) return; chirp(ANIMALS.find((a) => a.id === b.dataset.snd)); });
+  function setForestMode(m) { fst.mode = m; $("#fPark").setAttribute("aria-pressed", m === "park"); $("#fDrive").setAttribute("aria-pressed", m === "drive"); renderForest(); }
+  $("#fPark").addEventListener("click", () => setForestMode("park"));
+  $("#fDrive").addEventListener("click", () => setForestMode("drive"));
+  $("#fScore").addEventListener("input", renderForest);
+  renderForest();
+
+  /* ---------- 아키텍처 지도 ---------- */
+  const SRC = [
+    { id: "navi", x: 12, label: "NaviHelper", sub: "목적지·남은 거리/시간·도착" },
+    { id: "veh", x: 192, label: "Vehicle SDK", sub: "주행거리·배터리·차종·무드등" },
+    { id: "prop", x: 372, label: "CarPropertyManager", sub: "차속(안전 판정)·기어" },
+    { id: "ux", x: 552, label: "CarUxRestrictions", sub: "주행 중 제한 상태" },
+    { id: "tts", x: 732, label: "TextToSpeech", sub: "음성 안내 (ON_DEVICE)" },
+    { id: "demo", x: 912, label: "데모 재생기", sub: "core:demo · 진행률·도착" },
+  ];
+  const ACTIVE = {
+    real: ["navi", "veh", "prop", "ux", "tts"],
+    mix: ["veh", "prop", "ux", "tts", "demo"],
+    demo: ["ux", "demo"],
+  };
+  function box(x, y, w, h, title, sub, cls = "", extra = "", plain = false, fs = 15) {
+    return `<g class="${cls}"><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="14" class="box" ${extra}/>
+      <text x="${x + 14}" y="${y + 26}" font-size="${fs}" class="t" font-weight="800" ${plain ? "" : `style="font-family:var(--font-mono)"`}>${title}</text>
+      ${sub ? `<text x="${x + 14}" y="${y + 48}" font-size="13" class="t2">${sub}</text>` : ""}</g>`;
+  }
+  function flow(id, d, on) {
+    return `<path id="${id}" d="${d}" fill="none" style="stroke:${on ? "var(--forest)" : "var(--line)"};stroke-width:2.5;${on ? "" : "stroke-dasharray:4 6"}"/>` +
+      (on && !reduceMotion ? `<circle r="5" style="fill:var(--leaf)"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#${id}"/></animateMotion></circle>` : "");
+  }
+  function renderArch(mode) {
+    $$("[data-src]").forEach((b) => b.setAttribute("aria-pressed", b.dataset.src === mode));
+    const act = ACTIVE[mode];
+    let s = `<rect x="6" y="196" width="1088" height="398" rx="20" fill="none" style="stroke:var(--sun);stroke-width:2;stroke-dasharray:8 6"/>
+      <text x="24" y="584" font-size="14" class="t2">app · 화면 이동 · 의존성 조립(수동 DI) · 기능 플래그(journey / forest 켜기·끄기)</text>`;
+    SRC.forEach((c) => {
+      const on = act.includes(c.id);
+      s += `<g opacity="${on ? 1 : .38}">${box(c.x, 20, 168, 64, c.label, c.sub, "", "", false, 13)}${c.id === "demo" ? `<rect x="${c.x + 116}" y="10" width="44" height="20" rx="10" class="chip-m"/><text x="${c.x + 138}" y="24" text-anchor="middle" font-size="11" class="chip-mt">데모</text>` : ""}${c.id === "ux" ? `<rect x="${c.x + 116}" y="10" width="44" height="20" rx="10" class="chip-p"/><text x="${c.x + 138}" y="24" text-anchor="middle" font-size="11" class="chip-pt">항상</text>` : ""}</g>`;
+      s += flow("f-" + c.id, `M${c.x + 84} 84 C ${c.x + 84} 140, 550 130, 550 214`, on);
+    });
+    s += box(250, 214, 600, 70, "core:vehicle", "VehicleDataProvider(읽기) · VehicleControlProvider(제어, 지금은 빈 구현)");
+    s += flow("f-trip", "M550 284 L550 330", true);
+    s += box(300, 330, 500, 70, "core:trip", "TripEvent: 출발 · 진행률 · 주행/정차 · 도착 · 인정 km");
+    s += flow("f-j", "M450 400 C 450 430, 240 420, 240 456", true);
+    s += flow("f-f", "M650 400 C 650 430, 860 420, 860 456", true);
+    s += box(110, 456, 260, 76, "feature:journey", "진행 화면 · 남은 시간 · 도착 · (PT) 공유");
+    s += box(730, 456, 260, 76, "feature:forest", "친환경 계산 · 숲 · 동물 · 결과");
+    s += `<path d="M380 494 L720 494" style="stroke:var(--berry);stroke-width:2.5;stroke-dasharray:6 6"/>
+      <circle cx="550" cy="494" r="14" style="fill:var(--card);stroke:var(--berry);stroke-width:2.5"/>
+      <path d="M543 487 L557 501 M557 487 L543 501" style="stroke:var(--berry);stroke-width:3;stroke-linecap:round"/>
+      <text x="550" y="530" text-anchor="middle" font-size="13" class="t2">서로 직접 참조하지 않음</text>`;
+    s += box(20, 330, 250, 70, "core:ui", "테마 · 글꼴 · 캐릭터");
+    s += `<path d="M270 365 L300 365" style="stroke:var(--line);stroke-width:2"/>`;
+    s += box(830, 330, 250, 70, "core:account", "보호자·아이 프로필 · 포인트");
+    s += flow("f-acc", "M955 400 L955 456", true);
+    $("#archSvg").innerHTML = s;
+    $("#archCap").textContent = mode === "real" ? "실차: 모든 값을 SDK에서 읽습니다. 데모 재생기는 꺼집니다." : mode === "mix" ? "시연용 혼합: 진행률·도착은 데모가, 차속(ACCEL/BRAKE)·기어·SOC·주행 제한은 에뮬레이터의 실제 신호가 줍니다." : "전부 데모: 시연 중 신호가 꼬일 때 쓰는 비상 스위치입니다. 주행 제한 신호는 그대로 유지합니다.";
+  }
+  $$("[data-src]").forEach((b) => b.addEventListener("click", () => renderArch(b.dataset.src)));
+  renderArch("mix");
+
+  /* ---------- 공유 흐름 ---------- */
+  (function renderShare() {
+    let s = `${box(20, 40, 200, 96, "차 안 (주차 중)", "동의 → 공유 링크 만들기", "", "", true)}
+      ${box(280, 40, 200, 96, "Cloudflare Worker", "HTTPS · KV(TTL 만료)", "", "", true)}
+      ${box(540, 40, 200, 96, "수신자 웹", "앱 설치 없이 보기", "", "", true)}
+      ${flow("s1", "M220 88 L280 88", true)}${flow("s2", "M480 88 L540 88", true)}
+      <text x="24" y="182" font-size="15" class="t" font-weight="800">보내는 값</text>
+      <text x="24" y="208" font-size="14" class="t2">{ 진행률: 62, 남은시간: 48분, 상태: "주행 중" }</text>
+      <text x="24" y="232" font-size="14" class="t2">대략 위치(옵트인): 5km 격자로 반올림한 중심점 하나</text>
+      <text x="24" y="270" font-size="15" class="t" font-weight="800">보내지 않는 값</text>
+      <text x="24" y="296" font-size="14" class="t2">정확한 좌표 · 이동 경로 기록 · 아이 별명 · 차량 ID</text>`;
+    $("#shareSvg").innerHTML = s;
+    let p = `<rect width="300" height="560" class="scr"/>
+      <text x="24" y="54" font-size="15" class="t2">같이가숲 · 공유 보기</text>
+      <text x="24" y="96" font-size="23" class="th">하늘이네 차가 오고 있어요</text>
+      <text x="24" y="170" font-size="64" class="tf" style="font-variant-numeric:tabular-nums">62%</text>
+      <rect x="24" y="190" width="252" height="14" rx="7" style="fill:var(--leaf-soft)"/><rect x="24" y="190" width="156" height="14" rx="7" style="fill:var(--leaf)"/>
+      <text x="24" y="240" font-size="20" class="t" font-weight="800">약 48분 남았어요</text>
+      <text x="24" y="266" font-size="14" class="t2">2분 전 업데이트</text>
+      <rect x="24" y="292" width="252" height="150" rx="16" class="box"/>
+      <circle cx="150" cy="367" r="52" style="fill:var(--sky);opacity:.18;stroke:var(--sky);stroke-width:2;stroke-dasharray:6 5"/>
+      <text x="150" y="372" text-anchor="middle" font-size="13" class="t2">대략적인 위치 (약 5km)</text>
+      <text x="36" y="430" font-size="12" class="t2">보호자가 켰을 때만 보여요</text>
+      <text x="24" y="482" font-size="13" class="t2">도착하면 이 링크는 자동으로 닫혀요</text>
+      <text x="24" y="504" font-size="13" class="t2">최대 24시간 뒤 만료</text>`;
+    $("#phoneSvg").innerHTML = p;
+  })();
+
+  /* ---------- 일정 간트 ---------- */
+  (function renderGantt() {
+    const days = [];
+    const start = new Date(2026, 9, 31);
+    for (let i = 0; i < 16; i++) { const d = new Date(start); d.setDate(start.getDate() + i); days.push(d); }
+    const wk = ["일", "월", "화", "수", "목", "금", "토"];
+    const now = new Date();
+    const todayIdx = days.findIndex((d) => d.toDateString() === now.toDateString());
+    const ROWS = [
+      ["상의 마무리 · 착수(에이전트·스킬·모듈)", 0, 1, "b"],
+      ["운영 문의 메일 · GitHub 조직 만들기", 0, 1, "u"],
+      ["빌드 환경 · core 모듈 · 데모 재생기", 2, 3, "c"],
+      ["에뮬레이터 첫 부팅 · NaviHelper 필드 확인", 2, 3, "u"],
+      ["진행 화면 (feature:journey)", 4, 6, "c"],
+      ["기획서 초안 작성 → 검토", 4, 6, "b"],
+      ["숲 · 계정 · 포인트 · 동물 (forest, account)", 7, 9, "c"],
+      ["에뮬레이터 중간 확인", 9, 9, "u"],
+      ["qa · 시안(공유 웹, 꾸미기, 일행, 마일리지)", 10, 11, "c"],
+      ["release APK · README · 리허설", 12, 12, "b"],
+      ["시연 영상 녹화 · 기획서 01·04 · 서명", 13, 13, "u"],
+      ["예비일 · 제출용 저장소 이전", 14, 14, "b"],
+      ["제출 메일 (마감 23:59)", 15, 15, "u"],
+    ];
+    let h = `<div class="h" style="text-align:left;padding-left:12px">작업</div>`;
+    days.forEach((d, i) => { const we = d.getDay() === 0 || d.getDay() === 6; h += `<div class="h ${we ? "wkend" : ""} ${i === todayIdx ? "today" : ""}">${d.getMonth() + 1}/${d.getDate()}<br><span style="font-weight:400">${wk[d.getDay()]}</span></div>`; });
+    ROWS.forEach(([name, a, b, who]) => {
+      h += `<div class="lab">${name}</div>`;
+      h += `<div class="cell" style="grid-column: span ${a > 0 ? a : 0};${a === 0 ? "display:none" : ""}"></div>`;
+      const label = who === "c" ? "클라우드" : who === "u" ? "팀원" : "함께";
+      h += `<div class="cell" style="grid-column: span ${b - a + 1}"><div class="barx who-${who}" title="${name}">${label}</div></div>`;
+      if (b < 15) h += `<div class="cell" style="grid-column: span ${15 - b}"></div>`;
+    });
+    $("#gantt").innerHTML = h;
+    if (todayIdx >= 0) {
+      const left = 15 - todayIdx;
+      $("#dday").textContent = left === 0 ? "D-day" : `D-${left}`;
+    } else {
+      const ms = new Date(2026, 10, 15) - new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      const left = Math.round(ms / 86400000);
+      $("#dday").textContent = left > 0 ? `D-${left}` : left === 0 ? "D-day" : "마감 지남";
+    }
+  })();
+
+  /* ---------- 에이전트 카드 ---------- */
+  (function renderAgents() {
+    const A = [
+      { name: "메인 (총괄·PM)", who: "main", color: "var(--forest)", role: "팀원과 소통, 범위·우선순위 관리, 결과 통합, 기획서", mod: "docs/, 전체 통합", skill: "skill-creator, docx, pptx", out: "decisions.md, proposal.md, 기획서 DOCX, 발표 자료", done: "단계마다 팀원 확인" },
+      { name: "app-dev", who: "dev", color: "var(--sky)", role: "빌드 환경, SDK 래퍼, 데모 재생기, 두 기능 구현", mod: "app, core:vehicle, core:demo, core:trip, feature:*", skill: "pleos-sdk (새로 만듦)", out: "동작하는 APK, sdk-capabilities.md, architecture.md", done: "에뮬레이터에서 데모 3분 완주, 단위 테스트 통과" },
+      { name: "ui-design", who: "ui", color: "var(--sun)", role: "2등신 손그림 캐릭터, 진행 바, 숲·결과 화면 디자인", mod: "core:ui, design/", skill: "artifact-design, design 플러그인 (frontend-design 대체)", out: "SVG 레이어 에셋, 화면 시안, assets-license.md", done: "대비 4.5:1, 핵심 글자 5mm, 라이트·다크, 세로·가로" },
+      { name: "share-backend", who: "srv", color: "var(--demo)", role: "(PT) 공유 링크, 만료·삭제, 수신자 웹", mod: "server/, web/", skill: "artifact-design, Lovable(선택)", out: "Cloudflare Worker, 웹 화면, 개인정보 설계 문서", done: "링크 만료·중단 동작, 좌표 미전송 확인" },
+      { name: "env-setup", who: "env", color: "var(--leaf)", role: "클라우드 빌드 환경, 팀원 Mac 자동 설치(Sourcetree, Android Studio, 에뮬레이터), PT·전시용 PC", mod: "tools/, docs/dev-environment.md", skill: "pleos-sdk (에뮬레이터·adb 부분)", out: "다시 실행해도 안전한 설치 스크립트, 환경 문서", done: "새 PC에서 명령 하나로 에뮬레이터·Sourcetree까지 준비" },
+      { name: "qa", who: "qa", color: "var(--berry)", role: "시나리오·안전 점검, 한쪽 기능만 켜기, 폴백, 성능", mod: "tests/, 체크리스트", skill: "Playwright (webapp-testing 대체)", out: "테스트 시나리오, 에뮬레이터 체크리스트, 결과 보고", done: "주행 규제 on/off 전환, CPU 5% 미만, RAM 400MB 이하" },
+    ];
+    $("#agentCards").innerHTML = A.map((a) => `<article class="agent">
+      <header><span class="av" style="background:color-mix(in srgb, ${a.color} 22%, transparent)"><svg viewBox="-30 -105 60 110" aria-hidden="true">${kid(0, 0, .95, { shirt: a.color })}</svg></span><h3>${a.name}</h3></header>
+      <dl><dt>역할</dt><dd>${a.role}</dd><dt>담당</dt><dd class="mono">${a.mod}</dd><dt>스킬</dt><dd>${a.skill}</dd><dt>산출물</dt><dd>${a.out}</dd><dt>완료 기준</dt><dd>${a.done}</dd></dl></article>`).join("");
+  })();
+
+  $("#kidAv1").innerHTML = kid(0, 0, .95, { shirt: "var(--sun)" });
+  $("#kidAv2").innerHTML = kid(0, 0, .95, { shirt: "var(--sky)" });
+
+  /* ---------- 할 일 체크리스트 ---------- */
+  (function renderTodo() {
+    const T = [
+      ["t1", "운영 측 문의 메일 2통 발송 (partnership@pleos.ai, appdevchallenge@hyundai-partners.com)", "11/1"],
+      ["t2", "중립 이름의 GitHub 조직 만들기 (멤버 공개 끄기)", "11/1"],
+      ["t2b", "Claude 앱 Remote Control에 Mac 폴더(예: ~/Projects) 공유 → AI가 설치 스크립트 실행", "11/1"],
+      ["t2c", "Homebrew 비밀번호 입력, GitHub 브라우저 로그인, Sourcetree에 GitHub 계정 연결 (처음 한 번)", "11/1"],
+      ["t3", "Pleos 에뮬레이터 Cold boot 첫 부팅 확인 (설치는 스크립트가 진행)", "11/2"],
+      ["t4", "공식 navi 샘플로 NaviHelper 콜백 로그 확인 (절차는 따로 안내)", "11/3"],
+      ["t5", "기획서 초안(PPT) 검토와 수정 의견", "11/6"],
+      ["t6", "에뮬레이터 중간 확인 (Virtual Console 기어 P/D, adb 주행 규제)", "11/9"],
+      ["t7", "시연 영상 녹화 (전원 연결, 장면별로)", "11/13"],
+      ["t8", "기획서 01 참가신청서, 04 동의·서명 작성", "11/13"],
+      ["t9", "심사용 계정 Collaborator 초대와 접근 확인 (공지 확인)", "11/14"],
+      ["t10", "제출 메일 발송 (참가자 전원 CC, 제목 형식 확인)", "11/15"],
+    ];
+    let saved = {};
+    try { saved = JSON.parse(localStorage.getItem("ggf-todo") || "{}"); } catch (e) { saved = {}; }
+    $("#todoList").innerHTML = T.map(([id, t, d]) => `<label for="${id}"><input type="checkbox" id="${id}" ${saved[id] ? "checked" : ""}><span class="t">${t}</span><span class="d">${d}</span></label>`).join("");
+    $("#todoList").addEventListener("change", (e) => {
+      if (!e.target.matches("input")) return;
+      saved[e.target.id] = e.target.checked;
+      try { localStorage.setItem("ggf-todo", JSON.stringify(saved)); } catch (err) { /* 저장할 수 없는 환경 */ }
+    });
+  })();
+
+  /* ---------- 목차 현재 위치 ---------- */
+  const links = $$(".toc a");
+  const io = new IntersectionObserver((ents) => {
+    ents.forEach((en) => { if (en.isIntersecting) links.forEach((a) => a.classList.toggle("on", a.getAttribute("href") === "#" + en.target.id)); });
+  }, { rootMargin: "-40% 0px -55% 0px" });
+  $$("main section[id]").forEach((s) => io.observe(s));
+})();
+</script>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+      권한은 실제로 쓰는 것만 선언한다(App Market은 승인되지 않은 권한을 반려).
+      목록과 이유: docs/sdk-capabilities.md 2장. 코드의 기준 목록: core:vehicle VehiclePermissions.ALL
+      (app 단위 테스트 ManifestPermissionsTest가 세 곳이 같은지 확인한다)
+      선언하지 않는 것: NAVI_ROUTE_SEARCH, NAVI_CUSTOM_MAP, CONTROL_CAR_LIGHTS 밖의 CONTROL_*, CAR_INFO, CAR_MILEAGE,
+      FUSED_LOCATION, 시스템 전용 PRIVATE_*
+    -->
+    <!-- NaviHelper: 남은 거리·시간, 경로 이벤트, 도착, 현재 위치(getCurrentLocationInfo) → 진행률·도착 판단 -->
+    <uses-permission android:name="pleos.car.permission.NAVI_ROUTE" />
+    <!-- Vehicle SDK EvBattery·Fuel: SOC, 배터리 에너지 Wh(EvBatteryLevel), 차종 판단(capability) -->
+    <uses-permission android:name="pleos.car.permission.CAR_ENERGY" />
+    <!-- Vehicle SDK Odometer(누적 주행거리 → 안전 km 거리, 트립 거리)·Brake(브레이크 페달) -->
+    <uses-permission android:name="pleos.car.permission.CAR_DRIVE" />
+    <!-- Vehicle SDK Light: 무드등 색 capability·다시 읽기 → 도착 축하(decisions.md #17) -->
+    <uses-permission android:name="pleos.car.permission.CAR_LIGHTS" />
+    <!--
+      Vehicle SDK Light setAmbientLightBrightnessColor: 무드등 색 쓰기(도착 축하, 주차 중만).
+      SDK가 실행 때 이 권한을 검사한다(javap -v: LightImpl의 @RequiresCustomPermission). 없으면
+      "setAmbientLightBrightnessColor need Permission"(2026-11-01 에뮬레이터). 제어 권한은 이것 하나만 선언한다.
+    -->
+    <uses-permission android:name="pleos.car.permission.CONTROL_CAR_LIGHTS" />
+    <!-- TextToSpeech 3.3.1 ON_DEVICE: 음성 안내(decisions.md #16) -->
+    <uses-permission android:name="pleos.car.permission.TTS_SERVICE" />
+    <!-- AAOS PERF_VEHICLE_SPEED: 안전 km 판정. dangerous(런타임 허용 필요, 에뮬레이터 확인) -->
+    <uses-permission android:name="android.car.permission.CAR_SPEED" />
+    <!-- AAOS GEAR_SELECTION, PARKING_BRAKE_ON: 정차 판단, 도착 폴백, 제어 안전 규칙 -->
+    <uses-permission android:name="android.car.permission.CAR_POWERTRAIN" />
+
+    <application
+        android:name=".FamilyJourneyApp"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Ggf">
+
+        <!-- CCP(로터리) 미지원 선언 -->
+        <meta-data android:name="com.hmg.rotary.ROTARY_SUPPORTED" android:value="false" />
+
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize|density|uiMode"
+            android:exported="true">
+            <!--
+              주행 중 사용(DO) 선언(decisions.md #4, 2026-11-01: release 포함 본 매니페스트에 선언).
+              AAOS 표준 meta-data. 선언하지 않으면 주행 중 시스템이 앱을 가린다(에뮬레이터 확인).
+              DO를 선언해도 화면·기능 제한은 앱이 CarUxRestrictions로 직접 한다(core:vehicle CarApiSource).
+              주차 전용 앱으로 바꿔야 하면 이 meta-data 한 줄만 지운다.
+            -->
+            <meta-data android:name="distractionOptimized" android:value="true" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

@@ -1,0 +1,104 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><title>우리 차 진행 보기: 가족 폰에서</title><style>
+@font-face{font-family:"Asta Sans";font-weight:400;src:url("../.font-cache/AstaSans-400.ttf") format("truetype"),local("Asta Sans");}
+@font-face{font-family:"Asta Sans";font-weight:600;src:url("../.font-cache/AstaSans-600.ttf") format("truetype"),local("Asta Sans");}
+@font-face{font-family:"Asta Sans";font-weight:700;src:url("../.font-cache/AstaSans-700.ttf") format("truetype"),local("Asta Sans");}
+@font-face{font-family:"Asta Sans";font-weight:800;src:url("../.font-cache/AstaSans-800.ttf") format("truetype"),local("Asta Sans");}
+:root{--paper:#F5FAF3;--card:#FFFFFF;--ink:#1D2A22;--ink2:#4B5C51;--line:#D3E2D4;--forest:#2B774A;--on-forest:#FFFFFF;--leaf:#6BB85A;--leaf-soft:#E3F3DC;--sky:#3F92D2;--sky-text:#2A6FA8;--sky-soft:#DDEEFB;--sun:#F0AE34;--sun-soft:#FFF0CC;--berry-text:#B0402F;--berry-soft:#FBE2DD;--canvas:#E9EEEA;--bezel:#1E2421;--font:"Asta Sans","Noto Sans CJK KR",sans-serif;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--canvas);color:var(--ink);font-family:var(--font);word-break:keep-all;-webkit-font-smoothing:antialiased;}
+.sheet{padding:40px 48px 44px;display:flex;flex-direction:column;gap:28px;}
+.head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;}
+.head .eyebrow{margin:0 0 6px;font-size:20px;font-weight:700;color:var(--ink2);}
+.head h1{margin:0;font-size:44px;line-height:1.2;font-weight:800;color:var(--forest);}
+.chips{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;}
+.chip{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:8px 18px;font-size:20px;font-weight:700;background:var(--card);border:2px solid var(--line);white-space:nowrap;}
+.chip .dot{width:12px;height:12px;border-radius:50%;}
+.chip.park{background:var(--leaf-soft);border-color:var(--leaf-soft);} .chip.park .dot{background:var(--forest);}
+.chip.phone{background:var(--sky-soft);border-color:var(--sky-soft);} .chip.phone .dot{background:var(--sky-text);}
+.chip.plan{background:var(--sun-soft);border-color:var(--sun-soft);} .chip.plan .dot{background:var(--sun);}
+.body{display:flex;gap:28px;align-items:flex-start;}
+.flowrow{display:flex;gap:18px;align-items:center;}
+.arrow{font-size:40px;font-weight:800;color:var(--forest);flex:none;}
+.notes{flex:1;min-width:300px;display:flex;flex-direction:column;gap:16px;}
+.notes h2{margin:0;font-size:24px;font-weight:800;}
+.notes ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;}
+.notes li{font-size:19px;line-height:1.5;padding-left:22px;position:relative;}
+.notes li::before{content:"";position:absolute;left:4px;top:.62em;width:9px;height:9px;border-radius:50%;background:var(--forest);}
+.notes .where{font-size:17px;line-height:1.5;color:var(--ink2);border-top:2px solid var(--line);padding-top:14px;margin:0;}
+figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:12px;}
+figcaption{font-size:19px;font-weight:700;color:var(--ink2);text-align:center;max-width:420px;}
+figcaption b{color:var(--forest);}
+/* 폰 */
+.phone{border:14px solid var(--bezel);border-radius:56px;overflow:hidden;background:var(--bezel);}
+.pscreen{width:390px;height:844px;background:var(--paper);display:flex;flex-direction:column;overflow:hidden;border-radius:42px;position:relative;}
+.pstatus{height:42px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 30px 0 34px;font-size:16px;font-weight:800;}
+.pst-r{display:flex;gap:5px;align-items:center;} .pst-r i{width:5px;height:12px;border-radius:2px;background:currentColor;} .pst-r b{width:24px;height:12px;border-radius:4px;border:2px solid currentColor;margin-left:4px;}
+.warn{flex:none;margin:0 14px;padding:8px 12px;border-radius:12px;background:var(--sun-soft);font-size:15px;font-weight:800;text-align:center;}
+.ptop{flex:none;display:flex;align-items:center;justify-content:space-between;padding:12px 20px 6px;}
+.ptop h3{margin:0;font-size:24px;font-weight:800;}
+.pbody{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;gap:12px;padding:6px 18px 12px;}
+.tabs{flex:none;display:flex;border-top:1.5px solid var(--line);background:var(--card);}
+.tabs span{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 0 14px;font-size:14px;font-weight:700;color:var(--ink2);}
+.tabs span img{width:30px;height:30px;object-fit:contain;opacity:.55;}
+.tabs span.on{color:var(--forest);} .tabs span.on img{opacity:1;}
+.card{background:var(--card);border:1.5px solid var(--line);border-radius:20px;padding:14px 16px;}
+.row{display:flex;align-items:center;gap:12px;}
+.grow{flex:1;min-width:0;}
+.num{font-weight:800;color:var(--forest);line-height:1;font-variant-numeric:tabular-nums;}
+.num small{font-size:.5em;}
+.t{font-size:17px;line-height:1.45;font-weight:600;color:var(--ink2);}
+.tb{font-size:19px;line-height:1.4;font-weight:800;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 20px;border-radius:999px;font-size:19px;font-weight:800;border:2.5px solid var(--ink2);background:transparent;white-space:nowrap;}
+.btn.primary{background:var(--forest);border-color:var(--forest);color:var(--on-forest);}
+.btn.full{width:100%;}
+.btn.sm{min-height:44px;font-size:17px;padding:0 14px;}
+.pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:4px 12px;font-size:15px;font-weight:800;white-space:nowrap;background:var(--leaf-soft);}
+.pill.wait{background:var(--sun-soft);} .pill.off{background:#ECEFEC;color:var(--ink2);} .pill.sky{background:var(--sky-soft);}
+.kids{display:flex;gap:8px;} .kids span{border:2px solid var(--line);border-radius:999px;padding:6px 14px;font-size:16px;font-weight:800;background:var(--card);} .kids span.on{border-color:var(--forest);background:var(--leaf-soft);}
+.toast{position:absolute;left:18px;right:18px;bottom:96px;background:var(--ink);color:#fff;border-radius:16px;padding:12px 16px;font-size:16px;font-weight:700;line-height:1.45;}
+.bar{height:16px;border-radius:999px;background:var(--line);overflow:hidden;} .bar i{display:block;height:100%;background:var(--forest);border-radius:999px;}
+.switch{width:52px;height:30px;border-radius:999px;background:#C9D3CB;position:relative;flex:none;} .switch::after{content:"";position:absolute;left:3px;top:3px;width:24px;height:24px;border-radius:50%;background:#fff;}
+.switch.on{background:var(--forest);} .switch.on::after{left:25px;}
+/* 차 화면(같이가숲 반 화면 패널) */
+.car{border:16px solid var(--bezel);border-radius:28px;overflow:hidden;background:var(--paper);}
+.cpanel{width:600px;height:720px;padding:26px 28px;display:flex;flex-direction:column;gap:16px;position:relative;}
+.cpanel h3{margin:0;font-size:32px;font-weight:800;}
+.gear{position:absolute;right:20px;top:20px;}
+.dim{position:absolute;inset:0;background:rgba(29,42,34,.45);}
+.dialog{position:absolute;left:40px;right:40px;top:110px;background:var(--card);border-radius:28px;padding:26px;display:flex;flex-direction:column;gap:14px;}
+.check{display:flex;align-items:center;gap:12px;font-size:20px;font-weight:700;border:2px solid var(--line);border-radius:16px;padding:10px 14px;}
+.box{width:28px;height:28px;border-radius:8px;border:2.5px solid var(--ink2);flex:none;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:800;}
+.box.on{background:var(--forest);border-color:var(--forest);color:#fff;}
+/* 흐름 그림 */
+.lane{background:var(--card);border:2px solid var(--line);border-radius:24px;padding:20px 22px;display:flex;flex-direction:column;gap:10px;}
+.lane h4{margin:0;font-size:24px;font-weight:800;}
+.lane .t{font-size:18px;}
+</style></head>
+<body><div class="sheet" style="width:1920px"><div class="head"><div><p class="eyebrow">폰 앱 시안 02 · 결정 #37·#8</p><h1>우리 차 진행 보기: 가족 폰에서</h1></div><div class="chips"><span class="chip phone"><span class="dot"></span>가족 폰 앱</span><span class="chip plan"><span class="dot"></span>위치는 동의한 폰만</span></div></div>
+<div class="body">
+<figure><div class="phone"><div class="pscreen"><div class="pstatus"><span>11:12</span><span class="pst-r"><i></i><i></i><b></b></span></div><div class="warn">운전 중인 분은 사용하지 마세요</div>
+<div class="ptop"><h3>우리 차</h3><span class="pill sky">달리는 중</span></div><div class="pbody">
+<div class="card" style="padding:12px">
+<div class="row"><span class="num" style="font-size:56px">40<small>%</small></span><span class="tb grow" style="font-size:18px">약 1시간 20분 남았어요</span></div>
+<img src="assets/road-40.webp" style="width:100%;border-radius:14px;margin-top:8px;display:block" alt="진행 길 그림"></div>
+<div class="card row"><div class="grow"><div class="tb">대략 위치</div><div class="t">보호자가 위치 보내기를 켜지 않았어요</div></div><span class="pill off">꺼짐</span></div>
+<div class="t" style="font-size:15px">15초 전에 받음 · 목적지·경로는 보내지 않아요</div></div><div class="tabs"><span class="on"><img src="assets/ggf_pic_screen_icon_car_r39.webp" alt="">우리 차</span><span class=""><img src="assets/ggf_pic_screen_icon_forest_r39.webp" alt="">아이 숲</span><span class=""><img src="assets/ggf_pic_screen_reward_star_pouch_r36.webp" alt="">상점</span><span class=""><img src="assets/ggf_pic_screen_icon_share_r39.webp" alt="">가족 연결</span></div></div></div><figcaption>기본: <b>진행률과 남은 시간만</b></figcaption></figure>
+<figure><div class="phone"><div class="pscreen"><div class="pstatus"><span>11:12</span><span class="pst-r"><i></i><i></i><b></b></span></div><div class="warn">운전 중인 분은 사용하지 마세요</div>
+<div class="ptop"><h3>우리 차</h3><span class="pill sky">달리는 중</span></div><div class="pbody">
+<div class="card" style="padding:12px"><div class="row"><span class="num" style="font-size:44px">62<small>%</small></span><span class="tb grow">약 48분 남았어요</span></div><div class="bar" style="margin-top:10px"><i style="width:62%"></i></div></div>
+<div class="card" style="padding:12px"><div class="tb" style="margin-bottom:8px">대략 위치 <span class="t">(약 5km 칸)</span></div>
+<svg viewBox="0 0 320 220" width="100%" style="display:block;border-radius:12px;background:#E9EEE6">
+<path d="M0 150 C80 120 140 170 220 120 S300 60 320 70" stroke="#CBE1EE" stroke-width="18" fill="none"/>
+<line x1="0" y1="0" x2="0" y2="220" stroke="#D3DDD2"/><line x1="40" y1="0" x2="40" y2="220" stroke="#D3DDD2"/><line x1="80" y1="0" x2="80" y2="220" stroke="#D3DDD2"/><line x1="120" y1="0" x2="120" y2="220" stroke="#D3DDD2"/><line x1="160" y1="0" x2="160" y2="220" stroke="#D3DDD2"/><line x1="200" y1="0" x2="200" y2="220" stroke="#D3DDD2"/><line x1="240" y1="0" x2="240" y2="220" stroke="#D3DDD2"/><line x1="280" y1="0" x2="280" y2="220" stroke="#D3DDD2"/><line x1="0" y1="0" x2="320" y2="0" stroke="#D3DDD2"/><line x1="0" y1="40" x2="320" y2="40" stroke="#D3DDD2"/><line x1="0" y1="80" x2="320" y2="80" stroke="#D3DDD2"/><line x1="0" y1="120" x2="320" y2="120" stroke="#D3DDD2"/><line x1="0" y1="160" x2="320" y2="160" stroke="#D3DDD2"/><line x1="0" y1="200" x2="320" y2="200" stroke="#D3DDD2"/>
+<rect x="160" y="80" width="40" height="40" fill="rgba(43,119,74,.30)" stroke="#2B774A" stroke-width="3" rx="6"/>
+<circle cx="180" cy="100" r="7" fill="#2B774A"/></svg>
+<div class="t" style="font-size:15px;margin-top:6px">차가 이 칸 어딘가에 있어요. 정확한 자리는 보내지 않아요.</div></div>
+<div class="t" style="font-size:15px">위치는 도착하거나 24시간이 지나면 지워져요</div></div><div class="tabs"><span class="on"><img src="assets/ggf_pic_screen_icon_car_r39.webp" alt="">우리 차</span><span class=""><img src="assets/ggf_pic_screen_icon_forest_r39.webp" alt="">아이 숲</span><span class=""><img src="assets/ggf_pic_screen_reward_star_pouch_r36.webp" alt="">상점</span><span class=""><img src="assets/ggf_pic_screen_icon_share_r39.webp" alt="">가족 연결</span></div></div></div><figcaption>보호자가 켜고 이 폰에 허락했을 때만 <b>대략 위치</b></figcaption></figure>
+<figure><div class="phone"><div class="pscreen"><div class="pstatus"><span>11:12</span><span class="pst-r"><i></i><i></i><b></b></span></div><div class="warn">운전 중인 분은 사용하지 마세요</div>
+<div class="ptop"><h3>우리 차</h3><span class="pill">도착</span></div><div class="pbody">
+<div class="card" style="display:flex;flex-direction:column;align-items:center;gap:10px;padding:20px 14px">
+<img src="assets/ggf_pic_car_start.webp" style="width:250px" alt=""><div class="tb" style="font-size:24px">할머니 댁에 도착했어요</div>
+<div class="t">오늘 하늘이 숲에 새싹 36개</div></div>
+<div class="card row"><div class="grow"><div class="tb">위치 공유가 끝났어요</div><div class="t">서버의 진행·위치 정보는 지워졌어요</div></div></div>
+<span class="btn full">하늘이 숲 보러 가기</span></div><div class="tabs"><span class="on"><img src="assets/ggf_pic_screen_icon_car_r39.webp" alt="">우리 차</span><span class=""><img src="assets/ggf_pic_screen_icon_forest_r39.webp" alt="">아이 숲</span><span class=""><img src="assets/ggf_pic_screen_reward_star_pouch_r36.webp" alt="">상점</span><span class=""><img src="assets/ggf_pic_screen_icon_share_r39.webp" alt="">가족 연결</span></div></div></div><figcaption>도착하면 공유가 끝나고 서버에서 지워짐</figcaption></figure>
+<div class="notes"><h2>이 시안에서 볼 것</h2><ul><li>진행 화면은 차 앱과 같은 <b>진행 길 그림</b>(앱 캡처)을 써요. 아이도 폰으로 "얼마나 남았지?"를 볼 수 있어요.</li><li><b>기본은 진행률·남은 시간만</b> 보내요. 대략 위치는 보호자가 주차 중에 켜고, 폰마다 허락한 경우에만 약 5km 칸으로 보여요(차 안에서 반올림, 결정 #8).</li><li>목적지 이름·경로·정확한 좌표·차량 정보는 폰으로 보내지 않아요.</li><li>차가 15초~1% 단위로 보내고, 폰은 앱이 열려 있을 때만 15초마다 받아요. 도착 또는 24시간 뒤, 보호자가 멈추면 즉시 서버에서 지워요.</li><li>앱이 없는 일행에게는 지금처럼 <b>공유 링크(웹)</b>를 보낼 수 있어요(기획서 시안 01).</li></ul><p class="where">docs/architecture.md 19-4·19-8 · 그림: 앱 진행 화면 캡처(design/screens/app), 위치 칸은 직접 그린 그림</p></div></div></div></body></html>

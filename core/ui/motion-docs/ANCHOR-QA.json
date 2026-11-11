@@ -1,0 +1,4771 @@
+{
+  "schema_version": 1,
+  "request": "P1-anchor-QA",
+  "source_manifest_artifact": "team/icon_sticker_artist/P1-assets-manifest.json",
+  "source_manifest_sha256": "aabf5db2f5af22786532c0aaf1d276ba9c8c0a2fe749c268e988adef8c2c65c0",
+  "source_manifest_finalized_at": "2026-11-07T05:25:48.907233+00:00",
+  "source_measurement_owner": "icon_sticker_artist",
+  "count": 13,
+  "active_frames": 43,
+  "anatomical_exact_points_measured_by_this_export": 0,
+  "independent_shadow_boxes_measured_by_this_export": 0,
+  "no_new_measurements_or_pixel_changes": true,
+  "coordinate_conventions": {
+    "frame_indices": "zero based; row major",
+    "source_rect_xyxy": "existing alpha bbox/ROI coordinates retained; bbox exclusive-bottom differs from recorded inclusive bottom",
+    "y_direction": "downward",
+    "animal_family_virtual_ground_xy": [
+      256,
+      460
+    ],
+    "oak_root_soil_proxy_xy": [
+      192,
+      964
+    ],
+    "warning": "virtual anchor x is not measured anatomical foot x; root/soil proxy is not isolated root anatomy"
+  },
+  "limitations": [
+    "Actual visible foot/shoe/root lower-y entries are color-mask proxies with original ROI/method/uncertainty copied unchanged.",
+    "Shadow-only coordinates and exact anatomical (x,y) are not recorded in the source; null means not measured.",
+    "For airborne frames, foot y below 460 means rising above the virtual ground; do not move every foot back to y460.",
+    "OAK-GROW uses y964 in a 384x1024 cell, not y460.",
+    "WebP alpha roundtrip equality is recorded by asset QA; original color-mask foot coordinates were not remeasured on lossy RGB.",
+    "When replacing dad artwork, old measurements cannot be inherited as measurements of the new source; update source manifest measurements first."
+  ],
+  "pending_root_final_refresh_ids": [],
+  "items": [
+    {
+      "id": "RABBIT-HOP",
+      "resource_name": "ggf_anim_rabbit_hop",
+      "source_png_path": "design/illustrations/exports/2026-11-06/GGF-ANIM-RABBIT-HOP-R47-v1.png",
+      "source_png_filename": "GGF-ANIM-RABBIT-HOP-R47-v1.png",
+      "source_png_path_status": "repository_relative",
+      "source_png_sha256": "19311d94cccfc0d1944015743470d081021170496f993fd0d8c7a59214396c5e",
+      "native_png_path": "design/illustrations/originals/2026-11-06/R45-R53-native-sheets/GGF-ANIM-RABBIT-HOP-R47-v1.png",
+      "native_png_filename": "GGF-ANIM-RABBIT-HOP-R47-v1.png",
+      "native_png_sha256": "1aad0ec584986033405670a6f476bab9bbd99cf0ad5fa7c18b731f0a234f4a7b",
+      "app_webp_path": "core/ui/src/main/res/drawable-nodpi/ggf_anim_rabbit_hop.webp",
+      "app_webp_sha256_in_source_manifest": "3a643bca71b7de21674a6c3ee3dc27a6609a9c47a18a8f6eab11ddf4fbf0b08c",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "grid": [
+        3,
+        2
+      ],
+      "cell_size": [
+        512,
+        512
+      ],
+      "active_frame_count": 4,
+      "measurement_coordinate_space": "delivery PNG cell-local pixels; copied from source manifest; not remasked on WebP RGB",
+      "root_final_refresh_required": false,
+      "status": "read_only_measurement_snapshot",
+      "frames": [
+        {
+          "frame_index": 0,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 0,
+            "manual_roi_local_xyxy": [
+              155,
+              425,
+              345,
+              462
+            ],
+            "method": "Manually selected visible-foot ROI plus bright white/pink fur color mask; darkcontactshadow excluded, anatomicalsole remains approximate.",
+            "selected_color_mask_pixels": 5033,
+            "selected_visible_extremity_lower_y": 458,
+            "selected_lower_y_minus_target": -2,
+            "approximate_lower_y_interval": [
+              456,
+              459
+            ],
+            "measurement_kind": "visible_extremity_color_proxy",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "hop_or_jump_pose_contact_unconfirmed_virtual_ground_only",
+            "source_delivery_operational_anchor": [
+              256,
+              460
+            ],
+            "all_alpha128_bottom_inclusive": 460,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 0,
+            "nonzero_alpha": 63796,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              117,
+              134,
+              396,
+              461
+            ],
+            "alpha128_bottom_inclusive": 460,
+            "alpha128_bbox_center_x": 256.0,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        },
+        {
+          "frame_index": 1,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 1,
+            "manual_roi_local_xyxy": [
+              155,
+              410,
+              300,
+              460
+            ],
+            "method": "Manually selected visible-foot ROI plus bright white/pink fur color mask; darkcontactshadow excluded, anatomicalsole remains approximate.",
+            "selected_color_mask_pixels": 4264,
+            "selected_visible_extremity_lower_y": 455,
+            "selected_lower_y_minus_target": -5,
+            "approximate_lower_y_interval": [
+              453,
+              456
+            ],
+            "measurement_kind": "visible_extremity_color_proxy",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "hop_or_jump_pose_contact_unconfirmed_virtual_ground_only",
+            "source_delivery_operational_anchor": [
+              256,
+              457
+            ],
+            "all_alpha128_bottom_inclusive": 457,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 1,
+            "nonzero_alpha": 65131,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              116,
+              95,
+              396,
+              458
+            ],
+            "alpha128_bottom_inclusive": 457,
+            "alpha128_bbox_center_x": 255.5,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        },
+        {
+          "frame_index": 2,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 2,
+            "manual_roi_local_xyxy": [
+              150,
+              365,
+              285,
+              420
+            ],
+            "method": "Manually selected visible-foot ROI plus bright white/pink fur color mask; darkcontactshadow excluded, anatomicalsole remains approximate.",
+            "selected_color_mask_pixels": 4798,
+            "selected_visible_extremity_lower_y": 416,
+            "selected_lower_y_minus_target": -44,
+            "approximate_lower_y_interval": [
+              414,
+              417
+            ],
+            "measurement_kind": "visible_extremity_color_proxy",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "airborne_visualfeet_no_groundcontact",
+            "source_delivery_operational_anchor": [
+              256,
+              416
+            ],
+            "all_alpha128_bottom_inclusive": 416,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 2,
+            "nonzero_alpha": 62738,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              114,
+              63,
+              398,
+              417
+            ],
+            "alpha128_bottom_inclusive": 416,
+            "alpha128_bbox_center_x": 255.5,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        },
+        {
+          "frame_index": 3,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 3,
+            "manual_roi_local_xyxy": [
+              155,
+              400,
+              345,
+              445
+            ],
+            "method": "Manually selected visible-foot ROI plus bright white/pink fur color mask; darkcontactshadow excluded, anatomicalsole remains approximate.",
+            "selected_color_mask_pixels": 4636,
+            "selected_visible_extremity_lower_y": 431,
+            "selected_lower_y_minus_target": -29,
+            "approximate_lower_y_interval": [
+              429,
+              432
+            ],
+            "measurement_kind": "visible_extremity_color_proxy",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "hop_or_jump_pose_contact_unconfirmed_virtual_ground_only",
+            "source_delivery_operational_anchor": [
+              256,
+              434
+            ],
+            "all_alpha128_bottom_inclusive": 434,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 3,
+            "nonzero_alpha": 63764,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              113,
+              99,
+              400,
+              435
+            ],
+            "alpha128_bottom_inclusive": 434,
+            "alpha128_bbox_center_x": 256.0,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        }
+      ],
+      "all_source_cells_including_unused": [
+        {
+          "index": 0,
+          "nonzero_alpha": 63796,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            117,
+            134,
+            396,
+            461
+          ],
+          "alpha128_bottom_inclusive": 460,
+          "alpha128_bbox_center_x": 256.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 1,
+          "nonzero_alpha": 65131,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            116,
+            95,
+            396,
+            458
+          ],
+          "alpha128_bottom_inclusive": 457,
+          "alpha128_bbox_center_x": 255.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 2,
+          "nonzero_alpha": 62738,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            114,
+            63,
+            398,
+            417
+          ],
+          "alpha128_bottom_inclusive": 416,
+          "alpha128_bbox_center_x": 255.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 3,
+          "nonzero_alpha": 63764,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            113,
+            99,
+            400,
+            435
+          ],
+          "alpha128_bottom_inclusive": 434,
+          "alpha128_bbox_center_x": 256.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 4,
+          "nonzero_alpha": 0,
+          "alpha_max": 0,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 5,
+          "nonzero_alpha": 0,
+          "alpha_max": 0,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        }
+      ],
+      "native_cell_measurements_for_comparison": [
+        {
+          "index": 0,
+          "nonzero_alpha": 86383,
+          "alpha_max": 254,
+          "alpha1to15": 21860,
+          "alpha128_bbox_exclusive": [
+            142,
+            131,
+            421,
+            458
+          ],
+          "alpha128_bottom_inclusive": 457,
+          "alpha128_bbox_center_x": 281.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 1,
+          "nonzero_alpha": 93002,
+          "alpha_max": 254,
+          "alpha1to15": 26707,
+          "alpha128_bbox_exclusive": [
+            132,
+            92,
+            412,
+            455
+          ],
+          "alpha128_bottom_inclusive": 454,
+          "alpha128_bbox_center_x": 271.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 2,
+          "nonzero_alpha": 93474,
+          "alpha_max": 254,
+          "alpha1to15": 29059,
+          "alpha128_bbox_exclusive": [
+            124,
+            60,
+            408,
+            414
+          ],
+          "alpha128_bottom_inclusive": 413,
+          "alpha128_bbox_center_x": 265.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 3,
+          "nonzero_alpha": 88160,
+          "alpha_max": 254,
+          "alpha1to15": 24015,
+          "alpha128_bbox_exclusive": [
+            139,
+            96,
+            426,
+            432
+          ],
+          "alpha128_bottom_inclusive": 431,
+          "alpha128_bbox_center_x": 282.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 4,
+          "nonzero_alpha": 1160,
+          "alpha_max": 2,
+          "alpha1to15": 1160,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 5,
+          "nonzero_alpha": 560,
+          "alpha_max": 1,
+          "alpha1to15": 560,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        }
+      ],
+      "additional_frame_realignment_performed": false,
+      "body_height_note": null
+    },
+    {
+      "id": "RABBIT-IDLE",
+      "resource_name": "ggf_anim_rabbit_idle",
+      "source_png_path": "design/illustrations/exports/2026-11-06/GGF-ANIM-RABBIT-IDLE-R47-v1.png",
+      "source_png_filename": "GGF-ANIM-RABBIT-IDLE-R47-v1.png",
+      "source_png_path_status": "repository_relative",
+      "source_png_sha256": "322fe653ba3745238b8684a479b4ab32dcd6e03763bd504b6843c4288a41dc26",
+      "native_png_path": "design/illustrations/originals/2026-11-06/R45-R53-native-sheets/GGF-ANIM-RABBIT-IDLE-R47-v1.png",
+      "native_png_filename": "GGF-ANIM-RABBIT-IDLE-R47-v1.png",
+      "native_png_sha256": "5a30e69f4984b60fa4a37554129ced5b8f42cec09a94a1c9f4fc57fb95a85c27",
+      "app_webp_path": "core/ui/src/main/res/drawable-nodpi/ggf_anim_rabbit_idle.webp",
+      "app_webp_sha256_in_source_manifest": "a9ab56f4fbfabed6dc10a1c13849b1acd59f25914abf87f2baf8a5ca03ecb9a4",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "grid": [
+        3,
+        2
+      ],
+      "cell_size": [
+        512,
+        512
+      ],
+      "active_frame_count": 2,
+      "measurement_coordinate_space": "delivery PNG cell-local pixels; copied from source manifest; not remasked on WebP RGB",
+      "root_final_refresh_required": false,
+      "status": "read_only_measurement_snapshot",
+      "frames": [
+        {
+          "frame_index": 0,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 0,
+            "manual_roi_local_xyxy": [
+              180,
+              430,
+              350,
+              462
+            ],
+            "method": "Manually selected visible-foot ROI plus bright white/pink fur color mask; darkcontactshadow excluded, anatomicalsole remains approximate.",
+            "selected_color_mask_pixels": 3832,
+            "selected_visible_extremity_lower_y": 459,
+            "selected_lower_y_minus_target": -1,
+            "approximate_lower_y_interval": [
+              457,
+              460
+            ],
+            "measurement_kind": "visible_extremity_color_proxy",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "visiblefeet_approx_groundpose",
+            "source_delivery_operational_anchor": [
+              256,
+              460
+            ],
+            "all_alpha128_bottom_inclusive": 460,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 0,
+            "nonzero_alpha": 74011,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              110,
+              78,
+              402,
+              461
+            ],
+            "alpha128_bottom_inclusive": 460,
+            "alpha128_bbox_center_x": 255.5,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        },
+        {
+          "frame_index": 1,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 1,
+            "manual_roi_local_xyxy": [
+              180,
+              430,
+              350,
+              462
+            ],
+            "method": "Manually selected visible-foot ROI plus bright white/pink fur color mask; darkcontactshadow excluded, anatomicalsole remains approximate.",
+            "selected_color_mask_pixels": 3666,
+            "selected_visible_extremity_lower_y": 458,
+            "selected_lower_y_minus_target": -2,
+            "approximate_lower_y_interval": [
+              456,
+              459
+            ],
+            "measurement_kind": "visible_extremity_color_proxy",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "visiblefeet_approx_groundpose",
+            "source_delivery_operational_anchor": [
+              256,
+              460
+            ],
+            "all_alpha128_bottom_inclusive": 460,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 1,
+            "nonzero_alpha": 73641,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              111,
+              77,
+              402,
+              461
+            ],
+            "alpha128_bottom_inclusive": 460,
+            "alpha128_bbox_center_x": 256.0,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        }
+      ],
+      "all_source_cells_including_unused": [
+        {
+          "index": 0,
+          "nonzero_alpha": 74011,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            110,
+            78,
+            402,
+            461
+          ],
+          "alpha128_bottom_inclusive": 460,
+          "alpha128_bbox_center_x": 255.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 1,
+          "nonzero_alpha": 73641,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            111,
+            77,
+            402,
+            461
+          ],
+          "alpha128_bottom_inclusive": 460,
+          "alpha128_bbox_center_x": 256.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 2,
+          "nonzero_alpha": 0,
+          "alpha_max": 0,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 3,
+          "nonzero_alpha": 0,
+          "alpha_max": 0,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 4,
+          "nonzero_alpha": 0,
+          "alpha_max": 0,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 5,
+          "nonzero_alpha": 0,
+          "alpha_max": 0,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        }
+      ],
+      "native_cell_measurements_for_comparison": [
+        {
+          "index": 0,
+          "nonzero_alpha": 108858,
+          "alpha_max": 254,
+          "alpha1to15": 34450,
+          "alpha128_bbox_exclusive": [
+            146,
+            75,
+            438,
+            458
+          ],
+          "alpha128_bottom_inclusive": 457,
+          "alpha128_bbox_center_x": 291.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 1,
+          "nonzero_alpha": 110310,
+          "alpha_max": 254,
+          "alpha1to15": 36296,
+          "alpha128_bbox_exclusive": [
+            147,
+            75,
+            438,
+            459
+          ],
+          "alpha128_bottom_inclusive": 458,
+          "alpha128_bbox_center_x": 292.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 2,
+          "nonzero_alpha": 111,
+          "alpha_max": 1,
+          "alpha1to15": 111,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 3,
+          "nonzero_alpha": 184,
+          "alpha_max": 1,
+          "alpha1to15": 184,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 4,
+          "nonzero_alpha": 176,
+          "alpha_max": 1,
+          "alpha1to15": 176,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 5,
+          "nonzero_alpha": 82,
+          "alpha_max": 1,
+          "alpha1to15": 82,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        }
+      ],
+      "additional_frame_realignment_performed": false,
+      "body_height_note": null
+    },
+    {
+      "id": "SQUIRREL-HOP",
+      "resource_name": "ggf_anim_squirrel_hop",
+      "source_png_path": "design/illustrations/exports/2026-11-06/GGF-ANIM-SQUIRREL-HOP-R47-v1.png",
+      "source_png_filename": "GGF-ANIM-SQUIRREL-HOP-R47-v1.png",
+      "source_png_path_status": "repository_relative",
+      "source_png_sha256": "c11a717d1e3a27544fd0e944a1a1fefdf038c971d847356058db44ba5f847863",
+      "native_png_path": "design/illustrations/originals/2026-11-06/R45-R53-native-sheets/GGF-ANIM-SQUIRREL-HOP-R47-v1.png",
+      "native_png_filename": "GGF-ANIM-SQUIRREL-HOP-R47-v1.png",
+      "native_png_sha256": "934464b8832084769083b3cf40396b68fb51239fab403b0e9497aa04ab54d7d5",
+      "app_webp_path": "core/ui/src/main/res/drawable-nodpi/ggf_anim_squirrel_hop.webp",
+      "app_webp_sha256_in_source_manifest": "a42049b5eea39707fbd7fadd3b7cd633e1844234b0b2adc083ba3944c344707a",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "grid": [
+        3,
+        2
+      ],
+      "cell_size": [
+        512,
+        512
+      ],
+      "active_frame_count": 4,
+      "measurement_coordinate_space": "delivery PNG cell-local pixels; copied from source manifest; not remasked on WebP RGB",
+      "root_final_refresh_required": false,
+      "status": "read_only_measurement_snapshot",
+      "frames": [
+        {
+          "frame_index": 0,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 0,
+            "manual_roi_local_xyxy": [
+              120,
+              430,
+              255,
+              462
+            ],
+            "method": "Manually selected visible-foot ROI plus orange/brown opaque fur mask; dimbrownshadow mostlyexcluded, anatomicalsole remains approximate.",
+            "selected_color_mask_pixels": 2623,
+            "selected_visible_extremity_lower_y": 457,
+            "selected_lower_y_minus_target": -3,
+            "approximate_lower_y_interval": [
+              455,
+              458
+            ],
+            "measurement_kind": "visible_extremity_color_proxy",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "hop_or_jump_pose_contact_unconfirmed_virtual_ground_only",
+            "source_delivery_operational_anchor": [
+              256,
+              460
+            ],
+            "all_alpha128_bottom_inclusive": 460,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 0,
+            "nonzero_alpha": 79314,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              75,
+              146,
+              437,
+              461
+            ],
+            "alpha128_bottom_inclusive": 460,
+            "alpha128_bbox_center_x": 255.5,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        },
+        {
+          "frame_index": 1,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 1,
+            "manual_roi_local_xyxy": [
+              130,
+              400,
+              260,
+              460
+            ],
+            "method": "Manually selected visible-foot ROI plus orange/brown opaque fur mask; dimbrownshadow mostlyexcluded, anatomicalsole remains approximate.",
+            "selected_color_mask_pixels": 3401,
+            "selected_visible_extremity_lower_y": 451,
+            "selected_lower_y_minus_target": -9,
+            "approximate_lower_y_interval": [
+              449,
+              452
+            ],
+            "measurement_kind": "visible_extremity_color_proxy",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "hop_or_jump_pose_contact_unconfirmed_virtual_ground_only",
+            "source_delivery_operational_anchor": [
+              256,
+              454
+            ],
+            "all_alpha128_bottom_inclusive": 454,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 1,
+            "nonzero_alpha": 80845,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              78,
+              96,
+              434,
+              455
+            ],
+            "alpha128_bottom_inclusive": 454,
+            "alpha128_bbox_center_x": 255.5,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        },
+        {
+          "frame_index": 2,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 2,
+            "manual_roi_local_xyxy": [
+              110,
+              335,
+              260,
+              395
+            ],
+            "method": "Manually selected visible-foot ROI plus orange/brown opaque fur mask; dimbrownshadow mostlyexcluded, anatomicalsole remains approximate.",
+            "selected_color_mask_pixels": 5011,
+            "selected_visible_extremity_lower_y": 384,
+            "selected_lower_y_minus_target": -76,
+            "approximate_lower_y_interval": [
+              382,
+              385
+            ],
+            "measurement_kind": "visible_extremity_color_proxy",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "airborne_visualfeet_no_groundcontact",
+            "source_delivery_operational_anchor": [
+              256,
+              384
+            ],
+            "all_alpha128_bottom_inclusive": 452,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 2,
+            "nonzero_alpha": 77008,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              80,
+              62,
+              432,
+              453
+            ],
+            "alpha128_bottom_inclusive": 452,
+            "alpha128_bbox_center_x": 255.5,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        },
+        {
+          "frame_index": 3,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 3,
+            "manual_roi_local_xyxy": [
+              120,
+              408,
+              260,
+              454
+            ],
+            "method": "Manually selected visible-foot ROI plus orange/brown opaque fur mask; dimbrownshadow mostlyexcluded, anatomicalsole remains approximate.",
+            "selected_color_mask_pixels": 3651,
+            "selected_visible_extremity_lower_y": 445,
+            "selected_lower_y_minus_target": -15,
+            "approximate_lower_y_interval": [
+              443,
+              446
+            ],
+            "measurement_kind": "visible_extremity_color_proxy",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "hop_or_jump_pose_contact_unconfirmed_virtual_ground_only",
+            "source_delivery_operational_anchor": [
+              256,
+              445
+            ],
+            "all_alpha128_bottom_inclusive": 445,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 3,
+            "nonzero_alpha": 80745,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              77,
+              119,
+              436,
+              446
+            ],
+            "alpha128_bottom_inclusive": 445,
+            "alpha128_bbox_center_x": 256.0,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        }
+      ],
+      "all_source_cells_including_unused": [
+        {
+          "index": 0,
+          "nonzero_alpha": 79314,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            75,
+            146,
+            437,
+            461
+          ],
+          "alpha128_bottom_inclusive": 460,
+          "alpha128_bbox_center_x": 255.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 1,
+          "nonzero_alpha": 80845,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            78,
+            96,
+            434,
+            455
+          ],
+          "alpha128_bottom_inclusive": 454,
+          "alpha128_bbox_center_x": 255.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 2,
+          "nonzero_alpha": 77008,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            80,
+            62,
+            432,
+            453
+          ],
+          "alpha128_bottom_inclusive": 452,
+          "alpha128_bbox_center_x": 255.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 3,
+          "nonzero_alpha": 80745,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            77,
+            119,
+            436,
+            446
+          ],
+          "alpha128_bottom_inclusive": 445,
+          "alpha128_bbox_center_x": 256.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 4,
+          "nonzero_alpha": 0,
+          "alpha_max": 0,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 5,
+          "nonzero_alpha": 0,
+          "alpha_max": 0,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        }
+      ],
+      "native_cell_measurements_for_comparison": [
+        {
+          "index": 0,
+          "nonzero_alpha": 90672,
+          "alpha_max": 254,
+          "alpha1to15": 10990,
+          "alpha128_bbox_exclusive": [
+            94,
+            140,
+            456,
+            455
+          ],
+          "alpha128_bottom_inclusive": 454,
+          "alpha128_bbox_center_x": 274.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 1,
+          "nonzero_alpha": 89944,
+          "alpha_max": 254,
+          "alpha1to15": 8399,
+          "alpha128_bbox_exclusive": [
+            96,
+            90,
+            452,
+            449
+          ],
+          "alpha128_bottom_inclusive": 448,
+          "alpha128_bbox_center_x": 273.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 2,
+          "nonzero_alpha": 90465,
+          "alpha_max": 254,
+          "alpha1to15": 12439,
+          "alpha128_bbox_exclusive": [
+            94,
+            56,
+            446,
+            447
+          ],
+          "alpha128_bottom_inclusive": 446,
+          "alpha128_bbox_center_x": 269.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 3,
+          "nonzero_alpha": 90495,
+          "alpha_max": 254,
+          "alpha1to15": 9290,
+          "alpha128_bbox_exclusive": [
+            94,
+            113,
+            453,
+            440
+          ],
+          "alpha128_bottom_inclusive": 439,
+          "alpha128_bbox_center_x": 273.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 4,
+          "nonzero_alpha": 45769,
+          "alpha_max": 25,
+          "alpha1to15": 45753,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 17
+        },
+        {
+          "index": 5,
+          "nonzero_alpha": 17367,
+          "alpha_max": 6,
+          "alpha1to15": 17367,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        }
+      ],
+      "additional_frame_realignment_performed": false,
+      "body_height_note": null
+    },
+    {
+      "id": "SQUIRREL-IDLE",
+      "resource_name": "ggf_anim_squirrel_idle",
+      "source_png_path": "design/illustrations/exports/2026-11-06/GGF-ANIM-SQUIRREL-IDLE-R47-v1.png",
+      "source_png_filename": "GGF-ANIM-SQUIRREL-IDLE-R47-v1.png",
+      "source_png_path_status": "repository_relative",
+      "source_png_sha256": "3d359aea90f57a2404b303824dd41cf8989e25f5766bdd36d740a23bfd7f80a9",
+      "native_png_path": "design/illustrations/originals/2026-11-06/R45-R53-native-sheets/GGF-ANIM-SQUIRREL-IDLE-R47-v1.png",
+      "native_png_filename": "GGF-ANIM-SQUIRREL-IDLE-R47-v1.png",
+      "native_png_sha256": "048ab3eb4edafb048e3446377d0dff2e33f361d9054d02d4df3df76852c16fd6",
+      "app_webp_path": "core/ui/src/main/res/drawable-nodpi/ggf_anim_squirrel_idle.webp",
+      "app_webp_sha256_in_source_manifest": "cf94837aaa1c0b34b34d443cc0ed8d2a4764d4ca5a319f703b76d739c6b356f3",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "grid": [
+        3,
+        2
+      ],
+      "cell_size": [
+        512,
+        512
+      ],
+      "active_frame_count": 2,
+      "measurement_coordinate_space": "delivery PNG cell-local pixels; copied from source manifest; not remasked on WebP RGB",
+      "root_final_refresh_required": false,
+      "status": "read_only_measurement_snapshot",
+      "frames": [
+        {
+          "frame_index": 0,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 0,
+            "manual_roi_local_xyxy": [
+              110,
+              425,
+              255,
+              462
+            ],
+            "method": "Manually selected visible-foot ROI plus orange/brown opaque fur mask; dimbrownshadow mostlyexcluded, anatomicalsole remains approximate.",
+            "selected_color_mask_pixels": 3176,
+            "selected_visible_extremity_lower_y": 459,
+            "selected_lower_y_minus_target": -1,
+            "approximate_lower_y_interval": [
+              457,
+              460
+            ],
+            "measurement_kind": "visible_extremity_color_proxy",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "visiblefeet_approx_groundpose",
+            "source_delivery_operational_anchor": [
+              256,
+              460
+            ],
+            "all_alpha128_bottom_inclusive": 460,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 0,
+            "nonzero_alpha": 89997,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              68,
+              116,
+              445,
+              461
+            ],
+            "alpha128_bottom_inclusive": 460,
+            "alpha128_bbox_center_x": 256.0,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        },
+        {
+          "frame_index": 1,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 1,
+            "manual_roi_local_xyxy": [
+              110,
+              425,
+              255,
+              462
+            ],
+            "method": "Manually selected visible-foot ROI plus orange/brown opaque fur mask; dimbrownshadow mostlyexcluded, anatomicalsole remains approximate.",
+            "selected_color_mask_pixels": 3063,
+            "selected_visible_extremity_lower_y": 458,
+            "selected_lower_y_minus_target": -2,
+            "approximate_lower_y_interval": [
+              456,
+              459
+            ],
+            "measurement_kind": "visible_extremity_color_proxy",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "visiblefeet_approx_groundpose",
+            "source_delivery_operational_anchor": [
+              256,
+              460
+            ],
+            "all_alpha128_bottom_inclusive": 460,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 1,
+            "nonzero_alpha": 89955,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              68,
+              115,
+              445,
+              461
+            ],
+            "alpha128_bottom_inclusive": 460,
+            "alpha128_bbox_center_x": 256.0,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        }
+      ],
+      "all_source_cells_including_unused": [
+        {
+          "index": 0,
+          "nonzero_alpha": 89997,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            68,
+            116,
+            445,
+            461
+          ],
+          "alpha128_bottom_inclusive": 460,
+          "alpha128_bbox_center_x": 256.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 1,
+          "nonzero_alpha": 89955,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            68,
+            115,
+            445,
+            461
+          ],
+          "alpha128_bottom_inclusive": 460,
+          "alpha128_bbox_center_x": 256.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 2,
+          "nonzero_alpha": 0,
+          "alpha_max": 0,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 3,
+          "nonzero_alpha": 0,
+          "alpha_max": 0,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 4,
+          "nonzero_alpha": 0,
+          "alpha_max": 0,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 5,
+          "nonzero_alpha": 0,
+          "alpha_max": 0,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        }
+      ],
+      "native_cell_measurements_for_comparison": [
+        {
+          "index": 0,
+          "nonzero_alpha": 99217,
+          "alpha_max": 254,
+          "alpha1to15": 8938,
+          "alpha128_bbox_exclusive": [
+            83,
+            96,
+            460,
+            441
+          ],
+          "alpha128_bottom_inclusive": 440,
+          "alpha128_bbox_center_x": 271.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 1,
+          "nonzero_alpha": 102654,
+          "alpha_max": 254,
+          "alpha1to15": 12418,
+          "alpha128_bbox_exclusive": [
+            83,
+            96,
+            460,
+            442
+          ],
+          "alpha128_bottom_inclusive": 441,
+          "alpha128_bbox_center_x": 271.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 2,
+          "nonzero_alpha": 1274,
+          "alpha_max": 1,
+          "alpha1to15": 1274,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 3,
+          "nonzero_alpha": 146,
+          "alpha_max": 1,
+          "alpha1to15": 146,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 4,
+          "nonzero_alpha": 139,
+          "alpha_max": 1,
+          "alpha1to15": 139,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 5,
+          "nonzero_alpha": 44,
+          "alpha_max": 1,
+          "alpha1to15": 44,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        }
+      ],
+      "additional_frame_realignment_performed": false,
+      "body_height_note": null
+    },
+    {
+      "id": "BLUEBIRD-FLY",
+      "resource_name": "ggf_anim_bluebird_fly",
+      "source_png_path": "design/illustrations/exports/2026-11-06/GGF-ANIM-BLUEBIRD-FLY-R47-v1.png",
+      "source_png_filename": "GGF-ANIM-BLUEBIRD-FLY-R47-v1.png",
+      "source_png_path_status": "repository_relative",
+      "source_png_sha256": "31193fc0b07e7968b9986dc06498cd65b2910fa1d3cc0949d528a64e3a30936f",
+      "native_png_path": "design/illustrations/originals/2026-11-06/R45-R53-native-sheets/GGF-ANIM-BLUEBIRD-FLY-R47-v1.png",
+      "native_png_filename": "GGF-ANIM-BLUEBIRD-FLY-R47-v1.png",
+      "native_png_sha256": "4e70718102e3a4ee7627b447f303135ca0fdf2ceb41c11f13f5f519040f723d3",
+      "app_webp_path": "core/ui/src/main/res/drawable-nodpi/ggf_anim_bluebird_fly.webp",
+      "app_webp_sha256_in_source_manifest": "a9b787eaf38525505cee111f4bd9722095fecf1d833db3f24ca2c455702efdd3",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "grid": [
+        3,
+        2
+      ],
+      "cell_size": [
+        512,
+        512
+      ],
+      "active_frame_count": 4,
+      "measurement_coordinate_space": "delivery PNG cell-local pixels; copied from source manifest; not remasked on WebP RGB",
+      "root_final_refresh_required": false,
+      "status": "read_only_measurement_snapshot",
+      "frames": [
+        {
+          "frame_index": 0,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 0,
+            "manual_roi_local_xyxy": [
+              210,
+              410,
+              325,
+              455
+            ],
+            "method": "Manually selected feet ROI plus orangefoot color mask excludes bluewing/tail and greyshadow; visiblefeet approximate, flypose has no groundcontact.",
+            "selected_color_mask_pixels": 2740,
+            "selected_visible_extremity_lower_y": 444,
+            "selected_lower_y_minus_target": -16,
+            "approximate_lower_y_interval": [
+              442,
+              445
+            ],
+            "measurement_kind": "visible_extremity_color_proxy",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "airborne_visualfeet_no_groundcontact",
+            "source_delivery_operational_anchor": [
+              256,
+              444
+            ],
+            "all_alpha128_bottom_inclusive": 444,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 0,
+            "nonzero_alpha": 65395,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              93,
+              165,
+              420,
+              445
+            ],
+            "alpha128_bottom_inclusive": 444,
+            "alpha128_bbox_center_x": 256.0,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        },
+        {
+          "frame_index": 1,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 1,
+            "manual_roi_local_xyxy": [
+              215,
+              415,
+              330,
+              455
+            ],
+            "method": "Manually selected feet ROI plus orangefoot color mask excludes bluewing/tail and greyshadow; visiblefeet approximate, flypose has no groundcontact.",
+            "selected_color_mask_pixels": 2249,
+            "selected_visible_extremity_lower_y": 446,
+            "selected_lower_y_minus_target": -14,
+            "approximate_lower_y_interval": [
+              444,
+              447
+            ],
+            "measurement_kind": "visible_extremity_color_proxy",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "airborne_visualfeet_no_groundcontact",
+            "source_delivery_operational_anchor": [
+              256,
+              446
+            ],
+            "all_alpha128_bottom_inclusive": 446,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 1,
+            "nonzero_alpha": 67069,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              33,
+              165,
+              479,
+              447
+            ],
+            "alpha128_bottom_inclusive": 446,
+            "alpha128_bbox_center_x": 255.5,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        },
+        {
+          "frame_index": 2,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 2,
+            "manual_roi_local_xyxy": [
+              210,
+              415,
+              330,
+              460
+            ],
+            "method": "Manually selected feet ROI plus orangefoot color mask excludes bluewing/tail and greyshadow; visiblefeet approximate, flypose has no groundcontact.",
+            "selected_color_mask_pixels": 2684,
+            "selected_visible_extremity_lower_y": 450,
+            "selected_lower_y_minus_target": -10,
+            "approximate_lower_y_interval": [
+              448,
+              451
+            ],
+            "measurement_kind": "visible_extremity_color_proxy",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "airborne_visualfeet_no_groundcontact",
+            "source_delivery_operational_anchor": [
+              256,
+              460
+            ],
+            "all_alpha128_bottom_inclusive": 460,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 2,
+            "nonzero_alpha": 60335,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              92,
+              165,
+              420,
+              461
+            ],
+            "alpha128_bottom_inclusive": 460,
+            "alpha128_bbox_center_x": 255.5,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        },
+        {
+          "frame_index": 3,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 3,
+            "manual_roi_local_xyxy": [
+              210,
+              415,
+              325,
+              460
+            ],
+            "method": "Manually selected feet ROI plus orangefoot color mask excludes bluewing/tail and greyshadow; visiblefeet approximate, flypose has no groundcontact.",
+            "selected_color_mask_pixels": 2525,
+            "selected_visible_extremity_lower_y": 448,
+            "selected_lower_y_minus_target": -12,
+            "approximate_lower_y_interval": [
+              446,
+              449
+            ],
+            "measurement_kind": "visible_extremity_color_proxy",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "airborne_visualfeet_no_groundcontact",
+            "source_delivery_operational_anchor": [
+              256,
+              448
+            ],
+            "all_alpha128_bottom_inclusive": 448,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 3,
+            "nonzero_alpha": 68793,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              36,
+              164,
+              477,
+              449
+            ],
+            "alpha128_bottom_inclusive": 448,
+            "alpha128_bbox_center_x": 256.0,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        }
+      ],
+      "all_source_cells_including_unused": [
+        {
+          "index": 0,
+          "nonzero_alpha": 65395,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            93,
+            165,
+            420,
+            445
+          ],
+          "alpha128_bottom_inclusive": 444,
+          "alpha128_bbox_center_x": 256.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 1,
+          "nonzero_alpha": 67069,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            33,
+            165,
+            479,
+            447
+          ],
+          "alpha128_bottom_inclusive": 446,
+          "alpha128_bbox_center_x": 255.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 2,
+          "nonzero_alpha": 60335,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            92,
+            165,
+            420,
+            461
+          ],
+          "alpha128_bottom_inclusive": 460,
+          "alpha128_bbox_center_x": 255.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 3,
+          "nonzero_alpha": 68793,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            36,
+            164,
+            477,
+            449
+          ],
+          "alpha128_bottom_inclusive": 448,
+          "alpha128_bbox_center_x": 256.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 4,
+          "nonzero_alpha": 0,
+          "alpha_max": 0,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 5,
+          "nonzero_alpha": 0,
+          "alpha_max": 0,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        }
+      ],
+      "native_cell_measurements_for_comparison": [
+        {
+          "index": 0,
+          "nonzero_alpha": 70921,
+          "alpha_max": 254,
+          "alpha1to15": 5526,
+          "alpha128_bbox_exclusive": [
+            94,
+            106,
+            421,
+            386
+          ],
+          "alpha128_bottom_inclusive": 385,
+          "alpha128_bbox_center_x": 257.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 1,
+          "nonzero_alpha": 72745,
+          "alpha_max": 254,
+          "alpha1to15": 5676,
+          "alpha128_bbox_exclusive": [
+            31,
+            106,
+            477,
+            388
+          ],
+          "alpha128_bottom_inclusive": 387,
+          "alpha128_bbox_center_x": 253.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 2,
+          "nonzero_alpha": 65688,
+          "alpha_max": 254,
+          "alpha1to15": 5353,
+          "alpha128_bbox_exclusive": [
+            89,
+            106,
+            417,
+            402
+          ],
+          "alpha128_bottom_inclusive": 401,
+          "alpha128_bbox_center_x": 252.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 3,
+          "nonzero_alpha": 74331,
+          "alpha_max": 254,
+          "alpha1to15": 5538,
+          "alpha128_bbox_exclusive": [
+            42,
+            105,
+            483,
+            390
+          ],
+          "alpha128_bottom_inclusive": 389,
+          "alpha128_bbox_center_x": 262.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 4,
+          "nonzero_alpha": 3166,
+          "alpha_max": 1,
+          "alpha1to15": 3166,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 5,
+          "nonzero_alpha": 285,
+          "alpha_max": 1,
+          "alpha1to15": 285,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        }
+      ],
+      "additional_frame_realignment_performed": false,
+      "body_height_note": null
+    },
+    {
+      "id": "BLUEBIRD-IDLE",
+      "resource_name": "ggf_anim_bluebird_idle",
+      "source_png_path": "design/illustrations/exports/2026-11-06/GGF-ANIM-BLUEBIRD-IDLE-R47-v1.png",
+      "source_png_filename": "GGF-ANIM-BLUEBIRD-IDLE-R47-v1.png",
+      "source_png_path_status": "repository_relative",
+      "source_png_sha256": "9dbf86e5e5b72ee6eb79c60a35108c47fb163f9f01d2f7e7d6cc12428d7fc52e",
+      "native_png_path": "design/illustrations/originals/2026-11-06/R45-R53-native-sheets/GGF-ANIM-BLUEBIRD-IDLE-R47-v1.png",
+      "native_png_filename": "GGF-ANIM-BLUEBIRD-IDLE-R47-v1.png",
+      "native_png_sha256": "ad12d9dab208159145f548aac583579739c63d8cf9b8ea1d0605c632a4e3e027",
+      "app_webp_path": "core/ui/src/main/res/drawable-nodpi/ggf_anim_bluebird_idle.webp",
+      "app_webp_sha256_in_source_manifest": "3db3cb835ba64e4959da698f2d553f3e318bcafdb79e417c8431eab511e9c12c",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "grid": [
+        3,
+        2
+      ],
+      "cell_size": [
+        512,
+        512
+      ],
+      "active_frame_count": 2,
+      "measurement_coordinate_space": "delivery PNG cell-local pixels; copied from source manifest; not remasked on WebP RGB",
+      "root_final_refresh_required": false,
+      "status": "read_only_measurement_snapshot",
+      "frames": [
+        {
+          "frame_index": 0,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 0,
+            "manual_roi_local_xyxy": [
+              220,
+              410,
+              390,
+              465
+            ],
+            "method": "Manually selected feet ROI plus orangefoot color mask excludes bluewing/tail and greyshadow; visiblefeet approximate, flypose has no groundcontact.",
+            "selected_color_mask_pixels": 4073,
+            "selected_visible_extremity_lower_y": 458,
+            "selected_lower_y_minus_target": -2,
+            "approximate_lower_y_interval": [
+              456,
+              459
+            ],
+            "measurement_kind": "visible_extremity_color_proxy",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "visiblefeet_approx_groundpose",
+            "source_delivery_operational_anchor": [
+              256,
+              460
+            ],
+            "all_alpha128_bottom_inclusive": 460,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 0,
+            "nonzero_alpha": 72207,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              81,
+              130,
+              431,
+              461
+            ],
+            "alpha128_bottom_inclusive": 460,
+            "alpha128_bbox_center_x": 255.5,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        },
+        {
+          "frame_index": 1,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 1,
+            "manual_roi_local_xyxy": [
+              220,
+              410,
+              390,
+              465
+            ],
+            "method": "Manually selected feet ROI plus orangefoot color mask excludes bluewing/tail and greyshadow; visiblefeet approximate, flypose has no groundcontact.",
+            "selected_color_mask_pixels": 3972,
+            "selected_visible_extremity_lower_y": 458,
+            "selected_lower_y_minus_target": -2,
+            "approximate_lower_y_interval": [
+              456,
+              459
+            ],
+            "measurement_kind": "visible_extremity_color_proxy",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "visiblefeet_approx_groundpose",
+            "source_delivery_operational_anchor": [
+              256,
+              460
+            ],
+            "all_alpha128_bottom_inclusive": 460,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 1,
+            "nonzero_alpha": 72552,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              81,
+              130,
+              432,
+              461
+            ],
+            "alpha128_bottom_inclusive": 460,
+            "alpha128_bbox_center_x": 256.0,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        }
+      ],
+      "all_source_cells_including_unused": [
+        {
+          "index": 0,
+          "nonzero_alpha": 72207,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            81,
+            130,
+            431,
+            461
+          ],
+          "alpha128_bottom_inclusive": 460,
+          "alpha128_bbox_center_x": 255.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 1,
+          "nonzero_alpha": 72552,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            81,
+            130,
+            432,
+            461
+          ],
+          "alpha128_bottom_inclusive": 460,
+          "alpha128_bbox_center_x": 256.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 2,
+          "nonzero_alpha": 0,
+          "alpha_max": 0,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 3,
+          "nonzero_alpha": 0,
+          "alpha_max": 0,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 4,
+          "nonzero_alpha": 0,
+          "alpha_max": 0,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 5,
+          "nonzero_alpha": 0,
+          "alpha_max": 0,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        }
+      ],
+      "native_cell_measurements_for_comparison": [
+        {
+          "index": 0,
+          "nonzero_alpha": 98632,
+          "alpha_max": 254,
+          "alpha1to15": 25013,
+          "alpha128_bbox_exclusive": [
+            67,
+            100,
+            417,
+            431
+          ],
+          "alpha128_bottom_inclusive": 430,
+          "alpha128_bbox_center_x": 241.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 1,
+          "nonzero_alpha": 101582,
+          "alpha_max": 254,
+          "alpha1to15": 27667,
+          "alpha128_bbox_exclusive": [
+            62,
+            100,
+            413,
+            431
+          ],
+          "alpha128_bottom_inclusive": 430,
+          "alpha128_bbox_center_x": 237.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 2,
+          "nonzero_alpha": 20,
+          "alpha_max": 1,
+          "alpha1to15": 20,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 3,
+          "nonzero_alpha": 869,
+          "alpha_max": 1,
+          "alpha1to15": 869,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 4,
+          "nonzero_alpha": 2038,
+          "alpha_max": 1,
+          "alpha1to15": 2038,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 5,
+          "nonzero_alpha": 36,
+          "alpha_max": 1,
+          "alpha1to15": 36,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        }
+      ],
+      "additional_frame_realignment_performed": false,
+      "body_height_note": null
+    },
+    {
+      "id": "OAK-GROW",
+      "resource_name": "ggf_anim_tree_oak_grow",
+      "source_png_path": "design/illustrations/exports/2026-11-06/GGF-GROW-OAK-R46-v1.png",
+      "source_png_filename": "GGF-GROW-OAK-R46-v1.png",
+      "source_png_path_status": "repository_relative",
+      "source_png_sha256": "afbd260901b1063f04ad33d1bfad1e43c5382d0db9b2cea107f4a59048184390",
+      "native_png_path": "design/illustrations/originals/2026-11-06/R45-R53-native-sheets/GGF-GROW-OAK-R46-v1.png",
+      "native_png_filename": "GGF-GROW-OAK-R46-v1.png",
+      "native_png_sha256": "3b78d1688e97c1e71e35efaa0be1e404e21ab408a001c9c05726da7d0ae3ac7d",
+      "app_webp_path": "core/ui/src/main/res/drawable-nodpi/ggf_anim_tree_oak_grow.webp",
+      "app_webp_sha256_in_source_manifest": "3d416336494c669a1609248d462f5e1a731187b0e9b18922a7b26a621bb15272",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "grid": [
+        4,
+        1
+      ],
+      "cell_size": [
+        384,
+        1024
+      ],
+      "active_frame_count": 4,
+      "measurement_coordinate_space": "delivery PNG cell-local pixels; copied from source manifest; not remasked on WebP RGB",
+      "root_final_refresh_required": false,
+      "status": "read_only_measurement_snapshot",
+      "frames": [
+        {
+          "frame_index": 0,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 0,
+            "manual_roi_local_xyxy": [
+              140,
+              935,
+              245,
+              975
+            ],
+            "method": "Manually selected root/base ROI plus brownwood/soil mask; does NOT separate trunkroot from tinysoil patch/contactshadow, so anatomicalrootanchor UNCONFIRMED.",
+            "selected_color_mask_pixels": 227,
+            "selected_visible_extremity_lower_y": 964,
+            "selected_lower_y_minus_target": 0,
+            "approximate_lower_y_interval": [
+              962,
+              965
+            ],
+            "measurement_kind": "visible_extremity_color_proxy",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              192,
+              964
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "root/soilcontactproxy_only",
+            "source_delivery_operational_anchor": [
+              192,
+              964
+            ],
+            "all_alpha128_bottom_inclusive": 964,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 0,
+            "nonzero_alpha": 2068,
+            "alpha_max": 253,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              153,
+              917,
+              231,
+              965
+            ],
+            "alpha128_bottom_inclusive": 964,
+            "alpha128_bbox_center_x": 191.5,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        },
+        {
+          "frame_index": 1,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 1,
+            "manual_roi_local_xyxy": [
+              110,
+              935,
+              280,
+              975
+            ],
+            "method": "Manually selected root/base ROI plus brownwood/soil mask; does NOT separate trunkroot from tinysoil patch/contactshadow, so anatomicalrootanchor UNCONFIRMED.",
+            "selected_color_mask_pixels": 402,
+            "selected_visible_extremity_lower_y": 964,
+            "selected_lower_y_minus_target": 0,
+            "approximate_lower_y_interval": [
+              962,
+              965
+            ],
+            "measurement_kind": "visible_extremity_color_proxy",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              192,
+              964
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "root/soilcontactproxy_only",
+            "source_delivery_operational_anchor": [
+              192,
+              964
+            ],
+            "all_alpha128_bottom_inclusive": 964,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 1,
+            "nonzero_alpha": 8260,
+            "alpha_max": 253,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              121,
+              845,
+              263,
+              965
+            ],
+            "alpha128_bottom_inclusive": 964,
+            "alpha128_bbox_center_x": 191.5,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        },
+        {
+          "frame_index": 2,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 2,
+            "manual_roi_local_xyxy": [
+              100,
+              935,
+              285,
+              975
+            ],
+            "method": "Manually selected root/base ROI plus brownwood/soil mask; does NOT separate trunkroot from tinysoil patch/contactshadow, so anatomicalrootanchor UNCONFIRMED.",
+            "selected_color_mask_pixels": 1263,
+            "selected_visible_extremity_lower_y": 964,
+            "selected_lower_y_minus_target": 0,
+            "approximate_lower_y_interval": [
+              962,
+              965
+            ],
+            "measurement_kind": "visible_extremity_color_proxy",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              192,
+              964
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "root/soilcontactproxy_only",
+            "source_delivery_operational_anchor": [
+              192,
+              964
+            ],
+            "all_alpha128_bottom_inclusive": 964,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 2,
+            "nonzero_alpha": 23100,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              91,
+              753,
+              294,
+              965
+            ],
+            "alpha128_bottom_inclusive": 964,
+            "alpha128_bbox_center_x": 192.0,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        },
+        {
+          "frame_index": 3,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 3,
+            "manual_roi_local_xyxy": [
+              100,
+              935,
+              285,
+              975
+            ],
+            "method": "Manually selected root/base ROI plus brownwood/soil mask; does NOT separate trunkroot from tinysoil patch/contactshadow, so anatomicalrootanchor UNCONFIRMED.",
+            "selected_color_mask_pixels": 3041,
+            "selected_visible_extremity_lower_y": 964,
+            "selected_lower_y_minus_target": 0,
+            "approximate_lower_y_interval": [
+              962,
+              965
+            ],
+            "measurement_kind": "visible_extremity_color_proxy",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              192,
+              964
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "root/soilcontactproxy_only",
+            "source_delivery_operational_anchor": [
+              192,
+              964
+            ],
+            "all_alpha128_bottom_inclusive": 964,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 3,
+            "nonzero_alpha": 58826,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              30,
+              669,
+              355,
+              965
+            ],
+            "alpha128_bottom_inclusive": 964,
+            "alpha128_bbox_center_x": 192.0,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        }
+      ],
+      "all_source_cells_including_unused": [
+        {
+          "index": 0,
+          "nonzero_alpha": 2068,
+          "alpha_max": 253,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            153,
+            917,
+            231,
+            965
+          ],
+          "alpha128_bottom_inclusive": 964,
+          "alpha128_bbox_center_x": 191.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 1,
+          "nonzero_alpha": 8260,
+          "alpha_max": 253,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            121,
+            845,
+            263,
+            965
+          ],
+          "alpha128_bottom_inclusive": 964,
+          "alpha128_bbox_center_x": 191.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 2,
+          "nonzero_alpha": 23100,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            91,
+            753,
+            294,
+            965
+          ],
+          "alpha128_bottom_inclusive": 964,
+          "alpha128_bbox_center_x": 192.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 3,
+          "nonzero_alpha": 58826,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            30,
+            669,
+            355,
+            965
+          ],
+          "alpha128_bottom_inclusive": 964,
+          "alpha128_bbox_center_x": 192.0,
+          "cell_border_alpha_gt15": 0
+        }
+      ],
+      "native_cell_measurements_for_comparison": [
+        {
+          "index": 0,
+          "nonzero_alpha": 5525,
+          "alpha_max": 253,
+          "alpha1to15": 3450,
+          "alpha128_bbox_exclusive": [
+            155,
+            920,
+            233,
+            968
+          ],
+          "alpha128_bottom_inclusive": 967,
+          "alpha128_bbox_center_x": 193.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 1,
+          "nonzero_alpha": 17535,
+          "alpha_max": 253,
+          "alpha1to15": 9256,
+          "alpha128_bbox_exclusive": [
+            119,
+            849,
+            261,
+            969
+          ],
+          "alpha128_bottom_inclusive": 968,
+          "alpha128_bbox_center_x": 189.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 2,
+          "nonzero_alpha": 32380,
+          "alpha_max": 254,
+          "alpha1to15": 9169,
+          "alpha128_bbox_exclusive": [
+            80,
+            759,
+            283,
+            971
+          ],
+          "alpha128_bottom_inclusive": 970,
+          "alpha128_bbox_center_x": 181.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 3,
+          "nonzero_alpha": 76992,
+          "alpha_max": 254,
+          "alpha1to15": 18065,
+          "alpha128_bbox_exclusive": [
+            19,
+            673,
+            344,
+            969
+          ],
+          "alpha128_bottom_inclusive": 968,
+          "alpha128_bbox_center_x": 181.0,
+          "cell_border_alpha_gt15": 0
+        }
+      ],
+      "additional_frame_realignment_performed": false,
+      "body_height_note": null
+    },
+    {
+      "id": "DAD-WAVE",
+      "resource_name": "ggf_anim_dad_wave",
+      "source_png_path": "design/illustrations/exports/2026-11-06/GGF-ANIM-DAD-WAVE-R48-v1.png",
+      "source_png_filename": "GGF-ANIM-DAD-WAVE-R48-v1.png",
+      "source_png_path_status": "repository_relative",
+      "source_png_sha256": "b55a813cb72444871926632e6e0797b6082dcf5fc82bc990e3465ecb5ef4e686",
+      "native_png_path": "design/illustrations/originals/2026-11-06/R45-R53-native-sheets/GGF-ANIM-DAD-WAVE-R48-v1.png",
+      "native_png_filename": "GGF-ANIM-DAD-WAVE-R48-v1.png",
+      "native_png_sha256": "012e21f65cd7b061a8c38d960bc6f2b8ebd7226b9e4db9197d4904a9995ae51f",
+      "app_webp_path": "core/ui/src/main/res/drawable-nodpi/ggf_anim_dad_wave.webp",
+      "app_webp_sha256_in_source_manifest": "9f7506d3685b5371c12c0086519e1433d04ad8ca7e662a1bba14956960ec0779",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "grid": [
+        3,
+        2
+      ],
+      "cell_size": [
+        512,
+        512
+      ],
+      "active_frame_count": 3,
+      "measurement_coordinate_space": "delivery PNG cell-local pixels; copied from source manifest; not remasked on WebP RGB",
+      "root_final_refresh_required": false,
+      "status": "read_only_measurement_snapshot",
+      "frames": [
+        {
+          "frame_index": 0,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 0,
+            "manual_roi_local_xyxy": [
+              170,
+              415,
+              330,
+              465
+            ],
+            "method": "Manually selected shoe ROI plus brighterbrown shoe-color proxy, excludes most darkshadow but cannot prove darksole/contactshadow boundary; this is visible shoe-colored lowerextent, not an exactsole or groundcontact.",
+            "selected_color_mask_pixels": 2436,
+            "selected_visible_extremity_lower_y": 454,
+            "selected_lower_y_minus_target": -6,
+            "approximate_lower_y_interval": null,
+            "measurement_kind": "brighter_shoe_color_lowerextent_NOT_anatomicalsole",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "visiblefeet_approx_groundpose",
+            "source_delivery_operational_anchor": [
+              256,
+              460
+            ],
+            "all_alpha128_bottom_inclusive": 460,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 0,
+            "nonzero_alpha": 58712,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              145,
+              17,
+              368,
+              461
+            ],
+            "alpha128_bottom_inclusive": 460,
+            "alpha128_bbox_center_x": 256.0,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        },
+        {
+          "frame_index": 1,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 1,
+            "manual_roi_local_xyxy": [
+              170,
+              415,
+              330,
+              465
+            ],
+            "method": "Manually selected shoe ROI plus brighterbrown shoe-color proxy, excludes most darkshadow but cannot prove darksole/contactshadow boundary; this is visible shoe-colored lowerextent, not an exactsole or groundcontact.",
+            "selected_color_mask_pixels": 2513,
+            "selected_visible_extremity_lower_y": 451,
+            "selected_lower_y_minus_target": -9,
+            "approximate_lower_y_interval": null,
+            "measurement_kind": "brighter_shoe_color_lowerextent_NOT_anatomicalsole",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "visiblefeet_approx_groundpose",
+            "source_delivery_operational_anchor": [
+              256,
+              460
+            ],
+            "all_alpha128_bottom_inclusive": 460,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 1,
+            "nonzero_alpha": 59985,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              147,
+              17,
+              366,
+              461
+            ],
+            "alpha128_bottom_inclusive": 460,
+            "alpha128_bbox_center_x": 256.0,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        },
+        {
+          "frame_index": 2,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 2,
+            "manual_roi_local_xyxy": [
+              170,
+              415,
+              330,
+              465
+            ],
+            "method": "Manually selected shoe ROI plus brighterbrown shoe-color proxy, excludes most darkshadow but cannot prove darksole/contactshadow boundary; this is visible shoe-colored lowerextent, not an exactsole or groundcontact.",
+            "selected_color_mask_pixels": 2343,
+            "selected_visible_extremity_lower_y": 453,
+            "selected_lower_y_minus_target": -7,
+            "approximate_lower_y_interval": null,
+            "measurement_kind": "brighter_shoe_color_lowerextent_NOT_anatomicalsole",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "visiblefeet_approx_groundpose",
+            "source_delivery_operational_anchor": [
+              256,
+              460
+            ],
+            "all_alpha128_bottom_inclusive": 460,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 2,
+            "nonzero_alpha": 59911,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              131,
+              17,
+              382,
+              461
+            ],
+            "alpha128_bottom_inclusive": 460,
+            "alpha128_bbox_center_x": 256.0,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        }
+      ],
+      "all_source_cells_including_unused": [
+        {
+          "index": 0,
+          "nonzero_alpha": 58712,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            145,
+            17,
+            368,
+            461
+          ],
+          "alpha128_bottom_inclusive": 460,
+          "alpha128_bbox_center_x": 256.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 1,
+          "nonzero_alpha": 59985,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            147,
+            17,
+            366,
+            461
+          ],
+          "alpha128_bottom_inclusive": 460,
+          "alpha128_bbox_center_x": 256.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 2,
+          "nonzero_alpha": 59911,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            131,
+            17,
+            382,
+            461
+          ],
+          "alpha128_bottom_inclusive": 460,
+          "alpha128_bbox_center_x": 256.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 3,
+          "nonzero_alpha": 0,
+          "alpha_max": 0,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 4,
+          "nonzero_alpha": 0,
+          "alpha_max": 0,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 5,
+          "nonzero_alpha": 0,
+          "alpha_max": 0,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        }
+      ],
+      "native_cell_measurements_for_comparison": [
+        {
+          "index": 0,
+          "nonzero_alpha": 115913,
+          "alpha_max": 254,
+          "alpha1to15": 55636,
+          "alpha128_bbox_exclusive": [
+            166,
+            35,
+            389,
+            479
+          ],
+          "alpha128_bottom_inclusive": 478,
+          "alpha128_bbox_center_x": 277.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 1,
+          "nonzero_alpha": 113090,
+          "alpha_max": 254,
+          "alpha1to15": 51535,
+          "alpha128_bbox_exclusive": [
+            162,
+            35,
+            381,
+            479
+          ],
+          "alpha128_bottom_inclusive": 478,
+          "alpha128_bbox_center_x": 271.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 2,
+          "nonzero_alpha": 112207,
+          "alpha_max": 254,
+          "alpha1to15": 51132,
+          "alpha128_bbox_exclusive": [
+            167,
+            35,
+            418,
+            479
+          ],
+          "alpha128_bottom_inclusive": 478,
+          "alpha128_bbox_center_x": 292.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 3,
+          "nonzero_alpha": 330,
+          "alpha_max": 1,
+          "alpha1to15": 330,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 4,
+          "nonzero_alpha": 437,
+          "alpha_max": 1,
+          "alpha1to15": 437,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 5,
+          "nonzero_alpha": 424,
+          "alpha_max": 1,
+          "alpha1to15": 424,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        }
+      ],
+      "additional_frame_realignment_performed": false,
+      "body_height_note": null
+    },
+    {
+      "id": "DAD-JUMP",
+      "resource_name": "ggf_anim_dad_jump",
+      "source_png_path": "design/illustrations/exports/2026-11-07/GGF-ANIM-DAD-JUMP-R48-v2.png",
+      "source_png_filename": "GGF-ANIM-DAD-JUMP-R48-v2.png",
+      "source_png_path_status": "repository_relative",
+      "source_png_sha256": "0de082dbad32568206d86bb344e26a2b07203cb92587b07800ef4149bd435a04",
+      "native_png_path": "design/illustrations/originals/2026-11-07/R48-native/GGF-ANIM-DAD-JUMP-R48-v2.png",
+      "native_png_filename": "GGF-ANIM-DAD-JUMP-R48-v2.png",
+      "native_png_sha256": "039a9d8fad207c6aa6fbe57e4573dbf97cabc67fc676602c630b73fd25b32a64",
+      "app_webp_path": "core/ui/src/main/res/drawable-nodpi/ggf_anim_dad_jump.webp",
+      "app_webp_sha256_in_source_manifest": "f6f00218b32267e4082c89396c1afcaf9d91fc5c4df076ce0fe5c0d5c22e9796",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "grid": [
+        3,
+        2
+      ],
+      "cell_size": [
+        512,
+        512
+      ],
+      "active_frame_count": 4,
+      "measurement_coordinate_space": "delivery PNG cell-local pixels; copied from source manifest; not remasked on WebP RGB",
+      "root_final_refresh_required": false,
+      "status": "read_only_measurement_snapshot",
+      "frames": [
+        {
+          "frame_index": 0,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 0,
+            "manual_roi_local_xyxy": [
+              180,
+              415,
+              310,
+              465
+            ],
+            "method": "Manually selected shoe ROI plus brighterbrown shoe-color proxy, excludes most darkshadow but cannot prove darksole/contactshadow boundary; this is visible shoe-colored lowerextent, not an exactsole or groundcontact.",
+            "selected_color_mask_pixels": 2617,
+            "selected_visible_extremity_lower_y": 453,
+            "selected_lower_y_minus_target": -7,
+            "approximate_lower_y_interval": null,
+            "measurement_kind": "brighter_shoe_color_lowerextent_NOT_anatomicalsole",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "hop_or_jump_pose_contact_unconfirmed_virtual_ground_only",
+            "source_delivery_operational_anchor": [
+              256,
+              460
+            ],
+            "all_alpha128_bottom_inclusive": 463,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 0,
+            "nonzero_alpha": 62179,
+            "alpha_max": 254,
+            "alpha1to15": 7822,
+            "alpha128_bbox_exclusive": [
+              159,
+              58,
+              346,
+              464
+            ],
+            "alpha128_bottom_inclusive": 463,
+            "alpha128_bbox_center_x": 252.0,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        },
+        {
+          "frame_index": 1,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 1,
+            "manual_roi_local_xyxy": [
+              180,
+              400,
+              315,
+              465
+            ],
+            "method": "Manually selected shoe ROI plus brighterbrown shoe-color proxy, excludes most darkshadow but cannot prove darksole/contactshadow boundary; this is visible shoe-colored lowerextent, not an exactsole or groundcontact.",
+            "selected_color_mask_pixels": 4154,
+            "selected_visible_extremity_lower_y": 456,
+            "selected_lower_y_minus_target": -4,
+            "approximate_lower_y_interval": null,
+            "measurement_kind": "brighter_shoe_color_lowerextent_NOT_anatomicalsole",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "hop_or_jump_pose_contact_unconfirmed_virtual_ground_only",
+            "source_delivery_operational_anchor": [
+              256,
+              460
+            ],
+            "all_alpha128_bottom_inclusive": 464,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 1,
+            "nonzero_alpha": 64304,
+            "alpha_max": 254,
+            "alpha1to15": 7881,
+            "alpha128_bbox_exclusive": [
+              156,
+              39,
+              348,
+              465
+            ],
+            "alpha128_bottom_inclusive": 464,
+            "alpha128_bbox_center_x": 251.5,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        },
+        {
+          "frame_index": 2,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 2,
+            "manual_roi_local_xyxy": [
+              180,
+              370,
+              320,
+              440
+            ],
+            "method": "Manually selected shoe ROI plus brighterbrown shoe-color proxy, excludes most darkshadow but cannot prove darksole/contactshadow boundary; this is visible shoe-colored lowerextent, not an exactsole or groundcontact.",
+            "selected_color_mask_pixels": 3654,
+            "selected_visible_extremity_lower_y": 420,
+            "selected_lower_y_minus_target": -40,
+            "approximate_lower_y_interval": null,
+            "measurement_kind": "brighter_shoe_color_lowerextent_NOT_anatomicalsole",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "airborne_visualfeet_no_groundcontact",
+            "source_delivery_operational_anchor": [
+              256,
+              460
+            ],
+            "all_alpha128_bottom_inclusive": 463,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 2,
+            "nonzero_alpha": 58429,
+            "alpha_max": 254,
+            "alpha1to15": 7391,
+            "alpha128_bbox_exclusive": [
+              161,
+              53,
+              347,
+              464
+            ],
+            "alpha128_bottom_inclusive": 463,
+            "alpha128_bbox_center_x": 253.5,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        },
+        {
+          "frame_index": 3,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 3,
+            "manual_roi_local_xyxy": [
+              170,
+              415,
+              325,
+              465
+            ],
+            "method": "Manually selected shoe ROI plus brighterbrown shoe-color proxy, excludes most darkshadow but cannot prove darksole/contactshadow boundary; this is visible shoe-colored lowerextent, not an exactsole or groundcontact.",
+            "selected_color_mask_pixels": 2939,
+            "selected_visible_extremity_lower_y": 457,
+            "selected_lower_y_minus_target": -3,
+            "approximate_lower_y_interval": null,
+            "measurement_kind": "brighter_shoe_color_lowerextent_NOT_anatomicalsole",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "hop_or_jump_pose_contact_unconfirmed_virtual_ground_only",
+            "source_delivery_operational_anchor": [
+              256,
+              460
+            ],
+            "all_alpha128_bottom_inclusive": 463,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 3,
+            "nonzero_alpha": 57832,
+            "alpha_max": 254,
+            "alpha1to15": 6298,
+            "alpha128_bbox_exclusive": [
+              159,
+              86,
+              345,
+              464
+            ],
+            "alpha128_bottom_inclusive": 463,
+            "alpha128_bbox_center_x": 251.5,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        }
+      ],
+      "all_source_cells_including_unused": [
+        {
+          "index": 0,
+          "nonzero_alpha": 62179,
+          "alpha_max": 254,
+          "alpha1to15": 7822,
+          "alpha128_bbox_exclusive": [
+            159,
+            58,
+            346,
+            464
+          ],
+          "alpha128_bottom_inclusive": 463,
+          "alpha128_bbox_center_x": 252.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 1,
+          "nonzero_alpha": 64304,
+          "alpha_max": 254,
+          "alpha1to15": 7881,
+          "alpha128_bbox_exclusive": [
+            156,
+            39,
+            348,
+            465
+          ],
+          "alpha128_bottom_inclusive": 464,
+          "alpha128_bbox_center_x": 251.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 2,
+          "nonzero_alpha": 58429,
+          "alpha_max": 254,
+          "alpha1to15": 7391,
+          "alpha128_bbox_exclusive": [
+            161,
+            53,
+            347,
+            464
+          ],
+          "alpha128_bottom_inclusive": 463,
+          "alpha128_bbox_center_x": 253.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 3,
+          "nonzero_alpha": 57832,
+          "alpha_max": 254,
+          "alpha1to15": 6298,
+          "alpha128_bbox_exclusive": [
+            159,
+            86,
+            345,
+            464
+          ],
+          "alpha128_bottom_inclusive": 463,
+          "alpha128_bbox_center_x": 251.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 4,
+          "nonzero_alpha": 0,
+          "alpha_max": 0,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 5,
+          "nonzero_alpha": 0,
+          "alpha_max": 0,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        }
+      ],
+      "native_cell_measurements_for_comparison": [
+        {
+          "index": 0,
+          "nonzero_alpha": 69060,
+          "alpha_max": 254,
+          "alpha1to15": 14703,
+          "alpha128_bbox_exclusive": [
+            168,
+            92,
+            355,
+            498
+          ],
+          "alpha128_bottom_inclusive": 497,
+          "alpha128_bbox_center_x": 261.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 1,
+          "nonzero_alpha": 70216,
+          "alpha_max": 254,
+          "alpha1to15": 13793,
+          "alpha128_bbox_exclusive": [
+            162,
+            72,
+            354,
+            498
+          ],
+          "alpha128_bottom_inclusive": 497,
+          "alpha128_bbox_center_x": 257.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 2,
+          "nonzero_alpha": 63184,
+          "alpha_max": 254,
+          "alpha1to15": 12146,
+          "alpha128_bbox_exclusive": [
+            159,
+            86,
+            345,
+            497
+          ],
+          "alpha128_bottom_inclusive": 496,
+          "alpha128_bbox_center_x": 251.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 3,
+          "nonzero_alpha": 58531,
+          "alpha_max": 254,
+          "alpha1to15": 6997,
+          "alpha128_bbox_exclusive": [
+            169,
+            89,
+            355,
+            467
+          ],
+          "alpha128_bottom_inclusive": 466,
+          "alpha128_bbox_center_x": 261.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 4,
+          "nonzero_alpha": 626,
+          "alpha_max": 1,
+          "alpha1to15": 626,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 5,
+          "nonzero_alpha": 451,
+          "alpha_max": 1,
+          "alpha1to15": 451,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        }
+      ],
+      "additional_frame_realignment_performed": false,
+      "body_height_note": "Newv2 head scale matches WAVE approximately; pose changes silhouetteheight. Allbodypixels retained, no code scaling."
+    },
+    {
+      "id": "MOM-WAVE",
+      "resource_name": "ggf_anim_mom_wave",
+      "source_png_path": "design/illustrations/exports/2026-11-06/GGF-ANIM-MOM-WAVE-R48-v1.png",
+      "source_png_filename": "GGF-ANIM-MOM-WAVE-R48-v1.png",
+      "source_png_path_status": "repository_relative",
+      "source_png_sha256": "ed625211ce52a0b66d25c64bbf4bbef79fde54ec6da7238ff8e21ba065fce9fa",
+      "native_png_path": "design/illustrations/originals/2026-11-06/R45-R53-native-sheets/GGF-ANIM-MOM-WAVE-R48-v1.png",
+      "native_png_filename": "GGF-ANIM-MOM-WAVE-R48-v1.png",
+      "native_png_sha256": "89542b937316b7989a67b816bfdc6537524ccd6b9ce80ee828fed8662a8d8d7e",
+      "app_webp_path": "core/ui/src/main/res/drawable-nodpi/ggf_anim_mom_wave.webp",
+      "app_webp_sha256_in_source_manifest": "d13bba549cc0a5d30e4f9887e477264c2feb1d6524df23e5cf22e807853414f0",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "grid": [
+        3,
+        2
+      ],
+      "cell_size": [
+        512,
+        512
+      ],
+      "active_frame_count": 3,
+      "measurement_coordinate_space": "delivery PNG cell-local pixels; copied from source manifest; not remasked on WebP RGB",
+      "root_final_refresh_required": false,
+      "status": "read_only_measurement_snapshot",
+      "frames": [
+        {
+          "frame_index": 0,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 0,
+            "manual_roi_local_xyxy": [
+              170,
+              415,
+              330,
+              465
+            ],
+            "method": "Manually selected shoe ROI plus brighterbrown shoe-color proxy, excludes most darkshadow but cannot prove darksole/contactshadow boundary; this is visible shoe-colored lowerextent, not an exactsole or groundcontact.",
+            "selected_color_mask_pixels": 2351,
+            "selected_visible_extremity_lower_y": 452,
+            "selected_lower_y_minus_target": -8,
+            "approximate_lower_y_interval": null,
+            "measurement_kind": "brighter_shoe_color_lowerextent_NOT_anatomicalsole",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "visiblefeet_approx_groundpose",
+            "source_delivery_operational_anchor": [
+              256,
+              460
+            ],
+            "all_alpha128_bottom_inclusive": 460,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 0,
+            "nonzero_alpha": 64961,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              146,
+              18,
+              366,
+              461
+            ],
+            "alpha128_bottom_inclusive": 460,
+            "alpha128_bbox_center_x": 255.5,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        },
+        {
+          "frame_index": 1,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 1,
+            "manual_roi_local_xyxy": [
+              170,
+              415,
+              330,
+              465
+            ],
+            "method": "Manually selected shoe ROI plus brighterbrown shoe-color proxy, excludes most darkshadow but cannot prove darksole/contactshadow boundary; this is visible shoe-colored lowerextent, not an exactsole or groundcontact.",
+            "selected_color_mask_pixels": 2335,
+            "selected_visible_extremity_lower_y": 450,
+            "selected_lower_y_minus_target": -10,
+            "approximate_lower_y_interval": null,
+            "measurement_kind": "brighter_shoe_color_lowerextent_NOT_anatomicalsole",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "visiblefeet_approx_groundpose",
+            "source_delivery_operational_anchor": [
+              256,
+              460
+            ],
+            "all_alpha128_bottom_inclusive": 460,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 1,
+            "nonzero_alpha": 64972,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              136,
+              17,
+              376,
+              461
+            ],
+            "alpha128_bottom_inclusive": 460,
+            "alpha128_bbox_center_x": 255.5,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        },
+        {
+          "frame_index": 2,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 2,
+            "manual_roi_local_xyxy": [
+              170,
+              415,
+              330,
+              465
+            ],
+            "method": "Manually selected shoe ROI plus brighterbrown shoe-color proxy, excludes most darkshadow but cannot prove darksole/contactshadow boundary; this is visible shoe-colored lowerextent, not an exactsole or groundcontact.",
+            "selected_color_mask_pixels": 2305,
+            "selected_visible_extremity_lower_y": 450,
+            "selected_lower_y_minus_target": -10,
+            "approximate_lower_y_interval": null,
+            "measurement_kind": "brighter_shoe_color_lowerextent_NOT_anatomicalsole",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "visiblefeet_approx_groundpose",
+            "source_delivery_operational_anchor": [
+              256,
+              460
+            ],
+            "all_alpha128_bottom_inclusive": 460,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 2,
+            "nonzero_alpha": 65638,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              130,
+              17,
+              382,
+              461
+            ],
+            "alpha128_bottom_inclusive": 460,
+            "alpha128_bbox_center_x": 255.5,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        }
+      ],
+      "all_source_cells_including_unused": [
+        {
+          "index": 0,
+          "nonzero_alpha": 64961,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            146,
+            18,
+            366,
+            461
+          ],
+          "alpha128_bottom_inclusive": 460,
+          "alpha128_bbox_center_x": 255.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 1,
+          "nonzero_alpha": 64972,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            136,
+            17,
+            376,
+            461
+          ],
+          "alpha128_bottom_inclusive": 460,
+          "alpha128_bbox_center_x": 255.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 2,
+          "nonzero_alpha": 65638,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            130,
+            17,
+            382,
+            461
+          ],
+          "alpha128_bottom_inclusive": 460,
+          "alpha128_bbox_center_x": 255.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 3,
+          "nonzero_alpha": 0,
+          "alpha_max": 0,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 4,
+          "nonzero_alpha": 0,
+          "alpha_max": 0,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 5,
+          "nonzero_alpha": 0,
+          "alpha_max": 0,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        }
+      ],
+      "native_cell_measurements_for_comparison": [
+        {
+          "index": 0,
+          "nonzero_alpha": 192691,
+          "alpha_max": 254,
+          "alpha1to15": 126354,
+          "alpha128_bbox_exclusive": [
+            157,
+            48,
+            377,
+            491
+          ],
+          "alpha128_bottom_inclusive": 490,
+          "alpha128_bbox_center_x": 266.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 1,
+          "nonzero_alpha": 210473,
+          "alpha_max": 254,
+          "alpha1to15": 144334,
+          "alpha128_bbox_exclusive": [
+            152,
+            48,
+            392,
+            492
+          ],
+          "alpha128_bottom_inclusive": 491,
+          "alpha128_bbox_center_x": 271.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 2,
+          "nonzero_alpha": 187037,
+          "alpha_max": 254,
+          "alpha1to15": 120140,
+          "alpha128_bbox_exclusive": [
+            152,
+            48,
+            404,
+            492
+          ],
+          "alpha128_bottom_inclusive": 491,
+          "alpha128_bbox_center_x": 277.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 3,
+          "nonzero_alpha": 37058,
+          "alpha_max": 2,
+          "alpha1to15": 37058,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 4,
+          "nonzero_alpha": 13421,
+          "alpha_max": 2,
+          "alpha1to15": 13421,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 5,
+          "nonzero_alpha": 15058,
+          "alpha_max": 2,
+          "alpha1to15": 15058,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        }
+      ],
+      "additional_frame_realignment_performed": false,
+      "body_height_note": null
+    },
+    {
+      "id": "MOM-JUMP",
+      "resource_name": "ggf_anim_mom_jump",
+      "source_png_path": "design/illustrations/exports/2026-11-06/GGF-ANIM-MOM-JUMP-R48-v1.png",
+      "source_png_filename": "GGF-ANIM-MOM-JUMP-R48-v1.png",
+      "source_png_path_status": "repository_relative",
+      "source_png_sha256": "436da50bf0b48461e9ba640d8ea4c852bc71d95b1cfc2cf9bc8b5d1ca5177a1e",
+      "native_png_path": "design/illustrations/originals/2026-11-06/R45-R53-native-sheets/GGF-ANIM-MOM-JUMP-R48-v1.png",
+      "native_png_filename": "GGF-ANIM-MOM-JUMP-R48-v1.png",
+      "native_png_sha256": "b281f054998fa113330a5c86da9c27d382306984db8e87b84feb492a407cb834",
+      "app_webp_path": "core/ui/src/main/res/drawable-nodpi/ggf_anim_mom_jump.webp",
+      "app_webp_sha256_in_source_manifest": "b94fbdd8e66a57a7ef1441942fd172e1c00007e0167380db493e7c384722ca24",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "grid": [
+        3,
+        2
+      ],
+      "cell_size": [
+        512,
+        512
+      ],
+      "active_frame_count": 4,
+      "measurement_coordinate_space": "delivery PNG cell-local pixels; copied from source manifest; not remasked on WebP RGB",
+      "root_final_refresh_required": false,
+      "status": "read_only_measurement_snapshot",
+      "frames": [
+        {
+          "frame_index": 0,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 0,
+            "manual_roi_local_xyxy": [
+              180,
+              415,
+              325,
+              465
+            ],
+            "method": "Manually selected shoe ROI plus brighterbrown shoe-color proxy, excludes most darkshadow but cannot prove darksole/contactshadow boundary; this is visible shoe-colored lowerextent, not an exactsole or groundcontact.",
+            "selected_color_mask_pixels": 2191,
+            "selected_visible_extremity_lower_y": 460,
+            "selected_lower_y_minus_target": 0,
+            "approximate_lower_y_interval": null,
+            "measurement_kind": "brighter_shoe_color_lowerextent_NOT_anatomicalsole",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "hop_or_jump_pose_contact_unconfirmed_virtual_ground_only",
+            "source_delivery_operational_anchor": [
+              256,
+              460
+            ],
+            "all_alpha128_bottom_inclusive": 460,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 0,
+            "nonzero_alpha": 55449,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              153,
+              96,
+              360,
+              461
+            ],
+            "alpha128_bottom_inclusive": 460,
+            "alpha128_bbox_center_x": 256.0,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        },
+        {
+          "frame_index": 1,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 1,
+            "manual_roi_local_xyxy": [
+              175,
+              395,
+              325,
+              465
+            ],
+            "method": "Manually selected shoe ROI plus brighterbrown shoe-color proxy, excludes most darkshadow but cannot prove darksole/contactshadow boundary; this is visible shoe-colored lowerextent, not an exactsole or groundcontact.",
+            "selected_color_mask_pixels": 3145,
+            "selected_visible_extremity_lower_y": 452,
+            "selected_lower_y_minus_target": -8,
+            "approximate_lower_y_interval": null,
+            "measurement_kind": "brighter_shoe_color_lowerextent_NOT_anatomicalsole",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "hop_or_jump_pose_contact_unconfirmed_virtual_ground_only",
+            "source_delivery_operational_anchor": [
+              256,
+              459
+            ],
+            "all_alpha128_bottom_inclusive": 459,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 1,
+            "nonzero_alpha": 59936,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              153,
+              27,
+              360,
+              460
+            ],
+            "alpha128_bottom_inclusive": 459,
+            "alpha128_bbox_center_x": 256.0,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        },
+        {
+          "frame_index": 2,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 2,
+            "manual_roi_local_xyxy": [
+              145,
+              280,
+              325,
+              405
+            ],
+            "method": "Manually selected shoe ROI plus brighterbrown shoe-color proxy, excludes most darkshadow but cannot prove darksole/contactshadow boundary; this is visible shoe-colored lowerextent, not an exactsole or groundcontact.",
+            "selected_color_mask_pixels": 3279,
+            "selected_visible_extremity_lower_y": 397,
+            "selected_lower_y_minus_target": -63,
+            "approximate_lower_y_interval": null,
+            "measurement_kind": "brighter_shoe_color_lowerextent_NOT_anatomicalsole",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "airborne_visualfeet_no_groundcontact",
+            "source_delivery_operational_anchor": [
+              256,
+              398
+            ],
+            "all_alpha128_bottom_inclusive": 453,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 2,
+            "nonzero_alpha": 56854,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              134,
+              6,
+              379,
+              454
+            ],
+            "alpha128_bottom_inclusive": 453,
+            "alpha128_bbox_center_x": 256.0,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        },
+        {
+          "frame_index": 3,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 3,
+            "manual_roi_local_xyxy": [
+              170,
+              405,
+              325,
+              465
+            ],
+            "method": "Manually selected shoe ROI plus brighterbrown shoe-color proxy, excludes most darkshadow but cannot prove darksole/contactshadow boundary; this is visible shoe-colored lowerextent, not an exactsole or groundcontact.",
+            "selected_color_mask_pixels": 2740,
+            "selected_visible_extremity_lower_y": 448,
+            "selected_lower_y_minus_target": -12,
+            "approximate_lower_y_interval": null,
+            "measurement_kind": "brighter_shoe_color_lowerextent_NOT_anatomicalsole",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "hop_or_jump_pose_contact_unconfirmed_virtual_ground_only",
+            "source_delivery_operational_anchor": [
+              256,
+              455
+            ],
+            "all_alpha128_bottom_inclusive": 455,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 3,
+            "nonzero_alpha": 62251,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              131,
+              50,
+              382,
+              456
+            ],
+            "alpha128_bottom_inclusive": 455,
+            "alpha128_bbox_center_x": 256.0,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        }
+      ],
+      "all_source_cells_including_unused": [
+        {
+          "index": 0,
+          "nonzero_alpha": 55449,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            153,
+            96,
+            360,
+            461
+          ],
+          "alpha128_bottom_inclusive": 460,
+          "alpha128_bbox_center_x": 256.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 1,
+          "nonzero_alpha": 59936,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            153,
+            27,
+            360,
+            460
+          ],
+          "alpha128_bottom_inclusive": 459,
+          "alpha128_bbox_center_x": 256.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 2,
+          "nonzero_alpha": 56854,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            134,
+            6,
+            379,
+            454
+          ],
+          "alpha128_bottom_inclusive": 453,
+          "alpha128_bbox_center_x": 256.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 3,
+          "nonzero_alpha": 62251,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            131,
+            50,
+            382,
+            456
+          ],
+          "alpha128_bottom_inclusive": 455,
+          "alpha128_bbox_center_x": 256.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 4,
+          "nonzero_alpha": 0,
+          "alpha_max": 0,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 5,
+          "nonzero_alpha": 0,
+          "alpha_max": 0,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        }
+      ],
+      "native_cell_measurements_for_comparison": [
+        {
+          "index": 0,
+          "nonzero_alpha": 72513,
+          "alpha_max": 254,
+          "alpha1to15": 16900,
+          "alpha128_bbox_exclusive": [
+            162,
+            122,
+            369,
+            487
+          ],
+          "alpha128_bottom_inclusive": 486,
+          "alpha128_bbox_center_x": 265.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 1,
+          "nonzero_alpha": 78682,
+          "alpha_max": 254,
+          "alpha1to15": 18508,
+          "alpha128_bbox_exclusive": [
+            149,
+            53,
+            356,
+            486
+          ],
+          "alpha128_bottom_inclusive": 485,
+          "alpha128_bbox_center_x": 252.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 2,
+          "nonzero_alpha": 86377,
+          "alpha_max": 254,
+          "alpha1to15": 28911,
+          "alpha128_bbox_exclusive": [
+            129,
+            32,
+            374,
+            480
+          ],
+          "alpha128_bottom_inclusive": 479,
+          "alpha128_bbox_center_x": 251.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 3,
+          "nonzero_alpha": 85274,
+          "alpha_max": 254,
+          "alpha1to15": 22866,
+          "alpha128_bbox_exclusive": [
+            144,
+            76,
+            395,
+            482
+          ],
+          "alpha128_bottom_inclusive": 481,
+          "alpha128_bbox_center_x": 269.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 4,
+          "nonzero_alpha": 3666,
+          "alpha_max": 1,
+          "alpha1to15": 3666,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 5,
+          "nonzero_alpha": 3458,
+          "alpha_max": 1,
+          "alpha1to15": 3458,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        }
+      ],
+      "additional_frame_realignment_performed": false,
+      "body_height_note": null
+    },
+    {
+      "id": "GIRL-WAVE",
+      "resource_name": "ggf_anim_girl_wave",
+      "source_png_path": "design/illustrations/exports/2026-11-06/GGF-ANIM-GIRL-WAVE-R48-v1.png",
+      "source_png_filename": "GGF-ANIM-GIRL-WAVE-R48-v1.png",
+      "source_png_path_status": "repository_relative",
+      "source_png_sha256": "2645969b406812bc141b0aa7d5c03ec233234d8f627f4b5c102fa7a8a65e20cf",
+      "native_png_path": "design/illustrations/originals/2026-11-06/R45-R53-native-sheets/GGF-ANIM-GIRL-WAVE-R48-v1.png",
+      "native_png_filename": "GGF-ANIM-GIRL-WAVE-R48-v1.png",
+      "native_png_sha256": "0e0b6c9a0698d99f178137bbefa88c06cd4d3d2f58e58681df243dc52e750e76",
+      "app_webp_path": "core/ui/src/main/res/drawable-nodpi/ggf_anim_girl_wave.webp",
+      "app_webp_sha256_in_source_manifest": "7e930c3aec6f3571f6baef8c4d86fcf166ba366d29b4c132dd5d59467fcf7e08",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "grid": [
+        3,
+        2
+      ],
+      "cell_size": [
+        512,
+        512
+      ],
+      "active_frame_count": 3,
+      "measurement_coordinate_space": "delivery PNG cell-local pixels; copied from source manifest; not remasked on WebP RGB",
+      "root_final_refresh_required": false,
+      "status": "read_only_measurement_snapshot",
+      "frames": [
+        {
+          "frame_index": 0,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 0,
+            "manual_roi_local_xyxy": [
+              170,
+              415,
+              330,
+              465
+            ],
+            "method": "Manually selected shoe ROI plus brighterbrown shoe-color proxy, excludes most darkshadow but cannot prove darksole/contactshadow boundary; this is visible shoe-colored lowerextent, not an exactsole or groundcontact.",
+            "selected_color_mask_pixels": 2713,
+            "selected_visible_extremity_lower_y": 454,
+            "selected_lower_y_minus_target": -6,
+            "approximate_lower_y_interval": null,
+            "measurement_kind": "brighter_shoe_color_lowerextent_NOT_anatomicalsole",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "visiblefeet_approx_groundpose",
+            "source_delivery_operational_anchor": [
+              256,
+              460
+            ],
+            "all_alpha128_bottom_inclusive": 460,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 0,
+            "nonzero_alpha": 57576,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              154,
+              22,
+              359,
+              461
+            ],
+            "alpha128_bottom_inclusive": 460,
+            "alpha128_bbox_center_x": 256.0,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        },
+        {
+          "frame_index": 1,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 1,
+            "manual_roi_local_xyxy": [
+              170,
+              415,
+              330,
+              465
+            ],
+            "method": "Manually selected shoe ROI plus brighterbrown shoe-color proxy, excludes most darkshadow but cannot prove darksole/contactshadow boundary; this is visible shoe-colored lowerextent, not an exactsole or groundcontact.",
+            "selected_color_mask_pixels": 2708,
+            "selected_visible_extremity_lower_y": 454,
+            "selected_lower_y_minus_target": -6,
+            "approximate_lower_y_interval": null,
+            "measurement_kind": "brighter_shoe_color_lowerextent_NOT_anatomicalsole",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "visiblefeet_approx_groundpose",
+            "source_delivery_operational_anchor": [
+              256,
+              460
+            ],
+            "all_alpha128_bottom_inclusive": 460,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 1,
+            "nonzero_alpha": 57613,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              146,
+              22,
+              367,
+              461
+            ],
+            "alpha128_bottom_inclusive": 460,
+            "alpha128_bbox_center_x": 256.0,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        },
+        {
+          "frame_index": 2,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 2,
+            "manual_roi_local_xyxy": [
+              170,
+              415,
+              330,
+              465
+            ],
+            "method": "Manually selected shoe ROI plus brighterbrown shoe-color proxy, excludes most darkshadow but cannot prove darksole/contactshadow boundary; this is visible shoe-colored lowerextent, not an exactsole or groundcontact.",
+            "selected_color_mask_pixels": 2695,
+            "selected_visible_extremity_lower_y": 454,
+            "selected_lower_y_minus_target": -6,
+            "approximate_lower_y_interval": null,
+            "measurement_kind": "brighter_shoe_color_lowerextent_NOT_anatomicalsole",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "visiblefeet_approx_groundpose",
+            "source_delivery_operational_anchor": [
+              256,
+              460
+            ],
+            "all_alpha128_bottom_inclusive": 460,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 2,
+            "nonzero_alpha": 58377,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              136,
+              21,
+              377,
+              461
+            ],
+            "alpha128_bottom_inclusive": 460,
+            "alpha128_bbox_center_x": 256.0,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        }
+      ],
+      "all_source_cells_including_unused": [
+        {
+          "index": 0,
+          "nonzero_alpha": 57576,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            154,
+            22,
+            359,
+            461
+          ],
+          "alpha128_bottom_inclusive": 460,
+          "alpha128_bbox_center_x": 256.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 1,
+          "nonzero_alpha": 57613,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            146,
+            22,
+            367,
+            461
+          ],
+          "alpha128_bottom_inclusive": 460,
+          "alpha128_bbox_center_x": 256.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 2,
+          "nonzero_alpha": 58377,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            136,
+            21,
+            377,
+            461
+          ],
+          "alpha128_bottom_inclusive": 460,
+          "alpha128_bbox_center_x": 256.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 3,
+          "nonzero_alpha": 0,
+          "alpha_max": 0,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 4,
+          "nonzero_alpha": 0,
+          "alpha_max": 0,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 5,
+          "nonzero_alpha": 0,
+          "alpha_max": 0,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        }
+      ],
+      "native_cell_measurements_for_comparison": [
+        {
+          "index": 0,
+          "nonzero_alpha": 64261,
+          "alpha_max": 254,
+          "alpha1to15": 6455,
+          "alpha128_bbox_exclusive": [
+            167,
+            51,
+            372,
+            490
+          ],
+          "alpha128_bottom_inclusive": 489,
+          "alpha128_bbox_center_x": 269.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 1,
+          "nonzero_alpha": 63695,
+          "alpha_max": 254,
+          "alpha1to15": 5878,
+          "alpha128_bbox_exclusive": [
+            167,
+            51,
+            388,
+            490
+          ],
+          "alpha128_bottom_inclusive": 489,
+          "alpha128_bbox_center_x": 277.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 2,
+          "nonzero_alpha": 65010,
+          "alpha_max": 254,
+          "alpha1to15": 6418,
+          "alpha128_bbox_exclusive": [
+            167,
+            51,
+            408,
+            491
+          ],
+          "alpha128_bottom_inclusive": 490,
+          "alpha128_bbox_center_x": 287.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 3,
+          "nonzero_alpha": 105,
+          "alpha_max": 1,
+          "alpha1to15": 105,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 4,
+          "nonzero_alpha": 54,
+          "alpha_max": 1,
+          "alpha1to15": 54,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 5,
+          "nonzero_alpha": 58,
+          "alpha_max": 1,
+          "alpha1to15": 58,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        }
+      ],
+      "additional_frame_realignment_performed": false,
+      "body_height_note": null
+    },
+    {
+      "id": "GIRL-JUMP",
+      "resource_name": "ggf_anim_girl_jump",
+      "source_png_path": "design/illustrations/exports/2026-11-06/GGF-ANIM-GIRL-JUMP-R48-v1.png",
+      "source_png_filename": "GGF-ANIM-GIRL-JUMP-R48-v1.png",
+      "source_png_path_status": "repository_relative",
+      "source_png_sha256": "23019da5e5e21364dd9c645bc0b41d7674dadca338af69b2fdabaf0272775d3a",
+      "native_png_path": "design/illustrations/originals/2026-11-06/R45-R53-native-sheets/GGF-ANIM-GIRL-JUMP-R48-v1.png",
+      "native_png_filename": "GGF-ANIM-GIRL-JUMP-R48-v1.png",
+      "native_png_sha256": "20b5cfc7426fc78cd9182725cbdfac7ca1c5e4d5e81e7aa7b42a384522e5e935",
+      "app_webp_path": "core/ui/src/main/res/drawable-nodpi/ggf_anim_girl_jump.webp",
+      "app_webp_sha256_in_source_manifest": "c9fec9db04a591eec195fd311fc016861a57a7f70527ee8a3b2990872a7967dd",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "grid": [
+        3,
+        2
+      ],
+      "cell_size": [
+        512,
+        512
+      ],
+      "active_frame_count": 4,
+      "measurement_coordinate_space": "delivery PNG cell-local pixels; copied from source manifest; not remasked on WebP RGB",
+      "root_final_refresh_required": false,
+      "status": "read_only_measurement_snapshot",
+      "frames": [
+        {
+          "frame_index": 0,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 0,
+            "manual_roi_local_xyxy": [
+              180,
+              415,
+              325,
+              465
+            ],
+            "method": "Manually selected shoe ROI plus brighterbrown shoe-color proxy, excludes most darkshadow but cannot prove darksole/contactshadow boundary; this is visible shoe-colored lowerextent, not an exactsole or groundcontact.",
+            "selected_color_mask_pixels": 1601,
+            "selected_visible_extremity_lower_y": 453,
+            "selected_lower_y_minus_target": -7,
+            "approximate_lower_y_interval": null,
+            "measurement_kind": "brighter_shoe_color_lowerextent_NOT_anatomicalsole",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "hop_or_jump_pose_contact_unconfirmed_virtual_ground_only",
+            "source_delivery_operational_anchor": [
+              256,
+              460
+            ],
+            "all_alpha128_bottom_inclusive": 460,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 0,
+            "nonzero_alpha": 36716,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              176,
+              148,
+              337,
+              461
+            ],
+            "alpha128_bottom_inclusive": 460,
+            "alpha128_bbox_center_x": 256.0,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        },
+        {
+          "frame_index": 1,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 1,
+            "manual_roi_local_xyxy": [
+              180,
+              405,
+              325,
+              465
+            ],
+            "method": "Manually selected shoe ROI plus brighterbrown shoe-color proxy, excludes most darkshadow but cannot prove darksole/contactshadow boundary; this is visible shoe-colored lowerextent, not an exactsole or groundcontact.",
+            "selected_color_mask_pixels": 1966,
+            "selected_visible_extremity_lower_y": 452,
+            "selected_lower_y_minus_target": -8,
+            "approximate_lower_y_interval": null,
+            "measurement_kind": "brighter_shoe_color_lowerextent_NOT_anatomicalsole",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "hop_or_jump_pose_contact_unconfirmed_virtual_ground_only",
+            "source_delivery_operational_anchor": [
+              256,
+              458
+            ],
+            "all_alpha128_bottom_inclusive": 458,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 1,
+            "nonzero_alpha": 39248,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              173,
+              114,
+              340,
+              459
+            ],
+            "alpha128_bottom_inclusive": 458,
+            "alpha128_bbox_center_x": 256.0,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        },
+        {
+          "frame_index": 2,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 2,
+            "manual_roi_local_xyxy": [
+              175,
+              350,
+              325,
+              430
+            ],
+            "method": "Manually selected shoe ROI plus brighterbrown shoe-color proxy, excludes most darkshadow but cannot prove darksole/contactshadow boundary; this is visible shoe-colored lowerextent, not an exactsole or groundcontact.",
+            "selected_color_mask_pixels": 1837,
+            "selected_visible_extremity_lower_y": 417,
+            "selected_lower_y_minus_target": -43,
+            "approximate_lower_y_interval": null,
+            "measurement_kind": "brighter_shoe_color_lowerextent_NOT_anatomicalsole",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "airborne_visualfeet_no_groundcontact",
+            "source_delivery_operational_anchor": [
+              256,
+              421
+            ],
+            "all_alpha128_bottom_inclusive": 454,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 2,
+            "nonzero_alpha": 36625,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              163,
+              96,
+              349,
+              455
+            ],
+            "alpha128_bottom_inclusive": 454,
+            "alpha128_bbox_center_x": 255.5,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        },
+        {
+          "frame_index": 3,
+          "measurement_status": "copied_existing_approximate_measurement",
+          "original_measurement": {
+            "frame_index": 3,
+            "manual_roi_local_xyxy": [
+              180,
+              390,
+              325,
+              435
+            ],
+            "method": "Manually selected shoe ROI plus brighterbrown shoe-color proxy, excludes most darkshadow but cannot prove darksole/contactshadow boundary; this is visible shoe-colored lowerextent, not an exactsole or groundcontact.",
+            "selected_color_mask_pixels": 1388,
+            "selected_visible_extremity_lower_y": 419,
+            "selected_lower_y_minus_target": -41,
+            "approximate_lower_y_interval": null,
+            "measurement_kind": "brighter_shoe_color_lowerextent_NOT_anatomicalsole",
+            "uncertainty_note": "Color-mask lowerextent is reproducible; anatomicalsole/root uncertainty is not quantified. Any interval is a visual heuristic only, not a statistical bound.",
+            "desired_anchor_local": [
+              256,
+              460
+            ],
+            "anatomical_foot_or_root_exactly_confirmed": false,
+            "interpretation": "hop_or_jump_pose_contact_unconfirmed_virtual_ground_only",
+            "source_delivery_operational_anchor": [
+              256,
+              425
+            ],
+            "all_alpha128_bottom_inclusive": 425,
+            "all_alpha128_bottom_is_not_assumed_foot": true
+          },
+          "original_cell_alpha_measurement": {
+            "index": 3,
+            "nonzero_alpha": 36415,
+            "alpha_max": 254,
+            "alpha1to15": 0,
+            "alpha128_bbox_exclusive": [
+              175,
+              109,
+              337,
+              426
+            ],
+            "alpha128_bottom_inclusive": 425,
+            "alpha128_bbox_center_x": 255.5,
+            "cell_border_alpha_gt15": 0
+          },
+          "exact_anatomical_foot_or_root_xy": null,
+          "exact_anatomical_xy_status": "not_measured; do not substitute desired_anchor x or ROI center",
+          "independently_measured_shadow_bbox_xyxy": null,
+          "independently_measured_shadow_status": "not_recorded; complete alpha bbox may include shadow/wing/soil",
+          "interpolation_or_remeasurement_performed": false
+        }
+      ],
+      "all_source_cells_including_unused": [
+        {
+          "index": 0,
+          "nonzero_alpha": 36716,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            176,
+            148,
+            337,
+            461
+          ],
+          "alpha128_bottom_inclusive": 460,
+          "alpha128_bbox_center_x": 256.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 1,
+          "nonzero_alpha": 39248,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            173,
+            114,
+            340,
+            459
+          ],
+          "alpha128_bottom_inclusive": 458,
+          "alpha128_bbox_center_x": 256.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 2,
+          "nonzero_alpha": 36625,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            163,
+            96,
+            349,
+            455
+          ],
+          "alpha128_bottom_inclusive": 454,
+          "alpha128_bbox_center_x": 255.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 3,
+          "nonzero_alpha": 36415,
+          "alpha_max": 254,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": [
+            175,
+            109,
+            337,
+            426
+          ],
+          "alpha128_bottom_inclusive": 425,
+          "alpha128_bbox_center_x": 255.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 4,
+          "nonzero_alpha": 0,
+          "alpha_max": 0,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 5,
+          "nonzero_alpha": 0,
+          "alpha_max": 0,
+          "alpha1to15": 0,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        }
+      ],
+      "native_cell_measurements_for_comparison": [
+        {
+          "index": 0,
+          "nonzero_alpha": 41523,
+          "alpha_max": 254,
+          "alpha1to15": 4718,
+          "alpha128_bbox_exclusive": [
+            209,
+            174,
+            370,
+            487
+          ],
+          "alpha128_bottom_inclusive": 486,
+          "alpha128_bbox_center_x": 289.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 1,
+          "nonzero_alpha": 46141,
+          "alpha_max": 254,
+          "alpha1to15": 6816,
+          "alpha128_bbox_exclusive": [
+            173,
+            140,
+            340,
+            485
+          ],
+          "alpha128_bottom_inclusive": 484,
+          "alpha128_bbox_center_x": 256.0,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 2,
+          "nonzero_alpha": 42850,
+          "alpha_max": 254,
+          "alpha1to15": 5540,
+          "alpha128_bbox_exclusive": [
+            135,
+            122,
+            321,
+            481
+          ],
+          "alpha128_bottom_inclusive": 480,
+          "alpha128_bbox_center_x": 227.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 3,
+          "nonzero_alpha": 40924,
+          "alpha_max": 254,
+          "alpha1to15": 4431,
+          "alpha128_bbox_exclusive": [
+            210,
+            135,
+            372,
+            452
+          ],
+          "alpha128_bottom_inclusive": 451,
+          "alpha128_bbox_center_x": 290.5,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 4,
+          "nonzero_alpha": 342,
+          "alpha_max": 1,
+          "alpha1to15": 342,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        },
+        {
+          "index": 5,
+          "nonzero_alpha": 450,
+          "alpha_max": 1,
+          "alpha1to15": 450,
+          "alpha128_bbox_exclusive": null,
+          "alpha128_bottom_inclusive": null,
+          "alpha128_bbox_center_x": null,
+          "cell_border_alpha_gt15": 0
+        }
+      ],
+      "additional_frame_realignment_performed": false,
+      "body_height_note": null
+    }
+  ]
+}

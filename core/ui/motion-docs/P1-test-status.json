@@ -1,0 +1,10 @@
+{
+  "pure_jvm_tests": 8,
+  "pure_jvm_result": "passed",
+  "compiler": "Kotlin 2.0.21",
+  "jvm_target": 17,
+  "test_runtime": "JDK21",
+  "stdlib": "1.9.24 from Gradle distribution",
+  "full_Android_compilation": "blocked: Android SDK location not configured",
+  "Compose_UI_runtime_tested": false
+}

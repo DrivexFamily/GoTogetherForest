@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--
+      권한 선언은 app/src/main/AndroidManifest.xml 한 곳에 모은다(docs/sdk-capabilities.md 2장과 대조).
+      android.car는 SDK의 optional 라이브러리라 실행 때 공유 라이브러리로 붙여 달라고 적는다.
+      required="false": 라이브러리가 없는 기기에서도 설치되고, 그때는 CarApiSource가 실패로 처리한다.
+      (필요 여부는 미확인. 에뮬레이터 첫 실행 로그로 확인한다.)
+    -->
+    <application>
+        <uses-library android:name="android.car" android:required="false" />
+    </application>
+</manifest>

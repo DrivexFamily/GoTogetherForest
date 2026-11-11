@@ -1,0 +1,967 @@
+{
+  "request": "U03-Atlas-Android",
+  "count": 29,
+  "region_covers": 17,
+  "total_app_webp_bytes": 1604030,
+  "source_manifest": "design/illustrations/exports/2026-11-06/U03-delivery-manifest.json",
+  "source_manifest_sha256": "8c435a340b90e6fe6167acf2794c03d491a18a4a7030d57731d92f8adff825d5",
+  "encoder": {
+    "Pillow": "12.3.0",
+    "libwebp": "1.6.0"
+  },
+  "native_originals_preserved": true,
+  "source_review": "Read-only browser contact sheet: 29 sources directly viewed.",
+  "Android_UI_runtime_test": false,
+  "notes": [
+    "Region covers are imaginative montages, not maps or accurate landmark adjacency.",
+    "Atlas native PNG originals remain on main; only app derivatives belong on the code branch.",
+    "Shrinking resamples edge alpha; WebP alpha is identical to that resized intermediate.",
+    "Normal lossy RGB codec differences are recorded; no color grading/filter was applied."
+  ],
+  "items": [
+    {
+      "id": "REGION-GYEONGGI",
+      "resource_name": "ggf_atlas_region_gyeonggi",
+      "source_png": "design/illustrations/exports/2026-11-06/GGF-ATLAS-REGION-GYEONGGI-U03-v1.png",
+      "source_sha256": "1d457a7a3932fa2cc9d023bd47e75194e8c65f4757173b601a19b2eed94b0e34",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "source_mode": "RGB",
+      "source_bytes": 2470713,
+      "app_webp": "feature/atlas/src/main/res/drawable-nodpi/ggf_atlas_region_gyeonggi.webp",
+      "app_sha256": "7b0fbd7271100f960f9442ee80dd779ffce6c61e325a10cad231ed8534638fc7",
+      "app_size": [
+        512,
+        341
+      ],
+      "app_mode": "RGB",
+      "app_bytes": 52946,
+      "downsampled": true,
+      "resize_filter": "LANCZOS, aspect-ratio preserved within integer rounding",
+      "codec": "WebP RGB quality92; lossless alpha quality100",
+      "alpha": {
+        "output_alpha_exact_in_WebP_roundtrip": null,
+        "extra_alpha_threshold_or_cleanup": false
+      },
+      "rgb_codec_MAE_over_visible_pixels": 3.035824474584555,
+      "upscale": false,
+      "color_filter": false,
+      "crop": false,
+      "native_original_changed": false
+    },
+    {
+      "id": "ACQUIRE-STAGE-DAY",
+      "resource_name": "ggf_acquire_stage_day",
+      "source_png": "design/illustrations/exports/2026-11-06/GGF-ACQUIRE-STAGE-DAY-U03-v1.png",
+      "source_sha256": "f6d92b79749ae4d47b8da9f330a4d5ac65caf17eae3f3622fd33ece7f60338bf",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "source_mode": "RGB",
+      "source_bytes": 1558993,
+      "app_webp": "feature/atlas/src/main/res/drawable-nodpi/ggf_acquire_stage_day.webp",
+      "app_sha256": "207f7a88f9d1c6e7d1b455d654aba0dff072763f037191973544a572966d84d6",
+      "app_size": [
+        1280,
+        853
+      ],
+      "app_mode": "RGB",
+      "app_bytes": 34762,
+      "downsampled": true,
+      "resize_filter": "LANCZOS, aspect-ratio preserved within integer rounding",
+      "codec": "WebP RGB quality92; lossless alpha quality100",
+      "alpha": {
+        "output_alpha_exact_in_WebP_roundtrip": null,
+        "extra_alpha_threshold_or_cleanup": false
+      },
+      "rgb_codec_MAE_over_visible_pixels": 0.8725078766119578,
+      "upscale": false,
+      "color_filter": false,
+      "crop": false,
+      "native_original_changed": false
+    },
+    {
+      "id": "REGION-SEOUL",
+      "resource_name": "ggf_atlas_region_seoul",
+      "source_png": "design/illustrations/exports/2026-11-06/GGF-ATLAS-REGION-SEOUL-U03-v1.png",
+      "source_sha256": "282920d6bcc9c3aa296df13e9e01fc149c784f7bf691bb11ebc11b6ad06d23f3",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "source_mode": "RGB",
+      "source_bytes": 2551039,
+      "app_webp": "feature/atlas/src/main/res/drawable-nodpi/ggf_atlas_region_seoul.webp",
+      "app_sha256": "178ed4dd3e0eba4f6521c4497e076b7f01928b8792348eb4bd42bf834fcde671",
+      "app_size": [
+        512,
+        341
+      ],
+      "app_mode": "RGB",
+      "app_bytes": 69408,
+      "downsampled": true,
+      "resize_filter": "LANCZOS, aspect-ratio preserved within integer rounding",
+      "codec": "WebP RGB quality92; lossless alpha quality100",
+      "alpha": {
+        "output_alpha_exact_in_WebP_roundtrip": null,
+        "extra_alpha_threshold_or_cleanup": false
+      },
+      "rgb_codec_MAE_over_visible_pixels": 5.073313782991202,
+      "upscale": false,
+      "color_filter": false,
+      "crop": false,
+      "native_original_changed": false
+    },
+    {
+      "id": "REGION-GANGWON",
+      "resource_name": "ggf_atlas_region_gangwon",
+      "source_png": "design/illustrations/exports/2026-11-06/GGF-ATLAS-REGION-GANGWON-U03-v1.png",
+      "source_sha256": "e258bcb77621a5de0e066770d3f0c6f2669e34f433cf60d6f1899f2ae9617c0e",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "source_mode": "RGB",
+      "source_bytes": 2475416,
+      "app_webp": "feature/atlas/src/main/res/drawable-nodpi/ggf_atlas_region_gangwon.webp",
+      "app_sha256": "cbfa784d362ad24f903e25dace76ea00af249eafed1e3b50637cb4d643fdd831",
+      "app_size": [
+        512,
+        341
+      ],
+      "app_mode": "RGB",
+      "app_bytes": 53062,
+      "downsampled": true,
+      "resize_filter": "LANCZOS, aspect-ratio preserved within integer rounding",
+      "codec": "WebP RGB quality92; lossless alpha quality100",
+      "alpha": {
+        "output_alpha_exact_in_WebP_roundtrip": null,
+        "extra_alpha_threshold_or_cleanup": false
+      },
+      "rgb_codec_MAE_over_visible_pixels": 2.722324046920821,
+      "upscale": false,
+      "color_filter": false,
+      "crop": false,
+      "native_original_changed": false
+    },
+    {
+      "id": "REGION-CHUNGBUK",
+      "resource_name": "ggf_atlas_region_chungbuk",
+      "source_png": "design/illustrations/exports/2026-11-06/GGF-ATLAS-REGION-CHUNGBUK-U03-v1.png",
+      "source_sha256": "95239a4d9a4e459a4c5beaafc51e55b54296e70847a8d97737df77da3cf5dc01",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "source_mode": "RGB",
+      "source_bytes": 2279950,
+      "app_webp": "feature/atlas/src/main/res/drawable-nodpi/ggf_atlas_region_chungbuk.webp",
+      "app_sha256": "955574e9dc27e4c252ab0d0231f5ad53eec38b5cc794025dda748c6091f702ca",
+      "app_size": [
+        512,
+        341
+      ],
+      "app_mode": "RGB",
+      "app_bytes": 50912,
+      "downsampled": true,
+      "resize_filter": "LANCZOS, aspect-ratio preserved within integer rounding",
+      "codec": "WebP RGB quality92; lossless alpha quality100",
+      "alpha": {
+        "output_alpha_exact_in_WebP_roundtrip": null,
+        "extra_alpha_threshold_or_cleanup": false
+      },
+      "rgb_codec_MAE_over_visible_pixels": 3.146131170576735,
+      "upscale": false,
+      "color_filter": false,
+      "crop": false,
+      "native_original_changed": false
+    },
+    {
+      "id": "ACQUIRE-STAGE-EVENING",
+      "resource_name": "ggf_acquire_stage_evening",
+      "source_png": "design/illustrations/exports/2026-11-06/GGF-ACQUIRE-STAGE-EVENING-U03-v1.png",
+      "source_sha256": "d2655c06747092877299cc42ec2a83a90ae3c373210347258b92df8c44c91a3a",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "source_mode": "RGB",
+      "source_bytes": 1605956,
+      "app_webp": "feature/atlas/src/main/res/drawable-nodpi/ggf_acquire_stage_evening.webp",
+      "app_sha256": "449a1e87fa9ecf81ccebf388f2eb24091c26c0502984ad5cb74db6af00cf8ac2",
+      "app_size": [
+        1280,
+        853
+      ],
+      "app_mode": "RGB",
+      "app_bytes": 43272,
+      "downsampled": true,
+      "resize_filter": "LANCZOS, aspect-ratio preserved within integer rounding",
+      "codec": "WebP RGB quality92; lossless alpha quality100",
+      "alpha": {
+        "output_alpha_exact_in_WebP_roundtrip": null,
+        "extra_alpha_threshold_or_cleanup": false
+      },
+      "rgb_codec_MAE_over_visible_pixels": 0.9457234271199687,
+      "upscale": false,
+      "color_filter": false,
+      "crop": false,
+      "native_original_changed": false
+    },
+    {
+      "id": "ATLAS-PAGE-DAY",
+      "resource_name": "ggf_atlas_page_day",
+      "source_png": "design/illustrations/exports/2026-11-06/GGF-ATLAS-PAGE-DAY-U03-v1.png",
+      "source_sha256": "7a3e8d6bcded33a4ecd080d28737f9ed8e9cbff8b173ac12e98c927d264949ad",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "source_mode": "RGB",
+      "source_bytes": 1486803,
+      "app_webp": "feature/atlas/src/main/res/drawable-nodpi/ggf_atlas_page_day.webp",
+      "app_sha256": "71b9975e045754e164a41a67d03bb6771f795d1e6022aa634a0bf1ddd099680e",
+      "app_size": [
+        1280,
+        853
+      ],
+      "app_mode": "RGB",
+      "app_bytes": 27832,
+      "downsampled": true,
+      "resize_filter": "LANCZOS, aspect-ratio preserved within integer rounding",
+      "codec": "WebP RGB quality92; lossless alpha quality100",
+      "alpha": {
+        "output_alpha_exact_in_WebP_roundtrip": null,
+        "extra_alpha_threshold_or_cleanup": false
+      },
+      "rgb_codec_MAE_over_visible_pixels": 0.8515234222352481,
+      "upscale": false,
+      "color_filter": false,
+      "crop": false,
+      "native_original_changed": false
+    },
+    {
+      "id": "ACQUIRE-RIBBON",
+      "resource_name": "ggf_acquire_ribbon",
+      "source_png": "design/illustrations/exports/2026-11-06/GGF-ACQUIRE-RIBBON-U03-v1.png",
+      "source_sha256": "2510d79b10ff0b575111e9f8f4a64606b10fc51274105baec6fc5ac854e5f52a",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "source_mode": "RGBA",
+      "source_bytes": 449320,
+      "app_webp": "feature/atlas/src/main/res/drawable-nodpi/ggf_acquire_ribbon.webp",
+      "app_sha256": "8e1148bb374eb01f8639a17c71a47d24f4ae9eae7e0a21cf84f547309618de14",
+      "app_size": [
+        512,
+        512
+      ],
+      "app_mode": "RGBA",
+      "app_bytes": 17402,
+      "downsampled": true,
+      "resize_filter": "LANCZOS, aspect-ratio preserved within integer rounding",
+      "codec": "WebP RGB quality92; lossless alpha quality100",
+      "alpha": {
+        "output_alpha_exact_in_WebP_roundtrip": true,
+        "resized_alpha_nonzero_pixels": 45047,
+        "resized_alpha_1_to_15_pixels": 1649,
+        "extra_alpha_threshold_or_cleanup": false
+      },
+      "rgb_codec_MAE_over_visible_pixels": 1.3073106287540133,
+      "upscale": false,
+      "color_filter": false,
+      "crop": false,
+      "native_original_changed": false
+    },
+    {
+      "id": "REGION-CHUNGNAM",
+      "resource_name": "ggf_atlas_region_chungnam",
+      "source_png": "design/illustrations/exports/2026-11-06/GGF-ATLAS-REGION-CHUNGNAM-U03-v1.png",
+      "source_sha256": "38dbdb44dfab3920dfe17d075cf345f7056a2f34c4ef71c993fef049110c314d",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "source_mode": "RGB",
+      "source_bytes": 2398188,
+      "app_webp": "feature/atlas/src/main/res/drawable-nodpi/ggf_atlas_region_chungnam.webp",
+      "app_sha256": "fc24f73dd387f77eff712eb213d82422c695b65c0b1c1e7cf424a23136d1127f",
+      "app_size": [
+        512,
+        341
+      ],
+      "app_mode": "RGB",
+      "app_bytes": 53150,
+      "downsampled": true,
+      "resize_filter": "LANCZOS, aspect-ratio preserved within integer rounding",
+      "codec": "WebP RGB quality92; lossless alpha quality100",
+      "alpha": {
+        "output_alpha_exact_in_WebP_roundtrip": null,
+        "extra_alpha_threshold_or_cleanup": false
+      },
+      "rgb_codec_MAE_over_visible_pixels": 3.191398613147605,
+      "upscale": false,
+      "color_filter": false,
+      "crop": false,
+      "native_original_changed": false
+    },
+    {
+      "id": "ATLAS-PAGE-EVENING",
+      "resource_name": "ggf_atlas_page_evening",
+      "source_png": "design/illustrations/exports/2026-11-06/GGF-ATLAS-PAGE-EVENING-U03-v1.png",
+      "source_sha256": "1ce29f8cb0fdca7480d3b25f09215d3385078681d5cbd1287dcddd2321a864e8",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "source_mode": "RGB",
+      "source_bytes": 1610977,
+      "app_webp": "feature/atlas/src/main/res/drawable-nodpi/ggf_atlas_page_evening.webp",
+      "app_sha256": "eb7485a3debb109fa047ecd8dba3d2af2e73b304a91d4dfa8cca0f5152f38983",
+      "app_size": [
+        1280,
+        853
+      ],
+      "app_mode": "RGB",
+      "app_bytes": 34436,
+      "downsampled": true,
+      "resize_filter": "LANCZOS, aspect-ratio preserved within integer rounding",
+      "codec": "WebP RGB quality92; lossless alpha quality100",
+      "alpha": {
+        "output_alpha_exact_in_WebP_roundtrip": null,
+        "extra_alpha_threshold_or_cleanup": false
+      },
+      "rgb_codec_MAE_over_visible_pixels": 0.8899408338218054,
+      "upscale": false,
+      "color_filter": false,
+      "crop": false,
+      "native_original_changed": false
+    },
+    {
+      "id": "REGION-BUSAN",
+      "resource_name": "ggf_atlas_region_busan",
+      "source_png": "design/illustrations/exports/2026-11-06/GGF-ATLAS-REGION-BUSAN-U03-v1.png",
+      "source_sha256": "5cd1065b89fbc54bdacbc1f415aa35ac51ddcc802848ba9675ed07248ca605e5",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "source_mode": "RGB",
+      "source_bytes": 2501120,
+      "app_webp": "feature/atlas/src/main/res/drawable-nodpi/ggf_atlas_region_busan.webp",
+      "app_sha256": "bde6591e4fe07a2841210db917fa97f70f5b376e82a141aea1c62e511ee952ad",
+      "app_size": [
+        512,
+        341
+      ],
+      "app_mode": "RGB",
+      "app_bytes": 72784,
+      "downsampled": true,
+      "resize_filter": "LANCZOS, aspect-ratio preserved within integer rounding",
+      "codec": "WebP RGB quality92; lossless alpha quality100",
+      "alpha": {
+        "output_alpha_exact_in_WebP_roundtrip": null,
+        "extra_alpha_threshold_or_cleanup": false
+      },
+      "rgb_codec_MAE_over_visible_pixels": 5.7460059261974585,
+      "upscale": false,
+      "color_filter": false,
+      "crop": false,
+      "native_original_changed": false
+    },
+    {
+      "id": "ACQUIRE-FLAG",
+      "resource_name": "ggf_acquire_flag",
+      "source_png": "design/illustrations/exports/2026-11-06/GGF-ACQUIRE-FLAG-U03-v1.png",
+      "source_sha256": "ec9e0c8e94170e33a70cd314645aad540a116dc1d84e95229045ef0349457727",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "source_mode": "RGBA",
+      "source_bytes": 724508,
+      "app_webp": "feature/atlas/src/main/res/drawable-nodpi/ggf_acquire_flag.webp",
+      "app_sha256": "e5b455e661325a494a961117db4d9fe46ec424ba6408cb74aca1628913772cd1",
+      "app_size": [
+        512,
+        512
+      ],
+      "app_mode": "RGBA",
+      "app_bytes": 26052,
+      "downsampled": true,
+      "resize_filter": "LANCZOS, aspect-ratio preserved within integer rounding",
+      "codec": "WebP RGB quality92; lossless alpha quality100",
+      "alpha": {
+        "output_alpha_exact_in_WebP_roundtrip": true,
+        "resized_alpha_nonzero_pixels": 79376,
+        "resized_alpha_1_to_15_pixels": 2258,
+        "extra_alpha_threshold_or_cleanup": false
+      },
+      "rgb_codec_MAE_over_visible_pixels": 1.217005109053658,
+      "upscale": false,
+      "color_filter": false,
+      "crop": false,
+      "native_original_changed": false
+    },
+    {
+      "id": "REGION-DAEGU",
+      "resource_name": "ggf_atlas_region_daegu",
+      "source_png": "design/illustrations/exports/2026-11-06/GGF-ATLAS-REGION-DAEGU-U03-v1.png",
+      "source_sha256": "882309d143df901c6e3d09df7ead73cd49ae81c89ef489b0313110f5fbb4acb0",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "source_mode": "RGB",
+      "source_bytes": 2517891,
+      "app_webp": "feature/atlas/src/main/res/drawable-nodpi/ggf_atlas_region_daegu.webp",
+      "app_sha256": "057f7bc76c7d48bb84eef9146c2e33f19eec0f2fd3103645f6efe4f785d6d8b1",
+      "app_size": [
+        512,
+        341
+      ],
+      "app_mode": "RGB",
+      "app_bytes": 65688,
+      "downsampled": true,
+      "resize_filter": "LANCZOS, aspect-ratio preserved within integer rounding",
+      "codec": "WebP RGB quality92; lossless alpha quality100",
+      "alpha": {
+        "output_alpha_exact_in_WebP_roundtrip": null,
+        "extra_alpha_threshold_or_cleanup": false
+      },
+      "rgb_codec_MAE_over_visible_pixels": 4.658928625977517,
+      "upscale": false,
+      "color_filter": false,
+      "crop": false,
+      "native_original_changed": false
+    },
+    {
+      "id": "REGION-JEONBUK",
+      "resource_name": "ggf_atlas_region_jeonbuk",
+      "source_png": "design/illustrations/exports/2026-11-06/GGF-ATLAS-REGION-JEONBUK-U03-v1.png",
+      "source_sha256": "41fc8a6f598d63d6947aaebbcdf3e78559c718ade60026e1ed0258f54946e3e1",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "source_mode": "RGB",
+      "source_bytes": 2452502,
+      "app_webp": "feature/atlas/src/main/res/drawable-nodpi/ggf_atlas_region_jeonbuk.webp",
+      "app_sha256": "a022fa776fdca477ea4baa0bbda7410c69fa647db4e0a9d9f52779dae87688b5",
+      "app_size": [
+        512,
+        341
+      ],
+      "app_mode": "RGB",
+      "app_bytes": 56976,
+      "downsampled": true,
+      "resize_filter": "LANCZOS, aspect-ratio preserved within integer rounding",
+      "codec": "WebP RGB quality92; lossless alpha quality100",
+      "alpha": {
+        "output_alpha_exact_in_WebP_roundtrip": null,
+        "extra_alpha_threshold_or_cleanup": false
+      },
+      "rgb_codec_MAE_over_visible_pixels": 3.700734665200391,
+      "upscale": false,
+      "color_filter": false,
+      "crop": false,
+      "native_original_changed": false
+    },
+    {
+      "id": "REGION-INCHEON",
+      "resource_name": "ggf_atlas_region_incheon",
+      "source_png": "design/illustrations/exports/2026-11-06/GGF-ATLAS-REGION-INCHEON-U03-v1.png",
+      "source_sha256": "b32f6bf85ca82436a85302901a726fe9245437abba455503e004b4c1f6276876",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "source_mode": "RGB",
+      "source_bytes": 2473434,
+      "app_webp": "feature/atlas/src/main/res/drawable-nodpi/ggf_atlas_region_incheon.webp",
+      "app_sha256": "d0067c635d6d993815d0f581cf05ce01908b408dfcd2e2835915dba957ded1b7",
+      "app_size": [
+        512,
+        341
+      ],
+      "app_mode": "RGB",
+      "app_bytes": 61818,
+      "downsampled": true,
+      "resize_filter": "LANCZOS, aspect-ratio preserved within integer rounding",
+      "codec": "WebP RGB quality92; lossless alpha quality100",
+      "alpha": {
+        "output_alpha_exact_in_WebP_roundtrip": null,
+        "extra_alpha_threshold_or_cleanup": false
+      },
+      "rgb_codec_MAE_over_visible_pixels": 4.774290918255132,
+      "upscale": false,
+      "color_filter": false,
+      "crop": false,
+      "native_original_changed": false
+    },
+    {
+      "id": "ACQUIRE-RAYS",
+      "resource_name": "ggf_acquire_rays",
+      "source_png": "design/illustrations/exports/2026-11-06/GGF-ACQUIRE-RAYS-U03-v1.png",
+      "source_sha256": "f4b51eb626cce1fd8aee4a7f437393459c8b6628d9c2d12f2afc2bbf4cf8fc74",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "source_mode": "RGBA",
+      "source_bytes": 1488293,
+      "app_webp": "feature/atlas/src/main/res/drawable-nodpi/ggf_acquire_rays.webp",
+      "app_sha256": "5883a5e1f3c44e25fa1751eca4782d22bc56ba7557b97ae71238ffb01a47a6d8",
+      "app_size": [
+        512,
+        512
+      ],
+      "app_mode": "RGBA",
+      "app_bytes": 109470,
+      "downsampled": true,
+      "resize_filter": "LANCZOS, aspect-ratio preserved within integer rounding",
+      "codec": "WebP RGB quality92; lossless alpha quality100",
+      "alpha": {
+        "output_alpha_exact_in_WebP_roundtrip": true,
+        "resized_alpha_nonzero_pixels": 236225,
+        "resized_alpha_1_to_15_pixels": 181208,
+        "extra_alpha_threshold_or_cleanup": false
+      },
+      "rgb_codec_MAE_over_visible_pixels": 1.6652731579935898,
+      "upscale": false,
+      "color_filter": false,
+      "crop": false,
+      "native_original_changed": false
+    },
+    {
+      "id": "ACQUIRE-SPARKLES",
+      "resource_name": "ggf_acquire_sparkles",
+      "source_png": "design/illustrations/exports/2026-11-06/GGF-ACQUIRE-SPARKLES-U03-v1.png",
+      "source_sha256": "5cfedb39da1714bcb3a7ceb6b4c4ff38f7209a19c95be6cb2ec7292ca8dc0b6c",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "source_mode": "RGBA",
+      "source_bytes": 736614,
+      "app_webp": "feature/atlas/src/main/res/drawable-nodpi/ggf_acquire_sparkles.webp",
+      "app_sha256": "ff9b5693750983ebe286f753942a1ce420f0a6118cb1772b47dc8dce1af89c4d",
+      "app_size": [
+        512,
+        512
+      ],
+      "app_mode": "RGBA",
+      "app_bytes": 54928,
+      "downsampled": true,
+      "resize_filter": "LANCZOS, aspect-ratio preserved within integer rounding",
+      "codec": "WebP RGB quality92; lossless alpha quality100",
+      "alpha": {
+        "output_alpha_exact_in_WebP_roundtrip": true,
+        "resized_alpha_nonzero_pixels": 127648,
+        "resized_alpha_1_to_15_pixels": 111099,
+        "extra_alpha_threshold_or_cleanup": false
+      },
+      "rgb_codec_MAE_over_visible_pixels": 2.9171752573166554,
+      "upscale": false,
+      "color_filter": false,
+      "crop": false,
+      "native_original_changed": false
+    },
+    {
+      "id": "REGION-JEONNAM",
+      "resource_name": "ggf_atlas_region_jeonnam",
+      "source_png": "design/illustrations/exports/2026-11-06/GGF-ATLAS-REGION-JEONNAM-U03-v1.png",
+      "source_sha256": "5315e637234590bac35f0af1f74e6183350a306dfd007ab01c6a2b2a439b373f",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "source_mode": "RGB",
+      "source_bytes": 3174881,
+      "app_webp": "feature/atlas/src/main/res/drawable-nodpi/ggf_atlas_region_jeonnam.webp",
+      "app_sha256": "757221ba8fbd35fe2cb429262537be1cda8d1e9dcc02e4f7f9f6da077f8fe958",
+      "app_size": [
+        512,
+        341
+      ],
+      "app_mode": "RGB",
+      "app_bytes": 83068,
+      "downsampled": true,
+      "resize_filter": "LANCZOS, aspect-ratio preserved within integer rounding",
+      "codec": "WebP RGB quality92; lossless alpha quality100",
+      "alpha": {
+        "output_alpha_exact_in_WebP_roundtrip": null,
+        "extra_alpha_threshold_or_cleanup": false
+      },
+      "rgb_codec_MAE_over_visible_pixels": 6.002611803519062,
+      "upscale": false,
+      "color_filter": false,
+      "crop": false,
+      "native_original_changed": false
+    },
+    {
+      "id": "ATLAS-BOOK-OPEN",
+      "resource_name": "ggf_atlas_book_open",
+      "source_png": "design/illustrations/exports/2026-11-06/GGF-ATLAS-BOOK-OPEN-U03-v1.png",
+      "source_sha256": "b5f764f4ddf48febe7172e21dddc87cc52b8edbca828ef40838e670d42fd36e4",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "source_mode": "RGBA",
+      "source_bytes": 1125203,
+      "app_webp": "feature/atlas/src/main/res/drawable-nodpi/ggf_atlas_book_open.webp",
+      "app_sha256": "f8f8fa804b9b4573c27550b6cc51a7abe75c1a57e557d795a2f1a6027d4baa61",
+      "app_size": [
+        512,
+        512
+      ],
+      "app_mode": "RGBA",
+      "app_bytes": 42336,
+      "downsampled": true,
+      "resize_filter": "LANCZOS, aspect-ratio preserved within integer rounding",
+      "codec": "WebP RGB quality92; lossless alpha quality100",
+      "alpha": {
+        "output_alpha_exact_in_WebP_roundtrip": true,
+        "resized_alpha_nonzero_pixels": 112711,
+        "resized_alpha_1_to_15_pixels": 9802,
+        "extra_alpha_threshold_or_cleanup": false
+      },
+      "rgb_codec_MAE_over_visible_pixels": 2.411369915815591,
+      "upscale": false,
+      "color_filter": false,
+      "crop": false,
+      "native_original_changed": false
+    },
+    {
+      "id": "REGION-GWANGJU",
+      "resource_name": "ggf_atlas_region_gwangju",
+      "source_png": "design/illustrations/exports/2026-11-06/GGF-ATLAS-REGION-GWANGJU-U03-v1.png",
+      "source_sha256": "f6c51616355f5af10ff241f4ddfd4c7c5125a5c7c4d2319a836f469127790cab",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "source_mode": "RGB",
+      "source_bytes": 3189800,
+      "app_webp": "feature/atlas/src/main/res/drawable-nodpi/ggf_atlas_region_gwangju.webp",
+      "app_sha256": "f5cb21975702d680c20842ababc2ee974c9ee88b5d963aa736a19b52e222f4e0",
+      "app_size": [
+        512,
+        341
+      ],
+      "app_mode": "RGB",
+      "app_bytes": 86674,
+      "downsampled": true,
+      "resize_filter": "LANCZOS, aspect-ratio preserved within integer rounding",
+      "codec": "WebP RGB quality92; lossless alpha quality100",
+      "alpha": {
+        "output_alpha_exact_in_WebP_roundtrip": null,
+        "extra_alpha_threshold_or_cleanup": false
+      },
+      "rgb_codec_MAE_over_visible_pixels": 5.136449550953079,
+      "upscale": false,
+      "color_filter": false,
+      "crop": false,
+      "native_original_changed": false
+    },
+    {
+      "id": "REGION-GYEONGBUK",
+      "resource_name": "ggf_atlas_region_gyeongbuk",
+      "source_png": "design/illustrations/exports/2026-11-06/GGF-ATLAS-REGION-GYEONGBUK-U03-v1.png",
+      "source_sha256": "2a3de401c26b510317a27d9b429245f2a199df90be3d905c3a3c7415d770ae72",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "source_mode": "RGB",
+      "source_bytes": 2701205,
+      "app_webp": "feature/atlas/src/main/res/drawable-nodpi/ggf_atlas_region_gyeongbuk.webp",
+      "app_sha256": "a2e6429dd480e085123f68ea5ec2d813270652aadd283ebf71a9bbe5b2fc3261",
+      "app_size": [
+        512,
+        341
+      ],
+      "app_mode": "RGB",
+      "app_bytes": 61698,
+      "downsampled": true,
+      "resize_filter": "LANCZOS, aspect-ratio preserved within integer rounding",
+      "codec": "WebP RGB quality92; lossless alpha quality100",
+      "alpha": {
+        "output_alpha_exact_in_WebP_roundtrip": null,
+        "extra_alpha_threshold_or_cleanup": false
+      },
+      "rgb_codec_MAE_over_visible_pixels": 3.6587911626344085,
+      "upscale": false,
+      "color_filter": false,
+      "crop": false,
+      "native_original_changed": false
+    },
+    {
+      "id": "REGION-DAEJEON",
+      "resource_name": "ggf_atlas_region_daejeon",
+      "source_png": "design/illustrations/exports/2026-11-06/GGF-ATLAS-REGION-DAEJEON-U03-v1.png",
+      "source_sha256": "cace817a627ab85298f66d72fcd75cee4bfd37e568df24f771a9ed34b6e3d8d3",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "source_mode": "RGB",
+      "source_bytes": 2498244,
+      "app_webp": "feature/atlas/src/main/res/drawable-nodpi/ggf_atlas_region_daejeon.webp",
+      "app_sha256": "36f7b3e33ba2267cd0738c3c086fc473812883a3bdba80c9b53306c324eda8a8",
+      "app_size": [
+        512,
+        341
+      ],
+      "app_mode": "RGB",
+      "app_bytes": 72662,
+      "downsampled": true,
+      "resize_filter": "LANCZOS, aspect-ratio preserved within integer rounding",
+      "codec": "WebP RGB quality92; lossless alpha quality100",
+      "alpha": {
+        "output_alpha_exact_in_WebP_roundtrip": null,
+        "extra_alpha_threshold_or_cleanup": false
+      },
+      "rgb_codec_MAE_over_visible_pixels": 5.342915673875855,
+      "upscale": false,
+      "color_filter": false,
+      "crop": false,
+      "native_original_changed": false
+    },
+    {
+      "id": "ATLAS-EMPTY",
+      "resource_name": "ggf_atlas_empty",
+      "source_png": "design/illustrations/exports/2026-11-06/GGF-ATLAS-EMPTY-U03-v1.png",
+      "source_sha256": "524bd8dbe739347b54a3634b03012492b5984605802781050f767ce4f7d31596",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "source_mode": "RGBA",
+      "source_bytes": 944647,
+      "app_webp": "feature/atlas/src/main/res/drawable-nodpi/ggf_atlas_empty.webp",
+      "app_sha256": "475cbd5e9ab423fb84903bce4beadf80ecf51fc45cd00441983cb8bebe3dfe98",
+      "app_size": [
+        512,
+        512
+      ],
+      "app_mode": "RGBA",
+      "app_bytes": 29688,
+      "downsampled": true,
+      "resize_filter": "LANCZOS, aspect-ratio preserved within integer rounding",
+      "codec": "WebP RGB quality92; lossless alpha quality100",
+      "alpha": {
+        "output_alpha_exact_in_WebP_roundtrip": true,
+        "resized_alpha_nonzero_pixels": 110945,
+        "resized_alpha_1_to_15_pixels": 10254,
+        "extra_alpha_threshold_or_cleanup": false
+      },
+      "rgb_codec_MAE_over_visible_pixels": 1.5296997745578056,
+      "upscale": false,
+      "color_filter": false,
+      "crop": false,
+      "native_original_changed": false
+    },
+    {
+      "id": "REGION-ULSAN",
+      "resource_name": "ggf_atlas_region_ulsan",
+      "source_png": "design/illustrations/exports/2026-11-06/GGF-ATLAS-REGION-ULSAN-U03-v1.png",
+      "source_sha256": "a024dcc813769b92f9f98f75a9d71018f5976ec247f2aa9bb0fee3f8447bf942",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "source_mode": "RGB",
+      "source_bytes": 2860357,
+      "app_webp": "feature/atlas/src/main/res/drawable-nodpi/ggf_atlas_region_ulsan.webp",
+      "app_sha256": "e0002fc20c4b66b95c32d50a00b898cb5314348d14aa06a0ed9bbb14a18ddb7e",
+      "app_size": [
+        512,
+        341
+      ],
+      "app_mode": "RGB",
+      "app_bytes": 77888,
+      "downsampled": true,
+      "resize_filter": "LANCZOS, aspect-ratio preserved within integer rounding",
+      "codec": "WebP RGB quality92; lossless alpha quality100",
+      "alpha": {
+        "output_alpha_exact_in_WebP_roundtrip": null,
+        "extra_alpha_threshold_or_cleanup": false
+      },
+      "rgb_codec_MAE_over_visible_pixels": 5.490261103983382,
+      "upscale": false,
+      "color_filter": false,
+      "crop": false,
+      "native_original_changed": false
+    },
+    {
+      "id": "REGION-GYEONGNAM",
+      "resource_name": "ggf_atlas_region_gyeongnam",
+      "source_png": "design/illustrations/exports/2026-11-06/GGF-ATLAS-REGION-GYEONGNAM-U03-v1.png",
+      "source_sha256": "066bfc329233a422bd85ba084df519195104dea95ee67cbe2332883d8addc332",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "source_mode": "RGB",
+      "source_bytes": 2352938,
+      "app_webp": "feature/atlas/src/main/res/drawable-nodpi/ggf_atlas_region_gyeongnam.webp",
+      "app_sha256": "a8d3805b3effcdb7446c7720c0bb25c406028a13712d9c27dcccea72b2b635b2",
+      "app_size": [
+        512,
+        341
+      ],
+      "app_mode": "RGB",
+      "app_bytes": 52768,
+      "downsampled": true,
+      "resize_filter": "LANCZOS, aspect-ratio preserved within integer rounding",
+      "codec": "WebP RGB quality92; lossless alpha quality100",
+      "alpha": {
+        "output_alpha_exact_in_WebP_roundtrip": null,
+        "extra_alpha_threshold_or_cleanup": false
+      },
+      "rgb_codec_MAE_over_visible_pixels": 3.19679977700391,
+      "upscale": false,
+      "color_filter": false,
+      "crop": false,
+      "native_original_changed": false
+    },
+    {
+      "id": "ATLAS-MYSTERY",
+      "resource_name": "ggf_atlas_mystery",
+      "source_png": "design/illustrations/exports/2026-11-06/GGF-ATLAS-MYSTERY-U03-v1.png",
+      "source_sha256": "b7d2871c763bccbf5eff0c83f8af347b02dcc3bcf2bc68c76cc1b51dfb4d0c18",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "source_mode": "RGBA",
+      "source_bytes": 995809,
+      "app_webp": "feature/atlas/src/main/res/drawable-nodpi/ggf_atlas_mystery.webp",
+      "app_sha256": "a1ddb1153a969b9bac84441605749c047b066d020986a4dcecb1350ff7624e99",
+      "app_size": [
+        512,
+        512
+      ],
+      "app_mode": "RGBA",
+      "app_bytes": 30722,
+      "downsampled": true,
+      "resize_filter": "LANCZOS, aspect-ratio preserved within integer rounding",
+      "codec": "WebP RGB quality92; lossless alpha quality100",
+      "alpha": {
+        "output_alpha_exact_in_WebP_roundtrip": true,
+        "resized_alpha_nonzero_pixels": 105943,
+        "resized_alpha_1_to_15_pixels": 3953,
+        "extra_alpha_threshold_or_cleanup": false
+      },
+      "rgb_codec_MAE_over_visible_pixels": 1.401310586005164,
+      "upscale": false,
+      "color_filter": false,
+      "crop": false,
+      "native_original_changed": false
+    },
+    {
+      "id": "REGION-SEJONG",
+      "resource_name": "ggf_atlas_region_sejong",
+      "source_png": "design/illustrations/exports/2026-11-06/GGF-ATLAS-REGION-SEJONG-U03-v1.png",
+      "source_sha256": "a975bb2a943da002f47cb0e64323d72396d282b8694dc55a40b982c103743dc7",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "source_mode": "RGB",
+      "source_bytes": 2510391,
+      "app_webp": "feature/atlas/src/main/res/drawable-nodpi/ggf_atlas_region_sejong.webp",
+      "app_sha256": "ccd22c4f4ce6a7d04a73c459f3e31ffeef2c82a4271a5ea5886953410909609a",
+      "app_size": [
+        512,
+        341
+      ],
+      "app_mode": "RGB",
+      "app_bytes": 67558,
+      "downsampled": true,
+      "resize_filter": "LANCZOS, aspect-ratio preserved within integer rounding",
+      "codec": "WebP RGB quality92; lossless alpha quality100",
+      "alpha": {
+        "output_alpha_exact_in_WebP_roundtrip": null,
+        "extra_alpha_threshold_or_cleanup": false
+      },
+      "rgb_codec_MAE_over_visible_pixels": 5.0640712823802545,
+      "upscale": false,
+      "color_filter": false,
+      "crop": false,
+      "native_original_changed": false
+    },
+    {
+      "id": "REGION-JEJU",
+      "resource_name": "ggf_atlas_region_jeju",
+      "source_png": "design/illustrations/exports/2026-11-06/GGF-ATLAS-REGION-JEJU-U03-v1.png",
+      "source_sha256": "24e53574d89a917ef40cc2c7968cad7c927e96b1299a5619ebcb9f36aa9ea1bc",
+      "source_size": [
+        1536,
+        1024
+      ],
+      "source_mode": "RGB",
+      "source_bytes": 2939527,
+      "app_webp": "feature/atlas/src/main/res/drawable-nodpi/ggf_atlas_region_jeju.webp",
+      "app_sha256": "feac0fe08daa204324014950af9a2456a10ed9f5a8493329e7ee3800c4fa24cf",
+      "app_size": [
+        512,
+        341
+      ],
+      "app_mode": "RGB",
+      "app_bytes": 74156,
+      "downsampled": true,
+      "resize_filter": "LANCZOS, aspect-ratio preserved within integer rounding",
+      "codec": "WebP RGB quality92; lossless alpha quality100",
+      "alpha": {
+        "output_alpha_exact_in_WebP_roundtrip": null,
+        "extra_alpha_threshold_or_cleanup": false
+      },
+      "rgb_codec_MAE_over_visible_pixels": 4.760353662634409,
+      "upscale": false,
+      "color_filter": false,
+      "crop": false,
+      "native_original_changed": false
+    },
+    {
+      "id": "ATLAS-REGION-COMPLETE",
+      "resource_name": "ggf_atlas_region_complete",
+      "source_png": "design/illustrations/exports/2026-11-06/GGF-ATLAS-REGION-COMPLETE-U03-v1.png",
+      "source_sha256": "713f095c8249bd7e1003a391c834b49313b1c29388cfebac61360e2a72157dcb",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "source_mode": "RGBA",
+      "source_bytes": 1059752,
+      "app_webp": "feature/atlas/src/main/res/drawable-nodpi/ggf_atlas_region_complete.webp",
+      "app_sha256": "ecdf21079409811c81795e45c12893e52c95c6adf7860a5420da8818765d3d90",
+      "app_size": [
+        512,
+        512
+      ],
+      "app_mode": "RGBA",
+      "app_bytes": 39914,
+      "downsampled": true,
+      "resize_filter": "LANCZOS, aspect-ratio preserved within integer rounding",
+      "codec": "WebP RGB quality92; lossless alpha quality100",
+      "alpha": {
+        "output_alpha_exact_in_WebP_roundtrip": true,
+        "resized_alpha_nonzero_pixels": 102410,
+        "resized_alpha_1_to_15_pixels": 4785,
+        "extra_alpha_threshold_or_cleanup": false
+      },
+      "rgb_codec_MAE_over_visible_pixels": 1.9057959880495092,
+      "upscale": false,
+      "color_filter": false,
+      "crop": false,
+      "native_original_changed": false
+    }
+  ]
+}

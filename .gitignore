@@ -1,0 +1,45 @@
+# Gradle files
+.gradle/
+build/
+.kotlin/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Log/OS Files
+*.log
+
+# Android Studio generated files and folders
+captures/
+.externalNativeBuild/
+.cxx/
+*.aab
+*.apk
+# 제출 규정은 apk/ 폴더지만 release APK가 약 147MB라 GitHub(파일당 100MB)에 못 올림 → GitHub Releases에 올린다.
+# 실수로 커밋하지 않게 apk/*.apk는 무시한다(2026-11-11 Mac 시험 빌드에서 발견).
+output-metadata.json
+
+# IntelliJ
+*.iml
+.idea/
+misc.xml
+deploymentTargetDropDown.xml
+render.experimental.xml
+
+# Keystore files
+*.jks
+*.keystore
+
+# Google Services (e.g. APIs or Firebase)
+google-services.json
+
+# Android Profiling
+*.hprof
+
+# Pleos 에뮬레이터 이미지는 라이선스상 재배포 금지: 저장소에 넣지 않는다
+system-images/
+*.avd/
+__pycache__/
+
+# 숲 BGM 원본 WAV(tools/media/make_bgm.py로 다시 만듦)
+design/audio/*.wav

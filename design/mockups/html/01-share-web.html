@@ -1,0 +1,166 @@
+<!doctype html><html lang="ko" data-theme="light"><head><meta charset="utf-8"><title>공유 링크를 받은 가족의 웹 화면</title>
+<style>@font-face{font-family:"Asta Sans";font-weight:400;src:url("../.font-cache/AstaSans-400.ttf") format("truetype"), local("Asta Sans");}
+@font-face{font-family:"Asta Sans";font-weight:600;src:url("../.font-cache/AstaSans-600.ttf") format("truetype"), local("Asta Sans");}
+@font-face{font-family:"Asta Sans";font-weight:700;src:url("../.font-cache/AstaSans-700.ttf") format("truetype"), local("Asta Sans");}
+@font-face{font-family:"Asta Sans";font-weight:800;src:url("../.font-cache/AstaSans-800.ttf") format("truetype"), local("Asta Sans");}
+:root{--paper:#F5FAF3;--card:#FFFFFF;--ink:#1D2A22;--ink2:#4B5C51;--line:#D3E2D4;--forest:#2B774A;--on-forest:#FFFFFF;--leaf:#6BB85A;--leaf-soft:#E3F3DC;--sky:#3F92D2;--sky-text:#2A6FA8;--sky-soft:#DDEEFB;--sun:#F0AE34;--sun-soft:#FFF0CC;--berry:#D25A49;--berry-text:#B0402F;--berry-soft:#FBE2DD;--demo:#7D5FD0;--on-demo:#FFFFFF;--scene-sky:#DCEFFC;--hill-back:#C3E5B4;--hill-front:#9DD08A;--road:#D8D4C8;--road-edge:#B9B4A6;--road-line:#FFFFFF;--trail:#2B774A;--flag-idle:#FFFFFF;--canvas:#E9EEEA;--canvas-ink:#1D2A22;--canvas-ink2:#4B5C51;--bezel:#1E2421;--drv:#E6EAE7;--drv-ink:#3E4A43;--map:#E9EEE6;--map-block:#DCE4DA;--map-road:#FFFFFF;--map-route:#4F86B8;--map-water:#CBE1EE;--map-park:#D2E6C9;--page-note:#FFFFFF;--font:"Asta Sans","NanumSquareRound","Noto Sans CJK KR",sans-serif;color-scheme:light;}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--canvas);color:var(--canvas-ink);font-family:var(--font);word-break:keep-all;-webkit-font-smoothing:antialiased;}
+.sheet{width:1920px;padding:40px 48px 44px;display:flex;flex-direction:column;gap:28px;}
+.sheet-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;}
+.sheet-head .eyebrow{margin:0 0 6px;font-size:20px;font-weight:700;color:var(--canvas-ink2);letter-spacing:.02em;}
+.sheet-head h1{margin:0;font-size:44px;line-height:1.2;font-weight:800;color:var(--forest);text-wrap:balance;}
+.chips{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end;}
+.chip{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:8px 18px;font-size:20px;font-weight:700;background:var(--card);color:var(--ink);border:2px solid var(--line);white-space:nowrap;}
+.chip.park{background:var(--leaf-soft);border-color:var(--leaf-soft);color:var(--ink);}
+.chip.drive{background:var(--sky-soft);border-color:var(--sky-soft);color:var(--ink);}
+.chip.plan{background:var(--sun-soft);border-color:var(--sun-soft);color:var(--ink);}
+.chip .dot{width:12px;height:12px;border-radius:50%;background:currentColor;}
+.chip.park .dot{background:var(--forest);} .chip.drive .dot{background:var(--sky-text);} .chip.plan .dot{background:var(--sun);}
+.sheet-body{display:flex;gap:40px;align-items:flex-start;}
+.notes{flex:1;min-width:0;display:flex;flex-direction:column;gap:18px;}
+.notes h2{margin:0;font-size:24px;font-weight:800;color:var(--canvas-ink);}
+.notes ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;}
+.notes li{font-size:19px;line-height:1.5;color:var(--canvas-ink);padding-left:22px;position:relative;}
+.notes li::before{content:"";position:absolute;left:4px;top:.62em;width:9px;height:9px;border-radius:50%;background:var(--forest);}
+.notes li b{font-weight:800;}
+.notes .where{font-size:17px;line-height:1.5;color:var(--canvas-ink2);border-top:2px solid var(--line);padding-top:14px;margin:0;}
+.mini{position:relative;overflow:hidden;border-radius:14px;border:3px solid var(--bezel);background:var(--paper);}
+.mini-in{position:absolute;left:0;top:0;width:600px;height:720px;transform-origin:0 0;}
+.mini-cap{margin:-8px 0 0;font-size:17px;line-height:1.45;color:var(--canvas-ink2);}
+/* 차 화면 */
+.carfig{margin:0;display:flex;flex-direction:column;gap:10px;}
+.car{display:flex;height:720px;border:16px solid var(--bezel);border-radius:28px;box-sizing:content-box;overflow:hidden;background:var(--bezel);}
+.drv{position:relative;background:var(--drv);color:var(--drv-ink);display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:28px 0 30px;border-right:3px solid var(--bezel);}
+.drv::after,.navi::after{content:"";position:absolute;inset:0;background:var(--paper);opacity:.55;}
+.drv-time{font-size:22px;font-weight:700;}
+.drv-gear{display:flex;gap:10px;font-size:26px;font-weight:800;}
+.drv-gear span{opacity:.45;} .drv-gear span.on{opacity:1;border-bottom:4px solid currentColor;}
+.drv-speed{display:flex;flex-direction:column;align-items:center;line-height:1;}
+.drv-speed b{font-size:96px;font-weight:800;font-variant-numeric:tabular-nums;}
+.drv-speed span{font-size:22px;font-weight:700;margin-top:8px;}
+.drv-lamps{display:flex;gap:12px;} .drv-lamps i{width:30px;height:30px;border-radius:9px;border:3px solid currentColor;opacity:.6;}
+.drv-range{font-size:20px;font-weight:700;}
+.navi{position:relative;border-right:3px solid var(--bezel);}
+.navi svg{display:block;}
+.navi-eta{position:absolute;left:24px;bottom:24px;background:var(--card);color:var(--ink);font-size:22px;font-weight:800;padding:12px 18px;border-radius:14px;}
+.app{background:var(--paper);color:var(--ink);position:relative;overflow:hidden;}
+.regions{display:flex;margin-left:16px;font-size:17px;font-weight:700;color:var(--canvas-ink2);}
+.regions span{padding:6px 8px 0 0;border-top:3px solid var(--canvas-ink2);}
+.regions span.ours{color:var(--forest);border-top-color:var(--forest);}
+/* 폰·태블릿 */
+.devfig{margin:0;display:flex;flex-direction:column;align-items:center;gap:12px;}
+.devfig figcaption{font-size:19px;font-weight:700;color:var(--canvas-ink2);}
+.phone{border:14px solid var(--bezel);border-radius:56px;overflow:hidden;background:var(--bezel);}
+.pscreen{background:var(--paper);color:var(--ink);display:flex;flex-direction:column;overflow:hidden;border-radius:42px;}
+.pstatus{height:44px;flex:none;display:flex;align-items:center;justify-content:space-between;padding:0 30px 0 34px;font-size:16px;font-weight:800;}
+.pst-r{display:flex;gap:5px;align-items:center;} .pst-r i{width:5px;height:12px;border-radius:2px;background:currentColor;} .pst-r i:first-child{height:8px;} .pst-r b{width:24px;height:12px;border-radius:4px;border:2px solid currentColor;margin-left:4px;}
+.pbar{height:44px;flex:none;margin:0 14px;border-radius:12px;background:var(--card);border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;gap:8px;font-size:15px;font-weight:700;color:var(--ink2);}
+.pbody{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;}
+.tablet{border:22px solid var(--bezel);border-radius:40px;overflow:hidden;background:var(--bezel);}
+.tscreen{background:var(--paper);color:var(--ink);overflow:hidden;border-radius:18px;display:flex;flex-direction:column;}
+/* 앱 안 공용 부품 */
+.ic{flex:none;display:block;}
+.panel{width:600px;height:720px;padding:24px;display:flex;flex-direction:column;gap:16px;background:var(--paper);color:var(--ink);}
+.row{display:flex;align-items:center;gap:16px;}
+.grow{flex:1;min-width:0;}
+.num{font-weight:800;color:var(--forest);line-height:1.04;font-variant-numeric:tabular-nums;white-space:nowrap;}
+.num small{font-size:.55em;}
+.kid{font-weight:800;line-height:1.35;color:var(--ink);}
+.sub{font-size:20px;line-height:1.5;color:var(--ink2);font-weight:600;}
+.small{font-size:17px;line-height:1.5;color:var(--ink2);font-weight:600;}
+.h2{font-size:30px;font-weight:800;line-height:1.3;margin:0;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:56px;padding:0 24px;border-radius:999px;font-size:21px;font-weight:800;border:2.5px solid var(--ink2);color:var(--ink);background:transparent;white-space:nowrap;}
+.btn.sm{min-height:48px;padding:0 18px;font-size:19px;}
+.btn.primary{background:var(--forest);border-color:var(--forest);color:var(--on-forest);}
+.btn.ghost{border-width:2px;}
+.btn.done{background:var(--leaf-soft);border-color:var(--forest);color:var(--ink);}
+.btn.off{opacity:.45;}
+.badge{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:5px 14px;font-size:17px;font-weight:800;white-space:nowrap;}
+.badge.example{background:var(--sun-soft);color:var(--ink);border:2px dashed var(--sun);}
+.badge.on{background:var(--leaf-soft);color:var(--ink);}
+.badge.offb{background:var(--card);color:var(--ink2);border:2px solid var(--line);}
+.badge.new{background:var(--berry-soft);color:var(--ink);}
+.card{background:var(--card);border:2px solid var(--line);border-radius:20px;}
+.note-line{display:flex;align-items:center;gap:10px;font-size:18px;line-height:1.45;color:var(--ink2);font-weight:600;}
+.warn{display:flex;align-items:center;gap:10px;background:var(--sun-soft);color:var(--ink);border-radius:14px;padding:10px 14px;font-size:17px;font-weight:800;line-height:1.35;}
+.drivechip{display:flex;align-items:center;gap:10px;background:var(--sky-soft);color:var(--ink);border-radius:14px;padding:12px 16px;font-size:22px;font-weight:800;}
+.roadbox{position:relative;flex:none;}
+.roadbox svg{display:block;}
+
+.sw-item{display:flex;flex-direction:column;align-items:center;gap:6px;font-size:17px;font-weight:700;color:var(--ink);min-width:64px;}
+.sw-dot{border-radius:50%;border:3px solid var(--line);display:grid;place-items:center;color:#1D2A22;}
+.sw-item.on .sw-dot{border-color:var(--forest);box-shadow:0 0 0 3px var(--paper),0 0 0 6px var(--forest);}
+.opt-label{font-size:20px;font-weight:800;color:var(--ink);min-width:92px;}
+.tile{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border:2.5px solid var(--line);border-radius:16px;background:var(--card);font-size:17px;font-weight:700;color:var(--ink);}
+.tile.on{border:3px solid var(--forest);background:var(--leaf-soft);}
+.tile.lock{opacity:.55;}
+.who{display:flex;align-items:center;gap:8px;border:2.5px solid var(--line);border-radius:999px;padding:4px 16px 4px 4px;font-size:19px;font-weight:800;background:var(--card);min-height:52px;}
+.who.on{border-color:var(--forest);background:var(--leaf-soft);}
+.who .av{width:42px;height:42px;border-radius:50%;background:var(--sky-soft);overflow:hidden;display:grid;place-items:center;}
+.dl{display:grid;grid-template-columns:104px 1fr;gap:10px 14px;padding:16px 18px;font-size:18px;line-height:1.45;}
+.dl dt{font-weight:800;color:var(--ink);} .dl dd{margin:0;color:var(--ink);font-weight:600;}
+.toggle{width:84px;height:48px;border-radius:999px;background:var(--line);position:relative;flex:none;border:2px solid var(--ink2);}
+.toggle::after{content:"";position:absolute;left:5px;top:5px;width:34px;height:34px;border-radius:50%;background:var(--card);border:2px solid var(--ink2);}
+.toggle.on{background:var(--forest);border-color:var(--forest);} .toggle.on::after{left:41px;border-color:var(--forest);}
+.consent{display:flex;align-items:center;gap:12px;padding:10px 12px 10px 18px;}
+.consent .what{flex:1;min-width:0;font-size:19px;font-weight:800;line-height:1.35;}
+.consent .what small{display:block;font-size:16px;font-weight:600;color:var(--ink2);}
+.step{display:flex;gap:12px;align-items:flex-start;font-size:19px;line-height:1.4;font-weight:700;}
+.step i{font-style:normal;flex:none;width:34px;height:34px;border-radius:50%;background:var(--leaf-soft);color:var(--ink);display:grid;place-items:center;font-weight:800;font-size:18px;}
+.code{font-size:34px;font-weight:800;letter-spacing:.08em;font-variant-numeric:tabular-nums;color:var(--ink);}
+.list-row{display:flex;align-items:center;gap:12px;padding:11px 0;border-top:2px solid var(--line);font-size:18px;font-weight:700;}
+.list-row:first-child{border-top:0;}
+.list-row .pts{margin-left:auto;font-variant-numeric:tabular-nums;font-weight:800;}
+.bar{height:16px;border-radius:999px;background:var(--leaf-soft);overflow:hidden;} .bar i{display:block;height:100%;background:var(--forest);border-radius:999px;}
+.stk{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;border-radius:18px;background:var(--card);border:2.5px solid var(--line);position:relative;font-size:18px;font-weight:800;}
+.stk.q{border-style:dashed;border-color:var(--ink2);background:transparent;color:var(--ink2);}
+.stk.q b{font-size:52px;line-height:1;color:var(--ink2);}
+.stk .badge{position:absolute;top:8px;left:8px;font-size:15px;padding:3px 10px;}
+.tabs{display:flex;gap:10px;}
+.tab{min-height:48px;padding:0 20px;border-radius:999px;display:inline-flex;align-items:center;font-size:19px;font-weight:800;border:2.5px solid var(--line);color:var(--ink);}
+.tab.on{background:var(--forest);border-color:var(--forest);color:var(--on-forest);}
+.sw{display:flex;flex-direction:column;gap:14px;padding:12px 20px 18px;}
+.sw-brand{display:flex;align-items:center;gap:8px;font-size:16px;font-weight:800;color:var(--ink2);}
+.webtabs{margin-top:auto;display:grid;grid-template-columns:repeat(4,1fr);border-top:2px solid var(--line);background:var(--card);flex:none;}
+.webtabs span{display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 0 16px;font-size:14px;font-weight:800;color:var(--ink2);}
+.webtabs span.on{color:var(--forest);}
+.pending{display:flex;gap:12px;align-items:center;background:var(--sky-soft);border-radius:16px;padding:12px 14px;font-size:16px;font-weight:700;line-height:1.4;color:var(--ink);}
+.pending b{display:block;font-size:17px;font-weight:800;}
+.lmcard{display:flex;flex-direction:column;gap:14px;padding:20px;}
+</style></head><body><div class="sheet">
+<header class="sheet-head"><div><p class="eyebrow">같이가숲 화면 시안 · 11/15 기획서용</p><h1>공유 링크를 받은 가족의 웹 화면</h1></div><div class="chips"><span class="chip plan"><span class="dot"></span>PT 단계 구현</span><span class="chip park"><span class="dot"></span>폰 웹 · 앱 설치 없음</span></div></header>
+<div class="sheet-body"><div style="display:flex;gap:30px"><figure class="devfig"><div class="phone"><div class="pscreen" style="width:390px;height:844px">
+<div class="pstatus"><span>11:12</span><span class="pst-r"><i></i><i></i><b></b></span></div>
+<div class="pbar"><svg class="ic " viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M6 11h12v9H6z M8.5 11V8a3.5 3.5 0 0 1 7 0v3" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>같이가숲 · 공유 보기</span></div>
+<div class="pbody"><div class="sw"><div class="sw-brand"><img src="assets/plant_sprout-light.svg" height="26" alt="" style="display:block;height:26px;width:auto" >같이가숲 · 기다리는 가족 보기</div>
+<h2 class="h2" style="font-size:27px">하늘이네 차가 오고 있어요</h2>
+<div class="row" style="gap:14px;align-items:flex-end"><div class="num" style="font-size:78px">62<small>%</small></div><div style="padding-bottom:10px"><div style="font-size:23px;font-weight:800">약 48분 남았어요</div><div class="small">2분 전 소식</div></div></div>
+<div class="roadbox" style="height:100px"><svg class="roadsvg" viewBox="0 0 350 100" width="350" height="100" aria-hidden="true"><g fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="7.0,80.0 34.6,80.0 38.6,80.0 42.5,80.0 46.5,80.0 50.4,80.0 54.4,80.0 58.3,80.0 62.3,80.0 66.3,80.0 70.2,80.0 74.2,80.0 78.1,80.0 82.1,80.0 86.0,80.0 90.0,80.0 93.9,80.0 97.9,80.0 101.8,80.0 105.8,80.0 109.8,80.0 113.7,80.0 117.7,80.0 121.6,80.0 125.6,80.0 129.5,80.0 133.5,80.0 137.4,80.0 141.4,80.0 145.3,80.0 149.3,80.0 153.2,80.0 157.2,80.0 161.2,80.0 165.1,80.0 169.1,80.0 173.0,80.0 177.0,80.0 180.9,80.0 184.9,80.0 188.8,80.0 192.8,80.0 196.7,80.0 200.7,80.0 204.7,80.0 208.6,80.0 212.6,80.0 216.5,80.0 220.5,80.0 224.4,80.0 228.4,80.0 232.3,80.0 236.3,80.0 240.2,80.0 244.2,80.0 248.1,80.0 252.1,80.0 256.1,80.0 260.0,80.0 264.0,80.0 267.9,80.0 271.9,80.0 275.8,80.0 320.0,80.0" stroke="#B9B4A6" stroke-width="15.0"/><polyline points="7.0,80.0 34.6,80.0 38.6,80.0 42.5,80.0 46.5,80.0 50.4,80.0 54.4,80.0 58.3,80.0 62.3,80.0 66.3,80.0 70.2,80.0 74.2,80.0 78.1,80.0 82.1,80.0 86.0,80.0 90.0,80.0 93.9,80.0 97.9,80.0 101.8,80.0 105.8,80.0 109.8,80.0 113.7,80.0 117.7,80.0 121.6,80.0 125.6,80.0 129.5,80.0 133.5,80.0 137.4,80.0 141.4,80.0 145.3,80.0 149.3,80.0 153.2,80.0 157.2,80.0 161.2,80.0 165.1,80.0 169.1,80.0 173.0,80.0 177.0,80.0 180.9,80.0 184.9,80.0 188.8,80.0 192.8,80.0 196.7,80.0 200.7,80.0 204.7,80.0 208.6,80.0 212.6,80.0 216.5,80.0 220.5,80.0 224.4,80.0 228.4,80.0 232.3,80.0 236.3,80.0 240.2,80.0 244.2,80.0 248.1,80.0 252.1,80.0 256.1,80.0 260.0,80.0 264.0,80.0 267.9,80.0 271.9,80.0 275.8,80.0 320.0,80.0" stroke="#D8D4C8" stroke-width="12.0"/><polyline points="184.2,80.0 188.2,80.0 192.1,80.0 196.1,80.0 200.1,80.0 204.1,80.0 208.1,80.0 212.1,80.0 216.1,80.0 220.0,80.0 224.0,80.0 228.0,80.0 232.0,80.0 236.0,80.0 240.0,80.0 243.9,80.0 247.9,80.0 251.9,80.0 255.9,80.0 259.9,80.0 263.9,80.0 267.9,80.0 271.8,80.0 275.8,80.0 320.0,80.0" stroke="#FFFFFF" stroke-width="2.0" stroke-dasharray="6.6 9.0"/><polyline points="7.0,80.0 34.6,80.0 38.6,80.0 42.5,80.0 46.4,80.0 50.4,80.0 54.3,80.0 58.2,80.0 62.2,80.0 66.1,80.0 70.0,80.0 74.0,80.0 77.9,80.0 81.8,80.0 85.8,80.0 89.7,80.0 93.7,80.0 97.6,80.0 101.5,80.0 105.5,80.0 109.4,80.0 113.3,80.0 117.3,80.0 121.2,80.0 125.1,80.0 129.1,80.0 133.0,80.0 136.9,80.0 140.9,80.0 144.8,80.0 148.7,80.0 152.7,80.0 156.6,80.0 160.6,80.0 164.5,80.0 168.4,80.0 172.4,80.0 176.3,80.0 180.2,80.0 184.2,80.0" stroke="#2B774A" stroke-width="5.0"/></g><circle cx="7.0" cy="80.0" r="5.0" fill="#2B774A"/><image href="assets/house-light.svg" x="295.4" y="34.3" width="54.6" height="50.4"/><image href="assets/flag-light.svg" x="50.2" y="45.1" width="18.9" height="30.0"/><image href="assets/flag-light.svg" x="74.3" y="45.1" width="18.9" height="30.0"/><image href="assets/flag-light.svg" x="98.4" y="45.1" width="18.9" height="30.0"/><image href="assets/flag-light.svg" x="122.5" y="45.1" width="18.9" height="30.0"/><image href="assets/flag-light.svg" x="146.7" y="45.1" width="18.9" height="30.0"/><image href="assets/flag-light.svg" x="170.8" y="45.1" width="18.9" height="30.0"/><image href="assets/flag-light-flagClothFFFFFF.svg" x="194.9" y="45.1" width="18.9" height="30.0"/><image href="assets/flag-light-flagClothFFFFFF.svg" x="219.0" y="45.1" width="18.9" height="30.0"/><image href="assets/flag-light-flagClothFFFFFF.svg" x="243.1" y="45.1" width="18.9" height="30.0"/><image href="assets/car_stage50-light.svg" x="151.5" y="28.2" width="65.2" height="56.0"/></svg></div><div class="card" style="padding:16px;display:flex;flex-direction:column;gap:12px">
+<div class="row" style="gap:8px"><svg class="ic " viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M3 3l18 18 M10.6 6.2A9.8 9.8 0 0 1 12 6c5 0 9 6 9 6a15.8 15.8 0 0 1-3 3.6 M6.4 7.6A15 15 0 0 0 3 12s4 6 9 6a9 9 0 0 0 4-.9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><b style="font-size:19px">대략적인 위치는 꺼져 있어요</b></div>
+<div class="note-line" style="color:var(--ink);align-items:flex-start"><svg class="ic " viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>보이는 것</b><br>진행률, 남은 시간</span></div>
+<div class="note-line" style="color:var(--ink);align-items:flex-start"><svg class="ic " viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>보내지 않는 것</b><br>위치, 지나온 길, 아이 정보</span></div>
+<div class="small">보호자가 주차 중에 켜면 약 5km 칸으로만 보여요.</div></div><div class="card" style="padding:14px 16px;display:flex;gap:12px;align-items:flex-start"><svg class="ic " viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0.01 0z M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><div><div style="font-size:18px;font-weight:800;line-height:1.4">도착하면 이 링크는 저절로 닫혀요</div><div class="small">늦어도 내일 오전 9:00 만료 · 보호자가 언제든 멈출 수 있어요</div></div></div></div></div>
+</div></div><figcaption>기본: 진행률과 남은 시간만</figcaption></figure><figure class="devfig"><div class="phone"><div class="pscreen" style="width:390px;height:844px">
+<div class="pstatus"><span>11:12</span><span class="pst-r"><i></i><i></i><b></b></span></div>
+<div class="pbar"><svg class="ic " viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M6 11h12v9H6z M8.5 11V8a3.5 3.5 0 0 1 7 0v3" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>같이가숲 · 공유 보기</span></div>
+<div class="pbody"><div class="sw"><div class="sw-brand"><img src="assets/plant_sprout-light.svg" height="26" alt="" style="display:block;height:26px;width:auto" >같이가숲 · 기다리는 가족 보기</div>
+<h2 class="h2" style="font-size:27px">하늘이네 차가 오고 있어요</h2>
+<div class="row" style="gap:14px;align-items:flex-end"><div class="num" style="font-size:78px">62<small>%</small></div><div style="padding-bottom:10px"><div style="font-size:23px;font-weight:800">약 48분 남았어요</div><div class="small">2분 전 소식</div></div></div>
+<div class="roadbox" style="height:100px"><svg class="roadsvg" viewBox="0 0 350 100" width="350" height="100" aria-hidden="true"><g fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="7.0,80.0 34.6,80.0 38.6,80.0 42.5,80.0 46.5,80.0 50.4,80.0 54.4,80.0 58.3,80.0 62.3,80.0 66.3,80.0 70.2,80.0 74.2,80.0 78.1,80.0 82.1,80.0 86.0,80.0 90.0,80.0 93.9,80.0 97.9,80.0 101.8,80.0 105.8,80.0 109.8,80.0 113.7,80.0 117.7,80.0 121.6,80.0 125.6,80.0 129.5,80.0 133.5,80.0 137.4,80.0 141.4,80.0 145.3,80.0 149.3,80.0 153.2,80.0 157.2,80.0 161.2,80.0 165.1,80.0 169.1,80.0 173.0,80.0 177.0,80.0 180.9,80.0 184.9,80.0 188.8,80.0 192.8,80.0 196.7,80.0 200.7,80.0 204.7,80.0 208.6,80.0 212.6,80.0 216.5,80.0 220.5,80.0 224.4,80.0 228.4,80.0 232.3,80.0 236.3,80.0 240.2,80.0 244.2,80.0 248.1,80.0 252.1,80.0 256.1,80.0 260.0,80.0 264.0,80.0 267.9,80.0 271.9,80.0 275.8,80.0 320.0,80.0" stroke="#B9B4A6" stroke-width="15.0"/><polyline points="7.0,80.0 34.6,80.0 38.6,80.0 42.5,80.0 46.5,80.0 50.4,80.0 54.4,80.0 58.3,80.0 62.3,80.0 66.3,80.0 70.2,80.0 74.2,80.0 78.1,80.0 82.1,80.0 86.0,80.0 90.0,80.0 93.9,80.0 97.9,80.0 101.8,80.0 105.8,80.0 109.8,80.0 113.7,80.0 117.7,80.0 121.6,80.0 125.6,80.0 129.5,80.0 133.5,80.0 137.4,80.0 141.4,80.0 145.3,80.0 149.3,80.0 153.2,80.0 157.2,80.0 161.2,80.0 165.1,80.0 169.1,80.0 173.0,80.0 177.0,80.0 180.9,80.0 184.9,80.0 188.8,80.0 192.8,80.0 196.7,80.0 200.7,80.0 204.7,80.0 208.6,80.0 212.6,80.0 216.5,80.0 220.5,80.0 224.4,80.0 228.4,80.0 232.3,80.0 236.3,80.0 240.2,80.0 244.2,80.0 248.1,80.0 252.1,80.0 256.1,80.0 260.0,80.0 264.0,80.0 267.9,80.0 271.9,80.0 275.8,80.0 320.0,80.0" stroke="#D8D4C8" stroke-width="12.0"/><polyline points="184.2,80.0 188.2,80.0 192.1,80.0 196.1,80.0 200.1,80.0 204.1,80.0 208.1,80.0 212.1,80.0 216.1,80.0 220.0,80.0 224.0,80.0 228.0,80.0 232.0,80.0 236.0,80.0 240.0,80.0 243.9,80.0 247.9,80.0 251.9,80.0 255.9,80.0 259.9,80.0 263.9,80.0 267.9,80.0 271.8,80.0 275.8,80.0 320.0,80.0" stroke="#FFFFFF" stroke-width="2.0" stroke-dasharray="6.6 9.0"/><polyline points="7.0,80.0 34.6,80.0 38.6,80.0 42.5,80.0 46.4,80.0 50.4,80.0 54.3,80.0 58.2,80.0 62.2,80.0 66.1,80.0 70.0,80.0 74.0,80.0 77.9,80.0 81.8,80.0 85.8,80.0 89.7,80.0 93.7,80.0 97.6,80.0 101.5,80.0 105.5,80.0 109.4,80.0 113.3,80.0 117.3,80.0 121.2,80.0 125.1,80.0 129.1,80.0 133.0,80.0 136.9,80.0 140.9,80.0 144.8,80.0 148.7,80.0 152.7,80.0 156.6,80.0 160.6,80.0 164.5,80.0 168.4,80.0 172.4,80.0 176.3,80.0 180.2,80.0 184.2,80.0" stroke="#2B774A" stroke-width="5.0"/></g><circle cx="7.0" cy="80.0" r="5.0" fill="#2B774A"/><image href="assets/house-light.svg" x="295.4" y="34.3" width="54.6" height="50.4"/><image href="assets/flag-light.svg" x="50.2" y="45.1" width="18.9" height="30.0"/><image href="assets/flag-light.svg" x="74.3" y="45.1" width="18.9" height="30.0"/><image href="assets/flag-light.svg" x="98.4" y="45.1" width="18.9" height="30.0"/><image href="assets/flag-light.svg" x="122.5" y="45.1" width="18.9" height="30.0"/><image href="assets/flag-light.svg" x="146.7" y="45.1" width="18.9" height="30.0"/><image href="assets/flag-light.svg" x="170.8" y="45.1" width="18.9" height="30.0"/><image href="assets/flag-light-flagClothFFFFFF.svg" x="194.9" y="45.1" width="18.9" height="30.0"/><image href="assets/flag-light-flagClothFFFFFF.svg" x="219.0" y="45.1" width="18.9" height="30.0"/><image href="assets/flag-light-flagClothFFFFFF.svg" x="243.1" y="45.1" width="18.9" height="30.0"/><image href="assets/car_stage50-light.svg" x="151.5" y="28.2" width="65.2" height="56.0"/></svg></div><div class="card" style="padding:14px 16px;display:flex;flex-direction:column;gap:10px">
+<div class="row" style="gap:8px"><svg class="ic " viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 21s-6-6.2-6-11a6 6 0 0 1 12 0c0 4.8-6 11-6 11z M12 8a2 2 0 1 0 0.01 0z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><b style="font-size:19px">대략적인 위치</b><span class="grow"></span><span class="badge on">켜짐</span></div>
+<svg viewBox="0 0 306 150" width="306" height="150" aria-hidden="true" style="display:block;border-radius:14px"><rect width="306" height="150" fill="#E9EEE6"/><path d="M0 93 C 91.8 75, 168.3 129, 306 105 L 306 122.99999999999999 C 168.3 147, 91.8 93, 0 111 Z" fill="#CBE1EE"/><path d="M24.48 150 C 91.8 82.5, 183.6 75, 281.52000000000004 0" stroke="#FFFFFF" stroke-width="10" fill="none" stroke-linecap="round"/><path d="M0 37.5 L 306 52.5" stroke="#FFFFFF" stroke-width="6" fill="none"/><path d="M3 0V150" stroke="#4B5C51" stroke-opacity=".35" stroke-width="1.5" stroke-dasharray="4 5"/><path d="M53 0V150" stroke="#4B5C51" stroke-opacity=".35" stroke-width="1.5" stroke-dasharray="4 5"/><path d="M103 0V150" stroke="#4B5C51" stroke-opacity=".35" stroke-width="1.5" stroke-dasharray="4 5"/><path d="M153 0V150" stroke="#4B5C51" stroke-opacity=".35" stroke-width="1.5" stroke-dasharray="4 5"/><path d="M203 0V150" stroke="#4B5C51" stroke-opacity=".35" stroke-width="1.5" stroke-dasharray="4 5"/><path d="M253 0V150" stroke="#4B5C51" stroke-opacity=".35" stroke-width="1.5" stroke-dasharray="4 5"/><path d="M303 0V150" stroke="#4B5C51" stroke-opacity=".35" stroke-width="1.5" stroke-dasharray="4 5"/><path d="M0 0H306" stroke="#4B5C51" stroke-opacity=".35" stroke-width="1.5" stroke-dasharray="4 5"/><path d="M0 50H306" stroke="#4B5C51" stroke-opacity=".35" stroke-width="1.5" stroke-dasharray="4 5"/><path d="M0 100H306" stroke="#4B5C51" stroke-opacity=".35" stroke-width="1.5" stroke-dasharray="4 5"/><rect x="153" y="50" width="50" height="50" fill="#2B774A" fill-opacity=".22" stroke="#2B774A" stroke-width="3.5"/><rect x="6" y="123" width="98" height="20" rx="10" fill="#FFFFFF"/><path d="M14 133h50" stroke="#1D2A22" stroke-width="3"/><path d="M14 129v8M64 129v8" stroke="#1D2A22" stroke-width="2.5"/><text x="98" y="137.5" font-size="12" font-weight="800" fill="#1D2A22" text-anchor="end">5km</text></svg>
+<div class="small" style="color:var(--ink)">초록 칸 안 어딘가에 있어요 (가로세로 약 5km)</div>
+<div class="small">정확한 위치와 지나온 길은 보내지 않아요</div></div><div class="card" style="padding:14px 16px;display:flex;gap:12px;align-items:flex-start"><svg class="ic " viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0.01 0z M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><div><div style="font-size:18px;font-weight:800;line-height:1.4">도착하면 이 링크는 저절로 닫혀요</div><div class="small">늦어도 내일 오전 9:00 만료 · 보호자가 언제든 멈출 수 있어요</div></div></div></div></div>
+</div></div><figcaption>보호자가 대략 위치를 켰을 때</figcaption></figure><figure class="devfig"><div class="phone"><div class="pscreen" style="width:390px;height:844px">
+<div class="pstatus"><span>11:12</span><span class="pst-r"><i></i><i></i><b></b></span></div>
+<div class="pbar"><svg class="ic " viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M6 11h12v9H6z M8.5 11V8a3.5 3.5 0 0 1 7 0v3" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>같이가숲 · 공유 보기</span></div>
+<div class="pbody"><div class="sw" style="height:100%"><div class="sw-brand"><img src="assets/plant_sprout-light.svg" height="26" alt="" style="display:block;height:26px;width:auto" >같이가숲 · 기다리는 가족 보기</div>
+<div style="display:flex;align-items:flex-end;justify-content:center;gap:4px;margin-top:26px"><img src="assets/guardian_a-light.svg" height="116" alt="" style="display:block;height:116px;width:auto" ><img src="assets/child-light.svg" height="92" alt="" style="display:block;height:92px;width:auto" ><img src="assets/guardian_b-light.svg" height="116" alt="" style="display:block;height:116px;width:auto" ><img src="assets/house-light.svg" height="100" alt="" style="display:block;height:100px;width:auto" style="margin-left:6px"></div>
+<h2 class="h2" style="font-size:28px;text-align:center;margin-top:8px">하늘이네가 도착했어요</h2>
+<p class="sub" style="margin:0;text-align:center">공유가 끝나서 서버에 있던<br>마지막 상태도 지웠어요.</p>
+<div class="card" style="padding:16px 18px;display:flex;gap:12px;align-items:center;margin-top:10px"><svg class="ic " viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path d="M6 11h12v9H6z M8.5 11V8a3.5 3.5 0 0 1 7 0v3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><div><div style="font-size:19px;font-weight:800">이 링크는 이제 열리지 않아요</div><div class="small">오후 1:00 도착 · 공유 끝</div></div></div>
+<div class="small" style="text-align:center">보호자가 공유를 멈췄을 때나 24시간이 지났을 때도 이렇게 보여요.</div>
+</div></div>
+</div></div><figcaption>도착·만료 뒤</figcaption></figure></div><aside class="notes"><h2>이 시안에서 볼 것</h2><ul><li>할머니처럼 기다리는 가족은 <b>링크만 열면</b> 진행률과 남은 시간을 봅니다. 앱을 깔지 않습니다.</li><li>대략 위치는 보호자가 주차 중에 켤 때만 보냅니다. 차 안에서 <b>약 5km 칸</b>으로 뭉갠 뒤 보내고, 주소로 바꾸지 않습니다.</li><li>공유 ID는 128비트 랜덤 읽기 전용입니다. <b>도착하면 바로, 늦어도 24시간 뒤</b> 닫히고 서버 기록을 지웁니다.</li><li>주소창 자리에는 화면 이름만 그렸습니다. 링크에 이름이나 위치 같은 개인정보를 넣지 않습니다.</li><li>지도 바탕은 시안용 그림입니다. 실제 지도 바탕은 PT 단계에서 정합니다.</li></ul><p class="where">기획서: 3-B 내 차량 위치 공유 · 4 사용 시나리오(할머니가 링크로 확인) · 7 참고자료</p></aside></div>
+</div></body></html>

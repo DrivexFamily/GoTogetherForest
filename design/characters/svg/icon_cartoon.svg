@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <title>아이콘 · 만화(편)</title>
+  <path data-role="limb" fill="none" stroke="#2B2622" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" d="M18,13L13,5M30,13L35,5"/>
+  <path data-role="wall" fill="#FFF0CC" stroke="#2B2622" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" d="M4.8,18Q4.8,13 9.8,13L37.8,13.2Q42.8,13.2 42.9,18.2L43.1,33.7Q43.1,38.7 38.1,38.7L9.7,38.8Q4.7,38.8 4.7,33.8Z"/>
+  <path data-role="screen" fill="#3F92D2" stroke="#2B2622" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round" d="M10.3,20.2Q10.3,17.2 13.3,17.2L34.7,17.2Q37.7,17.2 37.8,20.2L38.2,31.5Q38.3,34.5 35.3,34.4L13.2,34.3Q10.2,34.3 10.2,31.3Z"/>
+  <path data-role="shine" fill="#FFFFFF" d="M20.5,21.5L29.5,26L20.5,30.5Z"/>
+  <path data-role="limb" fill="none" stroke="#2B2622" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round" d="M14,39L12,44M34,39L36,44"/>
+</svg>

@@ -1,0 +1,1065 @@
+{
+  "schema_version": 1,
+  "request": "P1-R46-R47-R48",
+  "code_branch": "chatgpt/parked-illustration-motion",
+  "code_baseline_commit": "b42bf7edc119456e3f4ce1f70104f8dcc0bb24bf",
+  "path_convention": "All image paths are relative to the repository root. No local absolute paths are required.",
+  "source_review_manifest_artifact": "team/icon_sticker_artist/P1-assets-manifest.json",
+  "source_review_manifest_sha256": "aabf5db2f5af22786532c0aaf1d276ba9c8c0a2fe749c268e988adef8c2c65c0",
+  "source_review_manifest_finalized_at": "2026-11-07T05:25:48.907233+00:00",
+  "source_review_owner": "icon_sticker_artist",
+  "source_review_artifact_note": "Original review manifest artifact under ACTIVE-VISUAL-WORK; not assumed installed as an app resource.",
+  "rights_note": "프로젝트 생성 일러스트의 앱용 파생본. 별도 CC0 선언 없이 기존 출처·제작 기록을 유지한다.",
+  "count": 13,
+  "pending_root_final_refresh_ids": [],
+  "total_app_webp_bytes_at_snapshot": 1341114,
+  "all_app_dimensions_preserved": true,
+  "Android_compile_or_runtime_success_claimed": false,
+  "items": [
+    {
+      "id": "RABBIT-HOP",
+      "resource_name": "ggf_anim_rabbit_hop",
+      "source_png": {
+        "path": "design/illustrations/exports/2026-11-06/GGF-ANIM-RABBIT-HOP-R47-v1.png",
+        "sha256": "19311d94cccfc0d1944015743470d081021170496f993fd0d8c7a59214396c5e"
+      },
+      "native_png": {
+        "path": "design/illustrations/originals/2026-11-06/R45-R53-native-sheets/GGF-ANIM-RABBIT-HOP-R47-v1.png",
+        "sha256": "1aad0ec584986033405670a6f476bab9bbd99cf0ad5fa7c18b731f0a234f4a7b"
+      },
+      "app_webp": {
+        "path": "core/ui/src/main/res/drawable-nodpi/ggf_anim_rabbit_hop.webp",
+        "sha256": "3a643bca71b7de21674a6c3ee3dc27a6609a9c47a18a8f6eab11ddf4fbf0b08c",
+        "bytes": 83132,
+        "size": [
+          1536,
+          1024
+        ],
+        "mode": "RGBA"
+      },
+      "grid": [
+        3,
+        2
+      ],
+      "cell_size": [
+        512,
+        512
+      ],
+      "active_frame_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "playback_frame_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "final_frame": 0,
+      "duration_ms": 800,
+      "cycles": 1,
+      "codec": "WebP lossy RGB quality92 / lossless alpha quality100",
+      "encoder": {
+        "Pillow": "12.3.0",
+        "libwebp": "1.6.0",
+        "quality": 92,
+        "alpha_quality": 100,
+        "method": 6,
+        "exact_transparent_RGB_requested": true
+      },
+      "new_integer_translation": [
+        0,
+        0
+      ],
+      "additional_alpha_cleanup_pixels": 0,
+      "resizing_or_color_filter": false,
+      "alpha_roundtrip_identical_in_source_manifest": true,
+      "rgb_lossy_note": "Normal mandated lossyWebP encoding only; not acolorcorrection/filter. RGBexactnessnotclaimed.",
+      "snapshot_matches_source_manifest": {
+        "source_png_sha": true,
+        "native_png_sha": true,
+        "app_webp_sha": true
+      },
+      "status": "asset_qa_snapshot_android_integration_pending",
+      "root_final_refresh_required": false,
+      "status_note": "원본·사본·앱 파생본 SHA를 읽기 확인했다. Android Compose/실차 통합 검수 완료는 아니다.",
+      "body_height_note": null,
+      "anchor_note": "alpha bbox 하단은 발/지면이 아니다. 점프·날개·분리된 그림자 높이를 보존하며 추가 프레임별 발 정렬은 하지 않는다.",
+      "source_delivery_operations": [
+        "faint alpha<=15 cleared",
+        "for opaque subjects: semi-transparent exterior pixels below128 cleared beyond3px dense-silhouette envelope; glass/wings/water/effects exempt",
+        "exterior alpha<=32 cleared outside opaque-body bbox+8 (non-overlay)",
+        "isolated exterior components<4px removed (non-overlay)",
+        "integer translation only",
+        "transparent-canvas sheet assembly",
+        "unused cells cleared"
+      ]
+    },
+    {
+      "id": "RABBIT-IDLE",
+      "resource_name": "ggf_anim_rabbit_idle",
+      "source_png": {
+        "path": "design/illustrations/exports/2026-11-06/GGF-ANIM-RABBIT-IDLE-R47-v1.png",
+        "sha256": "322fe653ba3745238b8684a479b4ab32dcd6e03763bd504b6843c4288a41dc26"
+      },
+      "native_png": {
+        "path": "design/illustrations/originals/2026-11-06/R45-R53-native-sheets/GGF-ANIM-RABBIT-IDLE-R47-v1.png",
+        "sha256": "5a30e69f4984b60fa4a37554129ced5b8f42cec09a94a1c9f4fc57fb95a85c27"
+      },
+      "app_webp": {
+        "path": "core/ui/src/main/res/drawable-nodpi/ggf_anim_rabbit_idle.webp",
+        "sha256": "a9ab56f4fbfabed6dc10a1c13849b1acd59f25914abf87f2baf8a5ca03ecb9a4",
+        "bytes": 50540,
+        "size": [
+          1536,
+          1024
+        ],
+        "mode": "RGBA"
+      },
+      "grid": [
+        3,
+        2
+      ],
+      "cell_size": [
+        512,
+        512
+      ],
+      "active_frame_indices": [
+        0,
+        1
+      ],
+      "playback_frame_indices": [
+        0,
+        1,
+        0
+      ],
+      "final_frame": 0,
+      "duration_ms": 600,
+      "cycles": 1,
+      "codec": "WebP lossy RGB quality92 / lossless alpha quality100",
+      "encoder": {
+        "Pillow": "12.3.0",
+        "libwebp": "1.6.0",
+        "quality": 92,
+        "alpha_quality": 100,
+        "method": 6,
+        "exact_transparent_RGB_requested": true
+      },
+      "new_integer_translation": [
+        0,
+        0
+      ],
+      "additional_alpha_cleanup_pixels": 0,
+      "resizing_or_color_filter": false,
+      "alpha_roundtrip_identical_in_source_manifest": true,
+      "rgb_lossy_note": "Normal mandated lossyWebP encoding only; not acolorcorrection/filter. RGBexactnessnotclaimed.",
+      "snapshot_matches_source_manifest": {
+        "source_png_sha": true,
+        "native_png_sha": true,
+        "app_webp_sha": true
+      },
+      "status": "asset_qa_snapshot_android_integration_pending",
+      "root_final_refresh_required": false,
+      "status_note": "원본·사본·앱 파생본 SHA를 읽기 확인했다. Android Compose/실차 통합 검수 완료는 아니다.",
+      "body_height_note": null,
+      "anchor_note": "alpha bbox 하단은 발/지면이 아니다. 점프·날개·분리된 그림자 높이를 보존하며 추가 프레임별 발 정렬은 하지 않는다.",
+      "source_delivery_operations": [
+        "faint alpha<=15 cleared",
+        "for opaque subjects: semi-transparent exterior pixels below128 cleared beyond3px dense-silhouette envelope; glass/wings/water/effects exempt",
+        "exterior alpha<=32 cleared outside opaque-body bbox+8 (non-overlay)",
+        "isolated exterior components<4px removed (non-overlay)",
+        "integer translation only",
+        "transparent-canvas sheet assembly",
+        "unused cells cleared"
+      ]
+    },
+    {
+      "id": "SQUIRREL-HOP",
+      "resource_name": "ggf_anim_squirrel_hop",
+      "source_png": {
+        "path": "design/illustrations/exports/2026-11-06/GGF-ANIM-SQUIRREL-HOP-R47-v1.png",
+        "sha256": "c11a717d1e3a27544fd0e944a1a1fefdf038c971d847356058db44ba5f847863"
+      },
+      "native_png": {
+        "path": "design/illustrations/originals/2026-11-06/R45-R53-native-sheets/GGF-ANIM-SQUIRREL-HOP-R47-v1.png",
+        "sha256": "934464b8832084769083b3cf40396b68fb51239fab403b0e9497aa04ab54d7d5"
+      },
+      "app_webp": {
+        "path": "core/ui/src/main/res/drawable-nodpi/ggf_anim_squirrel_hop.webp",
+        "sha256": "a42049b5eea39707fbd7fadd3b7cd633e1844234b0b2adc083ba3944c344707a",
+        "bytes": 101496,
+        "size": [
+          1536,
+          1024
+        ],
+        "mode": "RGBA"
+      },
+      "grid": [
+        3,
+        2
+      ],
+      "cell_size": [
+        512,
+        512
+      ],
+      "active_frame_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "playback_frame_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "final_frame": 0,
+      "duration_ms": 800,
+      "cycles": 1,
+      "codec": "WebP lossy RGB quality92 / lossless alpha quality100",
+      "encoder": {
+        "Pillow": "12.3.0",
+        "libwebp": "1.6.0",
+        "quality": 92,
+        "alpha_quality": 100,
+        "method": 6,
+        "exact_transparent_RGB_requested": true
+      },
+      "new_integer_translation": [
+        0,
+        0
+      ],
+      "additional_alpha_cleanup_pixels": 0,
+      "resizing_or_color_filter": false,
+      "alpha_roundtrip_identical_in_source_manifest": true,
+      "rgb_lossy_note": "Normal mandated lossyWebP encoding only; not acolorcorrection/filter. RGBexactnessnotclaimed.",
+      "snapshot_matches_source_manifest": {
+        "source_png_sha": true,
+        "native_png_sha": true,
+        "app_webp_sha": true
+      },
+      "status": "asset_qa_snapshot_android_integration_pending",
+      "root_final_refresh_required": false,
+      "status_note": "원본·사본·앱 파생본 SHA를 읽기 확인했다. Android Compose/실차 통합 검수 완료는 아니다.",
+      "body_height_note": null,
+      "anchor_note": "alpha bbox 하단은 발/지면이 아니다. 점프·날개·분리된 그림자 높이를 보존하며 추가 프레임별 발 정렬은 하지 않는다.",
+      "source_delivery_operations": [
+        "faint alpha<=15 cleared",
+        "for opaque subjects: semi-transparent exterior pixels below128 cleared beyond3px dense-silhouette envelope; glass/wings/water/effects exempt",
+        "exterior alpha<=32 cleared outside opaque-body bbox+8 (non-overlay)",
+        "isolated exterior components<4px removed (non-overlay)",
+        "integer translation only",
+        "transparent-canvas sheet assembly",
+        "unused cells cleared"
+      ]
+    },
+    {
+      "id": "SQUIRREL-IDLE",
+      "resource_name": "ggf_anim_squirrel_idle",
+      "source_png": {
+        "path": "design/illustrations/exports/2026-11-06/GGF-ANIM-SQUIRREL-IDLE-R47-v1.png",
+        "sha256": "3d359aea90f57a2404b303824dd41cf8989e25f5766bdd36d740a23bfd7f80a9"
+      },
+      "native_png": {
+        "path": "design/illustrations/originals/2026-11-06/R45-R53-native-sheets/GGF-ANIM-SQUIRREL-IDLE-R47-v1.png",
+        "sha256": "048ab3eb4edafb048e3446377d0dff2e33f361d9054d02d4df3df76852c16fd6"
+      },
+      "app_webp": {
+        "path": "core/ui/src/main/res/drawable-nodpi/ggf_anim_squirrel_idle.webp",
+        "sha256": "cf94837aaa1c0b34b34d443cc0ed8d2a4764d4ca5a319f703b76d739c6b356f3",
+        "bytes": 59642,
+        "size": [
+          1536,
+          1024
+        ],
+        "mode": "RGBA"
+      },
+      "grid": [
+        3,
+        2
+      ],
+      "cell_size": [
+        512,
+        512
+      ],
+      "active_frame_indices": [
+        0,
+        1
+      ],
+      "playback_frame_indices": [
+        0,
+        1,
+        0
+      ],
+      "final_frame": 0,
+      "duration_ms": 600,
+      "cycles": 1,
+      "codec": "WebP lossy RGB quality92 / lossless alpha quality100",
+      "encoder": {
+        "Pillow": "12.3.0",
+        "libwebp": "1.6.0",
+        "quality": 92,
+        "alpha_quality": 100,
+        "method": 6,
+        "exact_transparent_RGB_requested": true
+      },
+      "new_integer_translation": [
+        0,
+        0
+      ],
+      "additional_alpha_cleanup_pixels": 0,
+      "resizing_or_color_filter": false,
+      "alpha_roundtrip_identical_in_source_manifest": true,
+      "rgb_lossy_note": "Normal mandated lossyWebP encoding only; not acolorcorrection/filter. RGBexactnessnotclaimed.",
+      "snapshot_matches_source_manifest": {
+        "source_png_sha": true,
+        "native_png_sha": true,
+        "app_webp_sha": true
+      },
+      "status": "asset_qa_snapshot_android_integration_pending",
+      "root_final_refresh_required": false,
+      "status_note": "원본·사본·앱 파생본 SHA를 읽기 확인했다. Android Compose/실차 통합 검수 완료는 아니다.",
+      "body_height_note": null,
+      "anchor_note": "alpha bbox 하단은 발/지면이 아니다. 점프·날개·분리된 그림자 높이를 보존하며 추가 프레임별 발 정렬은 하지 않는다.",
+      "source_delivery_operations": [
+        "faint alpha<=15 cleared",
+        "for opaque subjects: semi-transparent exterior pixels below128 cleared beyond3px dense-silhouette envelope; glass/wings/water/effects exempt",
+        "exterior alpha<=32 cleared outside opaque-body bbox+8 (non-overlay)",
+        "isolated exterior components<4px removed (non-overlay)",
+        "integer translation only",
+        "transparent-canvas sheet assembly",
+        "unused cells cleared"
+      ]
+    },
+    {
+      "id": "BLUEBIRD-FLY",
+      "resource_name": "ggf_anim_bluebird_fly",
+      "source_png": {
+        "path": "design/illustrations/exports/2026-11-06/GGF-ANIM-BLUEBIRD-FLY-R47-v1.png",
+        "sha256": "31193fc0b07e7968b9986dc06498cd65b2910fa1d3cc0949d528a64e3a30936f"
+      },
+      "native_png": {
+        "path": "design/illustrations/originals/2026-11-06/R45-R53-native-sheets/GGF-ANIM-BLUEBIRD-FLY-R47-v1.png",
+        "sha256": "4e70718102e3a4ee7627b447f303135ca0fdf2ceb41c11f13f5f519040f723d3"
+      },
+      "app_webp": {
+        "path": "core/ui/src/main/res/drawable-nodpi/ggf_anim_bluebird_fly.webp",
+        "sha256": "a9b787eaf38525505cee111f4bd9722095fecf1d833db3f24ca2c455702efdd3",
+        "bytes": 93990,
+        "size": [
+          1536,
+          1024
+        ],
+        "mode": "RGBA"
+      },
+      "grid": [
+        3,
+        2
+      ],
+      "cell_size": [
+        512,
+        512
+      ],
+      "active_frame_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "playback_frame_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "final_frame": 0,
+      "duration_ms": 800,
+      "cycles": 1,
+      "codec": "WebP lossy RGB quality92 / lossless alpha quality100",
+      "encoder": {
+        "Pillow": "12.3.0",
+        "libwebp": "1.6.0",
+        "quality": 92,
+        "alpha_quality": 100,
+        "method": 6,
+        "exact_transparent_RGB_requested": true
+      },
+      "new_integer_translation": [
+        0,
+        0
+      ],
+      "additional_alpha_cleanup_pixels": 0,
+      "resizing_or_color_filter": false,
+      "alpha_roundtrip_identical_in_source_manifest": true,
+      "rgb_lossy_note": "Normal mandated lossyWebP encoding only; not acolorcorrection/filter. RGBexactnessnotclaimed.",
+      "snapshot_matches_source_manifest": {
+        "source_png_sha": true,
+        "native_png_sha": true,
+        "app_webp_sha": true
+      },
+      "status": "asset_qa_snapshot_android_integration_pending",
+      "root_final_refresh_required": false,
+      "status_note": "원본·사본·앱 파생본 SHA를 읽기 확인했다. Android Compose/실차 통합 검수 완료는 아니다.",
+      "body_height_note": null,
+      "anchor_note": "alpha bbox 하단은 발/지면이 아니다. 점프·날개·분리된 그림자 높이를 보존하며 추가 프레임별 발 정렬은 하지 않는다.",
+      "source_delivery_operations": [
+        "faint alpha<=15 cleared",
+        "for opaque subjects: semi-transparent exterior pixels below128 cleared beyond3px dense-silhouette envelope; glass/wings/water/effects exempt",
+        "exterior alpha<=32 cleared outside opaque-body bbox+8 (non-overlay)",
+        "isolated exterior components<4px removed (non-overlay)",
+        "integer translation only",
+        "transparent-canvas sheet assembly",
+        "unused cells cleared"
+      ]
+    },
+    {
+      "id": "BLUEBIRD-IDLE",
+      "resource_name": "ggf_anim_bluebird_idle",
+      "source_png": {
+        "path": "design/illustrations/exports/2026-11-06/GGF-ANIM-BLUEBIRD-IDLE-R47-v1.png",
+        "sha256": "9dbf86e5e5b72ee6eb79c60a35108c47fb163f9f01d2f7e7d6cc12428d7fc52e"
+      },
+      "native_png": {
+        "path": "design/illustrations/originals/2026-11-06/R45-R53-native-sheets/GGF-ANIM-BLUEBIRD-IDLE-R47-v1.png",
+        "sha256": "ad12d9dab208159145f548aac583579739c63d8cf9b8ea1d0605c632a4e3e027"
+      },
+      "app_webp": {
+        "path": "core/ui/src/main/res/drawable-nodpi/ggf_anim_bluebird_idle.webp",
+        "sha256": "3db3cb835ba64e4959da698f2d553f3e318bcafdb79e417c8431eab511e9c12c",
+        "bytes": 52896,
+        "size": [
+          1536,
+          1024
+        ],
+        "mode": "RGBA"
+      },
+      "grid": [
+        3,
+        2
+      ],
+      "cell_size": [
+        512,
+        512
+      ],
+      "active_frame_indices": [
+        0,
+        1
+      ],
+      "playback_frame_indices": [
+        0,
+        1,
+        0
+      ],
+      "final_frame": 0,
+      "duration_ms": 600,
+      "cycles": 1,
+      "codec": "WebP lossy RGB quality92 / lossless alpha quality100",
+      "encoder": {
+        "Pillow": "12.3.0",
+        "libwebp": "1.6.0",
+        "quality": 92,
+        "alpha_quality": 100,
+        "method": 6,
+        "exact_transparent_RGB_requested": true
+      },
+      "new_integer_translation": [
+        0,
+        0
+      ],
+      "additional_alpha_cleanup_pixels": 0,
+      "resizing_or_color_filter": false,
+      "alpha_roundtrip_identical_in_source_manifest": true,
+      "rgb_lossy_note": "Normal mandated lossyWebP encoding only; not acolorcorrection/filter. RGBexactnessnotclaimed.",
+      "snapshot_matches_source_manifest": {
+        "source_png_sha": true,
+        "native_png_sha": true,
+        "app_webp_sha": true
+      },
+      "status": "asset_qa_snapshot_android_integration_pending",
+      "root_final_refresh_required": false,
+      "status_note": "원본·사본·앱 파생본 SHA를 읽기 확인했다. Android Compose/실차 통합 검수 완료는 아니다.",
+      "body_height_note": null,
+      "anchor_note": "alpha bbox 하단은 발/지면이 아니다. 점프·날개·분리된 그림자 높이를 보존하며 추가 프레임별 발 정렬은 하지 않는다.",
+      "source_delivery_operations": [
+        "faint alpha<=15 cleared",
+        "for opaque subjects: semi-transparent exterior pixels below128 cleared beyond3px dense-silhouette envelope; glass/wings/water/effects exempt",
+        "exterior alpha<=32 cleared outside opaque-body bbox+8 (non-overlay)",
+        "isolated exterior components<4px removed (non-overlay)",
+        "integer translation only",
+        "transparent-canvas sheet assembly",
+        "unused cells cleared"
+      ]
+    },
+    {
+      "id": "OAK-GROW",
+      "resource_name": "ggf_anim_tree_oak_grow",
+      "source_png": {
+        "path": "design/illustrations/exports/2026-11-06/GGF-GROW-OAK-R46-v1.png",
+        "sha256": "afbd260901b1063f04ad33d1bfad1e43c5382d0db9b2cea107f4a59048184390"
+      },
+      "native_png": {
+        "path": "design/illustrations/originals/2026-11-06/R45-R53-native-sheets/GGF-GROW-OAK-R46-v1.png",
+        "sha256": "3b78d1688e97c1e71e35efaa0be1e404e21ab408a001c9c05726da7d0ae3ac7d"
+      },
+      "app_webp": {
+        "path": "core/ui/src/main/res/drawable-nodpi/ggf_anim_tree_oak_grow.webp",
+        "sha256": "3d416336494c669a1609248d462f5e1a731187b0e9b18922a7b26a621bb15272",
+        "bytes": 66260,
+        "size": [
+          1536,
+          1024
+        ],
+        "mode": "RGBA"
+      },
+      "grid": [
+        4,
+        1
+      ],
+      "cell_size": [
+        384,
+        1024
+      ],
+      "active_frame_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "playback_frame_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "final_frame": 3,
+      "duration_ms": 1200,
+      "cycles": 1,
+      "codec": "WebP lossy RGB quality92 / lossless alpha quality100",
+      "encoder": {
+        "Pillow": "12.3.0",
+        "libwebp": "1.6.0",
+        "quality": 92,
+        "alpha_quality": 100,
+        "method": 6,
+        "exact_transparent_RGB_requested": true
+      },
+      "new_integer_translation": [
+        0,
+        0
+      ],
+      "additional_alpha_cleanup_pixels": 0,
+      "resizing_or_color_filter": false,
+      "alpha_roundtrip_identical_in_source_manifest": true,
+      "rgb_lossy_note": "Normal mandated lossyWebP encoding only; not acolorcorrection/filter. RGBexactnessnotclaimed.",
+      "snapshot_matches_source_manifest": {
+        "source_png_sha": true,
+        "native_png_sha": true,
+        "app_webp_sha": true
+      },
+      "status": "asset_qa_snapshot_android_integration_pending",
+      "root_final_refresh_required": false,
+      "status_note": "원본·사본·앱 파생본 SHA를 읽기 확인했다. Android Compose/실차 통합 검수 완료는 아니다.",
+      "body_height_note": null,
+      "anchor_note": "alpha bbox 하단은 발/지면이 아니다. 점프·날개·분리된 그림자 높이를 보존하며 추가 프레임별 발 정렬은 하지 않는다.",
+      "source_delivery_operations": [
+        "faint alpha<=15 cleared",
+        "for opaque subjects: semi-transparent exterior pixels below128 cleared beyond3px dense-silhouette envelope; glass/wings/water/effects exempt",
+        "exterior alpha<=32 cleared outside opaque-body bbox+8 (non-overlay)",
+        "isolated exterior components<4px removed (non-overlay)",
+        "integer translation only",
+        "transparent-canvas sheet assembly",
+        "unused cells cleared"
+      ]
+    },
+    {
+      "id": "DAD-WAVE",
+      "resource_name": "ggf_anim_dad_wave",
+      "source_png": {
+        "path": "design/illustrations/exports/2026-11-06/GGF-ANIM-DAD-WAVE-R48-v1.png",
+        "sha256": "b55a813cb72444871926632e6e0797b6082dcf5fc82bc990e3465ecb5ef4e686"
+      },
+      "native_png": {
+        "path": "design/illustrations/originals/2026-11-06/R45-R53-native-sheets/GGF-ANIM-DAD-WAVE-R48-v1.png",
+        "sha256": "012e21f65cd7b061a8c38d960bc6f2b8ebd7226b9e4db9197d4904a9995ae51f"
+      },
+      "app_webp": {
+        "path": "core/ui/src/main/res/drawable-nodpi/ggf_anim_dad_wave.webp",
+        "sha256": "9f7506d3685b5371c12c0086519e1433d04ad8ca7e662a1bba14956960ec0779",
+        "bytes": 103588,
+        "size": [
+          1536,
+          1024
+        ],
+        "mode": "RGBA"
+      },
+      "grid": [
+        3,
+        2
+      ],
+      "cell_size": [
+        512,
+        512
+      ],
+      "active_frame_indices": [
+        0,
+        1,
+        2
+      ],
+      "playback_frame_indices": [
+        0,
+        1,
+        2
+      ],
+      "final_frame": 0,
+      "duration_ms": 900,
+      "cycles": 1,
+      "codec": "WebP lossy RGB quality92 / lossless alpha quality100",
+      "encoder": {
+        "Pillow": "12.3.0",
+        "libwebp": "1.6.0",
+        "quality": 92,
+        "alpha_quality": 100,
+        "method": 6,
+        "exact_transparent_RGB_requested": true
+      },
+      "new_integer_translation": [
+        0,
+        0
+      ],
+      "additional_alpha_cleanup_pixels": 0,
+      "resizing_or_color_filter": false,
+      "alpha_roundtrip_identical_in_source_manifest": true,
+      "rgb_lossy_note": "Normal mandated lossyWebP encoding only; not acolorcorrection/filter. RGBexactnessnotclaimed.",
+      "snapshot_matches_source_manifest": {
+        "source_png_sha": true,
+        "native_png_sha": true,
+        "app_webp_sha": true
+      },
+      "status": "asset_qa_snapshot_android_integration_pending",
+      "root_final_refresh_required": false,
+      "status_note": "원본·사본·앱 파생본 SHA를 읽기 확인했다. Android Compose/실차 통합 검수 완료는 아니다.",
+      "body_height_note": null,
+      "anchor_note": "alpha bbox 하단은 발/지면이 아니다. 점프·날개·분리된 그림자 높이를 보존하며 추가 프레임별 발 정렬은 하지 않는다.",
+      "source_delivery_operations": [
+        "faint alpha<=15 cleared",
+        "for opaque subjects: semi-transparent exterior pixels below128 cleared beyond3px dense-silhouette envelope; glass/wings/water/effects exempt",
+        "exterior alpha<=32 cleared outside opaque-body bbox+8 (non-overlay)",
+        "isolated exterior components<4px removed (non-overlay)",
+        "integer translation only",
+        "transparent-canvas sheet assembly",
+        "unused cells cleared"
+      ]
+    },
+    {
+      "id": "DAD-JUMP",
+      "resource_name": "ggf_anim_dad_jump",
+      "source_png": {
+        "path": "design/illustrations/exports/2026-11-07/GGF-ANIM-DAD-JUMP-R48-v2.png",
+        "sha256": "0de082dbad32568206d86bb344e26a2b07203cb92587b07800ef4149bd435a04"
+      },
+      "native_png": {
+        "path": "design/illustrations/originals/2026-11-07/R48-native/GGF-ANIM-DAD-JUMP-R48-v2.png",
+        "sha256": "039a9d8fad207c6aa6fbe57e4573dbf97cabc67fc676602c630b73fd25b32a64"
+      },
+      "app_webp": {
+        "path": "core/ui/src/main/res/drawable-nodpi/ggf_anim_dad_jump.webp",
+        "sha256": "f6f00218b32267e4082c89396c1afcaf9d91fc5c4df076ce0fe5c0d5c22e9796",
+        "bytes": 128866,
+        "size": [
+          1536,
+          1024
+        ],
+        "mode": "RGBA"
+      },
+      "grid": [
+        3,
+        2
+      ],
+      "cell_size": [
+        512,
+        512
+      ],
+      "active_frame_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "playback_frame_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "final_frame": 3,
+      "duration_ms": 900,
+      "cycles": 1,
+      "codec": "WebP lossy RGB quality92 / lossless alpha quality100",
+      "encoder": {
+        "Pillow": "12.3.0",
+        "libwebp": "1.6.0",
+        "quality": 92,
+        "alpha_quality": 100,
+        "method": 6,
+        "exact_transparent_RGB_requested": true
+      },
+      "new_integer_translation": [
+        0,
+        0
+      ],
+      "additional_alpha_cleanup_pixels": 0,
+      "resizing_or_color_filter": false,
+      "alpha_roundtrip_identical_in_source_manifest": true,
+      "rgb_lossy_note": "Normal mandated lossyWebP encoding only; not acolorcorrection/filter. RGBexactnessnotclaimed.",
+      "snapshot_matches_source_manifest": {
+        "source_png_sha": true,
+        "native_png_sha": true,
+        "app_webp_sha": true
+      },
+      "status": "asset_qa_snapshot_android_integration_pending",
+      "root_final_refresh_required": false,
+      "status_note": "원본·사본·앱 파생본 SHA를 읽기 확인했다. Android Compose/실차 통합 검수 완료는 아니다.",
+      "body_height_note": "Newv2 head scale matches WAVE approximately; pose changes silhouetteheight. Allbodypixels retained, no code scaling.",
+      "anchor_note": "alpha bbox 하단은 발/지면이 아니다. 점프·날개·분리된 그림자 높이를 보존하며 추가 프레임별 발 정렬은 하지 않는다.",
+      "source_delivery_operations": [
+        "Authorized deliverycopy only; alpha1..15 components disconnected from any alpha>15 neighbor are cleared; attached antialiasing remains.",
+        "Wholeframe integertranslation aligns rounded shadowROI weightedcentroid to[256,460].",
+        "No resizing/scaling/colorfilter; no separate shadow/body moving; no nonzeroalphapixels clipped."
+      ],
+      "source_delivery_alignment_record": "core/ui/motion-docs/DAD-JUMP-v2-ALIGNMENT.json"
+    },
+    {
+      "id": "MOM-WAVE",
+      "resource_name": "ggf_anim_mom_wave",
+      "source_png": {
+        "path": "design/illustrations/exports/2026-11-06/GGF-ANIM-MOM-WAVE-R48-v1.png",
+        "sha256": "ed625211ce52a0b66d25c64bbf4bbef79fde54ec6da7238ff8e21ba065fce9fa"
+      },
+      "native_png": {
+        "path": "design/illustrations/originals/2026-11-06/R45-R53-native-sheets/GGF-ANIM-MOM-WAVE-R48-v1.png",
+        "sha256": "89542b937316b7989a67b816bfdc6537524ccd6b9ce80ee828fed8662a8d8d7e"
+      },
+      "app_webp": {
+        "path": "core/ui/src/main/res/drawable-nodpi/ggf_anim_mom_wave.webp",
+        "sha256": "d13bba549cc0a5d30e4f9887e477264c2feb1d6524df23e5cf22e807853414f0",
+        "bytes": 107104,
+        "size": [
+          1536,
+          1024
+        ],
+        "mode": "RGBA"
+      },
+      "grid": [
+        3,
+        2
+      ],
+      "cell_size": [
+        512,
+        512
+      ],
+      "active_frame_indices": [
+        0,
+        1,
+        2
+      ],
+      "playback_frame_indices": [
+        0,
+        1,
+        2
+      ],
+      "final_frame": 0,
+      "duration_ms": 900,
+      "cycles": 1,
+      "codec": "WebP lossy RGB quality92 / lossless alpha quality100",
+      "encoder": {
+        "Pillow": "12.3.0",
+        "libwebp": "1.6.0",
+        "quality": 92,
+        "alpha_quality": 100,
+        "method": 6,
+        "exact_transparent_RGB_requested": true
+      },
+      "new_integer_translation": [
+        0,
+        0
+      ],
+      "additional_alpha_cleanup_pixels": 0,
+      "resizing_or_color_filter": false,
+      "alpha_roundtrip_identical_in_source_manifest": true,
+      "rgb_lossy_note": "Normal mandated lossyWebP encoding only; not acolorcorrection/filter. RGBexactnessnotclaimed.",
+      "snapshot_matches_source_manifest": {
+        "source_png_sha": true,
+        "native_png_sha": true,
+        "app_webp_sha": true
+      },
+      "status": "asset_qa_snapshot_android_integration_pending",
+      "root_final_refresh_required": false,
+      "status_note": "원본·사본·앱 파생본 SHA를 읽기 확인했다. Android Compose/실차 통합 검수 완료는 아니다.",
+      "body_height_note": null,
+      "anchor_note": "alpha bbox 하단은 발/지면이 아니다. 점프·날개·분리된 그림자 높이를 보존하며 추가 프레임별 발 정렬은 하지 않는다.",
+      "source_delivery_operations": [
+        "faint alpha<=15 cleared",
+        "for opaque subjects: semi-transparent exterior pixels below128 cleared beyond3px dense-silhouette envelope; glass/wings/water/effects exempt",
+        "exterior alpha<=32 cleared outside opaque-body bbox+8 (non-overlay)",
+        "isolated exterior components<4px removed (non-overlay)",
+        "integer translation only",
+        "transparent-canvas sheet assembly",
+        "unused cells cleared"
+      ]
+    },
+    {
+      "id": "MOM-JUMP",
+      "resource_name": "ggf_anim_mom_jump",
+      "source_png": {
+        "path": "design/illustrations/exports/2026-11-06/GGF-ANIM-MOM-JUMP-R48-v1.png",
+        "sha256": "436da50bf0b48461e9ba640d8ea4c852bc71d95b1cfc2cf9bc8b5d1ca5177a1e"
+      },
+      "native_png": {
+        "path": "design/illustrations/originals/2026-11-06/R45-R53-native-sheets/GGF-ANIM-MOM-JUMP-R48-v1.png",
+        "sha256": "b281f054998fa113330a5c86da9c27d382306984db8e87b84feb492a407cb834"
+      },
+      "app_webp": {
+        "path": "core/ui/src/main/res/drawable-nodpi/ggf_anim_mom_jump.webp",
+        "sha256": "b94fbdd8e66a57a7ef1441942fd172e1c00007e0167380db493e7c384722ca24",
+        "bytes": 126696,
+        "size": [
+          1536,
+          1024
+        ],
+        "mode": "RGBA"
+      },
+      "grid": [
+        3,
+        2
+      ],
+      "cell_size": [
+        512,
+        512
+      ],
+      "active_frame_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "playback_frame_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "final_frame": 3,
+      "duration_ms": 900,
+      "cycles": 1,
+      "codec": "WebP lossy RGB quality92 / lossless alpha quality100",
+      "encoder": {
+        "Pillow": "12.3.0",
+        "libwebp": "1.6.0",
+        "quality": 92,
+        "alpha_quality": 100,
+        "method": 6,
+        "exact_transparent_RGB_requested": true
+      },
+      "new_integer_translation": [
+        0,
+        0
+      ],
+      "additional_alpha_cleanup_pixels": 0,
+      "resizing_or_color_filter": false,
+      "alpha_roundtrip_identical_in_source_manifest": true,
+      "rgb_lossy_note": "Normal mandated lossyWebP encoding only; not acolorcorrection/filter. RGBexactnessnotclaimed.",
+      "snapshot_matches_source_manifest": {
+        "source_png_sha": true,
+        "native_png_sha": true,
+        "app_webp_sha": true
+      },
+      "status": "asset_qa_snapshot_android_integration_pending",
+      "root_final_refresh_required": false,
+      "status_note": "원본·사본·앱 파생본 SHA를 읽기 확인했다. Android Compose/실차 통합 검수 완료는 아니다.",
+      "body_height_note": null,
+      "anchor_note": "alpha bbox 하단은 발/지면이 아니다. 점프·날개·분리된 그림자 높이를 보존하며 추가 프레임별 발 정렬은 하지 않는다.",
+      "source_delivery_operations": [
+        "faint alpha<=15 cleared",
+        "for opaque subjects: semi-transparent exterior pixels below128 cleared beyond3px dense-silhouette envelope; glass/wings/water/effects exempt",
+        "exterior alpha<=32 cleared outside opaque-body bbox+8 (non-overlay)",
+        "isolated exterior components<4px removed (non-overlay)",
+        "integer translation only",
+        "transparent-canvas sheet assembly",
+        "unused cells cleared"
+      ]
+    },
+    {
+      "id": "GIRL-WAVE",
+      "resource_name": "ggf_anim_girl_wave",
+      "source_png": {
+        "path": "design/illustrations/exports/2026-11-06/GGF-ANIM-GIRL-WAVE-R48-v1.png",
+        "sha256": "2645969b406812bc141b0aa7d5c03ec233234d8f627f4b5c102fa7a8a65e20cf"
+      },
+      "native_png": {
+        "path": "design/illustrations/originals/2026-11-06/R45-R53-native-sheets/GGF-ANIM-GIRL-WAVE-R48-v1.png",
+        "sha256": "0e0b6c9a0698d99f178137bbefa88c06cd4d3d2f58e58681df243dc52e750e76"
+      },
+      "app_webp": {
+        "path": "core/ui/src/main/res/drawable-nodpi/ggf_anim_girl_wave.webp",
+        "sha256": "7e930c3aec6f3571f6baef8c4d86fcf166ba366d29b4c132dd5d59467fcf7e08",
+        "bytes": 92334,
+        "size": [
+          1536,
+          1024
+        ],
+        "mode": "RGBA"
+      },
+      "grid": [
+        3,
+        2
+      ],
+      "cell_size": [
+        512,
+        512
+      ],
+      "active_frame_indices": [
+        0,
+        1,
+        2
+      ],
+      "playback_frame_indices": [
+        0,
+        1,
+        2
+      ],
+      "final_frame": 0,
+      "duration_ms": 900,
+      "cycles": 1,
+      "codec": "WebP lossy RGB quality92 / lossless alpha quality100",
+      "encoder": {
+        "Pillow": "12.3.0",
+        "libwebp": "1.6.0",
+        "quality": 92,
+        "alpha_quality": 100,
+        "method": 6,
+        "exact_transparent_RGB_requested": true
+      },
+      "new_integer_translation": [
+        0,
+        0
+      ],
+      "additional_alpha_cleanup_pixels": 0,
+      "resizing_or_color_filter": false,
+      "alpha_roundtrip_identical_in_source_manifest": true,
+      "rgb_lossy_note": "Normal mandated lossyWebP encoding only; not acolorcorrection/filter. RGBexactnessnotclaimed.",
+      "snapshot_matches_source_manifest": {
+        "source_png_sha": true,
+        "native_png_sha": true,
+        "app_webp_sha": true
+      },
+      "status": "asset_qa_snapshot_android_integration_pending",
+      "root_final_refresh_required": false,
+      "status_note": "원본·사본·앱 파생본 SHA를 읽기 확인했다. Android Compose/실차 통합 검수 완료는 아니다.",
+      "body_height_note": null,
+      "anchor_note": "alpha bbox 하단은 발/지면이 아니다. 점프·날개·분리된 그림자 높이를 보존하며 추가 프레임별 발 정렬은 하지 않는다.",
+      "source_delivery_operations": [
+        "faint alpha<=15 cleared",
+        "for opaque subjects: semi-transparent exterior pixels below128 cleared beyond3px dense-silhouette envelope; glass/wings/water/effects exempt",
+        "exterior alpha<=32 cleared outside opaque-body bbox+8 (non-overlay)",
+        "isolated exterior components<4px removed (non-overlay)",
+        "integer translation only",
+        "transparent-canvas sheet assembly",
+        "unused cells cleared"
+      ]
+    },
+    {
+      "id": "GIRL-JUMP",
+      "resource_name": "ggf_anim_girl_jump",
+      "source_png": {
+        "path": "design/illustrations/exports/2026-11-06/GGF-ANIM-GIRL-JUMP-R48-v1.png",
+        "sha256": "23019da5e5e21364dd9c645bc0b41d7674dadca338af69b2fdabaf0272775d3a"
+      },
+      "native_png": {
+        "path": "design/illustrations/originals/2026-11-06/R45-R53-native-sheets/GGF-ANIM-GIRL-JUMP-R48-v1.png",
+        "sha256": "20b5cfc7426fc78cd9182725cbdfac7ca1c5e4d5e81e7aa7b42a384522e5e935"
+      },
+      "app_webp": {
+        "path": "core/ui/src/main/res/drawable-nodpi/ggf_anim_girl_jump.webp",
+        "sha256": "48a590dedb93cfc5cc38a27b31f7f02e88c6762e187c9c29293d4fd7dc02a8c6",
+        "bytes": 274570,
+        "size": [
+          1536,
+          1024
+        ],
+        "mode": "RGBA"
+      },
+      "grid": [
+        3,
+        2
+      ],
+      "cell_size": [
+        512,
+        512
+      ],
+      "active_frame_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "playback_frame_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "final_frame": 3,
+      "duration_ms": 900,
+      "cycles": 1,
+      "codec": "WebP lossless RGBA from decoded baseline quality92 WebP; exact transparent RGB",
+      "encoder": {
+        "Pillow": "13.0.0",
+        "libwebp": "1.6.0",
+        "format": "WebP lossless RGBA from decoded baseline WebP",
+        "lossless": true,
+        "exact": true,
+        "method": 6
+      },
+      "new_integer_translation": [
+        0,
+        35
+      ],
+      "additional_alpha_cleanup_pixels": 0,
+      "resizing_or_color_filter": false,
+      "alpha_roundtrip_identical_in_source_manifest": true,
+      "rgb_lossy_note": "Input lossy RGB is preserved exactly as decoded. Current output encoding is lossless; no PNG RGB restoration, resizing or color correction is claimed.",
+      "snapshot_matches_source_manifest": {
+        "source_png_sha": true,
+        "native_png_sha": true,
+        "app_webp_sha": false
+      },
+      "status": "frame3_translation_delivered_pm_integration_pending",
+      "root_final_refresh_required": false,
+      "status_note": "claude-p1-20261108-14 요청: 최종3번 칸만35px 아래로 이동. 부모 커밋의 다른5칸 RGBA 동일·최종 셀 기대이동 동일을 검증했다. 앱 합침·컴파일·실화면 합격은 후속이다.",
+      "body_height_note": null,
+      "anchor_note": "기존 ANCHOR-QA는 보정 전 입력의 이력이다. 최종3번 칸 내용·접촉 그림자 전체만 아래35px; alpha128 bbox [175,144,337,461]. 공중2번은 변경하지 않았다. 해부학적 발 좌표나 그림자 단독 좌표를 새로 확정하지 않는다.",
+      "source_delivery_operations": [
+        "faint alpha<=15 cleared",
+        "for opaque subjects: semi-transparent exterior pixels below128 cleared beyond3px dense-silhouette envelope; glass/wings/water/effects exempt",
+        "exterior alpha<=32 cleared outside opaque-body bbox+8 (non-overlay)",
+        "isolated exterior components<4px removed (non-overlay)",
+        "integer translation only",
+        "transparent-canvas sheet assembly",
+        "unused cells cleared"
+      ],
+      "new_integer_translation_applies_only_to_frames": [
+        3
+      ],
+      "post_snapshot_transform_record": "core/ui/motion-docs/GIRL-JUMP-FRAME3-TRANSLATION.json",
+      "alpha_roundtrip_identical_to_current_input_webp_except_translated_frame_3": true,
+      "alpha_roundtrip_source_manifest_note": "alpha_roundtrip_identical_in_source_manifest describes the historical input only. Current frame 3 alpha is translated by 35px; other frames match the decoded parent WebP exactly."
+    }
+  ],
+  "post_snapshot_transform_records": [
+    "core/ui/motion-docs/GIRL-JUMP-FRAME3-TRANSLATION.json"
+  ],
+  "current_asset_record_updated_at_kst": "2026-11-08T00:46:55.728171+09:00"
+}
