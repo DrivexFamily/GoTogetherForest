@@ -130,3 +130,13 @@ internal fun locationOf(latitude: Double, longitude: Double, heading: Double): V
  * 0 이하(안내 중 아님·정보 없음)와 비정상적으로 큰 값은 "모름".
  */
 internal fun roadSpeedLimitOf(value: Int?): Int? = value?.takeIf { it in 1..200 }
+
+/**
+ * AAOS VehicleIgnitionState → 시동이 켜져 있나. ON(4)·START(5) = true, LOCK(1)·OFF(2)·ACC(3) = false, 모름(0·null) = null.
+ * ACC는 화면은 켜져 있어도 시동은 꺼진 상태라 false(휴게소 그림 조건, 2026-11-11).
+ */
+fun ignitionOnOf(state: Int?): Boolean? = when (state) {
+    4, 5 -> true
+    1, 2, 3 -> false
+    else -> null
+}

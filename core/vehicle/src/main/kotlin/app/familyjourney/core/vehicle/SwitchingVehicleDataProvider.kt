@@ -189,6 +189,9 @@ fun mergeSignals(real: VehicleSignals, demo: VehicleSignals, mode: SignalMode): 
         destination = route.destination,
         routePlaces = route.routePlaces,
         roadSpeedLimitKmh = if (limitReal) real.roadSpeedLimitKmh else demo.roadSpeedLimitKmh,
+        // 휴게소 장면: 데모가 휴게소라고 하면 데모의 시동 끔을 쓴다(에뮬레이터는 시동이 늘 켜져 있음). 아니면 실제 시동
+        ignitionOn = if (demo.atRestArea == true) demo.ignitionOn else (real.ignitionOn ?: demo.ignitionOn),
+        atRestArea = demo.atRestArea,
         demoActive = true,
         sources = sources,
         updatedAtMs = updated,

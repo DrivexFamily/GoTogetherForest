@@ -25,8 +25,8 @@ enum class JourneyMode {
  * 진행 화면 상태(순수 값). [journeyUiOf]가 만들고 [JourneyScreen]이 그대로 그린다.
  * 규칙을 여기에 모아 두어 화면 없이 JVM 단위 테스트로 확인한다(JourneyUiTest).
  *
- * @param driving 주행 중 화면 규칙(정지 그림, 문구 한 줄, 터치는 크게/작게만, decisions.md #4)
- * @param timeUnit 문장 옆 그림(끝말잇기·노래). 없으면 null
+ * @param driving 주행 중 화면 규칙(정지 그림, 문구 한 줄, 터치할 것 없음, decisions.md #4·#48)
+ * @param timeUnit 문장 옆 그림(예전 끝말잇기·노래). #48부터 늘 null(아이 단위 남은 시간을 쓰지 않음)
  * @param detail 보조 줄(좁은 창에서는 core:ui가 숨긴다). 주행 중에는 늘 null(문구 한 줄)
  * @param subline 경로 없음의 도움말, 도착의 감사 인사
  */
@@ -56,6 +56,8 @@ data class JourneyUi(
     val showCarButton: Boolean = false,
     /** 휴게소 정차(주차 + 주행 제한 꺼짐). 휴게소 그림(GPT R22)이 있으면 진행 길 대신 휴게소 장면을 보인다 */
     val restStop: Boolean = false,
+    /** 진행 화면 위 빈 칸에 [sentence]·[detail]을 보이나(휴게소가 아닌 주차 "잠깐 멈췄어요", 결정 #48). 그 밖에는 비워 둔다(#42) */
+    val showStatus: Boolean = false,
     /**
      * 오른쪽 위 "홈" 버튼(2026-11-05 팀원: "뒤로가기가 안 돼 화면 전환이 안 됨"). Pleos 화면에는 늘 보이는 뒤로 버튼이 없고
      * "터치만으로 모든 기능"이 규칙이라 화면 안에 둔다. 주행 제한이 꺼져 있을 때만(주행 중엔 진행 화면만, decisions.md #4)
@@ -74,6 +76,9 @@ object JourneyTexts {
     const val WAITING_ROUTE_SHORT = "목적지 기다리는 중"
 
     const val REST = "휴게소에서 쉬는 중"
+
+    /** 휴게소가 아닌 곳에서 기어 P로 잠깐 멈췄을 때(2026-11-11 마스터: 휴게소 그림은 P + 시동 끔 + 휴게소 500m 안일 때만) */
+    const val PAUSED = "잠깐 멈췄어요"
 
     // 길 풍경 고르기(#33-⑨)
     const val THEME_BUTTON = "길 풍경"
@@ -138,6 +143,8 @@ fun journeyUiOf(
     canPickCar: Boolean = false,
     /** 내비 목적지 확인에서 [아니에요]를 눌렀다(결정 #45). 새 목적지가 잡힐 때까지 "내비에 목적지를 설정해 주세요" 화면 */
     destinationRejected: Boolean = false,
+    /** 시동이 꺼져 있고 휴게소 500m 안이다(데모는 휴게소 장면). 이것과 기어 P가 함께일 때만 휴게소 그림 */
+    atRestArea: Boolean = false,
 ): JourneyUi {
     val narrow = width == WindowWidth.Compact
     fun pick(wide: String, short: String) = if (narrow) short else wide
@@ -151,7 +158,8 @@ fun journeyUiOf(
         subline = null,
         driving = restricted,
         showDemoBadge = demo,
-        showSizeToggle = true,
+        // "크게"(글자 1.25배)는 위 문장을 비운 뒤(결정 #42) 바뀌는 것이 거의 없어 뺀다(2026-11-11 마스터)
+        showSizeToggle = false,
         showMute = canMute && !restricted,
         showStartDemo = false,
         showForestButton = false,
@@ -204,8 +212,8 @@ fun journeyUiOf(
         )
     }
 
-    val rest = state.phase == TripPhase.STOPPED && state.parked
-    val kidTime = state.display.kidTime
+    val stoppedParked = state.phase == TripPhase.STOPPED && state.parked
+    val rest = stoppedParked && atRestArea
     val sentence = when {
         // 경로를 잃었으면(내비 안내 종료 등) 휴게소보다 먼저 목적지를 묻는다(2026-11-10 Mac)
         !state.routeAvailable ->
@@ -215,13 +223,19 @@ fun journeyUiOf(
                 pick(JourneyTexts.NO_ROUTE_ASK, JourneyTexts.NO_ROUTE_ASK_SHORT)
             }
         rest -> JourneyTexts.REST
-        kidTime != null -> pick(kidTime.sentence, kidTime.shortSentence)
+        stoppedParked -> JourneyTexts.PAUSED
+        // 남은 시간을 "끝말잇기 N판"처럼 아이 단위로 바꿔 말하는 것은 쓰지 않는다(2026-11-11 마스터, 결정 #35·#42 바꿈)
         state.phase == TripPhase.BEFORE_START -> pick(JourneyTexts.READY, JourneyTexts.READY_SHORT)
         else -> pick(JourneyTexts.ON_THE_WAY, JourneyTexts.ON_THE_WAY_SHORT)
     }
-    val icon = kidTime?.unit?.takeIf { !rest && state.routeAvailable && (it == KidTimeUnit.WORD_CHAIN || it == KidTimeUnit.SONG) }
-    val detail = if (rest && !restricted && sproutsSoFar != null && sproutsSoFar > 0) JourneyTexts.sproutsGrown(sproutsSoFar) else null
-    return base.copy(sentence = sentence, timeUnit = icon, detail = detail, restStop = rest && !restricted)
+    val detail = if (stoppedParked && !restricted && sproutsSoFar != null && sproutsSoFar > 0) JourneyTexts.sproutsGrown(sproutsSoFar) else null
+    return base.copy(
+        sentence = sentence,
+        timeUnit = null,
+        detail = detail,
+        restStop = rest && !restricted,
+        showStatus = stoppedParked && !rest && state.routeAvailable,
+    )
 }
 
 /**

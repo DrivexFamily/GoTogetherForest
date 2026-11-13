@@ -44,14 +44,15 @@ class JourneyUiTest {
         canOpenForest: Boolean = true,
         canGoHome: Boolean = true,
         canMute: Boolean = true,
-    ) = journeyUiOf(s, width, sprouts, canStartDemo = canStartDemo, canOpenForest = canOpenForest, canGoHome = canGoHome, canMute = canMute)
+        atRestArea: Boolean = true,
+    ) = journeyUiOf(s, width, sprouts, canStartDemo = canStartDemo, canOpenForest = canOpenForest, canGoHome = canGoHome, canMute = canMute, atRestArea = atRestArea)
 
     /** 목적지 확인 [아니에요](결정 #45, 마스터 11-08): 정차 중이어도 휴게소가 아니라 "내비에 목적지를 설정해 주세요" */
     @Test
     fun rejectedDestinationShowsNoRouteInsteadOfRestStop() {
         val s = state(TripPhase.STOPPED, restricted = false, parked = true)
         assertTrue(ui(s).restStop)
-        val u = journeyUiOf(s, WindowWidth.Medium, canStartDemo = true, canGoHome = true, destinationRejected = true)
+        val u = journeyUiOf(s, WindowWidth.Medium, canStartDemo = true, canGoHome = true, destinationRejected = true, atRestArea = true)
         assertEquals(JourneyMode.NO_ROUTE, u.mode)
         assertEquals("내비에 목적지를 설정해 주세요", u.sentence)
         assertFalse(u.restStop)
@@ -59,15 +60,15 @@ class JourneyUiTest {
 
     // ── 주행 중 ──────────────────────────────────────────────
 
-    /** 주행 중 반 화면은 넓은 문장, 정지 그림, 터치는 크게 작게만 */
+    /** 주행 중 반 화면: 정지 그림, 남은 시간 아이 단위 없음, "크게" 버튼 없음(2026-11-11 마스터) */
     @Test
     fun drivingHalfWindowUsesWideSentenceStillArtAndOnlySizeToggle() {
         val u = ui(state(TripPhase.DRIVING))
         assertEquals(JourneyMode.PROGRESS, u.mode)
-        assertEquals("끝말잇기 4판 하면 도착해요", u.sentence)
-        assertEquals(KidTimeUnit.WORD_CHAIN, u.timeUnit)
+        assertEquals(JourneyTexts.ON_THE_WAY, u.sentence)
+        assertNull(u.timeUnit)
         assertTrue(u.driving)
-        assertTrue(u.showSizeToggle)
+        assertFalse(u.showSizeToggle)
         assertFalse("주행 중 소리 버튼 없음", u.showMute)
         assertFalse(u.showStartDemo)
         assertFalse(u.showForestButton)
@@ -78,16 +79,16 @@ class JourneyUiTest {
     /** 좁은 창은 짧은 문장, 전체 창은 넓은 문장 */
     @Test
     fun narrowWindowUsesShortSentenceAndExpandedUsesWide() {
-        assertEquals("끝말잇기 4판 남았어요", ui(state(TripPhase.DRIVING), WindowWidth.Compact).sentence)
-        assertEquals("끝말잇기 4판 하면 도착해요", ui(state(TripPhase.DRIVING), WindowWidth.Expanded).sentence)
+        assertEquals(JourneyTexts.ON_THE_WAY_SHORT, ui(state(TripPhase.DRIVING), WindowWidth.Compact).sentence)
+        assertEquals(JourneyTexts.ON_THE_WAY, ui(state(TripPhase.DRIVING), WindowWidth.Expanded).sentence)
     }
 
-    /** 노래 단위면 노래 그림 */
+    /** 남은 시간을 아이 단위(끝말잇기·노래)로 바꾸지 않는다(2026-11-11 마스터, #35 바꿈) */
     @Test
     fun songUnitShowsSongIcon() {
         val u = ui(state(TripPhase.DRIVING, kidTime = KidTimeFormatter.format(10f)))
-        assertEquals(KidTimeUnit.SONG, u.timeUnit)
-        assertEquals("노래 3곡 같이 부르면 도착해요", u.sentence) // #35 문구(화면에는 안 보이고 음성·설명용, #42)
+        assertNull(u.timeUnit)
+        assertEquals(JourneyTexts.ON_THE_WAY, u.sentence)
     }
 
     /** 주행 중에는 새싹 수가 있어도 보이지 않는다 */
@@ -134,6 +135,12 @@ class JourneyUiTest {
         val u = ui(state(TripPhase.STOPPED, percent = 45, restricted = false, parked = true), sprouts = 27)
         assertEquals(JourneyMode.PROGRESS, u.mode)
         assertEquals(JourneyTexts.REST, u.sentence)
+        assertTrue(u.restStop)
+        // 휴게소가 아닌 곳(시동 켬이거나 휴게소 500m 밖)에서 P: 휴게소 그림 없이 "잠깐 멈췄어요"(2026-11-11 마스터)
+        val paused = ui(state(TripPhase.STOPPED, percent = 45, restricted = false, parked = true), sprouts = 27, atRestArea = false)
+        assertEquals(JourneyTexts.PAUSED, paused.sentence)
+        assertFalse(paused.restStop)
+        assertEquals("지금까지 새싹 27개가 자랐어요", paused.detail)
         assertEquals("지금까지 새싹 27개가 자랐어요", u.detail)
         assertNull(u.timeUnit)
         assertFalse(u.driving)
@@ -154,7 +161,7 @@ class JourneyUiTest {
     fun unrestrictedButNotParkedAllowsMotionButHidesSprouts() {
         val u = ui(state(TripPhase.STOPPED, restricted = false, parked = false), sprouts = 27)
         assertFalse(u.driving)
-        assertEquals("끝말잇기 4판 하면 도착해요", u.sentence)
+        assertEquals(JourneyTexts.ON_THE_WAY, u.sentence)
         assertNull(u.detail)
     }
 
@@ -163,7 +170,7 @@ class JourneyUiTest {
     fun beforeStartWithRouteShowsProgressOrReady() {
         val withTime = ui(state(TripPhase.BEFORE_START, percent = 0, restricted = false, parked = true))
         assertEquals(JourneyMode.PROGRESS, withTime.mode)
-        assertEquals("끝말잇기 4판 하면 도착해요", withTime.sentence)
+        assertEquals(JourneyTexts.READY, withTime.sentence)
         assertFalse(withTime.driving)
 
         val noTime = ui(state(TripPhase.BEFORE_START, percent = 0, kidTime = null, restricted = false, parked = true))

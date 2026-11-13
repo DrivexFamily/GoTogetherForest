@@ -1,280 +1,94 @@
 {
-  "_설명": "기획서 DOCX의 그림 자리표. build_docx.py가 읽는다. 각 자리는 gpt(검수 통과한 GPT 그림) → now(지금 그림) 순서로 첫 번째 있는 것을 쓰고, 둘 다 없으면 '그림 자리' 상자를 넣는다. gpt는 gpt_ok가 true일 때만 쓴다(총괄 PM 검수 뒤 true로). 경로는 저장소 루트 기준, *는 glob(가장 높은 v 번호·늦은 날짜를 고름). compose가 있으면 여러 장을 한 줄(row) 또는 2×2(grid)로 이어 붙인다(줄이기만 하고 늘리지 않음). anchor는 proposal.md 줄의 앞부분(그 줄이 속한 덩어리 바로 뒤에 넣음), heading은 그 제목 바로 뒤에 넣음.",
+  "_설명": "8판(2026-11-11) 그림 자리표: GPT 일러스트(광고 장면, 실제 앱 화면 합성)와 최신 실제 앱 화면만. 7판 자리표는 archive/figures-v7.json",
   "figures": [
     {
       "id": "F01-cover",
-      "where": "표지(제목 아래)",
+      "where": "표지",
       "heading": "@cover",
-      "caption": "같이가숲 표지 그림",
+      "caption": "도착해 주차한 뒤, 숲의 초록빛 아래 고마움을 나누는 가족(광고 장면·GPT 일러스트)",
       "width_mm": 160,
       "gpt": [
         "design/illustrations/exports/*/GGF-KEYVISUAL-R23-v*.png"
       ],
-      "gpt_ok": true,
+      "gpt_ok": false,
       "now": [
-        "core/ui/src/main/res/drawable-nodpi/ggf_pic_forest_island.webp"
-      ]
-    },
-    {
-      "id": "F02-why-asked",
-      "where": "2. 기획 배경 — 세 사람의 불편 뒤",
-      "anchor": "- **목적지에서 기다리는 가족:**",
-      "caption": "\"언제 도착해?\" — 지루한 뒷좌석과 앞만 보는 운전자",
-      "width_mm": 110,
-      "gpt": [
-        "design/illustrations/exports/*/GGF-STORY-1-R23-v*.png"
+        "docs/proposal/assets/v8/C13-D13.jpg"
       ],
-      "gpt_ok": true,
-      "now": []
+      "_메모": "2026-11-11 GPT 검수(gpt-cloud-20261112-68): 예전 키비주얼 대신 D13. gpt 패턴이 now보다 먼저 골라지므로 gpt_ok:false"
     },
     {
-      "id": "F03-journey-sizes",
-      "where": "3. A — 반 화면 설명 뒤",
-      "anchor": "- 와이드 화면(Connect-W)에서는",
-      "caption": "실제 앱 진행 화면(내비 옆 반 화면): 주행 중 · 휴게소 · 도착",
-      "width_mm": 165,
-      "compose": "row",
-      "now": [
-        "design/screens/app/journey-driving-40-half.png",
-        "design/screens/app/journey-rest-half.png",
-        "design/screens/app/journey-arrived-half.png"
-      ],
-      "now_fallback": [
-        "design/screens/journey-sizes.png"
-      ]
-    },
-    {
-      "id": "F04-road-themes",
-      "where": "3. A — 풍경 길 설명 뒤",
-      "anchor": "- 넓은 화면·반 화면·세로 화면마다",
-      "caption": "풍경 길 10테마 중 4가지(넓은 화면 낮 그림). 주차 중 \"길 풍경\"에서 직접 고름",
-      "width_mm": 140,
-      "now": [
-        "design/screens/app/journey-theme-picker-half.png"
-      ],
-      "now_fallback": [],
-      "now_grid": [
-        "core/ui/src/main/res/drawable-nodpi/ggf_pic_roadscene_cherry_wide.webp",
-        "core/ui/src/main/res/drawable-nodpi/ggf_pic_roadscene_coast_wide.webp",
-        "core/ui/src/main/res/drawable-nodpi/ggf_pic_roadscene_snow_wide.webp",
-        "core/ui/src/main/res/drawable-nodpi/ggf_pic_roadscene_autumn_wide.webp"
-      ]
-    },
-    {
-      "id": "F05-car-picker",
-      "where": "3. A — 우리 차 고르기 뒤",
-      "anchor": "- 18종 모두 그림(빈 차 + 가족이 탄 출발 모습)",
-      "caption": "우리 차 고르기(주차 중): 현대·기아 18종",
-      "width_mm": 140,
-      "now": [
-        "design/screens/app/journey-car-picker-full.png",
-        "design/screens/app/journey-car-picker-half.png"
-      ],
-      "optional": true
-    },
-    {
-      "id": "F06-share-web",
-      "where": "3. B — 공유 설명 뒤",
-      "anchor": "- 확장: 함께 출발한 여러 차를",
-      "caption": "공유 링크를 받은 가족의 폰 웹 화면(시안, PT 단계)",
-      "width_mm": 165,
-      "now": [
-        "design/mockups/png/01-share-web.png"
-      ]
-    },
-    {
-      "id": "F18-phone-pair",
-      "where": "3. B — 가족 폰 앱 끝",
-      "anchor": "- 11/15에는 폰 화면 시안 6장과 연동 흐름 그림으로",
-      "caption": "가족 폰 연결(시안, PT 단계): 차 화면 QR → 폰이 찍음 → 차에서 보호자 승인 → 연결됨",
-      "width_mm": 165,
-      "now": [
-        "design/phone/png/01-phone-pair.png"
-      ]
-    },
-    {
-      "id": "F07-forest",
-      "where": "3. C — 큰 숲 설명 뒤",
-      "anchor": "- 다음 나무가 설 칸에서는",
-      "caption": "실제 앱 아이의 숲(주차 중): 기본 섬, 별 포인트, 다음 나무까지 새싹",
-      "width_mm": 165,
-      "now": [
-        "design/screens/app/forest-island-full.png",
-        "design/screens/web-forest-top.png"
-      ]
-    },
-    {
-      "id": "F19-phone-trip",
-      "where": "3. B — 가족 폰 앱 끝(두 번째)",
-      "anchor": "- 11/15에는 폰 화면 시안 6장과 연동 흐름 그림으로",
-      "caption": "가족 폰에서 우리 차 진행 보기(시안): 기본은 진행률·남은 시간, 허락한 폰만 대략 위치",
+      "id": "F02-background",
+      "where": "2장 끝",
+      "heading": "## 2. 기획 배경",
+      "at_end": true,
+      "caption": "닫힌 창 안에서 앞좌석에 말을 거는 아이 — \"언제 도착해?\"(광고 장면·GPT 일러스트)",
       "width_mm": 150,
       "now": [
-        "design/phone/png/02-phone-trip.png"
+        "docs/proposal/assets/v8/C03-D09.jpg"
       ]
     },
     {
-      "id": "F08-book",
-      "where": "3. C — 해금 설명 뒤",
-      "anchor": "- 해금과 맵 고르기는 숲 화면에서만",
-      "caption": "나무 도감: 열린 나무와 ?로 잠긴 나무(가격)",
+      "id": "F03-journey",
+      "where": "3. A 뒤",
+      "heading": "### A. 진행 화면",
+      "caption": "실제 Pleos 화면: 내비 옆 반 화면의 같이가숲(왼쪽, 에뮬레이터 캡처를 GPT 실내 그림에 합성)과 주행 중 진행 화면(오른쪽, 실제 앱: 정지 그림과 큰 %만, 터치할 것 없음)",
+      "width_mm": 165,
+      "now": [
+        "docs/proposal/assets/v8/C04-D08.jpg",
+        "docs/proposal/assets/v8/journey-driving.jpg"
+      ],
+      "_메모": "2026-11-12 Mac H4(68c454b) 새 캡처로 D08 다시 합성(\"크게\" 없음), 왼쪽에 되돌림",
+      "compose": "row"
+    },
+    {
+      "id": "F04-forest",
+      "where": "3. B 뒤",
+      "heading": "### B. 아이의 숲",
+      "caption": "도착 결과와 아이의 숲(실제 앱 화면)",
+      "width_mm": 165,
+      "now": [
+        "docs/proposal/assets/v8/arrival.jpg",
+        "docs/proposal/assets/v8/forest.jpg"
+      ],
+      "compose": "row"
+    },
+    {
+      "id": "F05-atlas",
+      "where": "3. C 뒤",
+      "heading": "### C. 여행 도감",
+      "caption": "도착하면 지나온 랜드마크를 한 번에(실제 앱 화면, 데모 서울역→부산역)",
       "width_mm": 140,
       "now": [
-        "design/screens/app/forest-tree-book-full.png",
-        "design/screens/web-forest-book.png"
+        "docs/proposal/assets/v8/atlas-group.jpg"
       ]
     },
     {
-      "id": "F09-maps",
-      "where": "3. C — 숲 맵 4개 뒤",
-      "anchor": "- 동물 소리(주차 중에만,",
-      "caption": "숲 맵: 바닷가 맵 낮·저녁(다크 모드), 맵 고르기",
-      "width_mm": 165,
-      "compose": "row",
-      "now": [
-        "design/screens/app/forest-m2-25-trees-full.png",
-        "design/screens/app/forest-m2-25-trees-full-dark.png"
-      ],
-      "now_fallback": [
-        "design/screens/web-forest-maps.png"
-      ]
-    },
-    {
-      "id": "F10-arrival",
-      "where": "3. C — 별 포인트 규칙 뒤",
-      "anchor": "- 마일리지 1점 = 1원 가치로 보면",
-      "caption": "실제 앱 도착 결과: 부드럽게 달린 거리, 새싹·나무, 아이 별(★)과 어른 마일리지",
-      "width_mm": 150,
-      "now": [
-        "design/screens/app/arrival-result-full.png"
-      ]
-    },
-    {
-      "id": "F11-decorate",
-      "where": "3. D 뒤",
-      "heading": "### D. 숲 꾸미기 상점과 가족 캐릭터 꾸미기",
-      "caption": "숲 꾸미기 화면 시안(PT 단계, 상점 소품은 GPT R27·R43 그림으로 바꿀 예정)",
-      "width_mm": 165,
-      "now": [
-        "design/mockups/png/04-forest-decorate.png"
-      ]
-    },
-    {
-      "id": "F20-phone-forest-shop",
-      "where": "3. D 끝",
-      "heading": "### D. 숲 꾸미기 상점과 가족 캐릭터 꾸미기",
-      "caption": "폰에서 아이 숲 꾸미기와 상점·보관함(시안, 가격은 예시)",
-      "width_mm": 165,
-      "compose": "row",
-      "now": [
-        "design/phone/png/03-phone-forest.png",
-        "design/phone/png/04-phone-shop.png"
-      ],
-      "at_end": true
-    },
-    {
-      "id": "F12-landmark",
+      "id": "F06-friends",
       "where": "3. E 뒤",
-      "heading": "### E. 지역별 랜드마크 여행 도감",
-      "caption": "여행 도감(실제 앱 화면, 숫자는 시험값): 전국 시·도 지도 → 도착하면 지나온 랜드마크를 한 번에 축하",
+      "heading": "### E. 숲 계정과 친구 숲",
+      "caption": "PT 단계 콘셉트 — 집과 친구에게 이어지는 숲. 왼쪽·가운데: 기기 화면에 현행 앱 캡처를 합성한 일러스트 / 오른쪽: 친구 숲 방문 콘셉트 일러스트",
       "width_mm": 165,
       "now": [
-        "docs/proposal/assets/atlas/atlas-country-wide.png",
-        "docs/proposal/assets/atlas/atlas-group-celebration.png"
+        "docs/proposal/assets/v8/C07-D11.jpg",
+        "docs/proposal/assets/v8/C08-D04.jpg",
+        "docs/proposal/assets/v8/C10-D06.jpg"
       ],
-      "compose": "row",
-      "now_fallback": [
-        "design/mockups/png/08a-landmark-pass.png"
-      ]
+      "compose": "row"
     },
     {
-      "id": "F13-story",
-      "where": "4. 시나리오 — 7단계 목록 뒤",
-      "anchor": "8. **오후 1:05 숲 확인(주차 중).**",
-      "caption": "하늘이네 하루: 화면을 보며 웃는 아이 → 휴게소에서 자란 숲 → 할머니 댁에서 숲 자랑",
-      "width_mm": 165,
-      "compose": "row",
-      "gpt": [
-        "design/illustrations/exports/*/GGF-STORY-2-R23-v*.png",
-        "design/illustrations/exports/*/GGF-STORY-3-R23-v*.png",
-        "design/illustrations/exports/*/GGF-STORY-4-R23-v*.png"
-      ],
-      "gpt_ok": true,
-      "now": [
-        "core/ui/src/main/res/drawable-nodpi/ggf_pic_car_start.webp",
-        "core/ui/src/main/res/drawable-nodpi/ggf_pic_car_lookout.webp",
-        "core/ui/src/main/res/drawable-nodpi/ggf_pic_forest_island.webp",
-        "core/ui/src/main/res/drawable-nodpi/ggf_pic_arrival_scene.webp"
-      ]
-    },
-    {
-      "id": "F14-waiting",
-      "where": "4. 시나리오 — 할머니 문단 뒤",
-      "anchor": "그동안 할머니는 출발 때 받은 링크로",
-      "caption": "기다리는 할머니: 링크로 진행률 보기(PT 단계)",
-      "width_mm": 110,
-      "gpt": [
-        "design/illustrations/exports/*/GGF-STORY-SHARE-R23-v*.png"
-      ],
-      "gpt_ok": true,
-      "now": [
-        "design/mockups/png/03b-link-kid-view.png"
-      ]
-    },
-    {
-      "id": "F15-plans",
-      "where": "6. 발전 계획 표 뒤",
-      "anchor": "| 3단계 · 연계 확장 |",
-      "caption": "앞으로의 계획: 일행 모드 · ★ 마일리지 교환 · 사진으로 가족 캐릭터",
-      "width_mm": 165,
-      "compose": "row",
-      "gpt": [
-        "design/illustrations/exports/*/GGF-PLAN-CONVOY-R33-v*.png",
-        "design/illustrations/exports/*/GGF-PLAN-MILEAGE-R33-v*.png",
-        "design/illustrations/exports/*/GGF-PLAN-PHOTO-TO-CHARACTER-R33-v*.png"
-      ],
-      "gpt_ok": true,
-      "now": [
-        "design/mockups/png/06-group-mode.png",
-        "design/mockups/png/07-points-exchange.png"
-      ]
-    },
-    {
-      "id": "F21-sync-flow",
-      "where": "5. 구조와 데모 모드 — 모듈 목록 뒤",
-      "anchor": "- `server`, `web`, `phone`(가족 폰 앱)",
-      "caption": "차·공유 서버·가족 폰 연동 흐름: 규칙은 차가 확정, 서버는 내용을 읽지 못함(종단 간 암호화)",
-      "width_mm": 160,
-      "now": [
-        "design/phone/png/06-sync-flow.png"
-      ]
-    },
-    {
-      "id": "F16-character-sheet",
-      "where": "7. 참고자료 뒤",
-      "heading": "## 7. 참고자료",
+      "id": "F07-scenario",
+      "where": "4장 끝",
+      "heading": "## 4. 주요 사용 시나리오 — 할머니 댁 가는 날",
       "at_end": true,
-      "caption": "같이가숲 캐릭터 시트",
-      "width_mm": 130,
+      "caption": "사용 시나리오 일러스트(광고 장면·GPT) — 출발 전 안전벨트 / 가는 길, 닫힌 창밖 보기 / 도착해 주차한 뒤. 실제 기능 화면이 아닌 사용 맥락",
+      "width_mm": 165,
       "now": [
-        "design/characters/character-sheet.png"
-      ]
-    },
-    {
-      "id": "F17-shorts-cover",
-      "where": "8. 숏폼 뒤",
-      "heading": "## 8. 숏폼 (선택)",
-      "at_end": true,
-      "caption": "숏폼 표지(세로)",
-      "width_mm": 60,
-      "compose": "row",
-      "gpt": [
-        "design/illustrations/exports/*/GGF-SHORTS-COVER-1-R23-v*.png",
-        "design/illustrations/exports/*/GGF-SHORTS-COVER-2-R23-v*.png"
+        "docs/proposal/assets/v8/C01-D07.jpg",
+        "docs/proposal/assets/v8/C02-D02.jpg",
+        "docs/proposal/assets/v8/C12-D10.jpg"
       ],
-      "gpt_ok": true,
-      "now": [],
-      "optional": true
+      "compose": "row",
+      "_메모": "GPT 추천(D07→D02→D10→D13) 중 D13은 표지와 겹쳐 뺌. 휴게소 조건·[받기]는 그림이 아니라 본문으로 설명"
     }
   ]
 }

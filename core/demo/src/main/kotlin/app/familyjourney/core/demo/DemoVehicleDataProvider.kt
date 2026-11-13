@@ -166,7 +166,7 @@ class DemoVehicleDataProvider(
 
     private fun publishLocked() {
         val frame = player.frame(currentDrive())
-        val core = demoSignalsOf(frame, player.scenario, player.playedMs)
+        val core = demoSignalsOf(frame, player.scenario, player.playedMs, restByRealPark = restByRealPark(frame, realSignals?.value?.gear))
         if (core != lastCore) {
             lastCore = core
             val now = wallClockMs()
@@ -204,6 +204,14 @@ internal fun presenterHint(frame: DemoFrame): String? = when {
 }
 
 /**
+ * 섞기 모드에서 여행 도중 실제 기어 P로 세웠나(2026-11-12 Mac H2 d). 섞기 모드는 대본의 휴게소 토막을 건너뛰고
+ * 실제 기어 P로 휴게소를 만들므로, 이때 데모가 "휴게소 안 + 시동 끔"을 알린다(결정 #48의 데모 휴게소 장면).
+ * 출발 전·도착 뒤, 기어 D로 서 있기(차속 0)는 휴게소가 아니다.
+ */
+internal fun restByRealPark(frame: DemoFrame, realGear: Gear?): Boolean =
+    frame.waitingForReal && realGear == Gear.PARK && frame.travelledKm > 0.0 && !frame.arrived
+
+/**
  * 데모 장면 → 차량 신호(순수 함수). 값은 모두 가상이며 출처는 DEMO다.
  *
  * - 남은 시간 = 남은 거리 ÷ 대본 평균 속도. 도착하면 0.
@@ -211,8 +219,9 @@ internal fun presenterHint(frame: DemoFrame): String? = when {
  * - 차속 샘플 시각 = 재생한 대본 시간(배속을 곱하기 전 기준, 되돌아가지 않음).
  * - 현재 위치·제한 속도는 만들지 않는다. 목적지는 가상(서울역 → 부산역).
  */
-fun demoSignalsOf(frame: DemoFrame, scenario: DemoScenario, playedMs: Long): VehicleSignals {
+fun demoSignalsOf(frame: DemoFrame, scenario: DemoScenario, playedMs: Long, restByRealPark: Boolean = false): VehicleSignals {
     val km = frame.travelledKm
+    val rest = frame.phase == DemoPhase.REST_STOP || restByRealPark
     val energy = (scenario.startEnergyWh - km * scenario.energyWhPerKm).coerceAtLeast(0.0)
     val remaining = frame.remainingKm
     return VehicleSignals(
@@ -236,6 +245,9 @@ fun demoSignalsOf(frame: DemoFrame, scenario: DemoScenario, playedMs: Long): Veh
         // 가상 내비 목적지(결정 #45): 서울역 → 부산역. 같이가숲이 내비와 연동된 것처럼 목적지를 확인한다
         destination = VehicleLocation(scenario.destinationLat, scenario.destinationLon, null),
         routePlaces = RoutePlaces(scenario.originName, scenario.destinationName),
+        // 휴게소 장면(전부 데모 45%, 섞기 모드는 여행 도중 실제 기어 P): 휴게소 안 + 시동 끔. 그 밖에는 시동 켬(결정 #48)
+        ignitionOn = !rest,
+        atRestArea = rest,
         sources = Signal.entries.associateWith { DataSource.DEMO },
     )
 }

@@ -94,6 +94,13 @@ class AtlasRepository(
         if (next !== now) put(next)
     }
 
+    /** 데모 여행을 새로 시작함(발표자 [처음부터] 등): 앞 회차에 지나온 곳을 버린다(발표용 도감에만, 2026-11-12 Mac) */
+    @Synchronized
+    fun onDemoTripStart() {
+        val d = demo ?: return
+        if (d.passed.isNotEmpty()) put(d.copy(passed = emptyList()))
+    }
+
     /** "받기"(주차 중 화면에서만 부른다, 결정 #42) */
     @Synchronized
     fun claimPassed() = put(AtlasRules.claimPassed(current(), now()))

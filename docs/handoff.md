@@ -4,9 +4,10 @@
 
 ## 1. 읽는 순서
 
+0. **`docs/progress.md` — 지금 진행 중·다음 할 일·결정 대기(2026-11-11부터, 가장 최신)**
 1. 이 문서
 2. `design/illustrations/coordination/PROTOCOL.md` — GPT와의 협업 규칙(한 장)
-3. `CLAUDE.md`(프로젝트 지시서, 고치지 않음), `docs/pleos-dev-guide.md`
+3. `CLAUDE.md`(핵심 지시서, 2026-11-11 줄임. 전문은 `docs/project-brief.md`), `docs/pleos-dev-guide.md` + `docs/research/`(2026-11-11 최신)
 4. `docs/decisions.md` — 결정 #1~#40과 변경 이력(맨 위가 최신)
 5. 필요할 때: `docs/architecture.md`(구조 설명), `docs/qa-checklist.md`(검증표), `docs/dev-environment.md`(Mac 실행), `docs/forest-economy.md`(★ 규칙), `docs/pt/demo-script.md`(시연 대본), `docs/proposal.md`(기획서 원고)
 
@@ -71,9 +72,9 @@
 ## 6. git 감시 켜기
 
 ```bash
-bash tools/agent/git_watch.sh <스크래치패드>/watch <이 세션 ID>
+bash tools/agent/git_watch.sh <스크래치패드>/watch <이 세션 ID> --once
 ```
-Monitor 도구로 돌리고(최대 30분) 만료되면 다시 켠다. 첫 실행은 기준점만 저장한다. GPT 새 글이 오면 PROTOCOL 4장대로 처리한다.
+**Bash 백그라운드(run_in_background, timeout 7200000)** 로 켠다. 새 커밋이 생기면 한 줄 알리고 끝나므로 그때만 깨어난다. 끝나면(알림 뒤 또는 2시간 뒤) 다시 켠다(2026-11-11 토큰 절약, 예전 Monitor 30분 재시작은 하루 48번 깨움). 첫 실행은 기준점만 저장한다. GPT 새 글이 오면 PROTOCOL 4장대로 처리한다.
 
 ## 7. 도구·자료 위치
 

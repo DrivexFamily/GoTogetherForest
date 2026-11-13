@@ -227,7 +227,7 @@ object AppNavigation {
     }
 
     /**
-     * 홈 아래 버튼 줄. 주행 중에는 아무 버튼도 없다(주행 중 터치는 크게/작게만, decisions.md #4).
+     * 홈 아래 버튼 줄. 주행 중에는 아무 버튼도 없다(주행 중 터치할 것 없음, decisions.md #4·#48).
      * 첫 실행 화면에서는 개발용 버튼만(점검 스크립트가 첫 실행에서도 신호 확인을 열 수 있게).
      */
     fun homeActions(shown: AppScreen, ctx: NavContext): HomeActions {

@@ -58,14 +58,15 @@ import app.familyjourney.core.ui.WindowWidth
 import app.familyjourney.core.ui.progressPanelSpec
 import app.familyjourney.core.ui.windowWidthOf
 
-/** "크게"를 누르면 글자를 이만큼 키운다(아이가 뒷좌석에서 보기 쉽게). */
+/** 예전 "크게" 버튼의 글자 배율. #48(2026-11-11)부터 버튼을 보이지 않아(`showSizeToggle = false`) 쓰이지 않는다. */
 const val BIG_TEXT_SCALE: Float = 1.25f
 
 /**
  * 아이 진행 화면(상태 없음). [TripState]를 받아 그리기만 한다. 규칙은 [journeyUiOf]에 있다.
  *
- * - **주행 중**(`state.restricted`): 정지 그림, 큰 %, 문구 한 줄. 터치는 크게/작게만. 애니메이션·전환 효과 없음(decisions.md #4).
- * - **정차·주차 중:** 같은 화면에서 캐릭터가 짧게 움직인다. 휴게소(기어 P)면 "휴게소에서 쉬는 중"과 새싹 수.
+ * - **주행 중**(`state.restricted`): 정지 그림, 큰 %, 문구 한 줄. 터치할 것 없음. 애니메이션·전환 효과 없음(decisions.md #4·#48).
+ * - **정차·주차 중:** 같은 화면에서 캐릭터가 짧게 움직인다. 휴게소(기어 P + 시동 끔 + 휴게소 500m 안, #48)면 휴게소 그림과 새싹 수,
+ *   그 밖의 P는 "잠깐 멈췄어요"(진행 바 그대로, 새싹 수 보임).
  * - **경로 없음:** "내비에 목적지를 설정해 주세요". 주차 중이면 "데모로 해 보기"([onStartDemo]).
  * - **도착:** 주차 전이면 100% 정지 그림만, 주차하면 축하 애니메이션과 "숲 보러 가기"([onOpenForest]).
  * - **데모:** "데모 주행" 배지를 늘 보인다. 발표자 패널([presenter])은 화면 맨 아래 띠에 따로 둔다(아이 화면과 겹치지 않게).
@@ -73,7 +74,7 @@ const val BIG_TEXT_SCALE: Float = 1.25f
  *
  * @param windowWidth 창 너비 단계. null이면 이 화면이 받은 자리로 잰다(권장)
  * @param sproutsSoFar 지금까지 자란 새싹 수(휴게소 화면 보조 줄). 모르면 null
- * @param bigText "크게"가 켜졌나. 상태는 부르는 쪽이 들고 있는다
+ * @param bigText 예전 "크게"가 켜졌나. #48부터 버튼이 없어 늘 false(상태는 부르는 쪽이 들고 있는다)
  * @param onMutedChange null이면 소리 버튼을 숨긴다(음성이 없을 때)
  * @param onStartDemo null이면 "데모로 해 보기"를 숨긴다
  * @param onOpenForest null이면(숲 기능 꺼짐) 도착 화면에 [onGoHome] "홈으로"를 대신 보인다
@@ -103,6 +104,8 @@ fun JourneyScreen(
     topSlot: (@Composable () -> Unit)? = null,
     /** 목적지 확인에서 [아니에요](결정 #45): 새 목적지가 잡힐 때까지 경로 없음 화면 */
     destinationRejected: Boolean = false,
+    /** 시동 끔 + 휴게소 500m 안(데모는 휴게소 장면). 기어 P와 함께일 때만 휴게소 그림 */
+    atRestArea: Boolean = false,
 ) {
     // 열린 고르기 화면: null(없음) | PICK_THEME | PICK_CAR
     var picking by rememberSaveable { mutableStateOf<String?>(null) }
@@ -122,6 +125,7 @@ fun JourneyScreen(
                 canPickTheme = onRoadThemeChange != null && RoadScenes.themes().size > 1,
                 canPickCar = onCarChange != null && cars.isNotEmpty(),
                 destinationRejected = destinationRejected,
+                atRestArea = atRestArea,
             )
             // 길 풍경·우리 차 고르기: 주차 중에만(차가 움직이면 버튼 조건이 꺼져 바로 닫힘). 고르면 저장하고 닫는다
             if (picking == PICK_THEME && ui.showThemeButton && onRoadThemeChange != null) {
@@ -166,7 +170,7 @@ fun JourneyScreen(
     }
 }
 
-/** "크게"일 때 글자 배율만 키운다(배치·그림 크기는 그대로, core:ui가 자리에 맞춰 글자를 다시 줄인다). */
+/** [big]이면 글자 배율만 키운다(예전 "크게" 버튼, #48부터 쓰이지 않음. 배치·그림 크기는 그대로). */
 @Composable
 private fun ScaledText(big: Boolean, content: @Composable () -> Unit) {
     if (!big) {
@@ -210,6 +214,7 @@ private fun ProgressBody(
             if (openCars != null) CarButton(openCars)
         },
         topSlot = topSlot,
+        status = if (ui.showStatus) ui.sentence else null,
     )
 }
 

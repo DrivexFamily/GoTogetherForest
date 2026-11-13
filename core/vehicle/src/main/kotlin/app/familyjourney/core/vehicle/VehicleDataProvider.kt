@@ -42,6 +42,7 @@ enum class Signal {
     ARRIVAL,
     LOCATION,
     ROAD_SPEED_LIMIT,
+    IGNITION,
 }
 
 /**
@@ -118,6 +119,13 @@ data class VehicleSignals(
     /** 지금 달리는 도로의 제한 속도 km/h. 출처: NaviHelper onCurrentRoadSpeedLimit. 안내 중이 아니면 0이 와서 모름(null)으로 둔다 */
     val roadSpeedLimitKmh: Int? = null,
     /**
+     * 시동이 켜져 있나(AAOS IGNITION_STATE: ON·START = true, OFF·ACC·LOCK = false). 모르면 null.
+     * 휴게소 그림 조건(기어 P + 시동 끔 + 휴게소 500m 안)에 쓴다(2026-11-11 마스터 지시).
+     */
+    val ignitionOn: Boolean? = null,
+    /** 데모가 알려 주는 "지금 휴게소에 있음"(데모 휴게소 장면). 실차는 null이고 앱이 위치로 판단한다 */
+    val atRestArea: Boolean? = null,
+    /**
      * 데모 재생 중인가(데모 섞기·전부 데모 모드). [mergeSignals]가 정한다. 실차 제공자는 늘 false.
      * 쓰는 곳: "데모 주행" 배지, 포인트 0P 규칙(decisions.md #7-3), 안전 km 거리 출처(데모 가상 거리).
      * 데모 모드에서 [tripDistanceKm]는 데모의 가상 주행거리다.
@@ -155,6 +163,7 @@ fun VehicleSignals.cleared(signals: Set<Signal>): VehicleSignals {
             Signal.ARRIVAL -> s.copy(arrived = false)
             Signal.LOCATION -> s.copy(location = null)
             Signal.ROAD_SPEED_LIMIT -> s.copy(roadSpeedLimitKmh = null)
+            Signal.IGNITION -> s.copy(ignitionOn = null)
         }
     }
     return s.copy(sources = s.sources - signals, updatedAtMs = s.updatedAtMs - signals)

@@ -239,4 +239,23 @@ class DemoPlayerTest {
         assertEquals(null, presenterHint(p.frame(DemoDrive.REAL_MOVING)))
         assertTrue(presenterHint(p.frame(DemoDrive.REAL_STOPPED))!!.contains("휴게소"))
     }
+
+    @Test
+    fun `섞기 모드에서 여행 도중 실제 기어 P는 데모 휴게소(시동 끔 + 휴게소 안)로 알린다(2026-11-12 Mac H2 d)`() {
+        val p = DemoPlayer()
+        // 출발 전: 실제 P여도 휴게소 아님
+        assertFalse(restByRealPark(p.frame(DemoDrive.REAL_STOPPED), Gear.PARK))
+        p.advance(30_000L, DemoDrive.REAL_MOVING)
+        val stopped = p.frame(DemoDrive.REAL_STOPPED)
+        assertTrue(stopped.waitingForReal && stopped.travelledKm > 0.0)
+        assertTrue(restByRealPark(stopped, Gear.PARK))
+        // 기어 D로 서 있기(차속 0)는 휴게소가 아니다
+        assertFalse(restByRealPark(stopped, Gear.DRIVE))
+        val s = demoSignalsOf(stopped, scenario, p.playedMs, restByRealPark = true)
+        assertEquals(false, s.ignitionOn)
+        assertEquals(true, s.atRestArea)
+        val moving = demoSignalsOf(p.frame(DemoDrive.REAL_MOVING), scenario, p.playedMs)
+        assertEquals(true, moving.ignitionOn)
+        assertEquals(false, moving.atRestArea)
+    }
 }

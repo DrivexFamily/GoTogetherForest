@@ -16,6 +16,7 @@ enum class SdkSource(val label: String, val signals: Set<Signal>) {
     CAR_SPEED("차속 PERF_VEHICLE_SPEED", setOf(Signal.SPEED)),
     CAR_GEAR("기어 GEAR_SELECTION", setOf(Signal.GEAR)),
     CAR_PARKING_BRAKE("주차브레이크 PARKING_BRAKE_ON", setOf(Signal.PARKING_BRAKE)),
+    CAR_IGNITION("시동 IGNITION_STATE", setOf(Signal.IGNITION)),
     CAR_UX_RESTRICTIONS("주행 제한 CarUxRestrictions", setOf(Signal.UX_RESTRICTION)),
     VEHICLE_SDK(
         "Pleos Vehicle SDK",

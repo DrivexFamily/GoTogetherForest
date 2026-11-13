@@ -39,7 +39,7 @@ internal object ShotSamples {
 
     // ---- 진행 화면(feature:journey) ----
 
-    /** 오전 10:00 고속도로: 주행 중 40%, 남은 40분 → "끝말잇기 4판 하면 도착해요" */
+    /** 오전 10:00 고속도로: 주행 중 40%, 남은 40분(#48부터 아이 단위 문장은 화면에 쓰지 않음) */
     val driving40 = TripState(
         tripId = "screens-trip",
         phase = TripPhase.DRIVING,

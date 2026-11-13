@@ -35,6 +35,12 @@ object AtlasArrivals {
         scope.launch {
             vehicle.mode.collect { repo.setDemo(it != SignalMode.REAL) }
         }
+        // 데모가 출발 전 자리로 돌아오면(발표자 [처음부터]) 바로 앞 회차의 지나온 곳을 비운다. 다시 출발할 때까지 받기 제안이 남지 않게(2026-11-13 Mac R3)
+        scope.launch {
+            vehicle.signals.map { it.demoActive && (it.tripDistanceKm ?: 0f) <= 0f }
+                .distinctUntilChanged()
+                .collect { atStart -> if (atStart && repo.isDemo) repo.onDemoTripStart() }
+        }
         // 실제 여행의 차 위치(데모·섞기 모드의 에뮬레이터 위치는 쓰지 않는다)
         scope.launch {
             combine(vehicle.mode, vehicle.signals.map { it.location }.distinctUntilChanged()) { mode, loc -> if (mode == SignalMode.REAL) loc else null }
@@ -47,7 +53,12 @@ object AtlasArrivals {
             events.collect { e ->
                 when (e) {
                     is TripEvent.ProgressChanged -> if (repo.isDemo) {
-                        if (e.tripId != demoTrip) { demoTrip = e.tripId; demoDone = 0 }
+                        if (e.tripId != demoTrip) {
+                            // 새 데모 여행([처음부터] 포함): 앞 회차의 "지나온 곳 N곳을 받을까요?"가 남지 않게 비운다(2026-11-12 Mac)
+                            repo.onDemoTripStart()
+                            demoTrip = e.tripId
+                            demoDone = 0
+                        }
                         // 서울역 → 부산역 길목의 정해 둔 곳을 진행률에 맞춰 지난다(결정 #45)
                         val passes = LandmarkCatalog.DEMO_ROUTE_PASSES
                         val due = passes.count { e.percent >= it.first }

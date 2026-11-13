@@ -34,8 +34,9 @@ import androidx.compose.ui.unit.sp
  * - [driving]=false: 같은 자리에서 차 안 아이만 짧게 움직인다.
  * - [demo]=true: "데모 주행" 배지를 늘 보인다(모든 크기).
  *
- * @param detail 보조 줄(예: "약 40분 남음"). 좁은 창·낮은 창에서는 숨긴다.
- * @param actions 크게/작게 같은 버튼 자리. 좁은 창에서는 숨긴다.
+ * @param detail 보조 줄(예: "지금까지 새싹 N개가 자랐어요"). [status]와 함께만 보이며, 좁은 창·낮은 창에서는 숨긴다.
+ * @param status 위 빈 칸에 보일 상태 한 줄(예: 주차 중 "잠깐 멈췄어요", 결정 #48). null이면 비워 둔다(#42). [sentence]는 화면에 쓰지 않는다
+ * @param actions 버튼 자리(홈·소리·길 풍경·우리 차 등, 주차 중에만). 좁은 창에서는 숨긴다.
  * @param roadKey 풍경 길 테마를 고르는 열쇠(여행마다 같은 값, 결정 #33). null이면 첫 테마
  * @param roadTheme 사람이 골라 둔 길 풍경 테마(없으면 null, 여행마다 바뀜)
  */
@@ -55,6 +56,7 @@ fun KidProgressPanel(
     topSlot: (@Composable () -> Unit)? = null,
     /** 도착지 그림을 고르는 열쇠(여행 ID, 데모 포함). null이면 [roadKey] */
     goalKey: Any? = roadKey,
+    status: String? = null,
 ) {
     val colors = GgfTheme.colors
     BoxWithConstraints(modifier.fillMaxSize().background(colors.paper)) {
@@ -72,16 +74,17 @@ fun KidProgressPanel(
             }
             Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(20.dp)) {
                 BigNumberLabel(percent, maxFontSize = spec.percentMaxSp.sp)
-                if (spec.headerInRow) TopSlot(topSlot, spec, Modifier.weight(1f)) else Spacer(Modifier.weight(1f))
+                if (spec.headerInRow) TopSlot(statusSlot(status, driving, detail, spec, topSlot), spec, Modifier.weight(1f)) else Spacer(Modifier.weight(1f))
                 if (!spec.topBar) {
                     Column(horizontalAlignment = Alignment.End, verticalArrangement = Arrangement.spacedBy(8.dp)) {
                         PanelExtras(demo, spec.showActions, actions)
                     }
                 }
             }
-            if (!spec.headerInRow && !spec.sentenceBelowRoad) TopSlot(topSlot, spec, Modifier.fillMaxWidth())
+            val slot = statusSlot(status, driving, detail, spec, topSlot)
+            if (!spec.headerInRow && !spec.sentenceBelowRoad) TopSlot(slot, spec, Modifier.fillMaxWidth())
             RoadArea(percent, driving, look, roadKey, roadTheme, goalKey)
-            if (spec.sentenceBelowRoad) TopSlot(topSlot, spec, Modifier.fillMaxWidth())
+            if (spec.sentenceBelowRoad) TopSlot(slot, spec, Modifier.fillMaxWidth())
         }
     }
 }
@@ -111,8 +114,28 @@ private fun TopSlot(slot: (@Composable () -> Unit)?, spec: ProgressPanelSpec, mo
     }
 }
 
+/**
+ * 위 빈 칸 내용: 상태 한 줄([status], 주차 중 "잠깐 멈췄어요" + 새싹 수, 결정 #48)이 있으면 그것을 먼저, 그 아래 앱이 채우는 칸(랜드마크 배지 등).
+ * 상태가 없으면 앱 칸만(결정 #42).
+ */
+private fun statusSlot(
+    status: String?,
+    driving: Boolean,
+    detail: String?,
+    spec: ProgressPanelSpec,
+    slot: (@Composable () -> Unit)?,
+): (@Composable () -> Unit)? {
+    if (status == null) return slot
+    return {
+        Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            SentenceBlock(status, driving, icon = null, detail = detail, spec = spec, modifier = Modifier)
+            slot?.invoke()
+        }
+    }
+}
+
+/** 상태 한 줄과 보조 줄. 남은 시간 문장(#42)에는 쓰지 않고, 주차 중 상태(#48)에만 쓴다 */
 @Composable
-@Suppress("unused") // 문장 자리를 비운 뒤(결정 #42)에는 쓰지 않는다. 되돌릴 때를 위해 남겨 둔다
 private fun SentenceBlock(
     sentence: String,
     driving: Boolean,
@@ -139,7 +162,7 @@ private fun SentenceBlock(
 private fun PanelExtras(demo: Boolean, showActions: Boolean, actions: @Composable RowScope.() -> Unit) {
     if (demo) DemoBadge()
     if (showActions) {
-        // 버튼이 많으면(홈·크게·소리·길 풍경·우리 차) 좁은 창에서 다음 줄로 넘긴다
+        // 버튼이 많으면(홈·소리·길 풍경·우리 차) 좁은 창에서 다음 줄로 넘긴다
         FlowRow(
             horizontalArrangement = Arrangement.spacedBy(12.dp, Alignment.End),
             verticalArrangement = Arrangement.spacedBy(8.dp),

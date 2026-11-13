@@ -300,6 +300,7 @@ internal fun signalLabel(s: Signal): String = when (s) {
     Signal.ARRIVAL -> "도착"
     Signal.LOCATION -> "현재 위치(내비)"
     Signal.ROAD_SPEED_LIMIT -> "도로 제한 속도"
+    Signal.IGNITION -> "시동"
 }
 
 internal fun signalValue(s: Signal, v: VehicleSignals): String {
@@ -327,6 +328,7 @@ internal fun signalValue(s: Signal, v: VehicleSignals): String {
             v.routeActive == false -> "안내 없음"
             else -> "모름"
         }
+        Signal.IGNITION -> v.ignitionOn?.let { if (it) "켜짐" else "꺼짐" } ?: "모름"
         Signal.ARRIVAL -> if (v.arrived) "도착" else "-"
         // 개발 화면이라도 좌표는 소수 둘째 자리(약 1km)까지만 보인다. 주소는 신호에 없다.
         Signal.LOCATION -> v.location?.let { loc ->

@@ -70,6 +70,8 @@ fun JourneyRoute(
 ) {
     val state by trip.state.collectAsStateWithLifecycle()
     val muted by controller.muted.collectAsStateWithLifecycle()
+    val atRestAreaFlow = remember(signals) { restAreaFlow(signals) }
+    val atRestArea by atRestAreaFlow.collectAsStateWithLifecycle(initialValue = false)
     val sproutsFlow = remember(trip, signals) { sproutsSoFarFlow(trip.diagnostics, signals) }
     val sprouts by sproutsFlow.collectAsStateWithLifecycle(initialValue = null)
     var bigText by rememberSaveable { mutableStateOf(false) }
@@ -102,6 +104,7 @@ fun JourneyRoute(
         onCarChange = onCarChange,
         topSlot = topSlot,
         destinationRejected = destinationRejected,
+        atRestArea = atRestArea,
     )
 }
 
@@ -189,3 +192,17 @@ fun sproutsSoFarFlow(diagnostics: Flow<TripDiagnostics>, signals: Flow<VehicleSi
         .distinctUntilChanged()
 
 private val noTheme: StateFlow<String?> = kotlinx.coroutines.flow.MutableStateFlow(null)
+
+/**
+ * 휴게소 그림 조건 중 "시동 끔 + 휴게소 500m 안"(기어 P는 화면 상태가 따로 본다, 2026-11-11 마스터 지시).
+ * 데모는 데모가 알려 주는 휴게소 장면을, 실차는 내비 현재 위치와 휴게소 목록([RestAreas])을 쓴다. 시동을 모르면(null) 휴게소로 보지 않는다.
+ */
+internal fun restAreaFlow(signals: kotlinx.coroutines.flow.Flow<VehicleSignals>): kotlinx.coroutines.flow.Flow<Boolean> =
+    signals.map { s -> isAtRestArea(s) }.distinctUntilChanged()
+
+internal fun isAtRestArea(s: VehicleSignals): Boolean {
+    if (s.ignitionOn != false) return false
+    s.atRestArea?.let { return it }
+    val here = s.location ?: return false
+    return app.familyjourney.core.trip.RestAreas.isNear(here.latitude, here.longitude)
+}

@@ -68,4 +68,22 @@ class AtlasRepositoryDemoTest {
         r.setDemo(false)
         assertFalse(r.book.value.owns("A1"))
     }
+
+    @Test
+    fun `데모 여행을 새로 시작하면 앞 회차에 지나온 곳을 버린다(2026-11-12 Mac)`() {
+        val r = repo()
+        r.onDemoPass(listOf("A1", "A2"))
+        assertEquals(listOf("A1", "A2"), r.book.value.passed)
+        r.onDemoTripStart()
+        assertTrue(r.book.value.passed.isEmpty())
+        assertFalse(r.book.value.owns("A1"))
+    }
+
+    @Test
+    fun `실제 도감의 지나온 곳은 데모 여행 시작으로 지우지 않는다`() {
+        val r = AtlasRepository(catalog, MemoryStorage(), now = { 1L })
+        r.onLocation(tower.point!!)
+        r.onDemoTripStart()
+        assertEquals(listOf("A1"), r.book.value.passed)
+    }
 }

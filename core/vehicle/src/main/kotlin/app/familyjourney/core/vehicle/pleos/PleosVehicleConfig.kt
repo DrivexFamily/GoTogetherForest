@@ -14,14 +14,17 @@ data class PleosVehicleConfig(
      * 진행률 갱신 최소 간격(15초, decisions.md #7-1)과 맞췄다. IPC 1회/15초라 CPU 부담은 작다.
      */
     val naviPollIntervalMs: Long = 15_000L,
-    /** NaviHelper 거리 1단위가 몇 m인가. [가정] 정수형이라 m로 추정. 미확인 */
+    /** NaviHelper 거리 1단위가 몇 m인가. API 문서로 확인: m(remainDistance·RouteStartInfo.distance, 2026-11-11) */
     val naviMetersPerDistanceUnit: Double = 1.0,
-    /** NaviHelper 시간 1단위가 몇 초인가. [가정] 초로 추정. 미확인 */
+    /** NaviHelper 시간 1단위가 몇 초인가. API 문서로 확인: 초(2026-11-11) */
     val naviSecondsPerTimeUnit: Double = 1.0,
-    /** Vehicle SDK 트립 거리 1단위가 몇 km인가. [가정] km(국내 표시 단위)로 추정. 미확인 */
-    val tripKmPerUnit: Double = 1.0,
-    /** 위 단위 세 가지를 에뮬레이터·실차 로그로 확인했는가 */
-    val unitsConfirmed: Boolean = false,
+    /**
+     * Vehicle SDK 트립 거리 1단위가 몇 km인가. API 문서로 확인: "in meters (m)"(TripCurrentDrivingDistance, 2026-11-11 Pleos 문서)
+     * → 0.001. 예전 [가정] km(1.0)는 실차에서 1000배가 됐다. 에뮬레이터는 이 값을 주지 않고, 안전 km 거리는 누적 주행거리를 쓴다.
+     */
+    val tripKmPerUnit: Double = 0.001,
+    /** 위 단위 세 가지를 확인했는가(2026-11-11 Pleos API 문서로 확인. 실차 로그 확인은 아직) */
+    val unitsConfirmed: Boolean = true,
 ) {
     fun unitNote(): String =
         if (unitsConfirmed) {

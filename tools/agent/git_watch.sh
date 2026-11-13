@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
 # Claude 앱 PM용 git 감시(design/illustrations/coordination/PROTOCOL.md).
 # 5분마다 main·작업 브랜치·chatgpt/* 를 받아 새 커밋을 한 줄로 알린다. 저장소 작업 트리는 건드리지 않는다.
-# 쓰는 법(Claude Code의 Monitor 도구로, 30분마다 다시 켬):
-#   bash tools/agent/git_watch.sh <상태 폴더> <내 세션 ID(커밋 본문의 Claude-Session 값, 내 커밋 빼기용)>
+# 쓰는 법:
+#   bash tools/agent/git_watch.sh <상태 폴더> <내 세션 ID(커밋 본문의 Claude-Session 값, 내 커밋 빼기용)> [--once]
+#   --once(권장, 2026-11-11 토큰 절약): 새 소식을 한 번 알리면 끝난다. Bash 백그라운드(최대 2시간)로 켜 두면
+#   새 커밋이 있을 때만 PM이 깨어나고, 없으면 2시간에 한 번만 다시 켠다(예전 Monitor 30분 재시작은 하루 48번 깨움).
 REPO=$(cd "$(dirname "$0")/../.." && pwd)
 STATE=${1:?상태 폴더를 주세요(예: 스크래치패드/watch)}
 ME=${2:-no-session}
+ONCE=${3:-}
 mkdir -p "$STATE"
 cd "$REPO" || exit 1
 for b in main claude/lucid-babbage-a6quds; do
@@ -30,6 +33,7 @@ while true; do
       if [ "$n" -gt 0 ] || [ -n "$coord" ]; then
         latest=$(printf '%s\n' "$list" | head -3 | tr '\n' '|')
         echo "[git ${b%%/*}] 새 커밋 ${n}개(내 것 제외) ${old:0:7}..${new:0:7} 최근: ${latest} ${coord:+소통 파일 변경: $coord}"
+        found=1
       fi
       echo "$new" > "$f"
     fi
@@ -40,8 +44,10 @@ while true; do
   prevf="$STATE/last-chatgpt-branches"
   if [ -f "$prevf" ]; then
     changed=$(comm -13 "$prevf" <(echo "$cur") | tr '\n' ' ')
-    [ -n "$changed" ] && echo "[git chatgpt] 브랜치 새로 올라옴: $changed"
+    [ -n "$changed" ] && { echo "[git chatgpt] 브랜치 새로 올라옴: $changed"; found=1; }
   fi
   echo "$cur" > "$prevf"
+  if [ "$ONCE" = "--once" ] && [ "${found:-0}" = 1 ]; then exit 0; fi
+  found=0
   sleep 300
 done

@@ -1,4 +1,4 @@
-# Pleos Connect 개발 참고서 (grow-as-we-go용)
+# Pleos Connect 개발 참고서 (개발 저장소용)
 
 - 조사일: 2026-10-31 (Pleos 개발자 문서 전 섹션 + 공식 샘플 GitHub 확인)
 - 위치: 저장소 `docs/pleos-dev-guide.md`. CLAUDE.md가 이 문서를 참조한다.

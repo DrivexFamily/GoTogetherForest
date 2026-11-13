@@ -201,3 +201,4 @@ R7 노래 아이콘을 참조한 ChatGPT 이미지 생성·편집 원본1장입�
 | BGM 두 곡: 광고용 "함께 달린 길"(`design/audio/ggf_ad_bgm_60.mp3`), 앱 숲 꾸미기용 "숲속 오후"(`ggf_forest_bgm_loop.ogg`) | 광고 영상 배경음, (예정) 앱 숲 꾸미기 화면 | **직접 작곡·합성.** `tools/media/make_bgm.py`가 덧셈 합성 피아노·FM 일렉트릭 피아노·톱니파 현악·사인파로 음을 만든다. 샘플·사운드폰트·외부 음원 없음. 광고 음악·게임 음악의 선율을 쓰지 않은 새 선율로, 분위기(광고: 잔잔한 피아노와 현악, 앱: 느긋한 재즈 화음)만 참고(결정 #47) |
 | 광고 영상 `design/video/ggf_ad_60.mp4`(60초) | 제출 참고자료·PT | 일러스트 S1~S5·친구 숲: ChatGPT 이미지 생성(가상 인물, 출처·프롬프트 main `design/illustrations/exports/2026-11-10/ad/SOURCE.json`). 앱 화면: 실제 앱 캡처. 배경음: 직접 합성 `ggf_ad_bgm_60`. 편집: `tools/media/make_ad.py`(ffmpeg) |
 | 광고 영상 자막 글꼴 Pretendard 1.3.9 | 영상 안 자막(앱에는 넣지 않음) | **SIL Open Font License 1.1**(orioncactus/pretendard, npm `pretendard`). 영상에 글자를 그려 넣는 사용은 허용 |
+| 휴게소 좌표 8곳(`core/trip/.../RestAreas.kt`) | 휴게소 그림 조건(P + 시동 끔 + 500m 안, 결정 #48) | Wikidata(대한민국, 한국어 이름에 "휴게소", 좌표 P625), **CC0 1.0**, 2026-11-11 조회. 전국 목록은 한국도로공사 공공데이터를 받으면 출처와 함께 더함 |

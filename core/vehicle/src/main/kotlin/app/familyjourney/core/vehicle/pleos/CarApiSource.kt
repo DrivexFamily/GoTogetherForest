@@ -120,6 +120,11 @@ internal class CarApiSource(
             manager, SdkSource.CAR_PARKING_BRAKE, VehiclePermissions.CAR_POWERTRAIN,
             listOf(VehiclePropertyIds.PARKING_BRAKE_ON), CarPropertyManager.SENSOR_RATE_ONCHANGE,
         )
+        // 시동 상태(휴게소 그림 조건). CAR_POWERTRAIN 권한(이미 선언)으로 읽는다
+        subscribe(
+            manager, SdkSource.CAR_IGNITION, VehiclePermissions.CAR_POWERTRAIN,
+            listOf(VehiclePropertyIds.IGNITION_STATE), CarPropertyManager.SENSOR_RATE_ONCHANGE,
+        )
     }
 
     /** 후보 속성을 차례로 확인해 처음 되는 것을 등록한다. 등록한 속성 ID를 돌려준다. */
@@ -169,6 +174,9 @@ internal class CarApiSource(
             VehiclePropertyIds.PARKING_BRAKE_ON -> store.update(Signal.PARKING_BRAKE) {
                 it.copy(parkingBrakeOn = if (available) value.value as? Boolean else null)
             }
+            VehiclePropertyIds.IGNITION_STATE -> store.update(Signal.IGNITION) {
+                it.copy(ignitionOn = if (available) ignitionOnOf(value.value as? Int) else null)
+            }
         }
     }
 
@@ -177,6 +185,7 @@ internal class CarApiSource(
             VehiclePropertyIds.PERF_VEHICLE_SPEED -> SdkSource.CAR_SPEED
             gearPropertyId -> SdkSource.CAR_GEAR
             VehiclePropertyIds.PARKING_BRAKE_ON -> SdkSource.CAR_PARKING_BRAKE
+            VehiclePropertyIds.IGNITION_STATE -> SdkSource.CAR_IGNITION
             else -> return
         }
         store.fail(source, SourceState.FAILED, "onErrorEvent")
@@ -215,11 +224,12 @@ internal class CarApiSource(
         VehiclePropertyIds.GEAR_SELECTION -> "GEAR_SELECTION"
         VehiclePropertyIds.CURRENT_GEAR -> "CURRENT_GEAR"
         VehiclePropertyIds.PARKING_BRAKE_ON -> "PARKING_BRAKE_ON"
+        VehiclePropertyIds.IGNITION_STATE -> "IGNITION_STATE"
         else -> id.toString()
     }
 
     private companion object {
-        val PROPERTY_SOURCES = listOf(SdkSource.CAR_SPEED, SdkSource.CAR_GEAR, SdkSource.CAR_PARKING_BRAKE)
+        val PROPERTY_SOURCES = listOf(SdkSource.CAR_SPEED, SdkSource.CAR_GEAR, SdkSource.CAR_PARKING_BRAKE, SdkSource.CAR_IGNITION)
         val CAR_SOURCES = listOf(SdkSource.CAR_SERVICE, SdkSource.CAR_UX_RESTRICTIONS) + PROPERTY_SOURCES
     }
 }

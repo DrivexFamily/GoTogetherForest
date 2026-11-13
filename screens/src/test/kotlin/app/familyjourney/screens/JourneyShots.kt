@@ -21,7 +21,7 @@ class JourneyShots {
     @get:Rule
     val paparazzi = newPaparazzi()
 
-    /** 주행 중 40%: 정지 그림, 큰 %, 문구 한 줄, [크게]만 */
+    /** 주행 중 40%: 정지 그림, 큰 %, 문구 한 줄, 버튼 없음(#48) */
     @Test
     fun driving40() {
         for (w in ShotWindow.entries) {
@@ -56,6 +56,7 @@ class JourneyShots {
                 JourneyScreen(
                     state = ShotSamples.restStop,
                     sproutsSoFar = ShotSamples.REST_SPROUTS,
+                    atRestArea = true,
                     onMutedChange = {},
                     roadTheme = "벚꽃길",
                     onRoadThemeChange = {},
@@ -65,7 +66,17 @@ class JourneyShots {
             }
         }
         paparazzi.shoot(shotName("journey-rest", ShotWindow.HALF, dark = true), ShotWindow.HALF, dark = true, settled = true) {
-            JourneyScreen(state = ShotSamples.restStop, sproutsSoFar = ShotSamples.REST_SPROUTS, onMutedChange = {})
+            JourneyScreen(state = ShotSamples.restStop, sproutsSoFar = ShotSamples.REST_SPROUTS, atRestArea = true, onMutedChange = {})
+        }
+    }
+
+    /** 휴게소가 아닌 주차(결정 #48): 위 빈 칸에 "잠깐 멈췄어요" + 새싹 수, 진행 바 그대로(2026-11-12 Mac H2 a) */
+    @Test
+    fun pausedParked() {
+        for (w in listOf(ShotWindow.HALF, ShotWindow.FULL)) {
+            paparazzi.shoot(shotName("journey-paused", w), w, settled = true) {
+                JourneyScreen(state = ShotSamples.restStop, sproutsSoFar = ShotSamples.REST_SPROUTS, onMutedChange = {}, onGoHome = {})
+            }
         }
     }
 
