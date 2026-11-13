@@ -18,14 +18,14 @@
    - H4 통과(`68c454b`) → D08 다시 합성(`docs/proposal/assets/v8/C04-D08.jpg`, "크게" 없음), 기획서 F03 왼쪽에 되돌리고 다시 빌드(8쪽). 광고 영상은 그대로(마스터 11/12).
 1. Mac 재확인 R1~R3 **모두 통과**(11/13, 기준 b39cb3c). 참고였던 "[처음부터] 직후 출발 전까지 앞 회차 받기 제안이 잠깐 보임"은 데모가 출발 전 자리로 돌아오는 즉시 비우게 고침(이 커밋, 에뮬레이터 확인은 다음 Mac 때). R4(전부 데모)는 이번 보고에 없음.
 2. **코드 고정 = `92de4c70`**(11/13). Mac이 이 커밋으로 release 다시 빌드·설치 통과: `apk/DriveXFamily_GoTogetherForest_release.apk` 153,827,601바이트, SHA-256 `6981a8f4…fdb45152`, CN=DriveXFamily(어제와 같은 키), 첫 실행 468ms, PSS 약 182MB, 개발 메뉴 없음, R2·R3·R4 통과. 참고: 런처 아이콘으로 다시 열면 숲이 아니라 홈(의도대로 둠). 이 APK를 Releases v1.0.0에 올림(마스터).
-3. 제출 저장소 최종본 올리기. README는 11-11 미리 고침(#48 문구, Releases 안내, 610개 테스트·release 성능, 에뮬레이터 버전·화면 규격 제목). 남은 것: `docs/links.md`의 Releases 주소·영상 링크·최종 커밋 번호 칸 채우기.
-4. 광고 영상 공개 방식(유튜브 일부 공개 vs Release 첨부) 정해 기획서 7번에.
+3. **제출 저장소 최종본 올림(11/13)**: `DrivexFamily/GoTogetherForest` main `0235e05`(작성자 DriveXFamily, 블라인드 검사 통과, 271MB). `make-submission.sh`가 개발 저장소 이름·세션 임시 경로를 가리고 꾸러미 도구 자체를 빼도록 고침. 남은 것: `docs/links.md`의 Releases 주소·영상 링크 칸.
+4. 광고 영상은 **Releases v1.0.0에 첨부**(마스터 11/13). README·기획서 7번·links.md 반영. 마스터가 APK와 함께 올림.
 5. PPT(선택 첨부)를 8판에 맞출지 마스터 결정.
 6. **11/16(월)** 제출 저장소 Public 전환 전 블라인드 최종 점검.
 
 ## 마스터 결정 대기
 - 전국 휴게소 좌표 CSV(공공데이터포털 "한국도로공사 휴게소 위치정보")를 받아 줄지 → 받으면 `core/trip/RestAreas.kt`에 추가(지금 Wikidata 8곳).
-- 광고 영상 링크 방식, PPT 갱신 여부.
+- PPT 갱신 여부.
 - APK를 Releases에 올리기(마스터 Mac, `https://github.com/DrivexFamily/GoTogetherForest/releases/new`, 태그 v1.0.0).
 
 ## 최근 교훈

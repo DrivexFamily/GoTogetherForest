@@ -66,6 +66,7 @@
 
 - **GitHub Releases** `v1.0.0`의 `DriveXFamily_GoTogetherForest_release.apk`(서명된 release, 약 154MB). 주소: [docs/links.md](docs/links.md)의 "APK (Releases)"
 - 저장소 `apk/` 폴더에 두지 않은 까닭: GitHub 저장소는 파일 하나가 100MB를 넘으면 올릴 수 없습니다(공모전 규정상 용량 초과 시 Releases 허용). 크기 대부분은 손그림(길 풍경·숲 맵·랜드마크)입니다.
+- 광고 영상(84초) `ggf_ad_84_drama.mp4`도 같은 Releases `v1.0.0`에 첨부했습니다(저장소 `design/video/`에도 있음).
 - 파일 이름은 `gradle.properties`의 팀명·영문 앱 이름으로 `./gradlew copyReleaseApk`가 만듭니다(`팀명_앱이름_release.apk`).
 
 ## 문서
